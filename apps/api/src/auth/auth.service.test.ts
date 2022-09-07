@@ -7,11 +7,11 @@ import { plainToClass } from 'class-transformer';
 import { UserRolesEnum } from '@starter/api-types';
 
 import { UserRoles } from '../users/user-role.entity';
-import { User } from '../users/user.entity';
+import { UserEntity } from '../users/user.entity';
 import { UsersService } from '../users/users.service';
 import { AuthService } from './auth.service';
 
-const user: User = plainToClass(User, {
+const user: UserEntity = plainToClass(UserEntity, {
   id: 1,
   email: 'test@user.com',
   roles: [
@@ -47,7 +47,7 @@ describe('AuthService', () => {
         UsersService,
         ConfigService,
         {
-          provide: getRepositoryToken(User),
+          provide: getRepositoryToken(UserEntity),
           useValue: mockedUserRepository,
         },
         {

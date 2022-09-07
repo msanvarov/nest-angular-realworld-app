@@ -2,7 +2,7 @@ import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 import { UserRolesEnum } from '@starter/api-types';
 
-import { User } from './user.entity';
+import { UserEntity } from './user.entity';
 
 /**
  * User Roles Entity Class
@@ -29,8 +29,8 @@ export class UserRoles {
   /**
    * Column to represent a many to one relationship with the profile entity
    */
-  @ManyToOne(() => User, (user) => user.roles, {
+  @ManyToOne(() => UserEntity, (user) => user.roles, {
     onDelete: 'CASCADE',
   })
-  user: User;
+  user: UserEntity;
 }

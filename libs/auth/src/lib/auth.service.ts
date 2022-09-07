@@ -6,8 +6,8 @@ import { mergeMap, tap } from 'rxjs';
 import {
   ApiAuthRoutesEnum,
   IAuthRegisterPayload,
-  IJWTResponseBody,
   IUser,
+  IUserResponseBody,
 } from '@starter/api-types';
 import { Store } from '@starter/store';
 import { UsersService } from '@starter/users';
@@ -40,7 +40,7 @@ export class AuthService {
       .pipe(
         mergeMap((user) =>
           this.usersService.getAuthenticatedUserDetails(
-            (user as IJWTResponseBody).token,
+            (user as IUserResponseBody).token,
           ),
         ),
         tap((user) => {
@@ -53,7 +53,7 @@ export class AuthService {
     return this.http.post(ApiAuthRoutesEnum.REGISTER, registerPayload).pipe(
       mergeMap((user) =>
         this.usersService.getAuthenticatedUserDetails(
-          (user as IJWTResponseBody).token,
+          (user as IUserResponseBody).token,
         ),
       ),
       tap((user) => {

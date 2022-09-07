@@ -9,16 +9,17 @@ import { Injectable } from '@nestjs/common';
 
 import { UserActionsEnum, UserRolesEnum } from '@starter/api-types';
 
-import { User } from '../users/user.entity';
+import { ArticleEntity } from '../article/article.entity';
+import { UserEntity } from '../users/user.entity';
 
 // Creating CASL subjects to manage. Remark: all is a special keyword in CASL that represents "any subject".
-type Subjects = InferSubjects<typeof User> | 'all';
+type Subjects = InferSubjects<typeof UserEntity | typeof ArticleEntity> | 'all';
 
 export type AppAbility = Ability<[UserActionsEnum, Subjects]>;
 
 @Injectable()
 export class CaslFactory {
-  createForUser(user: User) {
+  createForUser(user: UserEntity) {
     // Remark: the user is coming from the req.user.
     const { can, build } = new AbilityBuilder<
       Ability<[UserActionsEnum, Subjects]>
@@ -30,7 +31,9 @@ export class CaslFactory {
       can(UserActionsEnum.Read, 'all'); // read-only access to everything
     }
 
-    can(UserActionsEnum.Update, User, { username: user.username }); // update own user
+    // User scoped permissions
+    can(UserActionsEnum.Update, ArticleEntity, { author: user });
+    can(UserActionsEnum.Delete, ArticleEntity, { author: user });
 
     return build({
       // Read https://casl.js.org/v5/en/guide/subject-type-detection#use-classes-as-subject-types for details

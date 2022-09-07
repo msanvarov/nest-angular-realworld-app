@@ -10,6 +10,7 @@ import * as winstonFileRotator from 'winston-daily-rotate-file';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { ArticleModule } from './article/article.module';
 import { AuthModule } from './auth/auth.module';
 import { CaslModule } from './casl/casl.module';
 import { TagModule } from './tag/tag.module';
@@ -102,10 +103,11 @@ import { UsersModule } from './users/users.module';
             };
       },
     }),
-    AuthModule,
+    AuthModule.forRoot(),
     UsersModule,
     CaslModule,
     TagModule,
+    ArticleModule,
   ],
   controllers: [AppController],
   providers: [AppService],

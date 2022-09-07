@@ -3,7 +3,6 @@ import {
   IsAlphanumeric,
   IsEmail,
   IsNotEmpty,
-  Matches,
   MinLength,
 } from 'class-validator';
 
@@ -14,40 +13,24 @@ export class RegisterDto {
   /**
    * Email field
    */
-  @ApiProperty({
-    required: true,
-  })
-  @IsEmail()
+  @ApiProperty()
   @IsNotEmpty()
-  email: string;
+  @IsEmail()
+  readonly email: string;
 
   /**
    * Username field
    */
-  @ApiProperty({
-    required: true,
-  })
+  @ApiProperty()
+  @IsNotEmpty()
   @IsAlphanumeric()
-  @IsNotEmpty()
-  username: string;
-
-  /**
-   * Name field
-   */
-  @ApiProperty({
-    required: true,
-  })
-  @Matches(/^[a-zA-Z ]+$/)
-  @IsNotEmpty()
-  name: string;
+  readonly username: string;
 
   /**
    * Password field
    */
-  @ApiProperty({
-    required: true,
-  })
+  @ApiProperty()
   @IsNotEmpty()
   @MinLength(8)
-  password: string;
+  readonly password: string;
 }

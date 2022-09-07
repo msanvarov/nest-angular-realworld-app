@@ -1,6 +1,14 @@
 import { Exclude } from 'class-transformer';
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinTable,
+  ManyToMany,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
+import { ArticleEntity } from '../article/article.entity';
 import { PasswordTransformer } from './password.transformer';
 import { UserRoles } from './user-role.entity';
 
@@ -10,7 +18,7 @@ import { UserRoles } from './user-role.entity';
 @Entity({
   name: 'users',
 })
-export class User {
+export class UserEntity {
   /**
    * UUID column
    */
@@ -24,22 +32,22 @@ export class User {
   username: string;
 
   /**
-   * Name column
-   */
-  @Column()
-  name: string;
-
-  /**
    * Email column
    */
   @Column()
   email: string;
 
   /**
+   * Bio column
+   */
+  @Column({ default: '' })
+  bio: string;
+
+  /**
    * Gravatar column (gravatar url)
    */
   @Column()
-  gravatar: string;
+  image: string;
 
   /**
    * Column to represent a one to many relationship with the roles entity
@@ -58,4 +66,11 @@ export class User {
   })
   @Exclude()
   password: string;
+
+  @OneToMany(() => ArticleEntity, (article) => article.author)
+  articles: ArticleEntity[];
+
+  @ManyToMany(() => ArticleEntity)
+  @JoinTable()
+  favorites: ArticleEntity[];
 }

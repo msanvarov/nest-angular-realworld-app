@@ -1,41 +1,48 @@
 import { ApiProperty } from '@nestjs/swagger';
+import { Type } from 'class-transformer';
 import {
   IsAlphanumeric,
   IsEmail,
+  IsFQDN,
   IsNotEmpty,
-  Matches,
+  MaxLength,
   MinLength,
+  ValidateNested,
 } from 'class-validator';
 
-/**
- * Patch User Payload Class
- */
-export class PatchUserDto {
+export class UserDto {
   /**
    * Email field
    */
   @ApiProperty()
   @IsEmail()
   @IsNotEmpty()
-  email: string;
+  readonly email: string;
 
   /**
    * Username field
    */
-  @ApiProperty({
-    required: true,
-  })
+  @ApiProperty()
   @IsAlphanumeric()
   @IsNotEmpty()
-  username: string;
+  readonly username: string;
 
   /**
-   * Name field
+   * Bio field
    */
   @ApiProperty()
-  @Matches(/^[a-zA-Z ]+$/)
   @IsNotEmpty()
-  name: string;
+  @MaxLength(255)
+  readonly bio: string;
+
+  /**
+   * Image field
+   * @example https://gravatar.com/avatar/123
+   */
+  @ApiProperty()
+  @IsNotEmpty()
+  @IsFQDN()
+  readonly image: string;
 
   /**
    * Password field
@@ -43,5 +50,15 @@ export class PatchUserDto {
   @ApiProperty()
   @IsNotEmpty()
   @MinLength(8)
-  password: string;
+  readonly password: string;
+}
+
+/**
+ * Patch User Payload Class
+ */
+export class PatchUserDto {
+  @ApiProperty()
+  @Type(() => UserDto)
+  @ValidateNested()
+  readonly user: UserDto;
 }

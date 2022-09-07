@@ -8,19 +8,15 @@ export interface IMessage {
 /**
  * Models a typical Login/Register route return body
  */
-export interface IJWTResponseBody {
-  /**
-   * When the token is to expire in seconds
-   */
-  expiration: number;
-  /**
-   * A human-readable format of expires
-   */
-  expirationFormatted: string;
+export interface IUserResponseBody {
   /**
    * The Bearer token
    */
   token: string;
+  email: string;
+  username: string;
+  bio: string;
+  image: string;
 }
 
 /**
@@ -73,4 +69,27 @@ export interface IAuthRegisterPayload {
   username: string;
   name: string;
   password: string;
+}
+
+export interface IArticle {
+  id: number;
+  slug: string;
+  title: string;
+  description: string;
+  body: string;
+  createdAt: Date;
+  updatedAt: Date;
+  tagList: string[];
+  favoritesCount: number;
+  // Remark author: UserEntity; But UserEntity is not exported
+  author: unknown;
+}
+
+export interface IArticlesResponseBody {
+  articles: IArticle[];
+  articlesCount: number;
+}
+
+export interface IArticleResponseBody {
+  article: IArticle;
 }

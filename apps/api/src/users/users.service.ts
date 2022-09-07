@@ -2,6 +2,7 @@ import {
   BadRequestException,
   Injectable,
   NotAcceptableException,
+  UnauthorizedException,
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import * as crypto from 'crypto';
@@ -10,10 +11,11 @@ import { Repository } from 'typeorm';
 
 import { IGenericMessageBody } from '@starter/api-types';
 
+import { LoginDto } from '../auth/dto/login.dto';
 import { RegisterDto } from '../auth/dto/register.dto';
-import { PatchUserDto } from './dto/patch-user.dto';
+import { UserDto } from './dto/patch-user.dto';
 import { UserRoles } from './user-role.entity';
-import { User } from './user.entity';
+import { UserEntity } from './user.entity';
 
 /**
  * Users Service
@@ -22,12 +24,12 @@ import { User } from './user.entity';
 export class UsersService {
   /**
    * Constructor
-   * @param {Repository<User>} userRepository
+   * @param {Repository<UserEntity>} userRepository
    * @param {Repository<UserRoles>} rolesRepository
    */
   constructor(
-    @InjectRepository(User)
-    private readonly userRepository: Repository<User>,
+    @InjectRepository(UserEntity)
+    private readonly userRepository: Repository<UserEntity>,
     @InjectRepository(UserRoles)
     private readonly userRolesRepository: Repository<UserRoles>,
   ) {}
@@ -35,32 +37,32 @@ export class UsersService {
   /**
    * Fetches user from database by UUID
    * @param {number} id
-   * @returns {Promise<User>} data from queried user
+   * @returns {Promise<UserEntity>} data from queried user
    */
-  get(id: number): Promise<User> {
+  get(id: number): Promise<UserEntity> {
     return this.userRepository.findOne({ where: { id }, relations: ['roles'] });
   }
 
   /**
    * Fetches user from database by username
    * @param {string} username
-   * @returns {Promise<User>} data from queried user
+   * @returns {Promise<UserEntity>} data from queried user
    */
-  getByUsername(username: string): Promise<User> {
+  getByUsername(username: string): Promise<UserEntity> {
     return this.userRepository.findOneBy({ username });
   }
 
   /**
    * Fetches user by username and hashed password
-   * @param {string} username
+   * @param {string} email
    * @param {string} password
-   * @returns {Promise<User>} data from queried user
+   * @returns {Promise<UserEntity>} data from queried user
    */
-  getByUsernameAndPass(username: string, password: string): Promise<User> {
+  getUserByEmailAndPass(email: string, password: string): Promise<UserEntity> {
     return this.userRepository
       .createQueryBuilder('users')
-      .where('users.username = :username and users.password = :password')
-      .setParameter('username', username)
+      .where('users.email = :email and users.password = :password')
+      .setParameter('email', email)
       .setParameter(
         'password',
         crypto.createHmac('sha256', password).digest('hex'),
@@ -71,9 +73,9 @@ export class UsersService {
   /**
    * Create a user with RegisterPayload fields
    * @param {RegisterDto} payload user payload
-   * @returns {Promise<User>} data from the created user
+   * @returns {Promise<UserEntity>} data from the created user
    */
-  async create(payload: RegisterDto): Promise<User> {
+  async create(payload: RegisterDto): Promise<UserEntity> {
     const user = await this.getByUsername(payload.username);
 
     if (user) {
@@ -90,8 +92,8 @@ export class UsersService {
       this.userRepository.create({
         ...payload,
         roles,
-        gravatar: url(payload.email, {
-          protocol: 'http',
+        image: url(payload.email, {
+          protocol: 'https',
           s: '200',
           r: 'pg',
           d: '404',
@@ -102,12 +104,11 @@ export class UsersService {
 
   /**
    * Edit user data
-   * @param {PatchUserDto} payload
-   * @returns {Promise<User>} mutated user data
+   * @param {Partial<UserDto>} payload
+   * @returns {Promise<UserEntity>} mutated user data
    */
-  async edit(payload: PatchUserDto): Promise<User> {
-    const { username } = payload;
-    const user = await this.getByUsername(username);
+  async edit(userId: number, payload: Partial<UserDto>): Promise<UserEntity> {
+    const user = await this.get(userId);
     if (user) {
       Object.keys(payload).forEach((key) => {
         if (key === 'password') {
@@ -121,6 +122,22 @@ export class UsersService {
         'The user with that username does not exist in the system. Please try another username.',
       );
     }
+  }
+
+  /**
+   * Validates whether or not the user exists in the database
+   * @param {LoginDto} param login payload to authenticate with
+   * @returns {Promise<UserEntity>} registered user
+   */
+  async validateUser({ email, password }: LoginDto): Promise<UserEntity> {
+    const user = await this.getUserByEmailAndPass(email, password);
+
+    if (!user) {
+      throw new UnauthorizedException(
+        'Could not authenticate. Please try again',
+      );
+    }
+    return user;
   }
 
   /**
