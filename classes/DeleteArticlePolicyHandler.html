@@ -28,7 +28,7 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content injectable">
+               <div class="content class">
                    <div class="content-data">
 
 
@@ -38,9 +38,13 @@
 
 
 
+
+
+
+
 <ol class="breadcrumb">
-  <li>Injectables</li>
-  <li >JwtStrategy</li>
+  <li>Classes</li>
+  <li >DeleteArticlePolicyHandler</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -58,18 +62,18 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/api/src/auth/jwt.strategy.ts</code>
+            <code>apps/api/src/casl/policy-handlers.ts</code>
         </p>
 
 
+
+
             <p class="comment">
-                <h3>Description</h3>
+                <h3>Implements</h3>
             </p>
             <p class="comment">
-                <p>Jwt Strategy Class</p>
-
+                            <code><a href="../interfaces/IPolicyHandler.html" target="_self" >IPolicyHandler</a></code>
             </p>
-
 
 
             <section>
@@ -86,8 +90,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#validate" >validate</a>
+                                <a href="#handle" >handle</a>
                             </li>
                         </ul>
                     </td>
@@ -101,68 +104,7 @@
     </table>
 </section>
 
-            <section>
-    <h3 id="constructor">Constructor</h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-<code>constructor(configService: ConfigService, usersService: <a href="../injectables/UsersService.html" target="_self">UsersService</a>)</code>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">apps/api/src/auth/jwt.strategy.ts:13</a></div>
-                            </td>
-                        </tr>
 
-                <tr>
-                    <td class="col-md-4">
-                            <div class="io-description"><p>Constructor</p>
-</div>
-                            <div>
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>configService</td>
-                                                  
-                                                        <td>
-                                                                    <code>ConfigService</code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>usersService</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../injectables/UsersService.html" target="_self" >UsersService</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-</section>
 
             <section>
     
@@ -173,18 +115,16 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="validate"></a>
+                    <a name="handle"></a>
                     <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>validate</b></span>
-                        <a href="#validate"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>handle</b></span>
+                        <a href="#handle"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>validate(undefined: Record<string | number>)</code>
+<code>handle(ability: <a href="../undefineds/AppAbility.html" target="_self">AppAbility</a>)</code>
                 </td>
             </tr>
 
@@ -192,15 +132,13 @@
             <tr>
                 <td class="col-md-4">
                     <div class="io-line">Defined in <a href="" data-line="35"
-                            class="link-to-prism">apps/api/src/auth/jwt.strategy.ts:35</a></div>
+                            class="link-to-prism">apps/api/src/casl/policy-handlers.ts:35</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Checks if the bearer token is a valid token</p>
-</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -215,8 +153,9 @@
                             </thead>
                             <tbody>
                                 <tr>
+                                    <td>ability</td>
                                     <td>
-                                            <code>Record&lt;string | number&gt;</code>
+                                                <code><a href="../miscellaneous/typealiases.html#AppAbility" target="_self" >AppAbility</a></code>
                                     </td>
 
                                     <td>
@@ -231,12 +170,11 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../entitys/UserEntity.html" target="_self" >Promise&lt;UserEntity&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                     </div>
                     <div class="io-description">
-                        <p>a object to be signed</p>
-
+                        
                     </div>
                 </td>
             </tr>
@@ -244,70 +182,55 @@
     </table>
 </section>
 
+
+
+
+
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, UnauthorizedException } from &#x27;@nestjs/common&#x27;;
-import { ConfigService } from &#x27;@nestjs/config&#x27;;
-import { PassportStrategy } from &#x27;@nestjs/passport&#x27;;
-import { ExtractJwt, Strategy } from &#x27;passport-jwt&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { UserActionsEnum } from &#x27;@starter/api-types&#x27;;
 
+import { ArticleEntity } from &#x27;../article/article.entity&#x27;;
 import { UserEntity } from &#x27;../users/user.entity&#x27;;
-import { UsersService } from &#x27;../users/users.service&#x27;;
+import { AppAbility } from &#x27;./casl.factory&#x27;;
 
-/**
- * Jwt Strategy Class
- */
-@Injectable()
-export class JwtStrategy extends PassportStrategy(Strategy) {
-  /**
-   * Constructor
-   * @param {ConfigService} configService
-   * @param {UsersService} usersService
-   */
-  constructor(
-    private readonly configService: ConfigService,
-    private readonly usersService: UsersService,
-  ) {
-    super({
-      jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-      ignoreExpiration: false,
-      secretOrKey: configService.get(&#x27;WEBTOKEN_ENCRYPTION_KEY&#x27;),
-    });
+interface IPolicyHandler {
+  handle(ability: AppAbility): boolean;
+}
+
+type PolicyHandlerCallback &#x3D; (ability: AppAbility) &#x3D;&gt; boolean;
+
+export type PolicyHandler &#x3D; IPolicyHandler | PolicyHandlerCallback;
+
+// Policy Handlers
+
+export class PatchUserPolicyHandler implements IPolicyHandler {
+  handle(ability: AppAbility): boolean {
+    return ability.can(UserActionsEnum.Update, UserEntity);
   }
+}
 
-  /**
-   * Checks if the bearer token is a valid token
-   * @param {Record&lt;string, unknown&gt;} jwtPayload validation method for jwt token
-   * @returns {Promise&lt;Record&lt;string, unknown&gt;&gt;} a object to be signed
-   */
-  async validate({
-    iat,
-    exp,
-    id,
-  }: Record&lt;string, number&gt;): Promise&lt;UserEntity&gt; {
-    const timeDiff &#x3D; exp - iat;
-    if (timeDiff &lt;&#x3D; 0) {
-      throw new UnauthorizedException();
-    }
+export class DeleteUserPolicyHandler implements IPolicyHandler {
+  handle(ability: AppAbility) {
+    return ability.can(UserActionsEnum.Delete, UserEntity);
+  }
+}
 
-    const user &#x3D; await this.usersService.get(id);
-    if (!user) {
-      throw new UnauthorizedException();
-    }
-
-    return user;
+export class PatchArticlePolicyHandler implements IPolicyHandler {
+  handle(ability: AppAbility) {
+    return ability.can(UserActionsEnum.Update, ArticleEntity);
+  }
+}
+export class DeleteArticlePolicyHandler implements IPolicyHandler {
+  handle(ability: AppAbility) {
+    return ability.can(UserActionsEnum.Delete, ArticleEntity);
   }
 }
 </code></pre>
     </div>
-
 </div>
-
-
-
-
 
 
 
@@ -342,8 +265,8 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'JwtStrategy.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'DeleteArticlePolicyHandler.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

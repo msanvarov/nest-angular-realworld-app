@@ -44,7 +44,7 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li >RegisterDto</li>
+  <li >CreateTagDto</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -62,17 +62,10 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/api/src/auth/dto/register.dto.ts</code>
+            <code>apps/api/src/tag/dto/create-tag.dto.ts</code>
         </p>
 
 
-            <p class="comment">
-                <h3>Description</h3>
-            </p>
-            <p class="comment">
-                <p>Register Dto Class</p>
-
-            </p>
 
 
 
@@ -91,15 +84,7 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Readonly</span>
-                                <a href="#email" >email</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Readonly</span>
-                                <a href="#password" >password</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Readonly</span>
-                                <a href="#username" >username</a>
+                                <a href="#name" >name</a>
                             </li>
                         </ul>
                     </td>
@@ -124,11 +109,11 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="email"></a>
+                    <a name="name"></a>
                     <span class="name">
                             <span class="modifier">Readonly</span>
-                        <span ><b>email</b></span>
-                        <a href="#email"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>name</b></span>
+                        <a href="#name"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
@@ -143,106 +128,16 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiProperty()<br />@IsNotEmpty()<br />@IsEmail()<br />
+                            @ApiProperty()<br />@IsAlpha()<br />@IsNotEmpty()<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">apps/api/src/auth/dto/register.dto.ts:19</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">apps/api/src/tag/dto/create-tag.dto.ts:8</a></div>
                         </td>
                     </tr>
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Email field</p>
-</div>
-                </td>
-            </tr>
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="password"></a>
-                    <span class="name">
-                            <span class="modifier">Readonly</span>
-                        <span ><b>password</b></span>
-                        <a href="#password"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <b>Decorators : </b>
-                        <br />
-                        <code>
-                            @ApiProperty()<br />@IsNotEmpty()<br />@MinLength(8)<br />
-                        </code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">apps/api/src/auth/dto/register.dto.ts:35</a></div>
-                        </td>
-                    </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Password field</p>
-</div>
-                </td>
-            </tr>
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="username"></a>
-                    <span class="name">
-                            <span class="modifier">Readonly</span>
-                        <span ><b>username</b></span>
-                        <a href="#username"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <b>Decorators : </b>
-                        <br />
-                        <code>
-                            @ApiProperty()<br />@IsNotEmpty()<br />@IsAlphanumeric()<br />
-                        </code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">apps/api/src/auth/dto/register.dto.ts:27</a></div>
-                        </td>
-                    </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Username field</p>
-</div>
-                </td>
-            </tr>
 
         </tbody>
     </table>
@@ -259,40 +154,13 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty } from &#x27;@nestjs/swagger&#x27;;
-import {
-  IsAlphanumeric,
-  IsEmail,
-  IsNotEmpty,
-  MinLength,
-} from &#x27;class-validator&#x27;;
+import { IsAlpha, IsNotEmpty } from &#x27;class-validator&#x27;;
 
-/**
- * Register Dto Class
- */
-export class RegisterDto {
-  /**
-   * Email field
-   */
+export class CreateTagDto {
   @ApiProperty()
+  @IsAlpha()
   @IsNotEmpty()
-  @IsEmail()
-  readonly email: string;
-
-  /**
-   * Username field
-   */
-  @ApiProperty()
-  @IsNotEmpty()
-  @IsAlphanumeric()
-  readonly username: string;
-
-  /**
-   * Password field
-   */
-  @ApiProperty()
-  @IsNotEmpty()
-  @MinLength(8)
-  readonly password: string;
+  readonly name: string;
 }
 </code></pre>
     </div>
@@ -332,7 +200,7 @@ export class RegisterDto {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
-            var COMPODOC_CURRENT_PAGE_URL = 'RegisterDto.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'CreateTagDto.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

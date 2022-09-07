@@ -56,13 +56,13 @@
 <title>cluster_AuthModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="8,-32.8 8,-230.8 432,-230.8 432,-32.8 8,-32.8"/>
 </g>
-<g id="clust4" class="cluster">
-<title>cluster_AuthModule_exports</title>
-<polygon fill="none" stroke="black" points="119,-170.8 119,-222.8 329,-222.8 329,-170.8 119,-170.8"/>
-</g>
 <g id="clust6" class="cluster">
 <title>cluster_AuthModule_providers</title>
 <polygon fill="none" stroke="black" points="16,-40.8 16,-92.8 424,-92.8 424,-40.8 16,-40.8"/>
+</g>
+<g id="clust4" class="cluster">
+<title>cluster_AuthModule_exports</title>
+<polygon fill="none" stroke="black" points="119,-170.8 119,-222.8 329,-222.8 329,-170.8 119,-170.8"/>
 </g>
 <!-- AuthService  -->
 <g id="node1" class="node">
@@ -185,30 +185,65 @@
                     </ul>
                 </div>
                 <div class="col-sm-3">
-                    <h3>Controllers<a href="https://docs.nestjs.com/controllers" target="_blank" title="Official documentation about module controllers"><span
-                                class="icon ion-ios-information-circle-outline"></a></h3>
-                    <ul class="list-group">
-                        <li class="list-group-item">
-                            <a href="../controllers/AuthController.html">AuthController</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-sm-3">
                     <h3>Exports<a href="https://angular.io/api/core/NgModule#exports" target="_blank" title="Official documentation about module exports"><span
                                 class="icon ion-ios-information-circle-outline"></a></h3>
                     <ul class="list-group">
                         <li class="list-group-item">
-                            <a href="../s/AuthService.html">AuthService</a>
+                            <a href="../injectables/AuthService.html">AuthService</a>
                         </li>
                         <li class="list-group-item">
-                            <a href="../s/JwtStrategy.html">JwtStrategy</a>
+                            <a href="../injectables/JwtStrategy.html">JwtStrategy</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
 
+        <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="forRoot"></a>
+                    <span class="name">
+                        <span class="modifier">Static</span>
+                        <span ><b>forRoot</b></span>
+                        <a href="#forRoot"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>forRoot()</code>
+                </td>
+            </tr>
 
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="43"
+                            class="link-to-prism">apps/api/src/auth/auth.module.ts:43</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../miscellaneous/variables.html#providers" target="_self" >{ module: typeof AuthModule; providers: {}; }</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
     </div>
 
 
@@ -220,16 +255,16 @@ import { PassportModule } from &#x27;@nestjs/passport&#x27;;
 import { TypeOrmModule } from &#x27;@nestjs/typeorm&#x27;;
 
 import { UserRoles } from &#x27;../users/user-role.entity&#x27;;
-import { User } from &#x27;../users/user.entity&#x27;;
+import { UserEntity } from &#x27;../users/user.entity&#x27;;
 import { UsersService } from &#x27;../users/users.service&#x27;;
-import { AuthController } from &#x27;./auth.controller&#x27;;
 import { AuthService } from &#x27;./auth.service&#x27;;
 import { JwtStrategy } from &#x27;./jwt.strategy&#x27;;
 
+const providers &#x3D; [AuthService, JwtStrategy];
 @Module({
   imports: [
     ConfigModule,
-    TypeOrmModule.forFeature([User, UserRoles]),
+    TypeOrmModule.forFeature([UserEntity, UserRoles]),
     PassportModule.register({ defaultStrategy: &#x27;jwt&#x27; }),
     JwtModule.registerAsync({
       imports: [ConfigModule],
@@ -250,11 +285,18 @@ import { JwtStrategy } from &#x27;./jwt.strategy&#x27;;
       inject: [ConfigService],
     }),
   ],
-  providers: [AuthService, JwtStrategy, UsersService],
-  exports: [AuthService, JwtStrategy],
-  controllers: [AuthController],
+  providers: [...providers, UsersService],
+  controllers: [],
+  exports: providers,
 })
-export class AuthModule {}
+export class AuthModule {
+  static forRoot() {
+    return {
+      module: AuthModule,
+      providers,
+    };
+  }
+}
 </code></pre>
     </div>
 </div>

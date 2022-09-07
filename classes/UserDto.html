@@ -44,7 +44,7 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li >RegisterDto</li>
+  <li >UserDto</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -62,17 +62,10 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/api/src/auth/dto/register.dto.ts</code>
+            <code>apps/api/src/users/dto/patch-user.dto.ts</code>
         </p>
 
 
-            <p class="comment">
-                <h3>Description</h3>
-            </p>
-            <p class="comment">
-                <p>Register Dto Class</p>
-
-            </p>
 
 
 
@@ -91,7 +84,15 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Readonly</span>
+                                <a href="#bio" >bio</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
                                 <a href="#email" >email</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#image" >image</a>
                             </li>
                             <li>
                                     <span class="modifier">Readonly</span>
@@ -124,6 +125,48 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="bio"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>bio</b></span>
+                        <a href="#bio"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ApiProperty()<br />@IsNotEmpty()<br />@MaxLength(255)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">apps/api/src/users/dto/patch-user.dto.ts:36</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Bio field</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="email"></a>
                     <span class="name">
                             <span class="modifier">Readonly</span>
@@ -143,13 +186,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiProperty()<br />@IsNotEmpty()<br />@IsEmail()<br />
+                            @ApiProperty()<br />@IsEmail()<br />@IsNotEmpty()<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">apps/api/src/auth/dto/register.dto.ts:19</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">apps/api/src/users/dto/patch-user.dto.ts:20</a></div>
                         </td>
                     </tr>
 
@@ -157,6 +200,48 @@
                 <td class="col-md-4">
                     <div class="io-description"><p>Email field</p>
 </div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="image"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>image</b></span>
+                        <a href="#image"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ApiProperty()<br />@IsNotEmpty()<br />@IsFQDN()<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">apps/api/src/users/dto/patch-user.dto.ts:45</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Image field</p>
+<div><pre class="line-numbers"><code class="language-html"></code></pre></div></div>
                 </td>
             </tr>
 
@@ -191,7 +276,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">apps/api/src/auth/dto/register.dto.ts:35</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">apps/api/src/users/dto/patch-user.dto.ts:53</a></div>
                         </td>
                     </tr>
 
@@ -227,13 +312,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiProperty()<br />@IsNotEmpty()<br />@IsAlphanumeric()<br />
+                            @ApiProperty()<br />@IsAlphanumeric()<br />@IsNotEmpty()<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">apps/api/src/auth/dto/register.dto.ts:27</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">apps/api/src/users/dto/patch-user.dto.ts:28</a></div>
                         </td>
                     </tr>
 
@@ -259,32 +344,50 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty } from &#x27;@nestjs/swagger&#x27;;
+import { Type } from &#x27;class-transformer&#x27;;
 import {
   IsAlphanumeric,
   IsEmail,
+  IsFQDN,
   IsNotEmpty,
+  MaxLength,
   MinLength,
+  ValidateNested,
 } from &#x27;class-validator&#x27;;
 
-/**
- * Register Dto Class
- */
-export class RegisterDto {
+export class UserDto {
   /**
    * Email field
    */
   @ApiProperty()
-  @IsNotEmpty()
   @IsEmail()
+  @IsNotEmpty()
   readonly email: string;
 
   /**
    * Username field
    */
   @ApiProperty()
-  @IsNotEmpty()
   @IsAlphanumeric()
+  @IsNotEmpty()
   readonly username: string;
+
+  /**
+   * Bio field
+   */
+  @ApiProperty()
+  @IsNotEmpty()
+  @MaxLength(255)
+  readonly bio: string;
+
+  /**
+   * Image field
+   * @example https://gravatar.com/avatar/123
+   */
+  @ApiProperty()
+  @IsNotEmpty()
+  @IsFQDN()
+  readonly image: string;
 
   /**
    * Password field
@@ -293,6 +396,16 @@ export class RegisterDto {
   @IsNotEmpty()
   @MinLength(8)
   readonly password: string;
+}
+
+/**
+ * Patch User Payload Class
+ */
+export class PatchUserDto {
+  @ApiProperty()
+  @Type(() &#x3D;&gt; UserDto)
+  @ValidateNested()
+  readonly user: UserDto;
 }
 </code></pre>
     </div>
@@ -332,7 +445,7 @@ export class RegisterDto {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
-            var COMPODOC_CURRENT_PAGE_URL = 'RegisterDto.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'UserDto.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

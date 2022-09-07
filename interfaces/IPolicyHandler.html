@@ -121,8 +121,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="7"
-                            class="link-to-prism">apps/api/src/casl/policy-handlers.ts:7</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="8"
+                            class="link-to-prism">apps/api/src/casl/policy-handlers.ts:8</a></div>
                 </td>
             </tr>
 
@@ -178,7 +178,8 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { UserActionsEnum } from &#x27;@starter/api-types&#x27;;
 
-import { User } from &#x27;../users/user.entity&#x27;;
+import { ArticleEntity } from &#x27;../article/article.entity&#x27;;
+import { UserEntity } from &#x27;../users/user.entity&#x27;;
 import { AppAbility } from &#x27;./casl.factory&#x27;;
 
 interface IPolicyHandler {
@@ -191,9 +192,26 @@ export type PolicyHandler &#x3D; IPolicyHandler | PolicyHandlerCallback;
 
 // Policy Handlers
 
+export class PatchUserPolicyHandler implements IPolicyHandler {
+  handle(ability: AppAbility): boolean {
+    return ability.can(UserActionsEnum.Update, UserEntity);
+  }
+}
+
 export class DeleteUserPolicyHandler implements IPolicyHandler {
   handle(ability: AppAbility) {
-    return ability.can(UserActionsEnum.Delete, User);
+    return ability.can(UserActionsEnum.Delete, UserEntity);
+  }
+}
+
+export class PatchArticlePolicyHandler implements IPolicyHandler {
+  handle(ability: AppAbility) {
+    return ability.can(UserActionsEnum.Update, ArticleEntity);
+  }
+}
+export class DeleteArticlePolicyHandler implements IPolicyHandler {
+  handle(ability: AppAbility) {
+    return ability.can(UserActionsEnum.Delete, ArticleEntity);
   }
 }
 </code></pre>

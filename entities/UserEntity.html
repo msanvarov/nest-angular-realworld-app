@@ -38,7 +38,7 @@
 
 <ol class="breadcrumb">
   <li>Entities</li>
-  <li >User</li>
+  <li >UserEntity</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -82,16 +82,22 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                <a href="#articles" >articles</a>
+                            </li>
+                            <li>
+                                <a href="#bio" >bio</a>
+                            </li>
+                            <li>
                                 <a href="#email" >email</a>
                             </li>
                             <li>
-                                <a href="#gravatar" >gravatar</a>
+                                <a href="#favorites" >favorites</a>
                             </li>
                             <li>
                                 <a href="#id" >id</a>
                             </li>
                             <li>
-                                <a href="#name" >name</a>
+                                <a href="#image" >image</a>
                             </li>
                             <li>
                                 <a href="#password" >password</a>
@@ -124,6 +130,82 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="articles"></a>
+                    <span class="name">
+                        <span ><b>articles</b></span>
+                        <a href="#articles"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../entitys/ArticleEntity.html" target="_self" >ArticleEntity[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @OneToMany(undefined, article &#x3D;&gt; article.author)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">apps/api/src/users/user.entity.ts:71</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="bio"></a>
+                    <span class="name">
+                        <span ><b>bio</b></span>
+                        <a href="#bio"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Column({default: &#x27;&#x27;})<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">apps/api/src/users/user.entity.ts:44</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Bio column</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="email"></a>
                     <span class="name">
                         <span ><b>email</b></span>
@@ -148,7 +230,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">apps/api/src/users/user.entity.ts:36</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">apps/api/src/users/user.entity.ts:38</a></div>
                         </td>
                     </tr>
 
@@ -165,16 +247,16 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="gravatar"></a>
+                    <a name="favorites"></a>
                     <span class="name">
-                        <span ><b>gravatar</b></span>
-                        <a href="#gravatar"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>favorites</b></span>
+                        <a href="#favorites"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                        <i>Type : </i>        <code><a href="../entitys/ArticleEntity.html" target="_self" >ArticleEntity[]</a></code>
 
                     </td>
                 </tr>
@@ -183,22 +265,16 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @Column()<br />
+                            @ManyToMany(undefined)<br />@JoinTable()<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">apps/api/src/users/user.entity.ts:42</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="75" class="link-to-prism">apps/api/src/users/user.entity.ts:75</a></div>
                         </td>
                     </tr>
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Gravatar column (gravatar url)</p>
-</div>
-                </td>
-            </tr>
 
         </tbody>
     </table>
@@ -230,7 +306,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">apps/api/src/users/user.entity.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">apps/api/src/users/user.entity.ts:26</a></div>
                         </td>
                     </tr>
 
@@ -247,10 +323,10 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="name"></a>
+                    <a name="image"></a>
                     <span class="name">
-                        <span ><b>name</b></span>
-                        <a href="#name"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>image</b></span>
+                        <a href="#image"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
@@ -271,13 +347,13 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">apps/api/src/users/user.entity.ts:30</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">apps/api/src/users/user.entity.ts:50</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Name column</p>
+                    <div class="io-description"><p>Gravatar column (gravatar url)</p>
 </div>
                 </td>
             </tr>
@@ -312,7 +388,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">apps/api/src/users/user.entity.ts:60</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">apps/api/src/users/user.entity.ts:68</a></div>
                         </td>
                     </tr>
 
@@ -338,7 +414,7 @@
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>    <code>UserRoles[]</code>
+                        <i>Type : </i>        <code><a href="../entitys/UserRoles.html" target="_self" >UserRoles[]</a></code>
 
                     </td>
                 </tr>
@@ -353,7 +429,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">apps/api/src/users/user.entity.ts:48</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">apps/api/src/users/user.entity.ts:56</a></div>
                         </td>
                     </tr>
 
@@ -394,7 +470,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">apps/api/src/users/user.entity.ts:24</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">apps/api/src/users/user.entity.ts:32</a></div>
                         </td>
                     </tr>
 
@@ -413,8 +489,16 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Exclude } from &#x27;class-transformer&#x27;;
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from &#x27;typeorm&#x27;;
+import {
+  Column,
+  Entity,
+  JoinTable,
+  ManyToMany,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from &#x27;typeorm&#x27;;
 
+import { ArticleEntity } from &#x27;../article/article.entity&#x27;;
 import { PasswordTransformer } from &#x27;./password.transformer&#x27;;
 import { UserRoles } from &#x27;./user-role.entity&#x27;;
 
@@ -424,7 +508,7 @@ import { UserRoles } from &#x27;./user-role.entity&#x27;;
 @Entity({
   name: &#x27;users&#x27;,
 })
-export class User {
+export class UserEntity {
   /**
    * UUID column
    */
@@ -438,22 +522,22 @@ export class User {
   username: string;
 
   /**
-   * Name column
-   */
-  @Column()
-  name: string;
-
-  /**
    * Email column
    */
   @Column()
   email: string;
 
   /**
+   * Bio column
+   */
+  @Column({ default: &#x27;&#x27; })
+  bio: string;
+
+  /**
    * Gravatar column (gravatar url)
    */
   @Column()
-  gravatar: string;
+  image: string;
 
   /**
    * Column to represent a one to many relationship with the roles entity
@@ -472,6 +556,13 @@ export class User {
   })
   @Exclude()
   password: string;
+
+  @OneToMany(() &#x3D;&gt; ArticleEntity, (article) &#x3D;&gt; article.author)
+  articles: ArticleEntity[];
+
+  @ManyToMany(() &#x3D;&gt; ArticleEntity)
+  @JoinTable()
+  favorites: ArticleEntity[];
 }
 </code></pre>
     </div>
@@ -517,7 +608,7 @@ export class User {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'entity';
-            var COMPODOC_CURRENT_PAGE_URL = 'User.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'UserEntity.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

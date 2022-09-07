@@ -102,12 +102,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier">Async</span>
                                 <a href="#createToken" >createToken</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#validateUser" >validateUser</a>
                             </li>
                         </ul>
                     </td>
@@ -127,12 +122,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(jwtService: JwtService, usersService: <a href="../injectables/UsersService.html" target="_self">UsersService</a>, configService: ConfigService)</code>
+<code>constructor(jwtService: JwtService, configService: ConfigService)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">apps/api/src/auth/auth.service.ts:21</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">apps/api/src/auth/auth.service.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -165,22 +160,6 @@
                                                     
                                                         <td>
                                                                 <p>jwt service</p>
-
-                                                        </td>
-                                                </tr>
-                                                <tr>
-                                                        <td>usersService</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../injectables/UsersService.html" target="_self" >UsersService</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                        <td>
-                                                                <p>users service</p>
 
                                                         </td>
                                                 </tr>
@@ -218,7 +197,6 @@
                 <td class="col-md-4">
                     <a name="createToken"></a>
                     <span class="name">
-                        <span class="modifier">Async</span>
                         <span ><b>createToken</b></span>
                         <a href="#createToken"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -226,16 +204,15 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>createToken(undefined: <a href="../entitys/User.html" target="_self">User</a>)</code>
+<code>createToken(undefined: <a href="../entitys/UserEntity.html" target="_self">UserEntity</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="41"
-                            class="link-to-prism">apps/api/src/auth/auth.service.ts:41</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="35"
+                            class="link-to-prism">apps/api/src/auth/auth.service.ts:35</a></div>
                 </td>
             </tr>
 
@@ -259,7 +236,7 @@
                             <tbody>
                                 <tr>
                                     <td>
-                                                <code><a href="../entitys/User.html" target="_self" >User</a></code>
+                                                <code><a href="../entitys/UserEntity.html" target="_self" >UserEntity</a></code>
                                     </td>
 
                                     <td>
@@ -274,84 +251,11 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;IJWTResponseBody&gt;</code>
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                     </div>
                     <div class="io-description">
                         <p>token body</p>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="validateUser"></a>
-                    <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>validateUser</b></span>
-                        <a href="#validateUser"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>validateUser(undefined: <a href="../classes/LoginDto.html" target="_self">LoginDto</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="68"
-                            class="link-to-prism">apps/api/src/auth/auth.service.ts:68</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Validates whether or not the user exists in the database</p>
-</div>
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                                <code><a href="../classes/LoginDto.html" target="_self" >LoginDto</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../entitys/User.html" target="_self" >Promise&lt;User&gt;</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        <p>registered user</p>
 
                     </div>
                 </td>
@@ -385,7 +289,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">apps/api/src/auth/auth.service.ts:21</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">apps/api/src/auth/auth.service.ts:16</a></div>
                         </td>
                     </tr>
 
@@ -404,16 +308,11 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, UnauthorizedException } from &#x27;@nestjs/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
 import { ConfigService } from &#x27;@nestjs/config&#x27;;
 import { JwtService } from &#x27;@nestjs/jwt&#x27;;
-import * as moment from &#x27;moment&#x27;;
 
-import { IJWTResponseBody } from &#x27;@starter/api-types&#x27;;
-
-import { User } from &#x27;../users/user.entity&#x27;;
-import { UsersService } from &#x27;../users/users.service&#x27;;
-import { LoginDto } from &#x27;./dto/login.dto&#x27;;
+import { UserEntity } from &#x27;../users/user.entity&#x27;;
 
 /**
  * Authentication Service
@@ -433,7 +332,6 @@ export class AuthService {
    */
   constructor(
     private readonly jwtService: JwtService,
-    private readonly usersService: UsersService,
     private readonly configService: ConfigService,
   ) {
     this.expiration &#x3D; this.configService.get(&#x27;WEBTOKEN_EXPIRATION_TIME&#x27;);
@@ -441,48 +339,16 @@ export class AuthService {
 
   /**
    * Creates a signed jwt token based on User payload
-   * @param {User} param dto to generate token from
-   * @returns {Promise&lt;IJWTResponseBody&gt;} token body
+   * @param {UserEntity} param dto to generate token from
+   * @returns {Promise&lt;IUserResponseBody&gt;} token body
    */
-  async createToken({
-    id,
-    username,
-    name,
-    roles,
-    email,
-  }: User): Promise&lt;IJWTResponseBody&gt; {
-    return {
-      expiration: this.expiration,
-      expirationFormatted: moment()
-        .add(this.expiration, &#x27;seconds&#x27;)
-        .format(&#x27;LLL&#x27;),
-      token: this.jwtService.sign({
-        id,
-        username,
-        name,
-        roles,
-        email,
-      }),
-    };
-  }
-
-  /**
-   * Validates whether or not the user exists in the database
-   * @param {LoginDto} param login payload to authenticate with
-   * @returns {Promise&lt;User&gt;} registered user
-   */
-  async validateUser({ username, password }: LoginDto): Promise&lt;User&gt; {
-    const user &#x3D; await this.usersService.getByUsernameAndPass(
+  createToken({ id, username, roles, email }: UserEntity): string {
+    return this.jwtService.sign({
+      id,
       username,
-      password,
-    );
-
-    if (!user) {
-      throw new UnauthorizedException(
-        &#x27;Could not authenticate. Please try again&#x27;,
-      );
-    }
-    return user;
+      roles,
+      email,
+    });
   }
 }
 </code></pre>

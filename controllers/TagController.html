@@ -28,23 +28,16 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content class">
+               <div class="content controller">
                    <div class="content-data">
 
 
 
 
 
-
-
-
-
-
-
-
 <ol class="breadcrumb">
-  <li>Classes</li>
-  <li >DeleteUserPolicyHandler</li>
+  <li>Controllers</li>
+  <li >TagController</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -62,18 +55,19 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/api/src/casl/policy-handlers.ts</code>
+            <code>apps/api/src/tag/tag.controller.ts</code>
         </p>
 
-
-
-
             <p class="comment">
-                <h3>Implements</h3>
+                <h3>Prefix</h3>
             </p>
             <p class="comment">
-                            <code><a href="../interfaces/IPolicyHandler.html" target="_self" >IPolicyHandler</a></code>
+                <code>v1/tags</code>
             </p>
+
+
+
+
 
 
             <section>
@@ -90,7 +84,8 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#handle" >handle</a>
+                                    <span class="modifier">Async</span>
+                                <a href="#getTags" >getTags</a>
                             </li>
                         </ul>
                     </td>
@@ -104,8 +99,6 @@
     </table>
 </section>
 
-
-
             <section>
     
     <h3 id="methods">
@@ -115,122 +108,83 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="handle"></a>
+                    <a name="getTags"></a>
                     <span class="name">
-                        <span ><b>handle</b></span>
-                        <a href="#handle"><span class="icon ion-ios-link"></span></a>
+                        <span class="modifier">Async</span>
+                        <span ><b>getTags</b></span>
+                        <a href="#getTags"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>handle(ability: <a href="../undefineds/AppAbility.html" target="_self">AppAbility</a>)</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getTags()</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get()<br />@ApiResponse({status: 200, description: &#x27;Fetch Tags Request Received&#x27;})<br />@ApiResponse({status: 400, description: &#x27;Fetch Tags Request Failed&#x27;})<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="15"
+                            class="link-to-prism">apps/api/src/tag/tag.controller.ts:15</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="24"
-                            class="link-to-prism">apps/api/src/casl/policy-handlers.ts:24</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
 
                     <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>ability</td>
-                                    <td>
-                                                <code><a href="../miscellaneous/typealiases.html#AppAbility" target="_self" >AppAbility</a></code>
-                                    </td>
+                        <b>Returns : </b>    <code>unknown</code>
 
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
                     </div>
                 </td>
             </tr>
         </tbody>
     </table>
-</section>
-
-
-
-
-
-    </div>
+</section>    </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { UserActionsEnum } from &#x27;@starter/api-types&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Controller, Get } from &#x27;@nestjs/common&#x27;;
+import { ApiBearerAuth, ApiResponse, ApiTags } from &#x27;@nestjs/swagger&#x27;;
 
-import { ArticleEntity } from &#x27;../article/article.entity&#x27;;
-import { UserEntity } from &#x27;../users/user.entity&#x27;;
-import { AppAbility } from &#x27;./casl.factory&#x27;;
+import { TagService } from &#x27;./tag.service&#x27;;
 
-interface IPolicyHandler {
-  handle(ability: AppAbility): boolean;
-}
+@ApiBearerAuth()
+@ApiTags(&#x27;tags&#x27;)
+@Controller(&#x27;v1/tags&#x27;)
+export class TagController {
+  constructor(private readonly tagService: TagService) {}
 
-type PolicyHandlerCallback &#x3D; (ability: AppAbility) &#x3D;&gt; boolean;
-
-export type PolicyHandler &#x3D; IPolicyHandler | PolicyHandlerCallback;
-
-// Policy Handlers
-
-export class PatchUserPolicyHandler implements IPolicyHandler {
-  handle(ability: AppAbility): boolean {
-    return ability.can(UserActionsEnum.Update, UserEntity);
-  }
-}
-
-export class DeleteUserPolicyHandler implements IPolicyHandler {
-  handle(ability: AppAbility) {
-    return ability.can(UserActionsEnum.Delete, UserEntity);
-  }
-}
-
-export class PatchArticlePolicyHandler implements IPolicyHandler {
-  handle(ability: AppAbility) {
-    return ability.can(UserActionsEnum.Update, ArticleEntity);
-  }
-}
-export class DeleteArticlePolicyHandler implements IPolicyHandler {
-  handle(ability: AppAbility) {
-    return ability.can(UserActionsEnum.Delete, ArticleEntity);
+  @Get()
+  @ApiResponse({ status: 200, description: &#x27;Fetch Tags Request Received&#x27; })
+  @ApiResponse({ status: 400, description: &#x27;Fetch Tags Request Failed&#x27; })
+  async getTags() {
+    const tags &#x3D; await this.tagService.getTags();
+    return {
+      tags: tags.map((tag) &#x3D;&gt; tag.name),
+    };
   }
 }
 </code></pre>
     </div>
 </div>
+
+
+
+
+
+
+
 
 
 
@@ -265,8 +219,8 @@ export class DeleteArticlePolicyHandler implements IPolicyHandler {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
-            var COMPODOC_CURRENT_PAGE_URL = 'DeleteUserPolicyHandler.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'controller';
+            var COMPODOC_CURRENT_PAGE_URL = 'TagController.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

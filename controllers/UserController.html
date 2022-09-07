@@ -28,19 +28,16 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content injectable">
+               <div class="content controller">
                    <div class="content-data">
 
 
 
 
 
-
-
-
 <ol class="breadcrumb">
-  <li>Injectables</li>
-  <li >JwtStrategy</li>
+  <li>Controllers</li>
+  <li >UserController</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -58,17 +55,18 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/api/src/auth/jwt.strategy.ts</code>
+            <code>apps/api/src/users/user.controller.ts</code>
         </p>
 
-
             <p class="comment">
-                <h3>Description</h3>
+                <h3>Prefix</h3>
             </p>
             <p class="comment">
-                <p>Jwt Strategy Class</p>
-
+                <code>v1/user</code>
             </p>
+
+
+
 
 
 
@@ -87,7 +85,10 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#validate" >validate</a>
+                                <a href="#editUser" >editUser</a>
+                            </li>
+                            <li>
+                                <a href="#getUser" >getUser</a>
                             </li>
                         </ul>
                     </td>
@@ -102,69 +103,6 @@
 </section>
 
             <section>
-    <h3 id="constructor">Constructor</h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-<code>constructor(configService: ConfigService, usersService: <a href="../injectables/UsersService.html" target="_self">UsersService</a>)</code>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">apps/api/src/auth/jwt.strategy.ts:13</a></div>
-                            </td>
-                        </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                            <div class="io-description"><p>Constructor</p>
-</div>
-                            <div>
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>configService</td>
-                                                  
-                                                        <td>
-                                                                    <code>ConfigService</code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>usersService</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../injectables/UsersService.html" target="_self" >UsersService</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-</section>
-
-            <section>
     
     <h3 id="methods">
         Methods
@@ -173,33 +111,40 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="validate"></a>
+                    <a name="editUser"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
-                        <span ><b>validate</b></span>
-                        <a href="#validate"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>editUser</b></span>
+                        <a href="#editUser"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>validate(undefined: Record<string | number>)</code>
+                    <code>editUser(userId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, payload: <a href="../classes/PatchUserDto.html" target="_self">PatchUserDto</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Put()<br />@ApiResponse({status: 200, description: &#x27;Put User Request Received&#x27;})<br />@ApiResponse({status: 400, description: &#x27;Put User Request Failed&#x27;})<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="37"
+                            class="link-to-prism">apps/api/src/users/user.controller.ts:37</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="35"
-                            class="link-to-prism">apps/api/src/auth/jwt.strategy.ts:35</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Checks if the bearer token is a valid token</p>
+                    <div class="io-description"><p>Edit a user</p>
 </div>
 
                     <div class="io-description">
@@ -215,8 +160,21 @@
                             </thead>
                             <tbody>
                                 <tr>
+                                    <td>userId</td>
                                     <td>
-                                            <code>Record&lt;string | number&gt;</code>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>payload</td>
+                                    <td>
+                                                <code><a href="../classes/PatchUserDto.html" target="_self" >PatchUserDto</a></code>
                                     </td>
 
                                     <td>
@@ -235,75 +193,141 @@
 
                     </div>
                     <div class="io-description">
-                        <p>a object to be signed</p>
+                        <p>mutated user data</p>
 
                     </div>
                 </td>
             </tr>
         </tbody>
     </table>
-</section>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getUser"></a>
+                    <span class="name">
+                        <span ><b>getUser</b></span>
+                        <a href="#getUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getUser(req)</code>
+                </td>
+            </tr>
 
-    </div>
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get()<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="25"
+                            class="link-to-prism">apps/api/src/users/user.controller.ts:25</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Retrieves current authenticated user</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>req</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>IUser</code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>queried user data</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, UnauthorizedException } from &#x27;@nestjs/common&#x27;;
-import { ConfigService } from &#x27;@nestjs/config&#x27;;
-import { PassportStrategy } from &#x27;@nestjs/passport&#x27;;
-import { ExtractJwt, Strategy } from &#x27;passport-jwt&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Body, Controller, Get, Put, Request } from &#x27;@nestjs/common&#x27;;
+import { ApiBearerAuth, ApiResponse, ApiTags } from &#x27;@nestjs/swagger&#x27;;
 
-import { UserEntity } from &#x27;../users/user.entity&#x27;;
-import { UsersService } from &#x27;../users/users.service&#x27;;
+import { IUser } from &#x27;@starter/api-types&#x27;;
 
-/**
- * Jwt Strategy Class
- */
-@Injectable()
-export class JwtStrategy extends PassportStrategy(Strategy) {
-  /**
-   * Constructor
-   * @param {ConfigService} configService
-   * @param {UsersService} usersService
-   */
+import { AuthService } from &#x27;../auth/auth.service&#x27;;
+import { PatchUserDto } from &#x27;./dto/patch-user.dto&#x27;;
+import { UserParam } from &#x27;./user.decorator&#x27;;
+import { UserEntity } from &#x27;./user.entity&#x27;;
+import { UsersService } from &#x27;./users.service&#x27;;
+
+@ApiBearerAuth()
+@ApiTags(&#x27;user&#x27;)
+@Controller(&#x27;v1/user&#x27;)
+export class UserController {
   constructor(
-    private readonly configService: ConfigService,
+    private readonly authService: AuthService,
     private readonly usersService: UsersService,
-  ) {
-    super({
-      jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-      ignoreExpiration: false,
-      secretOrKey: configService.get(&#x27;WEBTOKEN_ENCRYPTION_KEY&#x27;),
-    });
+  ) {}
+  /**
+   * Retrieves current authenticated user
+   * @returns {IUser} queried user data
+   */
+  @Get()
+  getUser(@Request() req): IUser {
+    return req.user as IUser;
   }
 
   /**
-   * Checks if the bearer token is a valid token
-   * @param {Record&lt;string, unknown&gt;} jwtPayload validation method for jwt token
-   * @returns {Promise&lt;Record&lt;string, unknown&gt;&gt;} a object to be signed
+   * Edit a user
+   * @param {RegisterPayload} payload
+   * @returns {Promise&lt;UserEntity&gt;} mutated user data
    */
-  async validate({
-    iat,
-    exp,
-    id,
-  }: Record&lt;string, number&gt;): Promise&lt;UserEntity&gt; {
-    const timeDiff &#x3D; exp - iat;
-    if (timeDiff &lt;&#x3D; 0) {
-      throw new UnauthorizedException();
-    }
-
-    const user &#x3D; await this.usersService.get(id);
-    if (!user) {
-      throw new UnauthorizedException();
-    }
-
-    return user;
+  @Put()
+  @ApiResponse({ status: 200, description: &#x27;Put User Request Received&#x27; })
+  @ApiResponse({ status: 400, description: &#x27;Put User Request Failed&#x27; })
+  async editUser(
+    @UserParam(&#x27;id&#x27;) userId: number,
+    @Body() payload: PatchUserDto,
+  ): Promise&lt;UserEntity&gt; {
+    return this.usersService.edit(userId, payload.user);
   }
 }
 </code></pre>
     </div>
-
 </div>
+
+
+
 
 
 
@@ -342,8 +366,8 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'JwtStrategy.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'controller';
+            var COMPODOC_CURRENT_PAGE_URL = 'UserController.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

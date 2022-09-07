@@ -28,16 +28,19 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content controller">
+               <div class="content injectable">
                    <div class="content-data">
 
 
 
 
 
+
+
+
 <ol class="breadcrumb">
-  <li>Controllers</li>
-  <li >AuthController</li>
+  <li>Injectables</li>
+  <li >TagService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -55,24 +58,9 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/api/src/auth/auth.controller.ts</code>
+            <code>apps/api/src/tag/tag.service.ts</code>
         </p>
 
-            <p class="comment">
-                <h3>Prefix</h3>
-            </p>
-            <p class="comment">
-                <code>v1/auth</code>
-            </p>
-
-
-            <p class="comment">
-                <h3>Description</h3>
-            </p>
-            <p class="comment">
-                <p>Authentication Controller</p>
-
-            </p>
 
 
 
@@ -92,11 +80,11 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#login" >login</a>
+                                <a href="#createTag" >createTag</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#register" >register</a>
+                                <a href="#getTags" >getTags</a>
                             </li>
                         </ul>
                     </td>
@@ -111,6 +99,67 @@
 </section>
 
             <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(tagRepository: <a href="../entitys/TagEntity.html" target="_self">Repository&lt;TagEntity&gt;</a>, logger: Logger)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">apps/api/src/tag/tag.service.ts:11</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>tagRepository</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../entitys/TagEntity.html" target="_self" >Repository&lt;TagEntity&gt;</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>logger</td>
+                                                  
+                                                        <td>
+                                                                    <code>Logger</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section>
     
     <h3 id="methods">
         Methods
@@ -119,41 +168,32 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="login"></a>
+                    <a name="createTag"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
-                        <span ><b>login</b></span>
-                        <a href="#login"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>createTag</b></span>
+                        <a href="#createTag"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>login(payload: <a href="../classes/LoginDto.html" target="_self">LoginDto</a>)</code>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <b>Decorators : </b>
-                    <br />
-                    <code>@Public()<br />@Post(&#x27;login&#x27;)<br />@ApiResponse({status: 201, description: &#x27;Login Completed&#x27;})<br />@ApiResponse({status: 400, description: &#x27;Bad Request&#x27;})<br />@ApiResponse({status: 401, description: &#x27;Unauthorized&#x27;})<br /></code>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="37"
-                            class="link-to-prism">apps/api/src/auth/auth.controller.ts:37</a></div>
+                    <code>createTag(tag: <a href="../classes/CreateTagDto.html" target="_self">CreateTagDto</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Login route to validate and create tokens for users</p>
-</div>
+                    <div class="io-line">Defined in <a href="" data-line="22"
+                            class="link-to-prism">apps/api/src/tag/tag.service.ts:22</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -164,14 +204,13 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
-                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>payload</td>
+                                    <td>tag</td>
                                     <td>
-                                                <code><a href="../classes/LoginDto.html" target="_self" >LoginDto</a></code>
+                                                <code><a href="../classes/CreateTagDto.html" target="_self" >CreateTagDto</a></code>
                                     </td>
 
                                     <td>
@@ -179,10 +218,6 @@
                                     </td>
 
 
-                                    <td>
-                                        <p>the login dto</p>
-
-                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -190,7 +225,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;IJWTResponseBody&gt;</code>
+                        <b>Returns : </b>        <code><a href="../entitys/TagEntity.html" target="_self" >Promise&lt;TagEntity&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -204,152 +239,83 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="register"></a>
+                    <a name="getTags"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
-                        <span ><b>register</b></span>
-                        <a href="#register"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>getTags</b></span>
+                        <a href="#getTags"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>register(payload: <a href="../classes/RegisterDto.html" target="_self">RegisterDto</a>)</code>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <b>Decorators : </b>
-                    <br />
-                    <code>@Public()<br />@Post(&#x27;register&#x27;)<br />@ApiResponse({status: 201, description: &#x27;Registration Completed&#x27;})<br />@ApiResponse({status: 400, description: &#x27;Bad Request&#x27;})<br />@ApiResponse({status: 401, description: &#x27;Unauthorized&#x27;})<br /></code>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="51"
-                            class="link-to-prism">apps/api/src/auth/auth.controller.ts:51</a></div>
+                    <code>getTags()</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Authentication route to register</p>
-</div>
+                    <div class="io-line">Defined in <a href="" data-line="18"
+                            class="link-to-prism">apps/api/src/tag/tag.service.ts:18</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
 
                     <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                    <td>Description</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>payload</td>
-                                    <td>
-                                                <code><a href="../classes/RegisterDto.html" target="_self" >RegisterDto</a></code>
-                                    </td>
+                        <b>Returns : </b>        <code><a href="../entitys/TagEntity.html" target="_self" >Promise&lt;TagEntity[]&gt;</a></code>
 
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                    <td>
-                                        <p>the registration dto</p>
-
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>unknown</code>
-
-                    </div>
-                    <div class="io-description">
-                        
                     </div>
                 </td>
             </tr>
         </tbody>
     </table>
-</section>    </div>
+</section>
+
+    </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Body, Controller, Post } from &#x27;@nestjs/common&#x27;;
-import { ApiResponse, ApiTags } from &#x27;@nestjs/swagger&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Inject, Injectable } from &#x27;@nestjs/common&#x27;;
+import { InjectRepository } from &#x27;@nestjs/typeorm&#x27;;
+import { WINSTON_MODULE_PROVIDER } from &#x27;nest-winston&#x27;;
+import { Repository } from &#x27;typeorm&#x27;;
+import { Logger } from &#x27;winston&#x27;;
 
-import { IJWTResponseBody } from &#x27;@starter/api-types&#x27;;
+import { CreateTagDto } from &#x27;./dto/create-tag.dto&#x27;;
+import { TagEntity } from &#x27;./tag.entity&#x27;;
 
-import { UsersService } from &#x27;../users/users.service&#x27;;
-import { AuthService } from &#x27;./auth.service&#x27;;
-import { LoginDto } from &#x27;./dto/login.dto&#x27;;
-import { RegisterDto } from &#x27;./dto/register.dto&#x27;;
-import { Public } from &#x27;./public.decorator&#x27;;
-
-/**
- * Authentication Controller
- */
-@ApiTags(&#x27;authentication&#x27;)
-@Controller(&#x27;v1/auth&#x27;)
-export class AuthController {
-  /**
-   * Constructor
-   * @param {AuthService} authService authentication service
-   * @param {ProfileService} usersService profile service
-   */
+@Injectable()
+export class TagService {
   constructor(
-    private readonly authService: AuthService,
-    private readonly usersService: UsersService,
+    @InjectRepository(TagEntity)
+    private readonly tagRepository: Repository&lt;TagEntity&gt;,
+    @Inject(WINSTON_MODULE_PROVIDER) private readonly logger: Logger,
   ) {}
 
-  /**
-   * Login route to validate and create tokens for users
-   * @param {LoginDto} payload the login dto
-   */
-  @Public()
-  @Post(&#x27;login&#x27;)
-  @ApiResponse({ status: 201, description: &#x27;Login Completed&#x27; })
-  @ApiResponse({ status: 400, description: &#x27;Bad Request&#x27; })
-  @ApiResponse({ status: 401, description: &#x27;Unauthorized&#x27; })
-  async login(@Body() payload: LoginDto): Promise&lt;IJWTResponseBody&gt; {
-    const user &#x3D; await this.authService.validateUser(payload);
-    return this.authService.createToken(user);
+  async getTags(): Promise&lt;TagEntity[]&gt; {
+    return await this.tagRepository.find();
   }
 
-  /**
-   * Authentication route to register
-   * @param {RegisterDto} payload the registration dto
-   */
-  @Public()
-  @Post(&#x27;register&#x27;)
-  @ApiResponse({ status: 201, description: &#x27;Registration Completed&#x27; })
-  @ApiResponse({ status: 400, description: &#x27;Bad Request&#x27; })
-  @ApiResponse({ status: 401, description: &#x27;Unauthorized&#x27; })
-  async register(@Body() payload: RegisterDto) {
-    const user &#x3D; await this.usersService.create(payload);
-    return this.authService.createToken(user);
+  async createTag(tag: CreateTagDto): Promise&lt;TagEntity&gt; {
+    try {
+      const article &#x3D; new TagEntity();
+      Object.assign(article, tag);
+      return await this.tagRepository.save(article);
+    } catch (error) {
+      // Error case is likely a duplicate tag which is fine to be ignored
+      this.logger.debug(&#x60;Tag ${tag.name} exists, so not creating duplicate&#x60;);
+    }
   }
 }
 </code></pre>
     </div>
+
 </div>
-
-
-
 
 
 
@@ -388,8 +354,8 @@ export class AuthController {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'controller';
-            var COMPODOC_CURRENT_PAGE_URL = 'AuthController.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'TagService.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

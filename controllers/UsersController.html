@@ -95,15 +95,16 @@
                                 <a href="#deleteUserByUsername" >deleteUserByUsername</a>
                             </li>
                             <li>
-                                <a href="#getUser" >getUser</a>
-                            </li>
-                            <li>
                                     <span class="modifier">Async</span>
                                 <a href="#getUserByUsername" >getUserByUsername</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#patchUser" >patchUser</a>
+                                <a href="#login" >login</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#register" >register</a>
                             </li>
                         </ul>
                     </td>
@@ -151,8 +152,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="85"
-                            class="link-to-prism">apps/api/src/users/users.controller.ts:85</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="120"
+                            class="link-to-prism">apps/api/src/users/users.controller.ts:120</a></div>
                 </td>
             </tr>
 
@@ -212,81 +213,6 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="getUser"></a>
-                    <span class="name">
-                        <span ><b>getUser</b></span>
-                        <a href="#getUser"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>getUser(req)</code>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <b>Decorators : </b>
-                    <br />
-                    <code>@Get(&#x27;user&#x27;)<br /></code>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="41"
-                            class="link-to-prism">apps/api/src/users/users.controller.ts:41</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Retrieves current authenticated user</p>
-</div>
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>req</td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        <p>queried user data</p>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
                     <a name="getUserByUsername"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -312,8 +238,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="53"
-                            class="link-to-prism">apps/api/src/users/users.controller.ts:53</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="98"
+                            class="link-to-prism">apps/api/src/users/users.controller.ts:98</a></div>
                 </td>
             </tr>
 
@@ -358,7 +284,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../entitys/User.html" target="_self" >Promise&lt;User&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../entitys/UserEntity.html" target="_self" >Promise&lt;UserEntity&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -373,18 +299,18 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="patchUser"></a>
+                    <a name="login"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
-                        <span ><b>patchUser</b></span>
-                        <a href="#patchUser"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>login</b></span>
+                        <a href="#login"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>patchUser(payload: <a href="../classes/PatchUserDto.html" target="_self">PatchUserDto</a>)</code>
+                    <code>login(payload: <a href="../classes/LoginDto.html" target="_self">LoginDto</a>)</code>
                 </td>
             </tr>
 
@@ -392,21 +318,21 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Patch()<br />@ApiResponse({status: 200, description: &#x27;Patch User Request Received&#x27;})<br />@ApiResponse({status: 400, description: &#x27;Patch User Request Failed&#x27;})<br /></code>
+                    <code>@Public()<br />@Post(&#x27;login&#x27;)<br />@ApiResponse({status: 201, description: &#x27;Login Completed&#x27;})<br />@ApiResponse({status: 400, description: &#x27;Bad Request&#x27;})<br />@ApiResponse({status: 401, description: &#x27;Unauthorized&#x27;})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="71"
-                            class="link-to-prism">apps/api/src/users/users.controller.ts:71</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="75"
+                            class="link-to-prism">apps/api/src/users/users.controller.ts:75</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Edit a user</p>
+                    <div class="io-description"><p>Login route to validate and create tokens for users</p>
 </div>
 
                     <div class="io-description">
@@ -418,13 +344,14 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>payload</td>
                                     <td>
-                                                <code><a href="../classes/PatchUserDto.html" target="_self" >PatchUserDto</a></code>
+                                                <code><a href="../classes/LoginDto.html" target="_self" >LoginDto</a></code>
                                     </td>
 
                                     <td>
@@ -432,6 +359,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>the login dto</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -439,12 +370,96 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../entitys/User.html" target="_self" >Promise&lt;User&gt;</a></code>
+                        <b>Returns : </b>    <code>Promise&lt;Record&lt;string, IUserResponseBody&gt;&gt;</code>
 
                     </div>
                     <div class="io-description">
-                        <p>mutated user data</p>
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="register"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>register</b></span>
+                        <a href="#register"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>register(payload: <a href="../classes/RegisterDto.html" target="_self">RegisterDto</a>)</code>
+                </td>
+            </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Public()<br />@Post()<br />@ApiResponse({status: 201, description: &#x27;Registration Completed&#x27;})<br />@ApiResponse({status: 400, description: &#x27;Bad Request&#x27;})<br />@ApiResponse({status: 401, description: &#x27;Unauthorized&#x27;})<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="51"
+                            class="link-to-prism">apps/api/src/users/users.controller.ts:51</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Authentication route to register</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>payload</td>
+                                    <td>
+                                                <code><a href="../classes/RegisterDto.html" target="_self" >RegisterDto</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>the registration dto</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;Record&lt;string, IUserResponseBody&gt;&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
                     </div>
                 </td>
             </tr>
@@ -461,19 +476,21 @@
   Delete,
   Get,
   Param,
-  Patch,
-  Request,
+  Post,
   UseGuards,
 } from &#x27;@nestjs/common&#x27;;
 import { ApiBearerAuth, ApiResponse, ApiTags } from &#x27;@nestjs/swagger&#x27;;
 
-import { IGenericMessageBody } from &#x27;@starter/api-types&#x27;;
+import { IGenericMessageBody, IUserResponseBody } from &#x27;@starter/api-types&#x27;;
 
+import { AuthService } from &#x27;../auth/auth.service&#x27;;
+import { LoginDto } from &#x27;../auth/dto/login.dto&#x27;;
+import { RegisterDto } from &#x27;../auth/dto/register.dto&#x27;;
+import { Public } from &#x27;../auth/public.decorator&#x27;;
 import { CheckPolicies } from &#x27;../casl/check-policies.decorator&#x27;;
 import { PoliciesGuard } from &#x27;../casl/policies.guard&#x27;;
 import { DeleteUserPolicyHandler } from &#x27;../casl/policy-handlers&#x27;;
-import { PatchUserDto } from &#x27;./dto/patch-user.dto&#x27;;
-import { User } from &#x27;./user.entity&#x27;;
+import { UserEntity } from &#x27;./user.entity&#x27;;
 import { UsersService } from &#x27;./users.service&#x27;;
 
 /**
@@ -485,28 +502,73 @@ import { UsersService } from &#x27;./users.service&#x27;;
 export class UsersController {
   /**
    * Constructor
+   * @param {AuthService} authService authentication service
    * @param usersService
    */
-  constructor(private readonly usersService: UsersService) {}
+  constructor(
+    private readonly authService: AuthService,
+    private readonly usersService: UsersService,
+  ) {}
 
   /**
-   * Retrieves current authenticated user
-   * @returns {Promise&lt;User&gt;} queried user data
+   * Authentication route to register
+   * @param {RegisterDto} payload the registration dto
    */
-  @Get(&#x27;user&#x27;)
-  getUser(@Request() req) {
-    return req.user;
+  @Public()
+  @Post()
+  @ApiResponse({ status: 201, description: &#x27;Registration Completed&#x27; })
+  @ApiResponse({ status: 400, description: &#x27;Bad Request&#x27; })
+  @ApiResponse({ status: 401, description: &#x27;Unauthorized&#x27; })
+  async register(
+    @Body() payload: RegisterDto,
+  ): Promise&lt;Record&lt;string, IUserResponseBody&gt;&gt; {
+    const user &#x3D; await this.usersService.create(payload);
+    return {
+      user: {
+        email: user.email,
+        token: this.authService.createToken(user),
+        username: user.username,
+        bio: user.bio,
+        image: user.image,
+      },
+    };
+  }
+
+  /**
+   * Login route to validate and create tokens for users
+   * @param {LoginDto} payload the login dto
+   */
+  @Public()
+  @Post(&#x27;login&#x27;)
+  @ApiResponse({ status: 201, description: &#x27;Login Completed&#x27; })
+  @ApiResponse({ status: 400, description: &#x27;Bad Request&#x27; })
+  @ApiResponse({ status: 401, description: &#x27;Unauthorized&#x27; })
+  async login(
+    @Body() payload: LoginDto,
+  ): Promise&lt;Record&lt;string, IUserResponseBody&gt;&gt; {
+    const user &#x3D; await this.usersService.validateUser(payload);
+    return {
+      user: {
+        email: user.email,
+        token: this.authService.createToken(user),
+        username: user.username,
+        bio: user.bio,
+        image: user.image,
+      },
+    };
   }
 
   /**
    * Retrieves a particular user
    * @param username the user given username to fetch
-   * @returns {Promise&lt;User&gt;} queried user data
+   * @returns {Promise&lt;UserEntity&gt;} queried user data
    */
   @Get(&#x27;:username&#x27;)
   @ApiResponse({ status: 200, description: &#x27;Fetch User Request Received&#x27; })
   @ApiResponse({ status: 400, description: &#x27;Fetch User Request Failed&#x27; })
-  async getUserByUsername(@Param(&#x27;username&#x27;) username: string): Promise&lt;User&gt; {
+  async getUserByUsername(
+    @Param(&#x27;username&#x27;) username: string,
+  ): Promise&lt;UserEntity&gt; {
     const user &#x3D; await this.usersService.getByUsername(username);
     if (!user) {
       throw new BadRequestException(
@@ -514,18 +576,6 @@ export class UsersController {
       );
     }
     return user;
-  }
-
-  /**
-   * Edit a user
-   * @param {RegisterPayload} payload
-   * @returns {Promise&lt;User&gt;} mutated user data
-   */
-  @Patch()
-  @ApiResponse({ status: 200, description: &#x27;Patch User Request Received&#x27; })
-  @ApiResponse({ status: 400, description: &#x27;Patch User Request Failed&#x27; })
-  async patchUser(@Body() payload: PatchUserDto): Promise&lt;User&gt; {
-    return this.usersService.edit(payload);
   }
 
   /**
