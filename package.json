@@ -55,6 +55,7 @@
     "passport-jwt": "^4.0.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "~7.5.0",
+    "slugify": "^1.6.5",
     "tslib": "^2.3.0",
     "typeorm": "^0.3.7",
     "winston": "^3.8.1",
