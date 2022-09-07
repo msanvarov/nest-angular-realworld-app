@@ -13,6 +13,7 @@ import { AppService } from './app.service';
 import { ArticleModule } from './article/article.module';
 import { AuthModule } from './auth/auth.module';
 import { CaslModule } from './casl/casl.module';
+import { ProfileModule } from './profile/profile.module';
 import { TagModule } from './tag/tag.module';
 import { UsersModule } from './users/users.module';
 
@@ -108,6 +109,7 @@ import { UsersModule } from './users/users.module';
     CaslModule,
     TagModule,
     ArticleModule,
+    ProfileModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -44,11 +44,12 @@ export enum UserActionsEnum {
 
 export interface IUser {
   username: string;
-  gravatar?: string;
+  email: string;
+  bio: string;
+  image?: string;
   roles?: {
     role: UserRolesEnum;
   }[];
-  name?: string;
   authenticated: boolean;
   token: string;
 }
@@ -92,4 +93,8 @@ export interface IArticlesResponseBody {
 
 export interface IArticleResponseBody {
   article: IArticle;
+}
+
+export interface IProfile extends IUser {
+  following: boolean;
 }
