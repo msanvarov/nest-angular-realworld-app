@@ -112,7 +112,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">apps/api/src/auth/jwt.strategy.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">apps/api/src/auth/jwt.strategy.ts:12</a></div>
                             </td>
                         </tr>
 
@@ -184,7 +184,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>validate(undefined: Record<string | number>)</code>
+                    <code>validate(request: Request, jwtPayload: Record<string | number>)</code>
                 </td>
             </tr>
 
@@ -211,10 +211,26 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
+                                    <td>request</td>
+                                    <td>
+                                            <code>Request</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>jwtPayload</td>
                                     <td>
                                             <code>Record&lt;string | number&gt;</code>
                                     </td>
@@ -224,6 +240,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>validation method for jwt token</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -231,7 +251,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../entitys/UserEntity.html" target="_self" >Promise&lt;UserEntity&gt;</a></code>
+                        <b>Returns : </b>    <code>unknown</code>
 
                     </div>
                     <div class="io-description">
@@ -253,7 +273,6 @@ import { ConfigService } from &#x27;@nestjs/config&#x27;;
 import { PassportStrategy } from &#x27;@nestjs/passport&#x27;;
 import { ExtractJwt, Strategy } from &#x27;passport-jwt&#x27;;
 
-import { UserEntity } from &#x27;../users/user.entity&#x27;;
 import { UsersService } from &#x27;../users/users.service&#x27;;
 
 /**
@@ -274,6 +293,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
       jwtFromRequest: ExtractJwt.fromAuthHeaderWithScheme(&#x27;Token&#x27;),
       ignoreExpiration: false,
       secretOrKey: configService.get(&#x27;WEBTOKEN_ENCRYPTION_KEY&#x27;),
+      passReqToCallback: true,
     });
   }
 
@@ -282,13 +302,8 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
    * @param {Record&lt;string, unknown&gt;} jwtPayload validation method for jwt token
    * @returns {Promise&lt;Record&lt;string, unknown&gt;&gt;} a object to be signed
    */
-  async validate({
-    iat,
-    exp,
-    id,
-    ...rest
-  }: Record&lt;string, number&gt;): Promise&lt;UserEntity&gt; {
-    console.log(rest);
+  async validate(request: Request, jwtPayload: Record&lt;string, number&gt;) {
+    const { iat, exp, id } &#x3D; jwtPayload;
     const timeDiff &#x3D; exp - iat;
     if (timeDiff &lt;&#x3D; 0) {
       throw new UnauthorizedException();
@@ -299,7 +314,13 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
       throw new UnauthorizedException();
     }
 
-    return user;
+    return {
+      user: {
+        ...user,
+        // Hacks to bind the JWT token to the req.user
+        token: request.headers[&#x27;authorization&#x27;].split(&#x27; &#x27;)[1],
+      },
+    };
   }
 }
 </code></pre>
