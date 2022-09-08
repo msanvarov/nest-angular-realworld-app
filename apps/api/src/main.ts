@@ -8,6 +8,8 @@ import {
 } from '@nestjs/platform-fastify';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
+import { GLOBAL_API_PREFIX } from '@starter/api-types';
+
 import { AppModule } from './app.module';
 
 /**
@@ -48,6 +50,7 @@ async function bootstrap() {
   app.enableCors();
   app.register(helmet, {
     contentSecurityPolicy: {
+      // Remark: this is to make the Angular ui function as expected
       directives: {
         'script-src-attr': ["'unsafe-inline'"],
       },
@@ -59,8 +62,7 @@ async function bootstrap() {
   });
   app.useGlobalPipes(new ValidationPipe());
 
-  const globalPrefix = 'api';
-  app.setGlobalPrefix(globalPrefix);
+  app.setGlobalPrefix(GLOBAL_API_PREFIX);
 
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup(OPEN_API_ROOT, app, document);
@@ -69,7 +71,7 @@ async function bootstrap() {
 
   await app.listen(port, '0.0.0.0');
   Logger.log(
-    `🚀 Application is running on: http://localhost:${port}/${globalPrefix}`,
+    `🚀 Application is running on: http://localhost:${port}/${GLOBAL_API_PREFIX}`,
   );
 }
 

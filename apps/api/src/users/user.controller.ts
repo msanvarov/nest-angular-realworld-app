@@ -3,7 +3,6 @@ import { ApiBearerAuth, ApiResponse, ApiTags } from '@nestjs/swagger';
 
 import { IUser } from '@starter/api-types';
 
-import { AuthService } from '../auth/auth.service';
 import { PatchUserDto } from './dto/patch-user.dto';
 import { UserParam } from './user.decorator';
 import { UserEntity } from './user.entity';
@@ -11,12 +10,9 @@ import { UsersService } from './users.service';
 
 @ApiBearerAuth()
 @ApiTags('user')
-@Controller('v1/user')
+@Controller('user')
 export class UserController {
-  constructor(
-    private readonly authService: AuthService,
-    private readonly usersService: UsersService,
-  ) {}
+  constructor(private readonly usersService: UsersService) {}
   /**
    * Retrieves current authenticated user
    * @returns {IUser} queried user data

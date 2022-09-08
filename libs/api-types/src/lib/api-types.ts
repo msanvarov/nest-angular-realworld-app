@@ -1,5 +1,18 @@
+export const GLOBAL_API_PREFIX = '/api';
+
+export const ApiAuthRoutes = {
+  LOGIN: GLOBAL_API_PREFIX + '/auth/login',
+  REGISTER: GLOBAL_API_PREFIX + '/auth/register',
+};
+
+export const ApiUsersRoutes = {
+  GET_USER: GLOBAL_API_PREFIX + '/users/user',
+  // username is the token to be replaced with a username
+  GET_USER_BY_USERNAME: GLOBAL_API_PREFIX + '/users/{{username}}',
+};
+
 /**
- *
+ * Default response type for api calls
  */
 export interface IMessage {
   message: string;
@@ -52,17 +65,6 @@ export interface IUser {
   }[];
   authenticated: boolean;
   token: string;
-}
-
-export enum ApiAuthRoutesEnum {
-  LOGIN = '/api/v1/auth/login',
-  REGISTER = '/api/v1/auth/register',
-}
-
-export enum ApiUsersRoutesEnum {
-  GET_USER = '/api/v1/users/user',
-  // username is the token to be replaced with a username
-  GET_USER_BY_USERNAME = '/api/v1/users/{{username}}',
 }
 
 export interface IAuthRegisterPayload {

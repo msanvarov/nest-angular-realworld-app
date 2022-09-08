@@ -5,7 +5,7 @@ import { TagService } from './tag.service';
 
 @ApiBearerAuth()
 @ApiTags('tags')
-@Controller('v1/tags')
+@Controller('tags')
 export class TagController {
   constructor(private readonly tagService: TagService) {}
 

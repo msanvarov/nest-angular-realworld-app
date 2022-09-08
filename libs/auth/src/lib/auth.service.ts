@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { mergeMap, tap } from 'rxjs';
 
 import {
-  ApiAuthRoutesEnum,
+  ApiAuthRoutes,
   IAuthRegisterPayload,
   IUser,
   IUserResponseBody,
@@ -33,7 +33,7 @@ export class AuthService {
 
   loginUser(username: string, password: string) {
     return this.http
-      .post(ApiAuthRoutesEnum.LOGIN, {
+      .post(ApiAuthRoutes.LOGIN, {
         username,
         password,
       })
@@ -50,7 +50,7 @@ export class AuthService {
   }
 
   registerUser(registerPayload: IAuthRegisterPayload) {
-    return this.http.post(ApiAuthRoutesEnum.REGISTER, registerPayload).pipe(
+    return this.http.post(ApiAuthRoutes.REGISTER, registerPayload).pipe(
       mergeMap((user) =>
         this.usersService.getAuthenticatedUserDetails(
           (user as IUserResponseBody).token,

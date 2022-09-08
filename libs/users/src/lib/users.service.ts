@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-import { ApiUsersRoutesEnum, IUser } from '@starter/api-types';
+import { ApiUsersRoutes, IUser } from '@starter/api-types';
 import { Store } from '@starter/store';
 
 @Injectable({
@@ -12,7 +12,7 @@ export class UsersService {
 
   getAuthenticatedUserDetails(token: string) {
     // fetching user token from store
-    return this.http.get<IUser>(ApiUsersRoutesEnum.GET_USER, {
+    return this.http.get<IUser>(ApiUsersRoutes.GET_USER, {
       headers: { Authorization: `Bearer ${token}` },
     });
   }

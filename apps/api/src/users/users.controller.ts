@@ -27,7 +27,7 @@ import { UsersService } from './users.service';
  */
 @ApiBearerAuth()
 @ApiTags('users')
-@Controller('v1/users')
+@Controller('users')
 export class UsersController {
   /**
    * Constructor

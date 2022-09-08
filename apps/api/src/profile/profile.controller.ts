@@ -16,7 +16,7 @@ import { ProfileService } from './profile.service';
 
 @ApiBearerAuth()
 @ApiTags('profile')
-@Controller('v1/profile')
+@Controller('profile')
 export class ProfileController {
   constructor(private readonly profileService: ProfileService) {}
 

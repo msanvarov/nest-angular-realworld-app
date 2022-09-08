@@ -31,7 +31,7 @@ import { CreateArticleDto } from './dto/create-article.dto';
 
 @ApiBearerAuth()
 @ApiTags('articles')
-@Controller('v1/articles')
+@Controller('articles')
 export class ArticleController {
   constructor(private readonly articleService: ArticleService) {}
 
