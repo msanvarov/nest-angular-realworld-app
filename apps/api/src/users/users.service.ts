@@ -11,8 +11,8 @@ import { Repository } from 'typeorm';
 
 import { IGenericMessageBody } from '@starter/api-types';
 
-import { LoginDto } from '../auth/dto/login.dto';
-import { RegisterDto } from '../auth/dto/register.dto';
+import { LoginDto, UserLoginDto } from '../auth/dto/login.dto';
+import { UserRegistrationDto } from '../auth/dto/register.dto';
 import { UserDto } from './dto/patch-user.dto';
 import { UserRoles } from './user-role.entity';
 import { UserEntity } from './user.entity';
@@ -72,10 +72,10 @@ export class UsersService {
 
   /**
    * Create a user with RegisterPayload fields
-   * @param {RegisterDto} payload user payload
+   * @param {UserRegistrationDto} payload user payload
    * @returns {Promise<UserEntity>} data from the created user
    */
-  async create(payload: RegisterDto): Promise<UserEntity> {
+  async create(payload: UserRegistrationDto): Promise<UserEntity> {
     const user = await this.getByUsername(payload.username);
 
     if (user) {
@@ -129,7 +129,7 @@ export class UsersService {
    * @param {LoginDto} param login payload to authenticate with
    * @returns {Promise<UserEntity>} registered user
    */
-  async validateUser({ email, password }: LoginDto): Promise<UserEntity> {
+  async validateUser({ email, password }: UserLoginDto): Promise<UserEntity> {
     const user = await this.getUserByEmailAndPass(email, password);
 
     if (!user) {

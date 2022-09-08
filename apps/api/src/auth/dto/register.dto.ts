@@ -1,15 +1,17 @@
 import { ApiProperty } from '@nestjs/swagger';
+import { Type } from 'class-transformer';
 import {
   IsAlphanumeric,
   IsEmail,
   IsNotEmpty,
   MinLength,
+  ValidateNested,
 } from 'class-validator';
 
 /**
  * Register Dto Class
  */
-export class RegisterDto {
+export class UserRegistrationDto {
   /**
    * Email field
    */
@@ -33,4 +35,11 @@ export class RegisterDto {
   @IsNotEmpty()
   @MinLength(8)
   readonly password: string;
+}
+
+export class RegisterDto {
+  @ApiProperty()
+  @Type(() => UserRegistrationDto)
+  @ValidateNested()
+  readonly user: UserRegistrationDto;
 }

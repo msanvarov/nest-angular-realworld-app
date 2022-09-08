@@ -31,14 +31,14 @@ export class AuthService {
     return this.user !== undefined;
   }
 
-  loginUser(username: string, password: string) {
+  loginUser(email: string, password: string) {
     return this.http
       .post(ApiAuthRoutes.LOGIN, {
-        username,
+        email,
         password,
       })
       .pipe(
-        mergeMap((user) =>
+        mergeMap(({ user }: any) =>
           this.usersService.getAuthenticatedUserDetails(
             (user as IUserResponseBody).token,
           ),

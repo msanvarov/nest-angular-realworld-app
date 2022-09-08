@@ -15,8 +15,8 @@ import { UserParam } from '../users/user.decorator';
 import { ProfileService } from './profile.service';
 
 @ApiBearerAuth()
-@ApiTags('profile')
-@Controller('profile')
+@ApiTags('profiles')
+@Controller('profiles')
 export class ProfileController {
   constructor(private readonly profileService: ProfileService) {}
 

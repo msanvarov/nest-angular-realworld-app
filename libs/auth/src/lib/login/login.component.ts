@@ -10,7 +10,7 @@ import { AuthService } from '../auth.service';
 })
 export class LoginComponent {
   isLoginFormValid = true;
-  username = '';
+  email = '';
   password = '';
   loading = false;
 
@@ -19,7 +19,7 @@ export class LoginComponent {
   onSubmit(): void {
     this.loading = true;
     this.isLoginFormValid = true;
-    this.authService.loginUser(this.username, this.password).subscribe({
+    this.authService.loginUser(this.email, this.password).subscribe({
       next: (_) => {
         this.loading = false;
         this.isLoginFormValid = true;

@@ -51,7 +51,7 @@ export class UsersController {
   async register(
     @Body() payload: RegisterDto,
   ): Promise<Record<string, IUserResponseBody>> {
-    const user = await this.usersService.create(payload);
+    const user = await this.usersService.create(payload.user);
     return {
       user: {
         email: user.email,
@@ -75,7 +75,7 @@ export class UsersController {
   async login(
     @Body() payload: LoginDto,
   ): Promise<Record<string, IUserResponseBody>> {
-    const user = await this.usersService.validateUser(payload);
+    const user = await this.usersService.validateUser(payload.user);
     return {
       user: {
         email: user.email,
