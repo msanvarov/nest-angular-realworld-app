@@ -1,6 +1,7 @@
 import { Controller, Get } from '@nestjs/common';
 import { ApiBearerAuth, ApiResponse, ApiTags } from '@nestjs/swagger';
 
+import { Public } from '../auth/public.decorator';
 import { TagService } from './tag.service';
 
 @ApiBearerAuth()
@@ -9,6 +10,7 @@ import { TagService } from './tag.service';
 export class TagController {
   constructor(private readonly tagService: TagService) {}
 
+  @Public()
   @Get()
   @ApiResponse({ status: 200, description: 'Fetch Tags Request Received' })
   @ApiResponse({ status: 400, description: 'Fetch Tags Request Failed' })
