@@ -102,6 +102,10 @@
                                 <a href="#getArticles" >getArticles</a>
                             </li>
                             <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#getFeed" >getFeed</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Private</span>
                                 <a href="#getSlug" >getSlug</a>
                             </li>
@@ -127,12 +131,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(articleRepository: <a href="../entitys/ArticleEntity.html" target="_self">Repository&lt;ArticleEntity&gt;</a>, userRepository: <a href="../entitys/UserEntity.html" target="_self">Repository&lt;UserEntity&gt;</a>, tagService: <a href="../injectables/TagService.html" target="_self">TagService</a>)</code>
+<code>constructor(articleRepository: <a href="../entitys/ArticleEntity.html" target="_self">Repository&lt;ArticleEntity&gt;</a>, userRepository: <a href="../entitys/UserEntity.html" target="_self">Repository&lt;UserEntity&gt;</a>, followRepository: <a href="../entitys/FollowEntity.html" target="_self">Repository&lt;FollowEntity&gt;</a>, tagService: <a href="../injectables/TagService.html" target="_self">TagService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">apps/api/src/article/article.service.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">apps/api/src/article/article.service.ts:20</a></div>
                             </td>
                         </tr>
 
@@ -166,6 +170,18 @@
                                                   
                                                         <td>
                                                                         <code><a href="../entitys/UserEntity.html" target="_self" >Repository&lt;UserEntity&gt;</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>followRepository</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../entitys/FollowEntity.html" target="_self" >Repository&lt;FollowEntity&gt;</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -221,8 +237,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="149"
-                            class="link-to-prism">apps/api/src/article/article.service.ts:149</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="185"
+                            class="link-to-prism">apps/api/src/article/article.service.ts:185</a></div>
                 </td>
             </tr>
 
@@ -302,8 +318,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="198"
-                            class="link-to-prism">apps/api/src/article/article.service.ts:198</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="234"
+                            class="link-to-prism">apps/api/src/article/article.service.ts:234</a></div>
                 </td>
             </tr>
 
@@ -373,8 +389,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="109"
-                            class="link-to-prism">apps/api/src/article/article.service.ts:109</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="145"
+                            class="link-to-prism">apps/api/src/article/article.service.ts:145</a></div>
                 </td>
             </tr>
 
@@ -456,8 +472,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="174"
-                            class="link-to-prism">apps/api/src/article/article.service.ts:174</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="210"
+                            class="link-to-prism">apps/api/src/article/article.service.ts:210</a></div>
                 </td>
             </tr>
 
@@ -539,8 +555,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="105"
-                            class="link-to-prism">apps/api/src/article/article.service.ts:105</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="109"
+                            class="link-to-prism">apps/api/src/article/article.service.ts:109</a></div>
                 </td>
             </tr>
 
@@ -603,15 +619,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getArticles(userId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, query: <a href="../classes/ArticlesQueryParams.html" target="_self">ArticlesQueryParams</a>)</code>
+                    <code>getArticles(query: <a href="../classes/ArticlesQueryParams.html" target="_self">ArticlesQueryParams</a>, userId?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="35"
-                            class="link-to-prism">apps/api/src/article/article.service.ts:35</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="39"
+                            class="link-to-prism">apps/api/src/article/article.service.ts:39</a></div>
                 </td>
             </tr>
 
@@ -632,7 +648,90 @@
                             </thead>
                             <tbody>
                                 <tr>
+                                    <td>query</td>
+                                    <td>
+                                                <code><a href="../classes/ArticlesQueryParams.html" target="_self" >ArticlesQueryParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
                                     <td>userId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;IArticlesResponseBody&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getFeed"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>getFeed</b></span>
+                        <a href="#getFeed"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getFeed(currentUserId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, query: <a href="../classes/ArticleFeedQueryParams.html" target="_self">ArticleFeedQueryParams</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="113"
+                            class="link-to-prism">apps/api/src/article/article.service.ts:113</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>currentUserId</td>
                                     <td>
                                                 <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
                                     </td>
@@ -646,7 +745,7 @@
                                 <tr>
                                     <td>query</td>
                                     <td>
-                                                <code><a href="../classes/ArticlesQueryParams.html" target="_self" >ArticlesQueryParams</a></code>
+                                                <code><a href="../classes/ArticleFeedQueryParams.html" target="_self" >ArticleFeedQueryParams</a></code>
                                     </td>
 
                                     <td>
@@ -661,7 +760,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;IArticlesResponseBody&gt;</code>
+                        <b>Returns : </b>    <code>unknown</code>
 
                     </div>
                     <div class="io-description">
@@ -693,8 +792,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="27"
-                            class="link-to-prism">apps/api/src/article/article.service.ts:27</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="31"
+                            class="link-to-prism">apps/api/src/article/article.service.ts:31</a></div>
                 </td>
             </tr>
 
@@ -764,8 +863,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="129"
-                            class="link-to-prism">apps/api/src/article/article.service.ts:129</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="165"
+                            class="link-to-prism">apps/api/src/article/article.service.ts:165</a></div>
                 </td>
             </tr>
 
@@ -853,9 +952,11 @@ import {
   IArticlesResponseBody,
 } from &#x27;@starter/api-types&#x27;;
 
+import { FollowEntity } from &#x27;../profile/follow.entity&#x27;;
 import { TagService } from &#x27;../tag/tag.service&#x27;;
 import { UserEntity } from &#x27;../users/user.entity&#x27;;
 import { ArticleEntity } from &#x27;./article.entity&#x27;;
+import { ArticleFeedQueryParams } from &#x27;./dto/article-feed.dto&#x27;;
 import { ArticlesQueryParams } from &#x27;./dto/articles-query.dto&#x27;;
 import { ArticleDto, CreateArticleDto } from &#x27;./dto/create-article.dto&#x27;;
 
@@ -866,6 +967,8 @@ export class ArticleService {
     private readonly articleRepository: Repository&lt;ArticleEntity&gt;,
     @InjectRepository(UserEntity)
     private readonly userRepository: Repository&lt;UserEntity&gt;,
+    @InjectRepository(FollowEntity)
+    private readonly followRepository: Repository&lt;FollowEntity&gt;,
     private readonly tagService: TagService,
   ) {}
 
@@ -878,8 +981,8 @@ export class ArticleService {
   }
 
   async getArticles(
-    userId: number,
     query: ArticlesQueryParams,
+    userId?: number,
   ): Promise&lt;IArticlesResponseBody&gt; {
     const queryBuilder &#x3D; this.articleRepository
       .createQueryBuilder(&#x27;articles&#x27;)
@@ -949,6 +1052,38 @@ export class ArticleService {
 
   async findBySlug(slug: string): Promise&lt;ArticleEntity&gt; {
     return await this.articleRepository.findOne({ where: { slug } });
+  }
+
+  async getFeed(currentUserId: number, query: ArticleFeedQueryParams) {
+    const follows &#x3D; await this.followRepository.find({
+      where: { followerId: currentUserId },
+    });
+
+    if (follows.length &#x3D;&#x3D;&#x3D; 0) {
+      return { articles: [], articlesCount: 0 };
+    }
+
+    const followingUserIds &#x3D; follows.map((follow) &#x3D;&gt; follow.followingId);
+    const queryBuilder &#x3D; this.articleRepository
+      .createQueryBuilder(&#x27;articles&#x27;)
+      .leftJoinAndSelect(&#x27;articles.author&#x27;, &#x27;author&#x27;)
+      .where(&#x27;articles.authorId IN (:...ids)&#x27;, { ids: followingUserIds });
+
+    queryBuilder.orderBy(&#x27;articles.createdAt&#x27;, &#x27;DESC&#x27;);
+
+    const articlesCount &#x3D; await queryBuilder.getCount();
+
+    if (query.limit) {
+      queryBuilder.limit(query.limit);
+    }
+
+    if (query.offset) {
+      queryBuilder.offset(query.offset);
+    }
+
+    const articles &#x3D; await queryBuilder.getMany();
+
+    return { articles, articlesCount };
   }
 
   async createArticle(

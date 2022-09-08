@@ -127,14 +127,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Get()<br />@ApiResponse({status: 200, description: &#x27;Fetch Tags Request Received&#x27;})<br />@ApiResponse({status: 400, description: &#x27;Fetch Tags Request Failed&#x27;})<br /></code>
+                    <code>@Public()<br />@Get()<br />@ApiResponse({status: 200, description: &#x27;Fetch Tags Request Received&#x27;})<br />@ApiResponse({status: 400, description: &#x27;Fetch Tags Request Failed&#x27;})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="15"
-                            class="link-to-prism">apps/api/src/tag/tag.controller.ts:15</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="17"
+                            class="link-to-prism">apps/api/src/tag/tag.controller.ts:17</a></div>
                 </td>
             </tr>
 
@@ -157,6 +157,7 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Controller, Get } from &#x27;@nestjs/common&#x27;;
 import { ApiBearerAuth, ApiResponse, ApiTags } from &#x27;@nestjs/swagger&#x27;;
 
+import { Public } from &#x27;../auth/public.decorator&#x27;;
 import { TagService } from &#x27;./tag.service&#x27;;
 
 @ApiBearerAuth()
@@ -165,6 +166,7 @@ import { TagService } from &#x27;./tag.service&#x27;;
 export class TagController {
   constructor(private readonly tagService: TagService) {}
 
+  @Public()
   @Get()
   @ApiResponse({ status: 200, description: &#x27;Fetch Tags Request Received&#x27; })
   @ApiResponse({ status: 400, description: &#x27;Fetch Tags Request Failed&#x27; })

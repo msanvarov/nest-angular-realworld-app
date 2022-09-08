@@ -271,7 +271,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     private readonly usersService: UsersService,
   ) {
     super({
-      jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+      jwtFromRequest: ExtractJwt.fromAuthHeaderWithScheme(&#x27;Token&#x27;),
       ignoreExpiration: false,
       secretOrKey: configService.get(&#x27;WEBTOKEN_ENCRYPTION_KEY&#x27;),
     });
@@ -286,7 +286,9 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     iat,
     exp,
     id,
+    ...rest
   }: Record&lt;string, number&gt;): Promise&lt;UserEntity&gt; {
+    console.log(rest);
     const timeDiff &#x3D; exp - iat;
     if (timeDiff &lt;&#x3D; 0) {
       throw new UnauthorizedException();

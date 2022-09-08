@@ -177,6 +177,7 @@
 import { TypeOrmModule } from &#x27;@nestjs/typeorm&#x27;;
 
 import { CaslFactory } from &#x27;../casl/casl.factory&#x27;;
+import { FollowEntity } from &#x27;../profile/follow.entity&#x27;;
 import { TagEntity } from &#x27;../tag/tag.entity&#x27;;
 import { TagService } from &#x27;../tag/tag.service&#x27;;
 import { UserEntity } from &#x27;../users/user.entity&#x27;;
@@ -185,7 +186,14 @@ import { ArticleEntity } from &#x27;./article.entity&#x27;;
 import { ArticleService } from &#x27;./article.service&#x27;;
 
 @Module({
-  imports: [TypeOrmModule.forFeature([ArticleEntity, UserEntity, TagEntity])],
+  imports: [
+    TypeOrmModule.forFeature([
+      ArticleEntity,
+      UserEntity,
+      TagEntity,
+      FollowEntity,
+    ]),
+  ],
   controllers: [ArticleController],
   providers: [ArticleService, CaslFactory, TagService],
 })

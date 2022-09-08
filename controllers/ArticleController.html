@@ -109,6 +109,10 @@
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
+                                <a href="#getFeed" >getFeed</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#updateArticle" >updateArticle</a>
                             </li>
                         </ul>
@@ -157,8 +161,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="61"
-                            class="link-to-prism">apps/api/src/article/article.controller.ts:61</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="77"
+                            class="link-to-prism">apps/api/src/article/article.controller.ts:77</a></div>
                 </td>
             </tr>
 
@@ -256,8 +260,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="123"
-                            class="link-to-prism">apps/api/src/article/article.controller.ts:123</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="139"
+                            class="link-to-prism">apps/api/src/article/article.controller.ts:139</a></div>
                 </td>
             </tr>
 
@@ -341,8 +345,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="162"
-                            class="link-to-prism">apps/api/src/article/article.controller.ts:162</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="178"
+                            class="link-to-prism">apps/api/src/article/article.controller.ts:178</a></div>
                 </td>
             </tr>
 
@@ -431,8 +435,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="139"
-                            class="link-to-prism">apps/api/src/article/article.controller.ts:139</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="155"
+                            class="link-to-prism">apps/api/src/article/article.controller.ts:155</a></div>
                 </td>
             </tr>
 
@@ -521,8 +525,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="83"
-                            class="link-to-prism">apps/api/src/article/article.controller.ts:83</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="99"
+                            class="link-to-prism">apps/api/src/article/article.controller.ts:99</a></div>
                 </td>
             </tr>
 
@@ -592,7 +596,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getArticles(userId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, query: <a href="../classes/ArticlesQueryParams.html" target="_self">ArticlesQueryParams</a>)</code>
+                    <code>getArticles(query: <a href="../classes/ArticlesQueryParams.html" target="_self">ArticlesQueryParams</a>)</code>
                 </td>
             </tr>
 
@@ -600,14 +604,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Get()<br />@ApiResponse({status: 201, description: &#x27;Get Articles Request Completed&#x27;})<br />@ApiResponse({status: 400, description: &#x27;Get Articles Bad Request&#x27;})<br />@ApiResponse({status: 401, description: &#x27;Unauthorized&#x27;})<br /></code>
+                    <code>@Public()<br />@Get()<br />@ApiResponse({status: 201, description: &#x27;Get Articles Request Completed&#x27;})<br />@ApiResponse({status: 400, description: &#x27;Get Articles Bad Request&#x27;})<br />@ApiResponse({status: 401, description: &#x27;Unauthorized&#x27;})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="42"
-                            class="link-to-prism">apps/api/src/article/article.controller.ts:42</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="45"
+                            class="link-to-prism">apps/api/src/article/article.controller.ts:45</a></div>
                 </td>
             </tr>
 
@@ -628,18 +632,6 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>userId</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
                                     <td>query</td>
                                     <td>
                                                 <code><a href="../classes/ArticlesQueryParams.html" target="_self" >ArticlesQueryParams</a></code>
@@ -658,6 +650,96 @@
                     </div>
                     <div class="io-description">
                         <b>Returns : </b>    <code>Promise&lt;IArticlesResponseBody&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getFeed"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>getFeed</b></span>
+                        <a href="#getFeed"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getFeed(currentUserId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, query: <a href="../classes/ArticleFeedQueryParams.html" target="_self">ArticleFeedQueryParams</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get(&#x27;feed&#x27;)<br />@ApiResponse({status: 201, description: &#x27;Get Article Feed Request Completed&#x27;})<br />@ApiResponse({status: 400, description: &#x27;Get Article Feed Bad Request&#x27;})<br />@ApiResponse({status: 401, description: &#x27;Unauthorized&#x27;})<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="59"
+                            class="link-to-prism">apps/api/src/article/article.controller.ts:59</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>currentUserId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>query</td>
+                                    <td>
+                                                <code><a href="../classes/ArticleFeedQueryParams.html" target="_self" >ArticleFeedQueryParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>unknown</code>
 
                     </div>
                     <div class="io-description">
@@ -696,8 +778,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="97"
-                            class="link-to-prism">apps/api/src/article/article.controller.ts:97</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="113"
+                            class="link-to-prism">apps/api/src/article/article.controller.ts:113</a></div>
                 </td>
             </tr>
 
@@ -791,6 +873,7 @@ import {
   IArticlesResponseBody,
 } from &#x27;@starter/api-types&#x27;;
 
+import { Public } from &#x27;../auth/public.decorator&#x27;;
 import { CheckPolicies } from &#x27;../casl/check-policies.decorator&#x27;;
 import { PoliciesGuard } from &#x27;../casl/policies.guard&#x27;;
 import {
@@ -801,6 +884,7 @@ import {
 import { UserParam } from &#x27;../users/user.decorator&#x27;;
 import { UserEntity } from &#x27;../users/user.entity&#x27;;
 import { ArticleService } from &#x27;./article.service&#x27;;
+import { ArticleFeedQueryParams } from &#x27;./dto/article-feed.dto&#x27;;
 import { ArticlesQueryParams } from &#x27;./dto/articles-query.dto&#x27;;
 import { CreateArticleDto } from &#x27;./dto/create-article.dto&#x27;;
 
@@ -810,16 +894,30 @@ import { CreateArticleDto } from &#x27;./dto/create-article.dto&#x27;;
 export class ArticleController {
   constructor(private readonly articleService: ArticleService) {}
 
+  @Public()
   @Get()
   @ApiResponse({ status: 201, description: &#x27;Get Articles Request Completed&#x27; })
   @ApiResponse({ status: 400, description: &#x27;Get Articles Bad Request&#x27; })
   @ApiResponse({ status: 401, description: &#x27;Unauthorized&#x27; })
   async getArticles(
-    @UserParam(&#x27;id&#x27;) userId: number,
     @Query()
     query: ArticlesQueryParams,
   ): Promise&lt;IArticlesResponseBody&gt; {
-    return await this.articleService.getArticles(userId, query);
+    return await this.articleService.getArticles(query);
+  }
+
+  @Get(&#x27;feed&#x27;)
+  @ApiResponse({
+    status: 201,
+    description: &#x27;Get Article Feed Request Completed&#x27;,
+  })
+  @ApiResponse({ status: 400, description: &#x27;Get Article Feed Bad Request&#x27; })
+  @ApiResponse({ status: 401, description: &#x27;Unauthorized&#x27; })
+  async getFeed(
+    @UserParam(&#x27;id&#x27;) currentUserId: number,
+    @Query() query: ArticleFeedQueryParams,
+  ) {
+    return await this.articleService.getFeed(currentUserId, query);
   }
 
   /**

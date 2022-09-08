@@ -522,7 +522,7 @@ export class UsersController {
   async register(
     @Body() payload: RegisterDto,
   ): Promise&lt;Record&lt;string, IUserResponseBody&gt;&gt; {
-    const user &#x3D; await this.usersService.create(payload);
+    const user &#x3D; await this.usersService.create(payload.user);
     return {
       user: {
         email: user.email,
@@ -546,7 +546,7 @@ export class UsersController {
   async login(
     @Body() payload: LoginDto,
   ): Promise&lt;Record&lt;string, IUserResponseBody&gt;&gt; {
-    const user &#x3D; await this.usersService.validateUser(payload);
+    const user &#x3D; await this.usersService.validateUser(payload.user);
     return {
       user: {
         email: user.email,

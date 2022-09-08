@@ -205,7 +205,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>create(payload: <a href="../classes/RegisterDto.html" target="_self">RegisterDto</a>)</code>
+                    <code>create(payload: <a href="../classes/UserRegistrationDto.html" target="_self">UserRegistrationDto</a>)</code>
                 </td>
             </tr>
 
@@ -239,7 +239,7 @@
                                 <tr>
                                     <td>payload</td>
                                     <td>
-                                                <code><a href="../classes/RegisterDto.html" target="_self" >RegisterDto</a></code>
+                                                <code><a href="../classes/UserRegistrationDto.html" target="_self" >UserRegistrationDto</a></code>
                                     </td>
 
                                     <td>
@@ -672,7 +672,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>validateUser(undefined: <a href="../classes/LoginDto.html" target="_self">LoginDto</a>)</code>
+                    <code>validateUser(undefined: <a href="../classes/UserLoginDto.html" target="_self">UserLoginDto</a>)</code>
                 </td>
             </tr>
 
@@ -704,7 +704,7 @@
                             <tbody>
                                 <tr>
                                     <td>
-                                                <code><a href="../classes/LoginDto.html" target="_self" >LoginDto</a></code>
+                                                <code><a href="../classes/UserLoginDto.html" target="_self" >UserLoginDto</a></code>
                                     </td>
 
                                     <td>
@@ -749,8 +749,8 @@ import { Repository } from &#x27;typeorm&#x27;;
 
 import { IGenericMessageBody } from &#x27;@starter/api-types&#x27;;
 
-import { LoginDto } from &#x27;../auth/dto/login.dto&#x27;;
-import { RegisterDto } from &#x27;../auth/dto/register.dto&#x27;;
+import { LoginDto, UserLoginDto } from &#x27;../auth/dto/login.dto&#x27;;
+import { UserRegistrationDto } from &#x27;../auth/dto/register.dto&#x27;;
 import { UserDto } from &#x27;./dto/patch-user.dto&#x27;;
 import { UserRoles } from &#x27;./user-role.entity&#x27;;
 import { UserEntity } from &#x27;./user.entity&#x27;;
@@ -810,10 +810,10 @@ export class UsersService {
 
   /**
    * Create a user with RegisterPayload fields
-   * @param {RegisterDto} payload user payload
+   * @param {UserRegistrationDto} payload user payload
    * @returns {Promise&lt;UserEntity&gt;} data from the created user
    */
-  async create(payload: RegisterDto): Promise&lt;UserEntity&gt; {
+  async create(payload: UserRegistrationDto): Promise&lt;UserEntity&gt; {
     const user &#x3D; await this.getByUsername(payload.username);
 
     if (user) {
@@ -867,7 +867,7 @@ export class UsersService {
    * @param {LoginDto} param login payload to authenticate with
    * @returns {Promise&lt;UserEntity&gt;} registered user
    */
-  async validateUser({ email, password }: LoginDto): Promise&lt;UserEntity&gt; {
+  async validateUser({ email, password }: UserLoginDto): Promise&lt;UserEntity&gt; {
     const user &#x3D; await this.getUserByEmailAndPass(email, password);
 
     if (!user) {

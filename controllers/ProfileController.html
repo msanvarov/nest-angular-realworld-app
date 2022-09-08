@@ -62,7 +62,7 @@
                 <h3>Prefix</h3>
             </p>
             <p class="comment">
-                <code>profile</code>
+                <code>profiles</code>
             </p>
 
 
@@ -403,8 +403,8 @@ import { UserParam } from &#x27;../users/user.decorator&#x27;;
 import { ProfileService } from &#x27;./profile.service&#x27;;
 
 @ApiBearerAuth()
-@ApiTags(&#x27;profile&#x27;)
-@Controller(&#x27;profile&#x27;)
+@ApiTags(&#x27;profiles&#x27;)
+@Controller(&#x27;profiles&#x27;)
 export class ProfileController {
   constructor(private readonly profileService: ProfileService) {}
 
