@@ -126,7 +126,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiProperty({required: true})<br />@Type(undefined)<br />@ValidateNested()<br />
+                            @ApiProperty()<br />@Type(undefined)<br />@ValidateNested()<br />
                         </code>
                     </td>
                 </tr>
@@ -182,7 +182,7 @@ export class ArticleDto {
 }
 
 export class CreateArticleDto {
-  @ApiProperty({ required: true })
+  @ApiProperty()
   @Type(() &#x3D;&gt; ArticleDto)
   @ValidateNested()
   article: ArticleDto;

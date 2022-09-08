@@ -184,6 +184,7 @@ import { UserEntity } from &#x27;../users/user.entity&#x27;;
 import { ArticleController } from &#x27;./article.controller&#x27;;
 import { ArticleEntity } from &#x27;./article.entity&#x27;;
 import { ArticleService } from &#x27;./article.service&#x27;;
+import { CommentEntity } from &#x27;./comment.entity&#x27;;
 
 @Module({
   imports: [
@@ -192,6 +193,7 @@ import { ArticleService } from &#x27;./article.service&#x27;;
       UserEntity,
       TagEntity,
       FollowEntity,
+      CommentEntity,
     ]),
   ],
   controllers: [ArticleController],

@@ -83,6 +83,9 @@
                                 <a href="#addArticleToFavorites" >addArticleToFavorites</a>
                             </li>
                             <li>
+                                <a href="#buildArticleCommentResponse" >buildArticleCommentResponse</a>
+                            </li>
+                            <li>
                                 <a href="#buildArticleResponse" >buildArticleResponse</a>
                             </li>
                             <li>
@@ -91,7 +94,19 @@
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
+                                <a href="#createCommentOnArticle" >createCommentOnArticle</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#deleteArticle" >deleteArticle</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#deleteArticleFromFavorites" >deleteArticleFromFavorites</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#deleteCommentFromArticle" >deleteCommentFromArticle</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
@@ -100,6 +115,10 @@
                             <li>
                                     <span class="modifier">Async</span>
                                 <a href="#getArticles" >getArticles</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#getCommentsOnArticle" >getCommentsOnArticle</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
@@ -131,12 +150,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(articleRepository: <a href="../entitys/ArticleEntity.html" target="_self">Repository&lt;ArticleEntity&gt;</a>, userRepository: <a href="../entitys/UserEntity.html" target="_self">Repository&lt;UserEntity&gt;</a>, followRepository: <a href="../entitys/FollowEntity.html" target="_self">Repository&lt;FollowEntity&gt;</a>, tagService: <a href="../injectables/TagService.html" target="_self">TagService</a>)</code>
+<code>constructor(articleRepository: <a href="../entitys/ArticleEntity.html" target="_self">Repository&lt;ArticleEntity&gt;</a>, userRepository: <a href="../entitys/UserEntity.html" target="_self">Repository&lt;UserEntity&gt;</a>, followRepository: <a href="../entitys/FollowEntity.html" target="_self">Repository&lt;FollowEntity&gt;</a>, commentRepository: <a href="../entitys/CommentEntity.html" target="_self">Repository&lt;CommentEntity&gt;</a>, tagService: <a href="../injectables/TagService.html" target="_self">TagService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">apps/api/src/article/article.service.ts:20</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">apps/api/src/article/article.service.ts:22</a></div>
                             </td>
                         </tr>
 
@@ -182,6 +201,18 @@
                                                   
                                                         <td>
                                                                         <code><a href="../entitys/FollowEntity.html" target="_self" >Repository&lt;FollowEntity&gt;</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>commentRepository</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../entitys/CommentEntity.html" target="_self" >Repository&lt;CommentEntity&gt;</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -237,8 +268,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="185"
-                            class="link-to-prism">apps/api/src/article/article.service.ts:185</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="203"
+                            class="link-to-prism">apps/api/src/article/article.service.ts:203</a></div>
                 </td>
             </tr>
 
@@ -302,6 +333,75 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="buildArticleCommentResponse"></a>
+                    <span class="name">
+                        <span ><b>buildArticleCommentResponse</b></span>
+                        <a href="#buildArticleCommentResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>buildArticleCommentResponse(comment: <a href="../entitys/CommentEntity.html" target="_self">CommentEntity</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="311"
+                            class="link-to-prism">apps/api/src/article/article.service.ts:311</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>comment</td>
+                                    <td>
+                                                <code><a href="../entitys/CommentEntity.html" target="_self" >CommentEntity</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../entitys/CommentEntity.html" target="_self" >{ comment: CommentEntity; }</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="buildArticleResponse"></a>
                     <span class="name">
                         <span ><b>buildArticleResponse</b></span>
@@ -318,8 +418,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="234"
-                            class="link-to-prism">apps/api/src/article/article.service.ts:234</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="307"
+                            class="link-to-prism">apps/api/src/article/article.service.ts:307</a></div>
                 </td>
             </tr>
 
@@ -389,8 +489,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="145"
-                            class="link-to-prism">apps/api/src/article/article.service.ts:145</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="149"
+                            class="link-to-prism">apps/api/src/article/article.service.ts:149</a></div>
                 </td>
             </tr>
 
@@ -454,6 +554,184 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="createCommentOnArticle"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>createCommentOnArticle</b></span>
+                        <a href="#createCommentOnArticle"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createCommentOnArticle(slug: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, user: <a href="../entitys/UserEntity.html" target="_self">UserEntity</a>, payload: <a href="../classes/ArticleCommentDto.html" target="_self">ArticleCommentDto</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="233"
+                            class="link-to-prism">apps/api/src/article/article.service.ts:233</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>slug</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>user</td>
+                                    <td>
+                                                <code><a href="../entitys/UserEntity.html" target="_self" >UserEntity</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>payload</td>
+                                    <td>
+                                                <code><a href="../classes/ArticleCommentDto.html" target="_self" >ArticleCommentDto</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>unknown</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteArticle"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>deleteArticle</b></span>
+                        <a href="#deleteArticle"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deleteArticle(slug: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, currentUserId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="189"
+                            class="link-to-prism">apps/api/src/article/article.service.ts:189</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>slug</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>currentUserId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>unknown</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="deleteArticleFromFavorites"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -472,8 +750,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="210"
-                            class="link-to-prism">apps/api/src/article/article.service.ts:210</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="279"
+                            class="link-to-prism">apps/api/src/article/article.service.ts:279</a></div>
                 </td>
             </tr>
 
@@ -537,6 +815,101 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="deleteCommentFromArticle"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>deleteCommentFromArticle</b></span>
+                        <a href="#deleteCommentFromArticle"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deleteCommentFromArticle(slug: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, commentId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, userId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="248"
+                            class="link-to-prism">apps/api/src/article/article.service.ts:248</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>slug</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>commentId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>userId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>unknown</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="findBySlug"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -555,8 +928,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="109"
-                            class="link-to-prism">apps/api/src/article/article.service.ts:109</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="113"
+                            class="link-to-prism">apps/api/src/article/article.service.ts:113</a></div>
                 </td>
             </tr>
 
@@ -626,8 +999,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="39"
-                            class="link-to-prism">apps/api/src/article/article.service.ts:39</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="43"
+                            class="link-to-prism">apps/api/src/article/article.service.ts:43</a></div>
                 </td>
             </tr>
 
@@ -691,6 +1064,77 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="getCommentsOnArticle"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>getCommentsOnArticle</b></span>
+                        <a href="#getCommentsOnArticle"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getCommentsOnArticle(slug: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="228"
+                            class="link-to-prism">apps/api/src/article/article.service.ts:228</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>slug</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../entitys/CommentEntity.html" target="_self" >Promise&lt;CommentEntity[]&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="getFeed"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -709,8 +1153,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="113"
-                            class="link-to-prism">apps/api/src/article/article.service.ts:113</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="117"
+                            class="link-to-prism">apps/api/src/article/article.service.ts:117</a></div>
                 </td>
             </tr>
 
@@ -792,8 +1236,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="31"
-                            class="link-to-prism">apps/api/src/article/article.service.ts:31</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="35"
+                            class="link-to-prism">apps/api/src/article/article.service.ts:35</a></div>
                 </td>
             </tr>
 
@@ -856,15 +1300,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>updateArticle(slug: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, updateArticleDto: <a href="../classes/CreateArticleDto.html" target="_self">CreateArticleDto</a>, currentUserId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                    <code>updateArticle(slug: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, currentUserId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, payload: <a href="../classes/ArticleDto.html" target="_self">ArticleDto</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="165"
-                            class="link-to-prism">apps/api/src/article/article.service.ts:165</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="169"
+                            class="link-to-prism">apps/api/src/article/article.service.ts:169</a></div>
                 </td>
             </tr>
 
@@ -897,9 +1341,9 @@
 
                                 </tr>
                                 <tr>
-                                    <td>updateArticleDto</td>
+                                    <td>currentUserId</td>
                                     <td>
-                                                <code><a href="../classes/CreateArticleDto.html" target="_self" >CreateArticleDto</a></code>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
                                     </td>
 
                                     <td>
@@ -909,9 +1353,9 @@
 
                                 </tr>
                                 <tr>
-                                    <td>currentUserId</td>
+                                    <td>payload</td>
                                     <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                <code><a href="../classes/ArticleDto.html" target="_self" >ArticleDto</a></code>
                                     </td>
 
                                     <td>
@@ -956,9 +1400,11 @@ import { FollowEntity } from &#x27;../profile/follow.entity&#x27;;
 import { TagService } from &#x27;../tag/tag.service&#x27;;
 import { UserEntity } from &#x27;../users/user.entity&#x27;;
 import { ArticleEntity } from &#x27;./article.entity&#x27;;
+import { CommentEntity } from &#x27;./comment.entity&#x27;;
 import { ArticleFeedQueryParams } from &#x27;./dto/article-feed.dto&#x27;;
 import { ArticlesQueryParams } from &#x27;./dto/articles-query.dto&#x27;;
-import { ArticleDto, CreateArticleDto } from &#x27;./dto/create-article.dto&#x27;;
+import { ArticleCommentDto } from &#x27;./dto/create-article-comment.dto&#x27;;
+import { ArticleDto } from &#x27;./dto/create-article.dto&#x27;;
 
 @Injectable()
 export class ArticleService {
@@ -969,6 +1415,8 @@ export class ArticleService {
     private readonly userRepository: Repository&lt;UserEntity&gt;,
     @InjectRepository(FollowEntity)
     private readonly followRepository: Repository&lt;FollowEntity&gt;,
+    @InjectRepository(CommentEntity)
+    private readonly commentRepository: Repository&lt;CommentEntity&gt;,
     private readonly tagService: TagService,
   ) {}
 
@@ -1108,8 +1556,8 @@ export class ArticleService {
 
   async updateArticle(
     slug: string,
-    updateArticleDto: CreateArticleDto,
     currentUserId: number,
+    payload: ArticleDto,
   ): Promise&lt;ArticleEntity&gt; {
     const article &#x3D; await this.findBySlug(slug);
 
@@ -1121,9 +1569,23 @@ export class ArticleService {
       throw new HttpException(&#x27;You are not an author&#x27;, HttpStatus.FORBIDDEN);
     }
 
-    Object.assign(article, updateArticleDto);
+    Object.assign(article, payload);
 
     return await this.articleRepository.save(article);
+  }
+
+  async deleteArticle(slug: string, currentUserId: number) {
+    const article &#x3D; await this.findBySlug(slug);
+
+    if (!article) {
+      throw new HttpException(&#x27;Article does not exist&#x27;, HttpStatus.NOT_FOUND);
+    }
+
+    if (article.author.id !&#x3D;&#x3D; currentUserId) {
+      throw new HttpException(&#x27;You are not an author&#x27;, HttpStatus.FORBIDDEN);
+    }
+
+    return await this.articleRepository.delete({ slug });
   }
 
   async addArticleToFavorites(
@@ -1151,6 +1613,57 @@ export class ArticleService {
     return article;
   }
 
+  async getCommentsOnArticle(slug: string): Promise&lt;CommentEntity[]&gt; {
+    const article &#x3D; await this.findBySlug(slug);
+    return article.comments;
+  }
+
+  async createCommentOnArticle(
+    slug: string,
+    user: UserEntity,
+    payload: ArticleCommentDto,
+  ) {
+    const article &#x3D; await this.findBySlug(slug);
+
+    const comment &#x3D; new CommentEntity();
+    Object.assign(comment, payload);
+    comment.author &#x3D; user;
+    comment.article &#x3D; article;
+
+    return await this.commentRepository.save(comment);
+  }
+
+  async deleteCommentFromArticle(
+    slug: string,
+    commentId: number,
+    userId: number,
+  ) {
+    const article &#x3D; await this.findBySlug(slug);
+    const user &#x3D; await this.userRepository.findOne({
+      where: { id: userId },
+      relations: [&#x27;comments&#x27;],
+    });
+
+    const articleCommentIndex &#x3D; article.comments.findIndex(
+      (articleComment) &#x3D;&gt; articleComment.id &#x3D;&#x3D;&#x3D; commentId,
+    );
+    const userCommentIndex &#x3D; user.comments.findIndex(
+      (userComment) &#x3D;&gt; userComment.id &#x3D;&#x3D;&#x3D; commentId,
+    );
+
+    if (articleCommentIndex &gt; -1) {
+      article.comments.splice(articleCommentIndex, 1);
+      await this.articleRepository.save(article);
+    }
+
+    if (userCommentIndex &gt; -1) {
+      user.comments.splice(userCommentIndex, 1);
+      await this.userRepository.save(user);
+    }
+
+    return await this.commentRepository.delete({ id: commentId });
+  }
+
   async deleteArticleFromFavorites(
     slug: string,
     userId: number,
@@ -1165,18 +1678,27 @@ export class ArticleService {
       (articleInFavorites) &#x3D;&gt; articleInFavorites.id &#x3D;&#x3D;&#x3D; article.id,
     );
 
-    if (articleIndex &gt;&#x3D; 0) {
+    if (articleIndex &gt; -1) {
       user.favorites.splice(articleIndex, 1);
       article.favoritesCount--;
       await this.userRepository.save(user);
       await this.articleRepository.save(article);
+    } else {
+      throw new HttpException(
+        &#x27;Article is not in favorites&#x27;,
+        HttpStatus.NOT_FOUND,
+      );
     }
-
     return article;
   }
 
   buildArticleResponse(article: ArticleEntity): IArticleResponseBody {
     return { article };
+  }
+
+  buildArticleCommentResponse(comment: CommentEntity) {
+    delete comment.article;
+    return { comment };
   }
 }
 </code></pre>

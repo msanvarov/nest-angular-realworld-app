@@ -85,6 +85,10 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Async</span>
+                                <a href="#commentOnArticle" >commentOnArticle</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#createArticle" >createArticle</a>
                             </li>
                             <li>
@@ -97,6 +101,10 @@
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
+                                <a href="#deleteCommentFromArticle" >deleteCommentFromArticle</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#favouriteArticle" >favouriteArticle</a>
                             </li>
                             <li>
@@ -106,6 +114,10 @@
                             <li>
                                     <span class="modifier">Async</span>
                                 <a href="#getArticles" >getArticles</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#getCommentsForArticle" >getCommentsForArticle</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
@@ -136,6 +148,108 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="commentOnArticle"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>commentOnArticle</b></span>
+                        <a href="#commentOnArticle"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>commentOnArticle(user: <a href="../entitys/UserEntity.html" target="_self">UserEntity</a>, slug: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, createArticleCommentDto: <a href="../classes/CreateArticleCommentDto.html" target="_self">CreateArticleCommentDto</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Post(&#x27;:slug/comments&#x27;)<br />@UseGuards(PoliciesGuard)<br />@CheckPolicies(new PatchUserPolicyHandler())<br />@ApiResponse({status: 201, description: &#x27;Commenting on Article Request Completed&#x27;})<br />@ApiResponse({status: 400, description: &#x27;Commenting on Article Bad Request&#x27;})<br />@ApiResponse({status: 401, description: &#x27;Unauthorized&#x27;})<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="170"
+                            class="link-to-prism">apps/api/src/article/article.controller.ts:170</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>user</td>
+                                    <td>
+                                                <code><a href="../entitys/UserEntity.html" target="_self" >UserEntity</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>slug</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>createArticleCommentDto</td>
+                                    <td>
+                                                <code><a href="../classes/CreateArticleCommentDto.html" target="_self" >CreateArticleCommentDto</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>unknown</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="createArticle"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -161,8 +275,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="77"
-                            class="link-to-prism">apps/api/src/article/article.controller.ts:77</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="78"
+                            class="link-to-prism">apps/api/src/article/article.controller.ts:78</a></div>
                 </td>
             </tr>
 
@@ -246,7 +360,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>deleteArticle(slug: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>deleteArticle(currentUserId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, slug: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
@@ -260,8 +374,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="139"
-                            class="link-to-prism">apps/api/src/article/article.controller.ts:139</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="140"
+                            class="link-to-prism">apps/api/src/article/article.controller.ts:140</a></div>
                 </td>
             </tr>
 
@@ -285,6 +399,20 @@
                             </thead>
                             <tbody>
                                 <tr>
+                                    <td>currentUserId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                    </td>
+                                </tr>
+                                <tr>
                                     <td>slug</td>
                                     <td>
                                                 <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
@@ -306,7 +434,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;IArticleResponseBody&gt;</code>
+                        <b>Returns : </b>    <code>unknown</code>
 
                     </div>
                     <div class="io-description">
@@ -345,8 +473,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="178"
-                            class="link-to-prism">apps/api/src/article/article.controller.ts:178</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="239"
+                            class="link-to-prism">apps/api/src/article/article.controller.ts:239</a></div>
                 </td>
             </tr>
 
@@ -368,6 +496,108 @@
                             <tbody>
                                 <tr>
                                     <td>currentUserId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>slug</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>unknown</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteCommentFromArticle"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>deleteCommentFromArticle</b></span>
+                        <a href="#deleteCommentFromArticle"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deleteCommentFromArticle(currentUserId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, commentId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, slug: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Delete(&#x27;:slug/comments/:id&#x27;)<br />@UseGuards(PoliciesGuard)<br />@CheckPolicies(new PatchUserPolicyHandler())<br />@ApiResponse({status: 201, description: &#x27;Delete Comment from Article Request Completed&#x27;})<br />@ApiResponse({status: 400, description: &#x27;Delete Comment from Article Bad Request&#x27;})<br />@ApiResponse({status: 401, description: &#x27;Unauthorized&#x27;})<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="195"
+                            class="link-to-prism">apps/api/src/article/article.controller.ts:195</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>currentUserId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>commentId</td>
                                     <td>
                                                 <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
                                     </td>
@@ -435,8 +665,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="155"
-                            class="link-to-prism">apps/api/src/article/article.controller.ts:155</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="216"
+                            class="link-to-prism">apps/api/src/article/article.controller.ts:216</a></div>
                 </td>
             </tr>
 
@@ -519,14 +749,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Get(&#x27;:slug&#x27;)<br />@ApiResponse({status: 201, description: &#x27;Get Article Request Completed&#x27;})<br />@ApiResponse({status: 400, description: &#x27;Get Article Bad Request&#x27;})<br />@ApiResponse({status: 401, description: &#x27;Unauthorized&#x27;})<br /></code>
+                    <code>@Get(&#x27;:slug&#x27;)<br />@ApiResponse({status: 200, description: &#x27;Get Article Request Completed&#x27;})<br />@ApiResponse({status: 400, description: &#x27;Get Article Bad Request&#x27;})<br />@ApiResponse({status: 401, description: &#x27;Unauthorized&#x27;})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="99"
-                            class="link-to-prism">apps/api/src/article/article.controller.ts:99</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="100"
+                            class="link-to-prism">apps/api/src/article/article.controller.ts:100</a></div>
                 </td>
             </tr>
 
@@ -610,8 +840,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="45"
-                            class="link-to-prism">apps/api/src/article/article.controller.ts:45</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="46"
+                            class="link-to-prism">apps/api/src/article/article.controller.ts:46</a></div>
                 </td>
             </tr>
 
@@ -663,6 +893,84 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="getCommentsForArticle"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>getCommentsForArticle</b></span>
+                        <a href="#getCommentsForArticle"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getCommentsForArticle(slug: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get(&#x27;:slug/comments&#x27;)<br />@ApiResponse({status: 200, description: &#x27;Get Article Comments Request Completed&#x27;})<br />@ApiResponse({status: 400, description: &#x27;Get Article Comments Bad Request&#x27;})<br />@ApiResponse({status: 401, description: &#x27;Unauthorized&#x27;})<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="154"
+                            class="link-to-prism">apps/api/src/article/article.controller.ts:154</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>slug</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>unknown</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="getFeed"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -688,8 +996,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="59"
-                            class="link-to-prism">apps/api/src/article/article.controller.ts:59</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="60"
+                            class="link-to-prism">apps/api/src/article/article.controller.ts:60</a></div>
                 </td>
             </tr>
 
@@ -778,8 +1086,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="113"
-                            class="link-to-prism">apps/api/src/article/article.controller.ts:113</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="114"
+                            class="link-to-prism">apps/api/src/article/article.controller.ts:114</a></div>
                 </td>
             </tr>
 
@@ -886,6 +1194,7 @@ import { UserEntity } from &#x27;../users/user.entity&#x27;;
 import { ArticleService } from &#x27;./article.service&#x27;;
 import { ArticleFeedQueryParams } from &#x27;./dto/article-feed.dto&#x27;;
 import { ArticlesQueryParams } from &#x27;./dto/articles-query.dto&#x27;;
+import { CreateArticleCommentDto } from &#x27;./dto/create-article-comment.dto&#x27;;
 import { CreateArticleDto } from &#x27;./dto/create-article.dto&#x27;;
 
 @ApiBearerAuth()
@@ -948,7 +1257,7 @@ export class ArticleController {
    */
   @Get(&#x27;:slug&#x27;)
   @ApiResponse({
-    status: 201,
+    status: 200,
     description: &#x27;Get Article Request Completed&#x27;,
   })
   @ApiResponse({ status: 400, description: &#x27;Get Article Bad Request&#x27; })
@@ -970,12 +1279,12 @@ export class ArticleController {
   async updateArticle(
     @UserParam(&#x27;id&#x27;) currentUserId: number,
     @Param(&#x27;slug&#x27;) slug: string,
-    @Body(&#x27;article&#x27;) updateArticleDto: CreateArticleDto,
+    @Body() updateArticleDto: CreateArticleDto,
   ) {
     const article &#x3D; await this.articleService.updateArticle(
       slug,
-      updateArticleDto,
       currentUserId,
+      updateArticleDto.article,
     );
     return this.articleService.buildArticleResponse(article);
   }
@@ -994,10 +1303,70 @@ export class ArticleController {
   @ApiResponse({ status: 400, description: &#x27;Delete Article Bad Request&#x27; })
   @ApiResponse({ status: 401, description: &#x27;Unauthorized&#x27; })
   async deleteArticle(
+    @UserParam(&#x27;id&#x27;) currentUserId: number,
     @Param(&#x27;slug&#x27;) slug: string,
-  ): Promise&lt;IArticleResponseBody&gt; {
-    const article &#x3D; await this.articleService.findBySlug(slug);
-    return this.articleService.buildArticleResponse(article);
+  ) {
+    return await this.articleService.deleteArticle(slug, currentUserId);
+  }
+
+  @Get(&#x27;:slug/comments&#x27;)
+  @ApiResponse({
+    status: 200,
+    description: &#x27;Get Article Comments Request Completed&#x27;,
+  })
+  @ApiResponse({ status: 400, description: &#x27;Get Article Comments Bad Request&#x27; })
+  @ApiResponse({ status: 401, description: &#x27;Unauthorized&#x27; })
+  async getCommentsForArticle(@Param(&#x27;slug&#x27;) slug: string) {
+    return await this.articleService.getCommentsOnArticle(slug);
+  }
+
+  @Post(&#x27;:slug/comments&#x27;)
+  @UseGuards(PoliciesGuard)
+  @CheckPolicies(new PatchUserPolicyHandler())
+  @ApiResponse({
+    status: 201,
+    description: &#x27;Commenting on Article Request Completed&#x27;,
+  })
+  @ApiResponse({
+    status: 400,
+    description: &#x27;Commenting on Article Bad Request&#x27;,
+  })
+  @ApiResponse({ status: 401, description: &#x27;Unauthorized&#x27; })
+  async commentOnArticle(
+    @UserParam() user: UserEntity,
+    @Param(&#x27;slug&#x27;) slug: string,
+    @Body() createArticleCommentDto: CreateArticleCommentDto,
+  ) {
+    const comment &#x3D; await this.articleService.createCommentOnArticle(
+      slug,
+      user,
+      createArticleCommentDto.comment,
+    );
+    return this.articleService.buildArticleCommentResponse(comment);
+  }
+
+  @Delete(&#x27;:slug/comments/:id&#x27;)
+  @UseGuards(PoliciesGuard)
+  @CheckPolicies(new PatchUserPolicyHandler())
+  @ApiResponse({
+    status: 201,
+    description: &#x27;Delete Comment from Article Request Completed&#x27;,
+  })
+  @ApiResponse({
+    status: 400,
+    description: &#x27;Delete Comment from Article Bad Request&#x27;,
+  })
+  @ApiResponse({ status: 401, description: &#x27;Unauthorized&#x27; })
+  async deleteCommentFromArticle(
+    @UserParam(&#x27;id&#x27;) currentUserId: number,
+    @Param(&#x27;id&#x27;) commentId: number,
+    @Param(&#x27;slug&#x27;) slug: string,
+  ) {
+    return await this.articleService.deleteCommentFromArticle(
+      slug,
+      commentId,
+      currentUserId,
+    );
   }
 
   @Post(&#x27;:slug/favorite&#x27;)

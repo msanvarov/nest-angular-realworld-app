@@ -81,6 +81,9 @@
                                 <a href="#body" >body</a>
                             </li>
                             <li>
+                                <a href="#comments" >comments</a>
+                            </li>
+                            <li>
                                 <a href="#createdAt" >createdAt</a>
                             </li>
                             <li>
@@ -144,13 +147,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ManyToOne(undefined, user &#x3D;&gt; user.articles, {eager: true})<br />
+                            @ManyToOne(undefined, user &#x3D;&gt; user.articles, {eager: true, nullable: false})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">apps/api/src/article/article.entity.ts:46</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">apps/api/src/article/article.entity.ts:51</a></div>
                         </td>
                     </tr>
 
@@ -185,7 +188,42 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">apps/api/src/article/article.entity.ts:26</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">apps/api/src/article/article.entity.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="comments"></a>
+                    <span class="name">
+                        <span ><b>comments</b></span>
+                        <a href="#comments"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../entitys/CommentEntity.html" target="_self" >CommentEntity[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @OneToMany(undefined, comment &#x3D;&gt; comment.article, {eager: true})<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">apps/api/src/article/article.entity.ts:54</a></div>
                         </td>
                     </tr>
 
@@ -220,7 +258,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">apps/api/src/article/article.entity.ts:29</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">apps/api/src/article/article.entity.ts:31</a></div>
                         </td>
                     </tr>
 
@@ -255,7 +293,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">apps/api/src/article/article.entity.ts:23</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">apps/api/src/article/article.entity.ts:25</a></div>
                         </td>
                     </tr>
 
@@ -290,7 +328,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">apps/api/src/article/article.entity.ts:38</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">apps/api/src/article/article.entity.ts:40</a></div>
                         </td>
                     </tr>
 
@@ -325,7 +363,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">apps/api/src/article/article.entity.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">apps/api/src/article/article.entity.ts:16</a></div>
                         </td>
                     </tr>
 
@@ -360,7 +398,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">apps/api/src/article/article.entity.ts:17</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">apps/api/src/article/article.entity.ts:19</a></div>
                         </td>
                     </tr>
 
@@ -395,7 +433,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">apps/api/src/article/article.entity.ts:35</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">apps/api/src/article/article.entity.ts:37</a></div>
                         </td>
                     </tr>
 
@@ -430,7 +468,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">apps/api/src/article/article.entity.ts:20</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">apps/api/src/article/article.entity.ts:22</a></div>
                         </td>
                     </tr>
 
@@ -465,7 +503,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">apps/api/src/article/article.entity.ts:32</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">apps/api/src/article/article.entity.ts:34</a></div>
                         </td>
                     </tr>
 
@@ -482,10 +520,12 @@
   Column,
   Entity,
   ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
 } from &#x27;typeorm&#x27;;
 
 import { UserEntity } from &#x27;../users/user.entity&#x27;;
+import { CommentEntity } from &#x27;./comment.entity&#x27;;
 
 @Entity({ name: &#x27;articles&#x27; })
 export class ArticleEntity {
@@ -521,8 +561,14 @@ export class ArticleEntity {
     this.updatedAt &#x3D; new Date();
   }
 
-  @ManyToOne(() &#x3D;&gt; UserEntity, (user) &#x3D;&gt; user.articles, { eager: true })
+  @ManyToOne(() &#x3D;&gt; UserEntity, (user) &#x3D;&gt; user.articles, {
+    eager: true,
+    nullable: false,
+  })
   author: UserEntity;
+
+  @OneToMany(() &#x3D;&gt; CommentEntity, (comment) &#x3D;&gt; comment.article, { eager: true })
+  comments: CommentEntity[];
 }
 </code></pre>
     </div>
