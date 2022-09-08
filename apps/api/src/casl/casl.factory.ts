@@ -32,6 +32,7 @@ export class CaslFactory {
     }
 
     // User scoped permissions
+    can(UserActionsEnum.Update, UserEntity, { id: user.id });
     can(UserActionsEnum.Update, ArticleEntity, { author: user });
     can(UserActionsEnum.Delete, ArticleEntity, { author: user });
 
