@@ -3,7 +3,6 @@ import { ConfigService } from '@nestjs/config';
 import { PassportStrategy } from '@nestjs/passport';
 import { ExtractJwt, Strategy } from 'passport-jwt';
 
-import { UserEntity } from '../users/user.entity';
 import { UsersService } from '../users/users.service';
 
 /**
@@ -24,6 +23,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
       jwtFromRequest: ExtractJwt.fromAuthHeaderWithScheme('Token'),
       ignoreExpiration: false,
       secretOrKey: configService.get('WEBTOKEN_ENCRYPTION_KEY'),
+      passReqToCallback: true,
     });
   }
 
@@ -32,13 +32,8 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
    * @param {Record<string, unknown>} jwtPayload validation method for jwt token
    * @returns {Promise<Record<string, unknown>>} a object to be signed
    */
-  async validate({
-    iat,
-    exp,
-    id,
-    ...rest
-  }: Record<string, number>): Promise<UserEntity> {
-    console.log(rest);
+  async validate(request: Request, jwtPayload: Record<string, number>) {
+    const { iat, exp, id } = jwtPayload;
     const timeDiff = exp - iat;
     if (timeDiff <= 0) {
       throw new UnauthorizedException();
@@ -49,6 +44,12 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
       throw new UnauthorizedException();
     }
 
-    return user;
+    return {
+      user: {
+        ...user,
+        // Hacks to bind the JWT token to the req.user
+        token: request.headers['authorization'].split(' ')[1],
+      },
+    };
   }
 }
