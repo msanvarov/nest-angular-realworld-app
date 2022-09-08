@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsInt, IsOptional, IsString, Max, Min } from 'class-validator';
+import { IsOptional, IsString } from 'class-validator';
 
 export class ArticlesQueryParams {
   @ApiProperty({
@@ -27,16 +27,13 @@ export class ArticlesQueryParams {
     required: false,
   })
   @IsOptional()
-  @IsInt()
-  @Min(1)
-  @Max(100)
+  @IsString()
   limit: number;
 
   @ApiProperty({
     required: false,
   })
   @IsOptional()
-  @IsInt()
-  @Min(1)
+  @IsString()
   offset: number;
 }

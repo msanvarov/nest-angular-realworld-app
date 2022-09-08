@@ -8,9 +8,11 @@ import {
   IArticlesResponseBody,
 } from '@starter/api-types';
 
+import { FollowEntity } from '../profile/follow.entity';
 import { TagService } from '../tag/tag.service';
 import { UserEntity } from '../users/user.entity';
 import { ArticleEntity } from './article.entity';
+import { ArticleFeedQueryParams } from './dto/article-feed.dto';
 import { ArticlesQueryParams } from './dto/articles-query.dto';
 import { ArticleDto, CreateArticleDto } from './dto/create-article.dto';
 
@@ -21,6 +23,8 @@ export class ArticleService {
     private readonly articleRepository: Repository<ArticleEntity>,
     @InjectRepository(UserEntity)
     private readonly userRepository: Repository<UserEntity>,
+    @InjectRepository(FollowEntity)
+    private readonly followRepository: Repository<FollowEntity>,
     private readonly tagService: TagService,
   ) {}
 
@@ -33,8 +37,8 @@ export class ArticleService {
   }
 
   async getArticles(
-    userId: number,
     query: ArticlesQueryParams,
+    userId?: number,
   ): Promise<IArticlesResponseBody> {
     const queryBuilder = this.articleRepository
       .createQueryBuilder('articles')
@@ -104,6 +108,38 @@ export class ArticleService {
 
   async findBySlug(slug: string): Promise<ArticleEntity> {
     return await this.articleRepository.findOne({ where: { slug } });
+  }
+
+  async getFeed(currentUserId: number, query: ArticleFeedQueryParams) {
+    const follows = await this.followRepository.find({
+      where: { followerId: currentUserId },
+    });
+
+    if (follows.length === 0) {
+      return { articles: [], articlesCount: 0 };
+    }
+
+    const followingUserIds = follows.map((follow) => follow.followingId);
+    const queryBuilder = this.articleRepository
+      .createQueryBuilder('articles')
+      .leftJoinAndSelect('articles.author', 'author')
+      .where('articles.authorId IN (:...ids)', { ids: followingUserIds });
+
+    queryBuilder.orderBy('articles.createdAt', 'DESC');
+
+    const articlesCount = await queryBuilder.getCount();
+
+    if (query.limit) {
+      queryBuilder.limit(query.limit);
+    }
+
+    if (query.offset) {
+      queryBuilder.offset(query.offset);
+    }
+
+    const articles = await queryBuilder.getMany();
+
+    return { articles, articlesCount };
   }
 
   async createArticle(

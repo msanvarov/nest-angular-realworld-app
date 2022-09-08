@@ -16,6 +16,7 @@ import {
   IArticlesResponseBody,
 } from '@starter/api-types';
 
+import { Public } from '../auth/public.decorator';
 import { CheckPolicies } from '../casl/check-policies.decorator';
 import { PoliciesGuard } from '../casl/policies.guard';
 import {
@@ -26,6 +27,7 @@ import {
 import { UserParam } from '../users/user.decorator';
 import { UserEntity } from '../users/user.entity';
 import { ArticleService } from './article.service';
+import { ArticleFeedQueryParams } from './dto/article-feed.dto';
 import { ArticlesQueryParams } from './dto/articles-query.dto';
 import { CreateArticleDto } from './dto/create-article.dto';
 
@@ -35,16 +37,30 @@ import { CreateArticleDto } from './dto/create-article.dto';
 export class ArticleController {
   constructor(private readonly articleService: ArticleService) {}
 
+  @Public()
   @Get()
   @ApiResponse({ status: 201, description: 'Get Articles Request Completed' })
   @ApiResponse({ status: 400, description: 'Get Articles Bad Request' })
   @ApiResponse({ status: 401, description: 'Unauthorized' })
   async getArticles(
-    @UserParam('id') userId: number,
     @Query()
     query: ArticlesQueryParams,
   ): Promise<IArticlesResponseBody> {
-    return await this.articleService.getArticles(userId, query);
+    return await this.articleService.getArticles(query);
+  }
+
+  @Get('feed')
+  @ApiResponse({
+    status: 201,
+    description: 'Get Article Feed Request Completed',
+  })
+  @ApiResponse({ status: 400, description: 'Get Article Feed Bad Request' })
+  @ApiResponse({ status: 401, description: 'Unauthorized' })
+  async getFeed(
+    @UserParam('id') currentUserId: number,
+    @Query() query: ArticleFeedQueryParams,
+  ) {
+    return await this.articleService.getFeed(currentUserId, query);
   }
 
   /**
