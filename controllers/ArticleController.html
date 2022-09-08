@@ -62,7 +62,7 @@
                 <h3>Prefix</h3>
             </p>
             <p class="comment">
-                <code>v1/articles</code>
+                <code>articles</code>
             </p>
 
 
@@ -806,7 +806,7 @@ import { CreateArticleDto } from &#x27;./dto/create-article.dto&#x27;;
 
 @ApiBearerAuth()
 @ApiTags(&#x27;articles&#x27;)
-@Controller(&#x27;v1/articles&#x27;)
+@Controller(&#x27;articles&#x27;)
 export class ArticleController {
   constructor(private readonly articleService: ArticleService) {}
 

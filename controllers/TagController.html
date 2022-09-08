@@ -62,7 +62,7 @@
                 <h3>Prefix</h3>
             </p>
             <p class="comment">
-                <code>v1/tags</code>
+                <code>tags</code>
             </p>
 
 
@@ -161,7 +161,7 @@ import { TagService } from &#x27;./tag.service&#x27;;
 
 @ApiBearerAuth()
 @ApiTags(&#x27;tags&#x27;)
-@Controller(&#x27;v1/tags&#x27;)
+@Controller(&#x27;tags&#x27;)
 export class TagController {
   constructor(private readonly tagService: TagService) {}
 

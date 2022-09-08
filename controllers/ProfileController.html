@@ -62,7 +62,7 @@
                 <h3>Prefix</h3>
             </p>
             <p class="comment">
-                <code>v1/profile</code>
+                <code>profile</code>
             </p>
 
 
@@ -404,7 +404,7 @@ import { ProfileService } from &#x27;./profile.service&#x27;;
 
 @ApiBearerAuth()
 @ApiTags(&#x27;profile&#x27;)
-@Controller(&#x27;v1/profile&#x27;)
+@Controller(&#x27;profile&#x27;)
 export class ProfileController {
   constructor(private readonly profileService: ProfileService) {}
 
