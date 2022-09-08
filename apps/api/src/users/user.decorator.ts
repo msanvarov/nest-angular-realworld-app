@@ -9,9 +9,9 @@ export const UserParam = createParamDecorator(
     }
 
     if (recordKey) {
-      return request.user[recordKey as keyof typeof request.user];
+      return request.user.user[recordKey as keyof typeof request.user.user];
     }
 
-    return request.user;
+    return request.user.user;
   },
 );
