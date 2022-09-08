@@ -23,10 +23,10 @@ export class AppController {
    * @returns {string} a welcome message
    */
   @Public()
-  @Get('/')
+  @Get()
   @ApiResponse({ status: 200, description: 'Root Request Completed' })
   @ApiResponse({ status: 400, description: 'Root Request Failed' })
-  async getStartingMessage(): Promise<IMessage> {
-    return this.appService.startingMessage();
+  async getRootMessage(): Promise<IMessage> {
+    return this.appService.getRootMessage();
   }
 }

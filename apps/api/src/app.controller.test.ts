@@ -42,7 +42,7 @@ describe('AppController', () => {
 
   describe('getStartingMessage', () => {
     it('should return "Welcome to api! Navigate to api/v1/docs for documentation."', async () => {
-      expect(await controller.getStartingMessage()).toEqual({
+      expect(await controller.getRootMessage()).toEqual({
         message: 'Welcome to api! Navigate to api/v1/docs for documentation.',
       });
     });

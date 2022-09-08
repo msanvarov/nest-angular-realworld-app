@@ -21,8 +21,8 @@ export class AppService {
    * Returns a welcome message.
    * @returns {string} welcome message
    */
-  startingMessage(): IMessage {
-    this.logger.info('Calling welcomeMessage -> ', AppService.name);
+  getRootMessage(): IMessage {
+    this.logger.info('Calling getRootMessage -> ', AppService.name);
 
     return {
       message: 'Welcome to api! Navigate to api/v1/docs for documentation.',
