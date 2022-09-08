@@ -41,7 +41,6 @@ async function bootstrap() {
 
   const options = new DocumentBuilder()
     .setTitle(OPEN_API_NAME)
-    .setBasePath('api')
     .setDescription(OPEN_API_DESCRIPTION)
     .setVersion(OPEN_API_CURRENT_VERSION)
     .addBearerAuth()
