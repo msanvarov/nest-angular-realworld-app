@@ -29,7 +29,7 @@ export class ArticleDto {
 }
 
 export class CreateArticleDto {
-  @ApiProperty({ required: true })
+  @ApiProperty()
   @Type(() => ArticleDto)
   @ValidateNested()
   article: ArticleDto;

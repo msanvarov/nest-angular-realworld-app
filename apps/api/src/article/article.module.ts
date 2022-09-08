@@ -9,6 +9,7 @@ import { UserEntity } from '../users/user.entity';
 import { ArticleController } from './article.controller';
 import { ArticleEntity } from './article.entity';
 import { ArticleService } from './article.service';
+import { CommentEntity } from './comment.entity';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { ArticleService } from './article.service';
       UserEntity,
       TagEntity,
       FollowEntity,
+      CommentEntity,
     ]),
   ],
   controllers: [ArticleController],

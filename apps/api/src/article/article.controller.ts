@@ -29,6 +29,7 @@ import { UserEntity } from '../users/user.entity';
 import { ArticleService } from './article.service';
 import { ArticleFeedQueryParams } from './dto/article-feed.dto';
 import { ArticlesQueryParams } from './dto/articles-query.dto';
+import { CreateArticleCommentDto } from './dto/create-article-comment.dto';
 import { CreateArticleDto } from './dto/create-article.dto';
 
 @ApiBearerAuth()
@@ -91,7 +92,7 @@ export class ArticleController {
    */
   @Get(':slug')
   @ApiResponse({
-    status: 201,
+    status: 200,
     description: 'Get Article Request Completed',
   })
   @ApiResponse({ status: 400, description: 'Get Article Bad Request' })
@@ -113,12 +114,12 @@ export class ArticleController {
   async updateArticle(
     @UserParam('id') currentUserId: number,
     @Param('slug') slug: string,
-    @Body('article') updateArticleDto: CreateArticleDto,
+    @Body() updateArticleDto: CreateArticleDto,
   ) {
     const article = await this.articleService.updateArticle(
       slug,
-      updateArticleDto,
       currentUserId,
+      updateArticleDto.article,
     );
     return this.articleService.buildArticleResponse(article);
   }
@@ -137,10 +138,70 @@ export class ArticleController {
   @ApiResponse({ status: 400, description: 'Delete Article Bad Request' })
   @ApiResponse({ status: 401, description: 'Unauthorized' })
   async deleteArticle(
+    @UserParam('id') currentUserId: number,
     @Param('slug') slug: string,
-  ): Promise<IArticleResponseBody> {
-    const article = await this.articleService.findBySlug(slug);
-    return this.articleService.buildArticleResponse(article);
+  ) {
+    return await this.articleService.deleteArticle(slug, currentUserId);
+  }
+
+  @Get(':slug/comments')
+  @ApiResponse({
+    status: 200,
+    description: 'Get Article Comments Request Completed',
+  })
+  @ApiResponse({ status: 400, description: 'Get Article Comments Bad Request' })
+  @ApiResponse({ status: 401, description: 'Unauthorized' })
+  async getCommentsForArticle(@Param('slug') slug: string) {
+    return await this.articleService.getCommentsOnArticle(slug);
+  }
+
+  @Post(':slug/comments')
+  @UseGuards(PoliciesGuard)
+  @CheckPolicies(new PatchUserPolicyHandler())
+  @ApiResponse({
+    status: 201,
+    description: 'Commenting on Article Request Completed',
+  })
+  @ApiResponse({
+    status: 400,
+    description: 'Commenting on Article Bad Request',
+  })
+  @ApiResponse({ status: 401, description: 'Unauthorized' })
+  async commentOnArticle(
+    @UserParam() user: UserEntity,
+    @Param('slug') slug: string,
+    @Body() createArticleCommentDto: CreateArticleCommentDto,
+  ) {
+    const comment = await this.articleService.createCommentOnArticle(
+      slug,
+      user,
+      createArticleCommentDto.comment,
+    );
+    return this.articleService.buildArticleCommentResponse(comment);
+  }
+
+  @Delete(':slug/comments/:id')
+  @UseGuards(PoliciesGuard)
+  @CheckPolicies(new PatchUserPolicyHandler())
+  @ApiResponse({
+    status: 201,
+    description: 'Delete Comment from Article Request Completed',
+  })
+  @ApiResponse({
+    status: 400,
+    description: 'Delete Comment from Article Bad Request',
+  })
+  @ApiResponse({ status: 401, description: 'Unauthorized' })
+  async deleteCommentFromArticle(
+    @UserParam('id') currentUserId: number,
+    @Param('id') commentId: number,
+    @Param('slug') slug: string,
+  ) {
+    return await this.articleService.deleteCommentFromArticle(
+      slug,
+      commentId,
+      currentUserId,
+    );
   }
 
   @Post(':slug/favorite')

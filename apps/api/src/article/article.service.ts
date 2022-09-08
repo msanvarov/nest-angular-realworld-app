@@ -12,9 +12,11 @@ import { FollowEntity } from '../profile/follow.entity';
 import { TagService } from '../tag/tag.service';
 import { UserEntity } from '../users/user.entity';
 import { ArticleEntity } from './article.entity';
+import { CommentEntity } from './comment.entity';
 import { ArticleFeedQueryParams } from './dto/article-feed.dto';
 import { ArticlesQueryParams } from './dto/articles-query.dto';
-import { ArticleDto, CreateArticleDto } from './dto/create-article.dto';
+import { ArticleCommentDto } from './dto/create-article-comment.dto';
+import { ArticleDto } from './dto/create-article.dto';
 
 @Injectable()
 export class ArticleService {
@@ -25,6 +27,8 @@ export class ArticleService {
     private readonly userRepository: Repository<UserEntity>,
     @InjectRepository(FollowEntity)
     private readonly followRepository: Repository<FollowEntity>,
+    @InjectRepository(CommentEntity)
+    private readonly commentRepository: Repository<CommentEntity>,
     private readonly tagService: TagService,
   ) {}
 
@@ -164,8 +168,8 @@ export class ArticleService {
 
   async updateArticle(
     slug: string,
-    updateArticleDto: CreateArticleDto,
     currentUserId: number,
+    payload: ArticleDto,
   ): Promise<ArticleEntity> {
     const article = await this.findBySlug(slug);
 
@@ -177,9 +181,23 @@ export class ArticleService {
       throw new HttpException('You are not an author', HttpStatus.FORBIDDEN);
     }
 
-    Object.assign(article, updateArticleDto);
+    Object.assign(article, payload);
 
     return await this.articleRepository.save(article);
+  }
+
+  async deleteArticle(slug: string, currentUserId: number) {
+    const article = await this.findBySlug(slug);
+
+    if (!article) {
+      throw new HttpException('Article does not exist', HttpStatus.NOT_FOUND);
+    }
+
+    if (article.author.id !== currentUserId) {
+      throw new HttpException('You are not an author', HttpStatus.FORBIDDEN);
+    }
+
+    return await this.articleRepository.delete({ slug });
   }
 
   async addArticleToFavorites(
@@ -207,6 +225,57 @@ export class ArticleService {
     return article;
   }
 
+  async getCommentsOnArticle(slug: string): Promise<CommentEntity[]> {
+    const article = await this.findBySlug(slug);
+    return article.comments;
+  }
+
+  async createCommentOnArticle(
+    slug: string,
+    user: UserEntity,
+    payload: ArticleCommentDto,
+  ) {
+    const article = await this.findBySlug(slug);
+
+    const comment = new CommentEntity();
+    Object.assign(comment, payload);
+    comment.author = user;
+    comment.article = article;
+
+    return await this.commentRepository.save(comment);
+  }
+
+  async deleteCommentFromArticle(
+    slug: string,
+    commentId: number,
+    userId: number,
+  ) {
+    const article = await this.findBySlug(slug);
+    const user = await this.userRepository.findOne({
+      where: { id: userId },
+      relations: ['comments'],
+    });
+
+    const articleCommentIndex = article.comments.findIndex(
+      (articleComment) => articleComment.id === commentId,
+    );
+    const userCommentIndex = user.comments.findIndex(
+      (userComment) => userComment.id === commentId,
+    );
+
+    if (articleCommentIndex > -1) {
+      article.comments.splice(articleCommentIndex, 1);
+      await this.articleRepository.save(article);
+    }
+
+    if (userCommentIndex > -1) {
+      user.comments.splice(userCommentIndex, 1);
+      await this.userRepository.save(user);
+    }
+
+    return await this.commentRepository.delete({ id: commentId });
+  }
+
   async deleteArticleFromFavorites(
     slug: string,
     userId: number,
@@ -221,17 +290,26 @@ export class ArticleService {
       (articleInFavorites) => articleInFavorites.id === article.id,
     );
 
-    if (articleIndex >= 0) {
+    if (articleIndex > -1) {
       user.favorites.splice(articleIndex, 1);
       article.favoritesCount--;
       await this.userRepository.save(user);
       await this.articleRepository.save(article);
+    } else {
+      throw new HttpException(
+        'Article is not in favorites',
+        HttpStatus.NOT_FOUND,
+      );
     }
-
     return article;
   }
 
   buildArticleResponse(article: ArticleEntity): IArticleResponseBody {
     return { article };
+  }
+
+  buildArticleCommentResponse(comment: CommentEntity) {
+    delete comment.article;
+    return { comment };
   }
 }

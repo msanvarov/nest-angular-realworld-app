@@ -9,6 +9,7 @@ import {
 } from 'typeorm';
 
 import { ArticleEntity } from '../article/article.entity';
+import { CommentEntity } from '../article/comment.entity';
 import { PasswordTransformer } from './password.transformer';
 import { UserRoles } from './user-role.entity';
 
@@ -69,6 +70,9 @@ export class UserEntity {
 
   @OneToMany(() => ArticleEntity, (article) => article.author)
   articles: ArticleEntity[];
+
+  @OneToMany(() => CommentEntity, (comment) => comment.author)
+  comments: CommentEntity[];
 
   @ManyToMany(() => ArticleEntity)
   @JoinTable()

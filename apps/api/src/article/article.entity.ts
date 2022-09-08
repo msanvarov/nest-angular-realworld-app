@@ -3,10 +3,12 @@ import {
   Column,
   Entity,
   ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 
 import { UserEntity } from '../users/user.entity';
+import { CommentEntity } from './comment.entity';
 
 @Entity({ name: 'articles' })
 export class ArticleEntity {
@@ -42,6 +44,12 @@ export class ArticleEntity {
     this.updatedAt = new Date();
   }
 
-  @ManyToOne(() => UserEntity, (user) => user.articles, { eager: true })
+  @ManyToOne(() => UserEntity, (user) => user.articles, {
+    eager: true,
+    nullable: false,
+  })
   author: UserEntity;
+
+  @OneToMany(() => CommentEntity, (comment) => comment.article, { eager: true })
+  comments: CommentEntity[];
 }
