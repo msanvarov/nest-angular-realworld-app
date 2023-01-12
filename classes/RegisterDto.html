@@ -156,9 +156,9 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty } from &#x27;@nestjs/swagger&#x27;;
 import { Type } from &#x27;class-transformer&#x27;;
 import {
-  IsAlphanumeric,
   IsEmail,
   IsNotEmpty,
+  Matches,
   MinLength,
   ValidateNested,
 } from &#x27;class-validator&#x27;;
@@ -180,7 +180,7 @@ export class UserRegistrationDto {
    */
   @ApiProperty()
   @IsNotEmpty()
-  @IsAlphanumeric()
+  @Matches(/^(?&#x3D;[a-zA-Z0-9._]{8,20}$)(?!.*[_.]{2})[^_.].*[^_.]$/)
   readonly username: string;
 
   /**

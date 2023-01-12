@@ -122,7 +122,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>editUser(userId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, payload: <a href="../classes/PatchUserDto.html" target="_self">PatchUserDto</a>)</code>
+                    <code>editUser(userId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, token: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, payload: <a href="../classes/PatchUserDto.html" target="_self">PatchUserDto</a>)</code>
                 </td>
             </tr>
 
@@ -172,6 +172,18 @@
 
                                 </tr>
                                 <tr>
+                                    <td>token</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
                                     <td>payload</td>
                                     <td>
                                                 <code><a href="../classes/PatchUserDto.html" target="_self" >PatchUserDto</a></code>
@@ -189,7 +201,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../entitys/UserEntity.html" target="_self" >Promise&lt;UserEntity&gt;</a></code>
+                        <b>Returns : </b>    <code>Promise&lt;literal type&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -313,9 +325,14 @@ export class UserController {
   @ApiResponse({ status: 400, description: &#x27;Put User Request Failed&#x27; })
   async editUser(
     @UserParam(&#x27;id&#x27;) userId: number,
+    @UserParam(&#x27;token&#x27;) token: string,
     @Body() payload: PatchUserDto,
-  ): Promise&lt;UserEntity&gt; {
-    return this.usersService.edit(userId, payload.user);
+  ): Promise&lt;{
+    user: UserEntity &amp; { token: string };
+  }&gt; {
+    return {
+      user: { ...(await this.usersService.edit(userId, payload.user)), token },
+    };
   }
 }
 </code></pre>

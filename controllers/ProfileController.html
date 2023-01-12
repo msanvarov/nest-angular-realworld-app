@@ -135,7 +135,7 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Post(&#x27;:username/follow&#x27;)<br />@UseGuards(PoliciesGuard)<br />@CheckPolicies(new PatchUserPolicyHandler())<br />@ApiResponse({status: 201, description: &#x27;Follow Profile Request Completed&#x27;})<br />@ApiResponse({status: 400, description: &#x27;Follow Profile Bad Request&#x27;})<br />@ApiResponse({status: 401, description: &#x27;Unauthorized&#x27;})<br /></code>
+                    <code>@Post(&#x27;:username/follow&#x27;)<br />@UseGuards(PoliciesGuard)<br />@CheckPolicies(new PatchUserPolicyHandler())<br />@ApiResponse({status: 200, description: &#x27;Follow Profile Request Completed&#x27;})<br />@ApiResponse({status: 400, description: &#x27;Follow Profile Bad Request&#x27;})<br />@ApiResponse({status: 401, description: &#x27;Unauthorized&#x27;})<br /></code>
                 </td>
             </tr>
 
@@ -315,7 +315,7 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Delete(&#x27;:username/follow&#x27;)<br />@UseGuards(PoliciesGuard)<br />@CheckPolicies(new PatchUserPolicyHandler())<br />@ApiResponse({status: 201, description: &#x27;Unfollow Profile Request Completed&#x27;})<br />@ApiResponse({status: 400, description: &#x27;Unfollow Profile Bad Request&#x27;})<br />@ApiResponse({status: 401, description: &#x27;Unauthorized&#x27;})<br /></code>
+                    <code>@Delete(&#x27;:username/follow&#x27;)<br />@UseGuards(PoliciesGuard)<br />@CheckPolicies(new PatchUserPolicyHandler())<br />@ApiResponse({status: 200, description: &#x27;Unfollow Profile Request Completed&#x27;})<br />@ApiResponse({status: 400, description: &#x27;Unfollow Profile Bad Request&#x27;})<br />@ApiResponse({status: 401, description: &#x27;Unauthorized&#x27;})<br /></code>
                 </td>
             </tr>
 
@@ -433,7 +433,7 @@ export class ProfileController {
   @UseGuards(PoliciesGuard)
   @CheckPolicies(new PatchUserPolicyHandler())
   @ApiResponse({
-    status: 201,
+    status: 200,
     description: &#x27;Follow Profile Request Completed&#x27;,
   })
   @ApiResponse({
@@ -456,7 +456,7 @@ export class ProfileController {
   @UseGuards(PoliciesGuard)
   @CheckPolicies(new PatchUserPolicyHandler())
   @ApiResponse({
-    status: 201,
+    status: 200,
     description: &#x27;Unfollow Profile Request Completed&#x27;,
   })
   @ApiResponse({

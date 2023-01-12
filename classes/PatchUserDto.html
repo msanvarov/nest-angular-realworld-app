@@ -163,10 +163,10 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty } from &#x27;@nestjs/swagger&#x27;;
 import { Type } from &#x27;class-transformer&#x27;;
 import {
-  IsAlphanumeric,
   IsEmail,
   IsFQDN,
-  IsNotEmpty,
+  IsOptional,
+  Matches,
   MaxLength,
   MinLength,
   ValidateNested,
@@ -178,23 +178,23 @@ export class UserDto {
    */
   @ApiProperty()
   @IsEmail()
-  @IsNotEmpty()
+  @IsOptional()
   readonly email: string;
 
   /**
    * Username field
    */
   @ApiProperty()
-  @IsAlphanumeric()
-  @IsNotEmpty()
+  @Matches(/^(?&#x3D;[a-zA-Z0-9._]{8,20}$)(?!.*[_.]{2})[^_.].*[^_.]$/)
+  @IsOptional()
   readonly username: string;
 
   /**
    * Bio field
    */
   @ApiProperty()
-  @IsNotEmpty()
   @MaxLength(255)
+  @IsOptional()
   readonly bio: string;
 
   /**
@@ -202,16 +202,16 @@ export class UserDto {
    * @example https://gravatar.com/avatar/123
    */
   @ApiProperty()
-  @IsNotEmpty()
   @IsFQDN()
+  @IsOptional()
   readonly image: string;
 
   /**
    * Password field
    */
   @ApiProperty()
-  @IsNotEmpty()
   @MinLength(8)
+  @IsOptional()
   readonly password: string;
 }
 

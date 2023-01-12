@@ -132,7 +132,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">apps/api/src/article/dto/create-article.dto.ts:35</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">apps/api/src/article/dto/create-article.dto.ts:27</a></div>
                         </td>
                     </tr>
 
@@ -153,24 +153,16 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty } from &#x27;@nestjs/swagger&#x27;;
 import { Type } from &#x27;class-transformer&#x27;;
-import {
-  IsNotEmpty,
-  IsOptional,
-  IsString,
-  ValidateNested,
-} from &#x27;class-validator&#x27;;
+import { IsOptional, IsString, ValidateNested } from &#x27;class-validator&#x27;;
 
 export class ArticleDto {
   @ApiProperty()
-  @IsNotEmpty()
   title: string;
 
   @ApiProperty()
-  @IsNotEmpty()
   description: string;
 
   @ApiProperty()
-  @IsNotEmpty()
   body: string;
 
   @ApiProperty({

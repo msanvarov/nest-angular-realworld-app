@@ -128,7 +128,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiProperty()<br />@IsAlpha()<br />@IsNotEmpty()<br />
+                            @ApiProperty()<br />@IsNotEmpty()<br />@IsAlpha()<br />
                         </code>
                     </td>
                 </tr>
@@ -158,8 +158,8 @@ import { IsAlpha, IsNotEmpty } from &#x27;class-validator&#x27;;
 
 export class CreateTagDto {
   @ApiProperty()
-  @IsAlpha()
   @IsNotEmpty()
+  @IsAlpha()
   readonly name: string;
 }
 </code></pre>

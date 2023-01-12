@@ -290,7 +290,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     private readonly usersService: UsersService,
   ) {
     super({
-      jwtFromRequest: ExtractJwt.fromAuthHeaderWithScheme(&#x27;Token&#x27;),
+      jwtFromRequest: ExtractJwt.fromAuthHeaderWithScheme(&#x27;Bearer&#x27;),
       ignoreExpiration: false,
       secretOrKey: configService.get(&#x27;WEBTOKEN_ENCRYPTION_KEY&#x27;),
       passReqToCallback: true,
