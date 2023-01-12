@@ -3,7 +3,7 @@ import { IsAlpha, IsNotEmpty } from 'class-validator';
 
 export class CreateTagDto {
   @ApiProperty()
-  @IsAlpha()
   @IsNotEmpty()
+  @IsAlpha()
   readonly name: string;
 }

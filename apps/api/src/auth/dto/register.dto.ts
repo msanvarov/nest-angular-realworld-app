@@ -1,9 +1,9 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { Type } from 'class-transformer';
 import {
-  IsAlphanumeric,
   IsEmail,
   IsNotEmpty,
+  Matches,
   MinLength,
   ValidateNested,
 } from 'class-validator';
@@ -25,7 +25,7 @@ export class UserRegistrationDto {
    */
   @ApiProperty()
   @IsNotEmpty()
-  @IsAlphanumeric()
+  @Matches(/^(?=[a-zA-Z0-9._]{8,20}$)(?!.*[_.]{2})[^_.].*[^_.]$/)
   readonly username: string;
 
   /**

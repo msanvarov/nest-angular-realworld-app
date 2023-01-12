@@ -1,4 +1,4 @@
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable, Logger } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import slugify from 'slugify';
 import { Repository } from 'typeorm';
@@ -20,6 +20,8 @@ import { ArticleDto } from './dto/create-article.dto';
 
 @Injectable()
 export class ArticleService {
+  private readonly logger = new Logger(ArticleService.name);
+
   constructor(
     @InjectRepository(ArticleEntity)
     private readonly articleRepository: Repository<ArticleEntity>,
@@ -58,9 +60,11 @@ export class ArticleService {
       const author = await this.userRepository.findOne({
         where: { username: query.author },
       });
-      queryBuilder.andWhere('articles.authorId = :id', {
-        id: author.id,
-      });
+      if (author) {
+        queryBuilder.andWhere('articles.authorId = :id', {
+          id: author.id,
+        });
+      }
     }
 
     if (query.favorited) {
@@ -209,6 +213,8 @@ export class ArticleService {
       where: { id: userId },
       relations: ['favorites'],
     });
+
+    this.logger.log('ARTICLE ' + JSON.stringify(article));
 
     const isNotFavorited =
       user.favorites.findIndex(

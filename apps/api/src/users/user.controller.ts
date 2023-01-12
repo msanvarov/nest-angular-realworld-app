@@ -32,8 +32,13 @@ export class UserController {
   @ApiResponse({ status: 400, description: 'Put User Request Failed' })
   async editUser(
     @UserParam('id') userId: number,
+    @UserParam('token') token: string,
     @Body() payload: PatchUserDto,
-  ): Promise<UserEntity> {
-    return this.usersService.edit(userId, payload.user);
+  ): Promise<{
+    user: UserEntity & { token: string };
+  }> {
+    return {
+      user: { ...(await this.usersService.edit(userId, payload.user)), token },
+    };
   }
 }

@@ -45,7 +45,7 @@ export class ProfileController {
   @UseGuards(PoliciesGuard)
   @CheckPolicies(new PatchUserPolicyHandler())
   @ApiResponse({
-    status: 201,
+    status: 200,
     description: 'Follow Profile Request Completed',
   })
   @ApiResponse({
@@ -68,7 +68,7 @@ export class ProfileController {
   @UseGuards(PoliciesGuard)
   @CheckPolicies(new PatchUserPolicyHandler())
   @ApiResponse({
-    status: 201,
+    status: 200,
     description: 'Unfollow Profile Request Completed',
   })
   @ApiResponse({

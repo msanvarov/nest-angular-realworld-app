@@ -1,10 +1,10 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { Type } from 'class-transformer';
 import {
-  IsAlphanumeric,
   IsEmail,
   IsFQDN,
-  IsNotEmpty,
+  IsOptional,
+  Matches,
   MaxLength,
   MinLength,
   ValidateNested,
@@ -16,23 +16,23 @@ export class UserDto {
    */
   @ApiProperty()
   @IsEmail()
-  @IsNotEmpty()
+  @IsOptional()
   readonly email: string;
 
   /**
    * Username field
    */
   @ApiProperty()
-  @IsAlphanumeric()
-  @IsNotEmpty()
+  @Matches(/^(?=[a-zA-Z0-9._]{8,20}$)(?!.*[_.]{2})[^_.].*[^_.]$/)
+  @IsOptional()
   readonly username: string;
 
   /**
    * Bio field
    */
   @ApiProperty()
-  @IsNotEmpty()
   @MaxLength(255)
+  @IsOptional()
   readonly bio: string;
 
   /**
@@ -40,16 +40,16 @@ export class UserDto {
    * @example https://gravatar.com/avatar/123
    */
   @ApiProperty()
-  @IsNotEmpty()
   @IsFQDN()
+  @IsOptional()
   readonly image: string;
 
   /**
    * Password field
    */
   @ApiProperty()
-  @IsNotEmpty()
   @MinLength(8)
+  @IsOptional()
   readonly password: string;
 }
 

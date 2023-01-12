@@ -34,9 +34,12 @@ export const OPEN_API_DESCRIPTION = 'API Description';
 export const OPEN_API_CURRENT_VERSION = '1.0';
 
 async function bootstrap() {
+  const logger = new Logger('BOOTSTRAP');
   const app = await NestFactory.create<NestFastifyApplication>(
     AppModule,
-    new FastifyAdapter({ logger: true }),
+    new FastifyAdapter({
+      logger: true,
+    }),
   );
 
   const options = new DocumentBuilder()
@@ -69,7 +72,9 @@ async function bootstrap() {
   const port = process.env.PORT || 3333;
 
   await app.listen(port, '0.0.0.0');
-  Logger.log(
+  console.log(`Application is running on: ${await app.getUrl()}`);
+
+  logger.log(
     `🚀 Application is running on: http://localhost:${port}/${GLOBAL_API_PREFIX}`,
   );
 }
