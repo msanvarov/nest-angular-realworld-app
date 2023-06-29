@@ -1,0 +1,55 @@
+<!-- ----------------------------------------------------------------------------------------------------- -->
+<!-- Empty layout -->
+<!-- ----------------------------------------------------------------------------------------------------- -->
+<starter-empty-layout *ngIf="layout === 'empty'"></starter-empty-layout>
+
+<!-- ----------------------------------------------------------------------------------------------------- -->
+<!-- Layouts with horizontal navigation -->
+<!-- ----------------------------------------------------------------------------------------------------- -->
+
+<!-- Centered -->
+<starter-centered-layout
+  *ngIf="layout === 'centered'"
+></starter-centered-layout>
+
+<!-- Enterprise -->
+<starter-enterprise-layout
+  *ngIf="layout === 'enterprise'"
+></starter-enterprise-layout>
+
+<!-- Material -->
+<starter-material-layout
+  *ngIf="layout === 'material'"
+></starter-material-layout>
+
+<!-- Modern -->
+<starter-modern-layout *ngIf="layout === 'modern'"></starter-modern-layout>
+
+<!-- ----------------------------------------------------------------------------------------------------- -->
+<!-- Layouts with vertical navigation -->
+<!-- ----------------------------------------------------------------------------------------------------- -->
+
+<!-- Classic -->
+<starter-classic-layout *ngIf="layout === 'classic'"></starter-classic-layout>
+
+<!-- Classy -->
+<starter-classy-layout *ngIf="layout === 'classy'"></starter-classy-layout>
+
+<!-- Compact -->
+<starter-compact-layout *ngIf="layout === 'compact'"></starter-compact-layout>
+
+<!-- Dense -->
+<starter-dense-layout *ngIf="layout === 'dense'"></starter-dense-layout>
+
+<!-- Futuristic -->
+<starter-futuristic-layout
+  *ngIf="layout === 'futuristic'"
+></starter-futuristic-layout>
+
+<!-- Thin -->
+<starter-thin-layout *ngIf="layout === 'thin'"></starter-thin-layout>
+
+<!-- ----------------------------------------------------------------------------------------------------- -->
+<!-- Settings drawer - Remove this to remove the drawer and its button -->
+<!-- ----------------------------------------------------------------------------------------------------- -->
+<!-- <starter-settings></starter-settings> -->

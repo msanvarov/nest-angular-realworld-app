@@ -1,0 +1,275 @@
+<section [ngClass]="product ? product : 'nft__area pb-90'">
+  <div class="container">
+     <div class="section__title-border mb-30">
+        <div class="row">
+           <div class="col-xxl-6 col-md-6">
+              <div class="section__title-wrapper-2 mr-15">
+                 <h3 *ngIf="!product_grid" class="section__title-2">Explore product</h3>
+                 <h3 *ngIf="product_grid" class="section__title-2">{{product_grid}}</h3>
+              </div>
+           </div>
+           <div *ngIf="!product" class="col-xxl-6 col-md-6">
+              <div class="nft__more text-sm-end">
+                 <a [routerLink]="['/shop']" class="tp-btn-border">viewl all NFTs</a>
+              </div>
+           </div>
+        </div>
+     </div>
+     <div class="row">
+        <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6">
+           <div class="nft__filter mb-35">
+              <h4 class="nft__filter-title">PRICE</h4>
+              <div class="nft__filter-item">
+
+              <div class="tp-select tp-select-3">
+                  <mat-form-field appearance="fill">
+                    <mat-label>Select an option</mat-label>
+                    <mat-select disableRipple>
+                      <mat-option value="1">Highest price</mat-option>
+                      <mat-option value="2">Lowest price</mat-option>
+                      <mat-option value="3">Medium price</mat-option>
+                      <mat-option value="3">Best price</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+               </div>
+
+              </div>
+           </div>
+        </div>
+        <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6">
+           <div class="nft__filter mb-35">
+              <h4 class="nft__filter-title">LIKES</h4>
+              <div class="nft__filter-item">
+
+              <div class="tp-select tp-select-3">
+                  <mat-form-field appearance="fill">
+                    <mat-label>Select an option</mat-label>
+                    <mat-select disableRipple>
+                      <mat-option value="1">Most liked</mat-option>
+                      <mat-option value="2">Most Viewed</mat-option>
+                      <mat-option value="3">High Rated</mat-option>
+                      <mat-option value="3">Top Popularity</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+               </div>
+
+              </div>
+           </div>
+        </div>
+        <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6">
+           <div class="nft__filter mb-35">
+              <h4 class="nft__filter-title">CREATOR</h4>
+              <div class="nft__filter-item">
+
+                <div class="tp-select tp-select-3">
+                  <mat-form-field appearance="fill">
+                    <mat-label>Select an option</mat-label>
+                    <mat-select disableRipple>
+                      <mat-option value="1">Verified only</mat-option>
+                      <mat-option value="2">New Added</mat-option>
+                      <mat-option value="3">Most Liked</mat-option>
+                      <mat-option value="3">Highest Rank</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+               </div>
+
+              </div>
+           </div>
+        </div>
+        <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6">
+           <div class="nft__filter mb-35">
+              <h4 class="nft__filter-title">PRICE RANGE</h4>
+              <div class="nft__filter">
+                 <div class="nft__filter-slider tp-range-slider">
+                    <div class="slider-styled inside-slider" id="nft-slider"></div>
+                    <ngx-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ngx-slider>
+                    <div class="nft__filter-slider-input d-flex align-items-center justify-content-between">
+                       <div class="nft__filter-slider-box d-flex">
+                        <input type="text" [(ngModel)]="minValue" id="input-with-keypress-0">
+                          <span>ETH</span>
+                       </div>
+                       <div class="nft__filter-slider-box d-flex">
+                        <input type="text" [(ngModel)]="maxValue" id="input-with-keypress-1">
+                          <span>ETH</span>
+                       </div>
+                    </div>
+
+                </div>
+              </div>
+           </div>
+        </div>
+     </div>
+     <div class="row">
+        <div *ngFor="let product of products" class="col-xxl-3 col-xl-3 col-lg-4 col-md-6">
+           <div class="nft__box mb-30 transition-3">
+              <div class="nft__box-top d-flex align-items-center justify-content-between">
+                 <div class="nft__box-user">
+                    <ul>
+                       <li>
+                          <a [routerLink]="['/profile']">
+                             <img src="assets/img/bid/2/bid-user-1.jpg" alt="">
+                          </a>
+                       </li>
+                       <li>
+                          <a [routerLink]="['/profile']">
+                             <img src="assets/img/bid/2/bid-user-2.jpg" alt="">
+                          </a>
+                       </li>
+                       <li>
+                          <a [routerLink]="['/profile']">
+                             <img src="assets/img/bid/2/bid-user-3.jpg" alt="">
+                          </a>
+                       </li>
+                    </ul>
+                 </div>
+                 <div class="nft__box-more">
+                    <button type="button" class="dropdown-toggle nft-more-btn" data-bs-toggle="dropdown" aria-expanded="false">
+                       <i class="fa-regular fa-ellipsis"></i>
+                    </button>
+                    <div class="nft__more-content dropdown-menu dropdown-menu-end">
+                       <ul>
+                          <li>
+                             <button type="button" data-bs-toggle="modal" data-bs-target="#sharemodal">Share</button>
+                          </li>
+                          <li>
+                             <button type="button" data-bs-toggle="modal" data-bs-target="#reportmodal">Report</button>
+                          </li>
+                       </ul>
+                    </div>
+                 </div>
+              </div>
+              <div class="nft__box-thumb m-img mb-20">
+                 <a [routerLink]="['/product-details']">
+                    <img src={{product.img}} alt="">
+                 </a>
+                 <div class="nft__box-popularity">
+                    <a [routerLink]="['/product-details']"><i class="fa-solid fa-heart"></i> {{product.heart}}</a>
+                 </div>
+              </div>
+              <div class="nft__box-content">
+                 <div class="nft__box-content-top d-flex align-items-center justify-content-between">
+                    <h3 class="nft__box-title">
+                       <a [routerLink]="['/product-details']">{{product.title}}</a>
+                    </h3>
+                    <div class="nft__box-trending-icon">
+                       <span><i class="fa-brands fa-ethereum"></i></span>
+                    </div>
+                 </div>
+                 <div class="nft__box-info d-flex align-items-center justify-content-between">
+                    <div class="nft__box-price">
+                       <p>{{product.box_price}} ETH</p>
+                    </div>
+                    <div class="nft__box-stock">
+                       <p>{{product.stock}} in stock</p>
+                    </div>
+                 </div>
+              </div>
+              <div class="nft__box-bottom d-flex align-items-center justify-content-between">
+                 <div class="nft__box-highest">
+                    <p><i class="fa-light fa-code-fork"></i> Highest bid</p>
+                 </div>
+                 <div class="nft__box-bid">
+                    <p>0.001 ETH</p>
+                 </div>
+              </div>
+           </div>
+        </div>
+
+        <div *ngIf="product" class="col-xxl-12">
+          <div class="nft__more text-center mt-20">
+             <a [routerLink]="['/shop']" class="tp-load-more"><i class="fa-light fa-arrow-rotate-right"></i>View all items</a>
+          </div>
+       </div>
+
+     </div>
+  </div>
+</section>
+
+
+
+
+
+   <!-- share modal start -->
+   <div class="share__modal modal fade" id="sharemodal" tabindex="-1" aria-labelledby="sharemodal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+       <div class="modal-content">
+          <div class="share__modal-content text-center">
+             <div class="share__nft-content">
+                <div class="share__thumb">
+                   <img src="assets/img/bid/bid-img-1.jpg" alt="">
+                </div>
+
+             </div>
+             <div class="share__social">
+                <h3>Share this NFT</h3>
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
+ <!-- share modal end -->
+
+ <!-- report modal start -->
+ <div class="report__modal modal fade" id="reportmodal" tabindex="-1" aria-labelledby="reportmodal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+       <div class="modal-content">
+          <div class="report__close">
+             <button type="button" class="report__close-btn" data-bs-dismiss="modal" aria-label="Close"><i class="fa-regular fa-xmark"></i></button>
+          </div>
+          <div class="report__wrapper">
+             <h3 class="report__title">Why are you reporting ?</h3>
+             <p>Describe briefly about your report.</p>
+             <form action="#">
+                <div class="report__input-box">
+                   <h4>Message</h4>
+                </div>
+                <div class="report__input">
+                   <textarea placeholder="Write your message"></textarea>
+                </div>
+                <div class="report__button">
+                   <button type="button" class="tp-btn-square">Send </button>
+                </div>
+             </form>
+          </div>
+       </div>
+    </div>
+ </div>
+ <!-- report modal end -->
+
+ <!-- bid popup area start -->
+ <div class="bid__modal modal fade" id="bidmodal" tabindex="-1" aria-labelledby="bidmodal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+       <div class="modal-content">
+          <div class="bid__modal-close">
+             <button type="button" class="bid__modal-close-btn" data-bs-dismiss="modal" aria-label="Close"><i class="fa-regular fa-xmark"></i></button>
+          </div>
+          <div class="bid__modal">
+             <h3 class="bid__modal-title">Place your bid</h3>
+             <p>You are about to place bid on this product</p>
+
+             <div class="bid__modal-form">
+                <form action="#">
+                   <div class="bid__modal-input">
+                      <input type="text" placeholder="Enter your bid">
+                      <span class="bid__modal-price">ETH</span>
+                   </div>
+                   <div class="bid__modal-info">
+                      <p>Your Balance <span>254 ETH</span></p>
+                      <p>Service fee <span>10 ETH</span></p>
+                      <p>Total <span class="color-theme">264 ETH</span></p>
+                   </div>
+                   <div class="bid__modal-btn">
+                      <button type="submit" class="tp-btn-3">Place bid</button>
+                   </div>
+                </form>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
+ <!-- bid popup area end -->

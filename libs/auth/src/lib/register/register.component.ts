@@ -12,7 +12,6 @@ export class RegisterComponent {
   isRegisterFormValid = true;
   email = '';
   username = '';
-  name = '';
   password = '';
 
   constructor(private authService: AuthService, private router: Router) {}
@@ -21,7 +20,6 @@ export class RegisterComponent {
     this.isRegisterFormValid = true;
     this.authService
       .registerUser({
-        name: this.name,
         username: this.username,
         email: this.email,
         password: this.password,

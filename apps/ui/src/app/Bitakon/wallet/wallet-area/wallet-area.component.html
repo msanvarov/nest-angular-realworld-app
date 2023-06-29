@@ -1,0 +1,31 @@
+<section class="wallet__area pt-95 pb-90">
+  <div class="container">
+     <div class="row justify-content-center">
+        <div class="col-xxl-6">
+           <div class="wallet__des text-center">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum obcaecati dignissimos
+                quae quo ad iste ipsum officiis.</p>
+           </div>
+        </div>
+     </div>
+     <div class="row justify-content-center">
+        <div *ngFor="let wallet of walletData" class="col-xxl-3 col-xl-3 col-lg-4 col-md-6 col-sm-6">
+           <div class="wallet__item mb-30" [class]="wallet.bg" >
+              <div class="wallet__item-fix">
+                 <span [class]="wallet.firstTag && 'wallet__popular' ">{{wallet.firstTag && wallet.firstTag}}</span>
+                 <div class="wallet__item-inner text-center">
+                    <div class="wallet__icon mb-20">
+                       <img src={{wallet.icon}} alt="">
+                    </div>
+                    <div class="wallet__content">
+                       <h3 class="wallet__title">
+                          <a [routerLink]="['/profile']">{{wallet.title}}</a>
+                       </h3>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </div>
+  </div>
+</section>

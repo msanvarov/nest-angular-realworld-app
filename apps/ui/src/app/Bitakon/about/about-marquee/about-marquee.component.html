@@ -1,0 +1,70 @@
+<section class="about__marque">
+  <div class="container-fluid p-0">
+     <div class="about__marque-inner">
+        <div class="row gx-0">
+           <div class="col-xxl-12">
+              <div class="about__marque-wrapper">
+                 <div class="about__marque-slider">
+                  <swiper
+                    class="swiper-wrapper"
+                    [loop]="true"
+                    [freeMode]="true"
+                    [autoplay]="{
+                      delay:1
+                    }"
+                    [slidesPerView]="1"
+                    [centeredSlides]="true"
+                    [speed]="5000"
+                    [shortSwipes]="false"
+                    [longSwipes]="false"
+                    [allowTouchMove]="false"
+                    [grabCursor]="false"
+                    [breakpoints]="{
+                      '0': {
+                        slidesPerView: 1,
+                        spaceBetween: 30
+                      },
+                      '576': {
+                        slidesPerView: 2,
+                        spaceBetween: 30
+                      },
+                      '768': {
+                        slidesPerView: 3,
+                        spaceBetween: 30
+                      },
+                      '991': {
+                        slidesPerView: 4,
+                        spaceBetween: 30
+                      },
+                      '1200': {
+                        slidesPerView: 3,
+                        spaceBetween: 30
+                      }
+                    }"
+                >
+                  <ng-template swiperSlide>
+                    <div class="marque__item ">
+                      <p>Discover  &  Callect  Extraordinary  Digital  Art  and  Rare   NFT’s</p>
+                   </div>
+                  </ng-template>
+
+                  <ng-template swiperSlide>
+                    <div class="marque__item">
+                      <p>Discover  &  Callect  Extraordinary  Digital  Art  and  Rare   NFT’s</p>
+                   </div>
+                  </ng-template>
+
+                  <ng-template swiperSlide>
+                    <div class="marque__item">
+                      <p>Discover  &  Callect  Extraordinary  Digital  Art  and  Rare   NFT’s</p>
+                   </div>
+                  </ng-template>
+
+                    </swiper>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </div>
+  </div>
+</section>

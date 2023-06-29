@@ -1,0 +1,97 @@
+<!-- Loading bar -->
+<starter-fuse-loading-bar></starter-fuse-loading-bar>
+
+<!-- Navigation -->
+<starter-fuse-vertical-navigation
+  class="dark bg-gray-900 print:hidden"
+  [mode]="isScreenSmall ? 'over' : 'side'"
+  [name]="'mainNavigation'"
+  [navigation]="navigation.default"
+  [opened]="!isScreenSmall"
+>
+  <!-- Navigation header hook -->
+  <ng-container fuseVerticalNavigationContentHeader>
+    <div class="flex items-center w-full p-4 pl-6">
+      <!-- Logo -->
+      <div class="flex items-center justify-center">
+        <img class="w-8" src="assets/images/logo/logo.svg" />
+      </div>
+      <!-- Components -->
+      <div class="flex items-center ml-auto">
+        <starter-notifications></starter-notifications>
+        <starter-user [showAvatar]="false"></starter-user>
+      </div>
+    </div>
+    <!-- User -->
+    <div class="flex flex-col items-center w-full p-4">
+      <div class="relative w-24 h-24">
+        <img
+          class="w-full h-full rounded-full"
+          *ngIf="user.image"
+          [src]="user.image"
+          alt="User avatar"
+        />
+        <mat-icon
+          class="icon-size-24"
+          *ngIf="!user.image"
+          [svgIcon]="'heroicons_solid:user-circle'"
+        ></mat-icon>
+      </div>
+      <div class="flex flex-col items-center justify-center w-full mt-6">
+        <div
+          class="w-full whitespace-nowrap text-ellipsis overflow-hidden text-center leading-normal font-medium"
+        >
+          {{ user.username }}
+        </div>
+        <div
+          class="w-full mt-0.5 whitespace-nowrap text-ellipsis overflow-hidden text-center text-md leading-normal font-medium text-secondary"
+        >
+          {{ user.email }}
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <!-- Navigation footer hook -->
+  <ng-container fuseVerticalNavigationContentFooter>
+    <div
+      class="flex flex-0 items-center justify-center h-16 pr-6 pl-2 mt-2 mb-4 opacity-12"
+    >
+      <img class="max-w-36" src="assets/images/logo/logo-text-on-dark.svg" />
+    </div>
+  </ng-container>
+</starter-fuse-vertical-navigation>
+
+<!-- Wrapper -->
+<div class="flex flex-col flex-auto w-full min-w-0">
+  <!-- Header -->
+  <div
+    class="relative flex flex-0 items-center w-full h-16 px-4 md:px-6 z-49 shadow dark:shadow-none dark:border-b bg-card dark:bg-transparent print:hidden"
+  >
+    <!-- Navigation toggle button -->
+    <button mat-icon-button (click)="toggleNavigation('mainNavigation')">
+      <mat-icon [svgIcon]="'heroicons_outline:menu'"></mat-icon>
+    </button>
+    <!-- Components -->
+    <div class="flex items-center pl-2 ml-auto space-x-0.5 sm:space-x-2">
+      <starter-languages></starter-languages>
+      <starter-fuse-fullscreen
+        class="hidden md:block"
+      ></starter-fuse-fullscreen>
+      <starter-search [appearance]="'bar'"></starter-search>
+      <starter-shortcuts></starter-shortcuts>
+      <!-- <messages></messages> -->
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="flex flex-col flex-auto">
+    <!-- *ngIf="true" hack is required here for router-outlet to work correctly.
+             Otherwise, layout changes won't be registered and the view won't be updated! -->
+    <router-outlet *ngIf="true"></router-outlet>
+  </div>
+
+  <!-- Footer -->
+  <!--<div class="relative flex flex-0 items-center justify-start w-full h-14 px-4 md:px-6 z-49 border-t bg-card dark:bg-transparent print:hidden">
+        <span class="font-medium text-secondary">Fuse &copy; {{currentYear}}</span>
+    </div>-->
+</div>

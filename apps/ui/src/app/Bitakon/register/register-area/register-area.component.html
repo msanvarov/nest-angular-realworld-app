@@ -1,0 +1,87 @@
+
+<!-- breadcrumb area start -->
+<section class="breadcrumb__area pt-160 pb-40 p-relative">
+  <div class="breadrumb__shape">
+     <img class="breadcrumb__shape-1" src="assets/img/breadcrumb/breadcrumb-shape-1.png" alt="">
+  </div>
+</section>
+<!-- breadcrumb area end -->
+
+<section class="login__area pb-120">
+  <div class="container">
+     <div class="row justify-content-center">
+        <div class="col-xxl-6 col-xl-6 col-lg-8">
+           <div class="login__wrapper">
+              <div class="login__shape">
+                 <img class="login__shape-1" src="assets/img/login/login-person.png" alt="">
+                 <img class="login__shape-2" src="assets/img/login/login-shape-1.png" alt="">
+                 <img class="login__shape-3" src="assets/img/login/login-shape-2.png" alt="">
+                 <img class="login__shape-4" src="assets/img/login/login-shape-3.png" alt="">
+              </div>
+              <div class="login__top text-center">
+                 <h3>Register</h3>
+                 <p>Already have an account? <a [routerLink]="['/login']">Sign in </a></p>
+              </div>
+              <div class="login__form">
+                 <form action="#">
+                    <div class="login__input-box">
+                       <div class="login__input-title">
+                          <h4>Enter name <span>*</span></h4>
+                       </div>
+                       <div class="login__input">
+                          <input type="text" placeholder="Your full name">
+                          <span class="login__input-icon">
+                             <i class="fa-solid fa-user"></i>
+                          </span>
+                       </div>
+                    </div>
+                    <div class="login__input-box">
+                       <div class="login__input-title">
+                          <h4>Enter email <span>*</span></h4>
+                       </div>
+                       <div class="login__input">
+                          <input type="text" placeholder="Enter your email">
+                          <span class="login__input-icon">
+                             <i class="fa-light fa-envelope"></i>
+                          </span>
+                       </div>
+                    </div>
+                    <div class="login__input-box">
+                       <div class="login__input-title d-flex align-items-center justify-content-between">
+                          <h4>Password <span>*</span></h4>
+                          <div class="forgot-password">
+                             <a [routerLink]="['/forget']">Forgot Password?</a>
+                          </div>
+                       </div>
+                       <div class="login__input">
+                          <input type="text" placeholder="Enter your email">
+                          <span class="login__input-icon">
+                             <i class="fa-light fa-lock"></i>
+                          </span>
+                          <span class="login__input-password-visible">
+                             <i class="fa-light fa-eye"></i>
+                          </span>
+                       </div>
+                    </div>
+
+                    <div class="login__btn mb-20">
+                       <button class="tp-btn-4 w-100">register</button>
+                    </div>
+                    <div class="login__signup text-center">
+                       <p>Or <a [routerLink]="['/login']">Sing in</a> with email</p>
+                    </div>
+                    <div class="login__option-wrapper">
+                       <div class="login__option-item mb-15">
+                          <a href="#" class="login__option-btn w-100"><img src="assets/img/icon/google.png" alt=""> Continue with Google</a>
+                       </div>
+                       <div class="login__option-item">
+                          <a href="#" class="login__option-btn w-100"><img src="assets/img/icon/facebook.png" alt=""> Continue with Facebook</a>
+                       </div>
+                    </div>
+                 </form>
+              </div>
+           </div>
+        </div>
+     </div>
+  </div>
+</section>

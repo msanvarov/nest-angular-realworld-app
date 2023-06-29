@@ -2,14 +2,20 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
+    "animations": "libs/animations",
     "api": "apps/api",
     "api-types": "libs/api-types",
     "auth": "libs/auth",
+    "config": "libs/config",
     "dashboard": "libs/dashboard",
     "material-design": "libs/material-design",
+    "media-watcher": "libs/media-watcher",
     "store": "libs/store",
     "ui": "apps/ui",
     "ui-e2e": "apps/ui-e2e",
-    "users": "libs/users"
-  }
+    "ui-types": "libs/ui-types",
+    "users": "libs/users",
+    "version": "libs/version"
+  },
+  "defaultProject": "api"
 }

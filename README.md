@@ -153,6 +153,9 @@ $ docker start nest-rest-typeorm-api
 # unit tests
 $ docker exec -it nest-rest-typeorm-api npm run test
 
+# test api against postman collection
+$ docker exec -it nest-rest-typeorm-api npm run test:postman
+
 ```
 
 #### Non-Docker
@@ -160,6 +163,10 @@ $ docker exec -it nest-rest-typeorm-api npm run test
 ```bash
 # execute test
 $ npm run test
+
+# test api against postman collection
+$ npm run test:postman
+
 ```
 
 ---

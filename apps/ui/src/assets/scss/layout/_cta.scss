@@ -1,0 +1,365 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  08. CTA CSS START
+/*----------------------------------------*/
+
+.cta{
+    &__wrapper{
+        &-2{
+            background-color: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            @include box-shadow(0px 20px 50px rgba(1, 5, 43, 0.2));
+            backdrop-filter: blur(30px);
+            @include border-radius(20px);
+            padding: 65px 90px;
+
+            @media #{$xl}{
+                padding-left: 60px;
+                padding-right: 60px;
+            }
+
+            @media #{$lg, $sm}{
+                padding-left: 40px;
+                padding-right: 40px;
+            }
+
+            @media #{$xs}{
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+        }
+    }
+    &__content{
+        &-2{
+            @media #{$md, $sm, $xs}{
+                margin-top: 20px;
+            }
+            & h3{
+                font-size: 44px;
+                font-weight: 700;
+                color: var(--tp-common-white);
+
+                @media #{$lg}{
+                    font-size: 35px;
+                }
+
+                @media #{$sm}{
+                    font-size: 40px;
+                }
+
+                @media #{$xs}{
+                    font-size: 30px;
+                }
+            }
+            & p{
+                font-size: 16px;
+                color: rgba($color: #fff, $alpha: .7);
+                margin-bottom: 30px;
+            }
+
+            & .tp-btn-gradient{
+                padding-left: 30px;
+                padding-right: 30px;
+                padding-bottom: 8px;
+                padding-top: 6px;
+                @include border-radius(8px);
+
+                &::after{
+                    @include border-radius(8px);
+                }
+            }
+        }
+    }
+    &__shape{
+        &-1{
+            position: absolute;
+            bottom: -13%;
+            right: -10%;
+            z-index: -1;
+
+            @media #{$xxl}{
+                right: -8%;
+            }
+
+            @media #{$xl}{
+                right: -2%;
+            }
+
+            @media #{$lg, $md, $sm, $xs}{
+                right: 0;
+            }
+        }
+        &-2{
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            z-index: -1;
+            left: -14%;
+            top: -15%;
+            opacity: .2;
+            mix-blend-mode: luminosity;
+
+            @media #{$xs}{
+                left: -40%;
+            }
+        }
+        &-3{
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: -1;
+            opacity: .3;
+            border-top-left-radius: 20px;
+
+            @media #{$sm, $xs}{
+                display: none;
+            }
+        }
+    }
+    &__thumb{
+        &-2{
+            & img{
+                @media #{$lg, $sm, $xs}{
+                    width: 100%;
+                }
+            }
+        }
+    }
+    &__box{
+        position: relative;
+        z-index: 1;
+        padding: 10px;
+        border: 2px solid rgba($color: #fff, $alpha: .06);
+        @include border-radius(10px);
+        @media #{$md, $sm, $xs}{
+            margin-bottom: 20px;
+        }
+        &-wrapper{
+            padding: 35px 35px;
+            @include border-radius(10px);
+
+            @media #{$xs}{
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+        }
+        &-inner{
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            box-sizing: border-box;
+            box-shadow: 0px 20px 50px rgba(1, 5, 43, 0.2);
+            backdrop-filter: blur(30px);
+            border-radius: 20px;
+            padding: 40px 75px 45px;
+            @media #{$lg}{
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+            @media #{$xs}{
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+        }
+        &-content{
+            & span{
+                color: var(--tp-common-white);
+                font-size: 15px;
+                font-weight: 600;
+                display: inline-block;
+                margin-bottom: 5px;
+            }
+        }
+        &-title{
+            font-size: 30px;
+            font-weight: 700;
+            color: var(--tp-common-white);
+            margin-bottom: 25px;
+        }
+        &-bg{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-size: cover;
+            z-index: -1;
+        }
+    }
+}
+
+/* subscribe css start */
+
+.subscribe{
+    &__wrapper{
+        z-index: 1;
+        @include border-radius(20px);
+
+        @media #{$lg, $md, $sm, $xs}{
+            margin-right: 0;
+            margin-bottom: 40px;
+        }
+        &::before{
+            @extend %theme-afbf;
+            left: 0;
+            top: 0;
+            width: calc(100% + 4px);
+            height: 100%;
+            background:  linear-gradient(90deg, rgba(255, 255, 255, 0) 00%, #FFB2A1 100%, rgba(255, 255, 255, 0) 100%);
+            background:  -webkit-linear-gradient(90deg, rgba(255, 255, 255, 0) 00%, #FFB2A1 100%, rgba(255, 255, 255, 0) 100%);
+            background:  -moz-linear-gradient(90deg, rgba(255, 255, 255, 0) 00%, #FFB2A1 100%, rgba(255, 255, 255, 0) 100%);
+            background:   -ms-linear-gradient(90deg, rgba(255, 255, 255, 0) 00%, #FFB2A1 100%, rgba(255, 255, 255, 0) 100%);
+            z-index: -1;
+            margin: -2px;
+            @include border-radius(20px);
+        }
+    }
+    &__shape{
+        &-1{
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+    }
+    &__inner{
+        position: relative;
+        z-index: 1;
+        padding: 70px 50px;
+        @include border-radius(20px);
+
+        @media #{$xs}{
+            padding: 45px 15px;
+        }
+        &::after{
+            position: absolute;
+            content: '';
+            top: 0;
+            left: 0;
+            width:100%;
+            height: 100%;
+            background-color: rgba(228, 250, 215, 0.03);
+            @include border-radius(20px);
+            z-index: -1;
+        }
+
+        & h3{
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--tp-common-white);
+            margin-bottom: 17px;
+        }
+
+        
+    }
+    &__input{
+        position: relative;
+        & input{
+            width: 100%;
+            height: 60px;
+            line-height: 60px;
+            @include border-radius(10px);
+            background-color: rgba($color: #fff, $alpha: .1);
+            border: 0;
+            outline: 0;
+            padding: 0 50px;
+            padding-right: 135px;
+            color: var(--tp-common-white);
+
+            @include tp-placeholder{
+                color: var(--tp-common-white);
+                opacity: .5;
+            }
+        }
+        & i{
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            @include transform(translateY(-50%));
+            color: var(--tp-common-white);
+            opacity: .5;
+        }
+        &-btn{
+            position: absolute;
+            top: 50%;
+            right: 8px;
+            @include transform(translateY(-50%));
+            display: inline-block;
+            height: 44px;
+            line-height: 40px;
+            text-align: center;
+            padding: 0 25px;
+            @include border-radius(8px);
+            color: var(--tp-common-white);
+            font-size: 14px;
+            font-weight: 600;
+            background-color: var(--tp-theme-1);
+            border: 2px solid var(--tp-theme-1);
+            &:hover{
+                background-color: transparent;
+                color: var(--tp-common-white);
+            }
+
+            @media #{$xs}{
+               position: static;
+               margin-top: 20px;
+               @include transform(translateY(0%));
+            }
+        }
+    }
+}
+
+/* community css start */
+
+.community{
+    &__wrapper{
+        border: 2px solid rgba($color: #fff, $alpha: .06);
+        padding: 60px 60px 75px;
+        @include border-radius(10px);
+
+        @media #{$xs}{
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+    }
+    &__content{
+        & h3{
+            color: rgba($color: #fff, $alpha: .9);
+            font-size: 26px;
+            @media #{$xs}{
+                font-size: 23px;
+            }
+        }
+        & p{
+            font-size: 15px;
+            color: rgba($color: #fff, $alpha: .6);
+            margin-bottom: 30px;
+        }
+    }
+    &__social{
+        & a{
+            display: inline-block;
+            height: 54px;
+            width: 54px;
+            line-height: 50px;
+            text-align: center;
+            font-size: 18px;
+            color: var(--tp-common-white);
+            border: 2px solid rgba($color: #fff, $alpha: .08);
+            @include border-radius(15px);
+            margin-right: 5px;
+
+            @media #{$xs}{
+                margin-bottom: 10px;
+            }
+
+            &:last-child{
+                margin-right: 0;
+            }
+            &:hover{
+                border-color: var(--tp-theme-1);
+            }
+        }
+    }
+}

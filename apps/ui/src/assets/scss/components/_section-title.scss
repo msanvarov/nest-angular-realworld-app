@@ -1,0 +1,172 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  SECTION TITLE CSS START
+/*----------------------------------------*/
+
+.section{
+    &__title{
+        font-size: 36px;
+        font-weight: 700;
+        color: var(--tp-common-white);
+
+        @media #{$xs}{
+            font-size: 30px;
+        }
+
+        /* section title stye 2*/
+        &-2{
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--tp-common-white);
+
+            @media #{$lg, $xs}{
+                font-size: 30px;
+            }
+        }
+
+        /* section title stye 3*/
+        &-3{
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--tp-common-white);
+
+            @media #{$lg, $md, $xs}{
+                font-size: 30px;
+            }
+        }
+
+        /* section title stye 4 */
+        &-4{
+            font-size: 40px;
+            font-weight: 600;
+            color: var(--tp-common-white);
+
+            @media #{$lg, $md, $xs}{
+                font-size: 30px;
+            }
+        }
+
+        &-5{
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--tp-common-white);
+
+            @media #{$lg, $md, $xs}{
+                font-size: 30px;
+            }
+        }
+
+        &-border{
+            border-bottom: 1px solid rgba($color: #fff, $alpha: .08);
+        }
+
+        &-pre{
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--tp-text-4);
+
+            &-2{
+                display: inline-block;
+                font-size: 16px;
+                font-weight: 500;
+                color: var(--tp-theme-1);
+                margin-bottom: 5px;
+            }
+
+            &-4{
+                display: inline-block;
+                font-size: 14px;
+                font-weight: 500;
+                color: var(--tp-theme-1);
+                margin-bottom: 5px;
+                text-transform: uppercase;
+            }
+        }
+
+        &-stroke{
+            font-size: 140px;
+            -webkit-text-fill-color: #05092B;
+            background:  linear-gradient(90deg, rgba(255, 255, 255, 0) 20%, #fff 100%, rgba(255, 255, 255, 0) 100%);
+            background:  -webkit-linear-gradient(90deg, rgba(255, 255, 255, 0) 20%, #fff 100%, rgba(255, 255, 255, 0) 100%);
+            background:  -moz-linear-gradient(90deg, rgba(255, 255, 255, 0) 20%, #fff 100%, rgba(255, 255, 255, 0) 100%);
+            background:   -ms-linear-gradient(90deg, rgba(255, 255, 255, 0) 20%, #fff 100%, rgba(255, 255, 255, 0) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-stroke: 4px transparent;
+            color: #232d2d;
+            opacity: .3;
+            position: absolute;
+            left: -90px;
+            top: -75px;
+            z-index: -1;
+            display: none;
+            @media #{$xxl}{
+                font-size: 105px;
+            }
+
+            @media #{$xl, $sm}{
+                font-size: 105px;
+                left: 0;
+            }
+
+            @media #{$sm}{
+                font-size: 80px;
+                left: 0;
+            }
+
+            @media #{$xs}{
+                font-size: 45px;
+                left: 0;
+                top: -40px;
+            }
+
+            &-2{
+                font-size: 100px;
+            }
+            /* if its centered */
+
+            &.center{
+                left: -20%;
+                right: -20%;
+                @media #{$xxl}{
+                    right: 0;
+                    left: 0;
+                }
+                @media #{$xl}{
+                    right: 0;
+                    left: 0;
+                    font-size: 85px;
+                }
+                @media #{$lg}{
+                    right: 0;
+                    left: 0;
+                    font-size: 70px;
+                }
+                @media #{$md}{
+                    right: 0;
+                    left: 0;
+                    font-size: 90px;
+                }
+                @media #{$sm}{
+                    right: 0;
+                    left: 0;
+                    font-size: 44px;
+                    top: -25px;
+                }
+                @media #{$xs}{
+                    right: 0;
+                    left: 0;
+                    font-size: 30px;
+                    top: -25px;
+                }
+            }
+        }
+
+        &-wrapper{
+            position: relative;
+            &-3{
+                position: relative;
+            }
+        }
+    }
+}

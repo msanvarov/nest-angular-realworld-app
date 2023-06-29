@@ -1,11 +1,12 @@
 {
+  "name": "material-design",
   "projectType": "library",
   "sourceRoot": "libs/material-design/src",
   "prefix": "starter",
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/material-design"],
+      "outputs": ["{workspaceRoot}/coverage/libs/material-design"],
       "options": {
         "jestConfig": "libs/material-design/jest.config.ts",
         "passWithNoTests": true

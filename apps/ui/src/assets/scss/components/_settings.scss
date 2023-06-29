@@ -1,0 +1,150 @@
+@use '../utils' as *;
+
+/* theme settings css start */
+
+
+.theme__settings{
+    $theme: &;
+    position: fixed;
+    top: 15%;
+    left: -290px;
+    width: 290px;
+    height: auto;
+    background-color: var(--tp-theme-dark-2);
+    padding: 20px 20px;
+    z-index: 99;
+    @include transition(.3s);
+    &.theme-setting-opened{
+        left: 0;
+        @include transition(.3s);
+        & #{$theme}{
+            &-expand{
+                visibility: hidden;
+                opacity: 0;
+            }
+            &-close{
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+    }
+    &-btn{
+        position: absolute;
+        top: 0;
+        left: 100%;
+        width: 40px;
+        height: 40px;
+        color: var(--tp-common-white);
+        @include border-radius(0 30px 30px 0);
+        background-color: var(--tp-theme-dark-2);
+    }
+    &-expand{
+        width: 40px;
+        height: 40px;
+        color: var(--tp-common-white);
+        @include animate(tp-spin, 1.5s, linear, infinite);
+    }
+    &-close{
+        position: absolute;
+        top: 0;
+        left: 0;
+        visibility: hidden;
+        opacity: 0;
+        width: 40px;
+        height: 40px;
+        color: var(--tp-common-white);
+    }
+
+    &-title{
+        font-size: 16px;
+        color: var(--tp-common-white);
+        opacity: .8;
+        margin-bottom: 20px;
+    }
+    &-color{
+        &-input{
+            & input,
+            & button{
+                width: 80px;
+                height: 30px;
+                border: 0;
+                outline: 0;
+            }
+
+            & button{
+                &.theme-red{
+                    background-color: red;
+                }
+                &.theme-blue{
+                    background-color: blue;
+                }
+            }
+        }
+    }
+}
+
+
+
+/* switcher btn style */
+.theme{
+    &__switcher{
+        &-btn{
+            display: inline-block;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--tp-common-white);
+            padding: 0 14px;
+            @include border-radius(50px);
+            overflow: hidden;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            &.dark{
+                background-color: var(--tp-common-white);
+                color: var(--tp-common-black);
+                
+                &:hover{
+                    color: var(--tp-common-black);
+                }
+            }
+            &.light{
+                &:hover{
+                    color: var(--tp-common-white);
+                }
+            }
+        }
+    }
+}
+
+/* switcher style */
+
+.my_switcher{
+    & ul{
+        height: 30px;
+        @include border-radius(50px);
+        background-color: rgba($color: #fff, $alpha: .2);
+        overflow: hidden;
+        width: 154px;
+        margin: auto;
+        & li{
+            display: inline-block;
+            list-style: none;
+        }
+    }
+
+    &-sm{
+        display: none;
+        position: static;
+        top: 0;
+        @include transform(translateY(0%) rotate(0));
+    }
+}
+
+@include keyframes(tp-spin){
+    0%{
+        @include transform(rotate(0deg));
+    }
+    100%{
+        @include transform(rotate(360deg));
+    }
+}

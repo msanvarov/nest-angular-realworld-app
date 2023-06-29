@@ -1,0 +1,358 @@
+<section class="auction__area pt-105 pb-50">
+  <div class="container">
+     <div class="auction__border mb-40">
+        <div class="row">
+           <div class="col-xxl-6 col-md-6">
+              <div class="section__title-wrapper-2 mr-15">
+                 <h3 class="section__title-2">Product Live Carousel</h3>
+              </div>
+           </div>
+           <div class="col-xxl-6 col-sm-6">
+              <div class="auction__nav text-sm-end">
+                <button type="button" class="slick-prev me-2">
+                  <i class="fa-regular fa-angle-left"></i>
+                </button>
+                <button type="button" class="slick-next">
+                  <i class="fa-regular fa-angle-right"></i>
+                </button>
+               </div>
+           </div>
+        </div>
+     </div>
+     <div class="row">
+        <div class="col-xxl-12">
+           <div class="auction__slider auction__slider-active">
+
+            <swiper
+            [loop]="true"
+            [navigation]="{
+              nextEl: '.slick-next',
+              prevEl: '.slick-prev'
+            }"
+            [breakpoints]="{
+              '0': {
+                slidesPerView: 1,
+                spaceBetween: 30
+              },
+              '640': {
+                slidesPerView: 1,
+                spaceBetween: 30
+              },
+              '768': {
+                slidesPerView: 2,
+                spaceBetween: 30
+              },
+              '991': {
+                slidesPerView: 3,
+                spaceBetween: 30
+              },
+              '1200': {
+                slidesPerView: 3,
+                spaceBetween: 30
+              }
+            }"
+          >
+            <ng-template *ngFor="let product of productsLive" swiperSlide >
+              <div class="auction__item auction__item-2 auction__item-bg  mb-30">
+                <div class="auction__thumb m-img mb-15">
+                   <a [routerLink]="['/product-details']">
+                      <img src={{product.img}} alt="">
+                   </a>
+                </div>
+                <div class="auction__content">
+                   <h3 class="auction__title">
+                      <a [routerLink]="['/product-details']">{{product.title}}</a>
+                   </h3>
+
+                   <div class="auction__author mb-15 d-flex align-items-center">
+                      <div class="auction__author-thumb mr-10">
+                         <a [routerLink]="['/profile']">
+                            <img src={{product.authorImg}} alt="">
+                         </a>
+                      </div>
+                      <div class="auction__author-content">
+                         <h4><span>by</span> <a [routerLink]="['/profile']">{{product.authorName}}</a></h4>
+                      </div>
+                   </div>
+                   <div class="auction__bid-status mb-15 d-flex align-items-end justify-content-between">
+                      <div class="auction__bid-current">
+                         <p>Current Bid</p>
+                         <h5>24.72 ETH <span>/ $10,580,951</span></h5>
+                      </div>
+                      <div class="auction__bid-ammount">
+
+                      </div>
+                   </div>
+                   <div class="auction__countdown-wrapper mb-30">
+                      <div class="auction__countdown d-flex align-items-center">
+                        <div class="cdown day"><span class="time-count">{{days}}</span> <p>Days</p></div>
+                        <div class="cdown hour"><span class="time-count">{{hours}}</span> <p>Hrs</p></div>
+                        <div class="cdown minutes"><span class="time-count">{{minutes}}</span> <p>Min</p></div>
+                        <div class="cdown second"> <div><span class="time-count">{{seconds}}</span> <p>Sec</p></div></div>
+                      </div>
+                   </div>
+                   <div class="auction__btn d-sm-flex align-items-center justify-content-between">
+                      <a [routerLink]="['/product-details']" class="tp-btn-2">Buy Now</a>
+                      <button type="button" class="tp-btn-2 active" data-bs-toggle="modal" data-bs-target="#bidmodal">Place Your Bid</button>
+                   </div>
+                </div>
+             </div>
+            </ng-template>
+          </swiper>
+
+           </div>
+        </div>
+     </div>
+  </div>
+</section>
+
+
+<!-- dots carusel start -->
+<section class="auction__area pt-105 pb-50">
+  <div class="container">
+     <div class="auction__border mb-40">
+        <div class="row">
+           <div class="col-xxl-12">
+              <div class="section__title-wrapper-2 mr-15">
+                 <h3 class="section__title-2">Product Live Carousel with dots</h3>
+              </div>
+           </div>
+        </div>
+     </div>
+     <div class="row">
+        <div class="col-xxl-12">
+           <div class="auction__slider bid__slider-2 auction__slider-2 auction__slider-active-2">
+
+            <swiper
+            class="pb-60"
+            [slidesPerView]="1"
+            [loop]="true"
+            [pagination]="{
+              clickable: true
+            }"
+            [breakpoints]="{
+              '0': {
+                slidesPerView: 1,
+                spaceBetween: 30
+              },
+              '640': {
+                slidesPerView: 1,
+                spaceBetween: 30
+              },
+              '768': {
+                slidesPerView: 2,
+                spaceBetween: 30
+              },
+              '991': {
+                slidesPerView: 3,
+                spaceBetween: 30
+              },
+              '1200': {
+                slidesPerView: 3,
+                spaceBetween: 30
+              }
+            }"
+          >
+            <ng-template *ngFor="let product of productsLive" swiperSlide>
+              <div class="auction__item auction__item-2 auction__item-bg  mb-30">
+                <div class="auction__thumb m-img mb-15">
+                   <a [routerLink]="['/product-details']">
+                      <img src={{product.img}} alt="">
+                   </a>
+                </div>
+                <div class="auction__content">
+                   <h3 class="auction__title">
+                      <a [routerLink]="['/product-details']">{{product.title}}</a>
+                   </h3>
+
+                   <div class="auction__author mb-15 d-flex align-items-center">
+                      <div class="auction__author-thumb mr-10">
+                         <a [routerLink]="['/profile']">
+                            <img src={{product.authorImg}} alt="">
+                         </a>
+                      </div>
+                      <div class="auction__author-content">
+                         <h4><span>by</span> <a [routerLink]="['/profile']">{{product.authorName}}</a></h4>
+                      </div>
+                   </div>
+                   <div class="auction__bid-status mb-15 d-flex align-items-end justify-content-between">
+                      <div class="auction__bid-current">
+                         <p>Current Bid</p>
+                         <h5>24.72 ETH <span>/ $10,580,951</span></h5>
+                      </div>
+                      <div class="auction__bid-ammount">
+
+                      </div>
+                   </div>
+                   <div class="auction__countdown-wrapper mb-30">
+                      <div class="auction__countdown d-flex align-items-center">
+                        <div class="cdown day"><span class="time-count">{{days}}</span> <p>Days</p></div>
+                        <div class="cdown hour"><span class="time-count">{{hours}}</span> <p>Hrs</p></div>
+                        <div class="cdown minutes"><span class="time-count">{{minutes}}</span> <p>Min</p></div>
+                        <div class="cdown second"> <div><span class="time-count">{{seconds}}</span> <p>Sec</p></div></div>
+                      </div>
+                   </div>
+                   <div class="auction__btn d-sm-flex align-items-center justify-content-between">
+                      <a [routerLink]="['/product-details']" class="tp-btn-2">Buy Now</a>
+                      <button type="button" class="tp-btn-2 active" data-bs-toggle="modal" data-bs-target="#bidmodal">Place Your Bid</button>
+                   </div>
+                </div>
+             </div>
+            </ng-template>
+
+            </swiper>
+
+           </div>
+        </div>
+     </div>
+  </div>
+</section>
+<!-- dots carusel end -->
+
+
+<!-- carusel both start-->
+<section class="auction__area pt-105 pb-100">
+  <div class="container">
+     <div class="auction__border mb-40">
+        <div class="row">
+           <div class="col-xxl-6 col-md-6">
+              <div class="section__title-wrapper-2 mr-15">
+                 <h3 class="section__title-2">Product Live Carousel</h3>
+              </div>
+           </div>
+           <div class="col-xxl-6 col-sm-6">
+              <div class="auction__nav-2 text-sm-end">
+                <button type="button" class="slick-prev me-2">
+                  <i class="fa-regular fa-angle-left"></i>
+                </button>
+                <button type="button" class="slick-next">
+                  <i class="fa-regular fa-angle-right"></i>
+                </button>
+              </div>
+           </div>
+        </div>
+     </div>
+     <div class="row">
+        <div class="col-xxl-12">
+           <div class="auction__slider bid__slider-2 auction__slider-2 auction__slider-active-3">
+            <swiper
+            class="pb-60"
+            [slidesPerView]="1"
+            [loop]="true"
+            [navigation]="{
+              nextEl: '.slick-next',
+              prevEl: '.slick-prev'
+            }"
+            [pagination]="{
+              clickable: true
+            }"
+            [breakpoints]="{
+              '0': {
+                slidesPerView: 1,
+                spaceBetween: 30
+              },
+              '640': {
+                slidesPerView: 1,
+                spaceBetween: 30
+              },
+              '768': {
+                slidesPerView: 2,
+                spaceBetween: 30
+              },
+              '991': {
+                slidesPerView: 3,
+                spaceBetween: 30
+              },
+              '1200': {
+                slidesPerView: 3,
+                spaceBetween: 30
+              }
+            }"
+          >
+            <ng-template *ngFor="let product of productsLive" swiperSlide>
+              <div class="auction__item auction__item-2 auction__item-bg  mb-30">
+                <div class="auction__thumb m-img mb-15">
+                   <a [routerLink]="['/product-details']">
+                      <img src={{product.img}} alt="">
+                   </a>
+                </div>
+                <div class="auction__content">
+                   <h3 class="auction__title">
+                      <a [routerLink]="['/product-details']">{{product.title}}</a>
+                   </h3>
+
+                   <div class="auction__author mb-15 d-flex align-items-center">
+                      <div class="auction__author-thumb mr-10">
+                         <a [routerLink]="['/profile']">
+                            <img src={{product.authorImg}} alt="">
+                         </a>
+                      </div>
+                      <div class="auction__author-content">
+                         <h4><span>by</span> <a [routerLink]="['/profile']">{{product.authorName}}</a></h4>
+                      </div>
+                   </div>
+                   <div class="auction__bid-status mb-15 d-flex align-items-end justify-content-between">
+                      <div class="auction__bid-current">
+                         <p>Current Bid</p>
+                         <h5>24.72 ETH <span>/ $10,580,951</span></h5>
+                      </div>
+                      <div class="auction__bid-ammount">
+
+                      </div>
+                   </div>
+                   <div class="auction__countdown-wrapper mb-30">
+                      <div class="auction__countdown d-flex align-items-center">
+                        <div class="cdown day"><span class="time-count">{{days}}</span> <p>Days</p></div>
+                        <div class="cdown hour"><span class="time-count">{{hours}}</span> <p>Hrs</p></div>
+                        <div class="cdown minutes"><span class="time-count">{{minutes}}</span> <p>Min</p></div>
+                        <div class="cdown second"> <div><span class="time-count">{{seconds}}</span> <p>Sec</p></div></div>
+                      </div>
+                   </div>
+                   <div class="auction__btn d-sm-flex align-items-center justify-content-between">
+                      <a [routerLink]="['/product-details']" class="tp-btn-2">Buy Now</a>
+                      <button type="button" class="tp-btn-2 active" data-bs-toggle="modal" data-bs-target="#bidmodal">Place Your Bid</button>
+                   </div>
+                </div>
+             </div>
+            </ng-template>
+
+          </swiper>
+           </div>
+        </div>
+     </div>
+  </div>
+</section>
+<!-- carusel both end-->
+
+<!-- bid popup area start -->
+<div class="bid__modal modal fade" id="bidmodal" tabindex="-1" aria-labelledby="bidmodal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+     <div class="modal-content">
+        <div class="bid__modal-close">
+           <button type="button" class="bid__modal-close-btn" data-bs-dismiss="modal" aria-label="Close"><i class="fa-regular fa-xmark"></i></button>
+        </div>
+        <div class="bid__modal">
+           <h3 class="bid__modal-title">Place your bid</h3>
+           <p>You are about to place bid on this product</p>
+
+           <div class="bid__modal-form">
+              <form action="#">
+                 <div class="bid__modal-input">
+                    <input type="text" placeholder="Enter your bid">
+                    <span class="bid__modal-price">ETH</span>
+                 </div>
+                 <div class="bid__modal-info">
+                    <p>Your Balance <span>254 ETH</span></p>
+                    <p>Service fee <span>10 ETH</span></p>
+                    <p>Total <span class="color-theme">264 ETH</span></p>
+                 </div>
+                 <div class="bid__modal-btn">
+                    <button type="submit" class="tp-btn-3">Place bid</button>
+                 </div>
+              </form>
+           </div>
+        </div>
+     </div>
+  </div>
+</div>
+<!-- bid popup area end -->

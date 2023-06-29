@@ -1,0 +1,278 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  32. FAQ CSS START
+/*----------------------------------------*/
+
+.faq{
+    &__area{}
+    &__tab{
+        margin-right: 70px;
+        @media #{$md}{
+            margin-right: 25px;
+        }
+        @media #{$xs}{
+            margin-right: 0px;
+        }
+        & .nav{
+            display: block;
+        }
+        & .nav-tabs{
+            border: none;
+            position: relative;
+            padding-top: 15px;
+            @media #{$sm}{
+                padding-bottom: 0px;
+            }
+            @media #{$xs}{
+                padding-bottom: 0px;
+            }
+            &::after{
+                position: absolute;
+                content: '';
+                right: 0;
+                top: 0;
+                width: 2px;
+                height: 250px;
+                background: var(--tp-theme-dark-2);
+                @media #{$sm}{
+                    right: auto;
+                    left: 0;
+                    top: auto;
+                    bottom: 0;
+                    height: 2px;
+                    width: 100%;
+                }
+                @media #{$xs}{
+                    display: none;
+                }
+            }
+            & .nav-item{
+                display: block;
+
+                @media #{$sm}{
+                    display: inline-block;
+                    margin-right: 30px;
+                }
+                @media #{$xs}{
+                    display: inline-block;
+                    margin-right: 20px;
+                }
+
+                & .nav-link{
+                    text-align: right;
+                    padding: 0;
+                    font-size: 16px;
+                    font-weight: 500;
+                    color: rgba($color: #fff, $alpha: .6);
+                    width: 100%;
+                    margin-bottom: 0;
+                    border: none;
+                    @include border-radius(0);
+                    background-color: transparent;
+                    padding: 7px 0;
+                    padding-right: 30px;
+                    position: relative;
+
+                    @media #{$sm}{
+                        padding: 7px 0;
+                    }
+                    @media #{$xs}{
+                        padding: 7px 0;
+                    }
+
+                    &::after{
+                        position: absolute;
+                        content: '';
+                        right: 0;
+                        top: auto;
+                        bottom: 0;
+                        width: 2px;
+                        height: 0%;
+                        background: var(--tp-theme-1);
+                        z-index: 1;
+                        @media #{$sm}{
+                            right: 0;
+                            left: auto;
+                            top: auto;
+                            bottom: 0;
+                            height: 2px;
+                            width: 0%;
+                        }
+                        @media #{$xs}{
+                            right: 0;
+                            left: auto;
+                            top: auto;
+                            bottom: 0;
+                            height: 2px;
+                            width: 0%;
+                        }
+                    }
+                    &.active{
+                        background-color: transparent;
+                        color: var(--tp-theme-1);
+                        &::after{
+                            top: 0;
+                            bottom: auto;
+                            height: 100%;
+                            
+                            @media #{$sm}{
+                                left: auto;
+                                right: 0;
+                                bottom: 0;
+                                top: auto;
+                                width: 100%;
+                                height: 2px;
+                            }
+                            @media #{$xs}{
+                                left: auto;
+                                right: 0;
+                                bottom: 0;
+                                top: auto;
+                                width: 100%;
+                                height: 2px;
+                            }
+                        }
+                    }
+                    &:hover{
+                        color: var(--tp-theme-1);
+                        &::after{
+                            top: 0;
+                            bottom: auto;
+                            height: 100%;
+                            @media #{$sm}{
+                                left: 0;
+                                right: auto;
+                                bottom: 0;
+                                top: auto;
+                                width: 100%;
+                                height: 2px;
+                            }
+                            @media #{$xs}{
+                                left: 0;
+                                right: auto;
+                                bottom: 0;
+                                top: auto;
+                                width: 100%;
+                                height: 2px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &-content{
+
+            @media #{$sm}{
+                margin-top: 40px;
+            }
+            @media #{$xs}{
+                margin-top: 40px;
+            }
+            .accordion-item:not(:first-of-type) {
+                border-top: 1px solid rgba($color: #fff, $alpha: .08);
+            }
+
+            & .accordion-item{
+                margin-bottom: 20px;
+                @include border-radius(6px);
+                background-color:  transparent;
+                border-color: rgba($color: #fff, $alpha: .08);
+                & .accordion-header{
+                    & .accordion-button{
+                        background: transparent;
+                        font-size: 20px;
+                        font-weight: 600;
+                        padding: 17px 70px;
+                        padding-bottom: 20px;
+                        border: none;
+                        @include border-radius( 6px 6px 0 0);
+                        position: relative;
+                        color: var(--tp-theme-1);
+
+                        @media #{$md}{
+                            padding-left: 60px;
+                            padding-right: 60px;
+                            font-size: 18px;
+                        }
+                        @media #{$sm}{
+                            padding-left: 60px;
+                            padding-right: 60px;
+                            font-size: 18px;
+                        }
+                        @media #{$xs}{
+                            padding-left: 40px;
+                            padding-right: 40px;
+                            font-size: 16px;
+                            text-align: left;
+                        }
+
+                        &::after{
+                            position: absolute;
+                            content: '\f107';
+                            font-family: var(--tp-ff-fontawesome);
+                            background-image: none;
+                            top: 42%;
+                            left: 30px;
+                            @include transform(translateY(-50%) rotate(180deg));
+                            color: var(--tp-theme-1);
+                            width: auto;
+                            height: auto;
+                            font-weight: 500;
+                            @media #{$md}{
+                                left: 20px;
+                            }
+                            @media #{$xs}{
+                                left: 15px;
+                            }
+                        }
+                        &.collapsed{ 
+                            color: rgba($color: #fff, $alpha: .6);
+                            @include border-radius(6px);
+                            &::after{
+                                @include transform(translateY(-50%) rotate(0deg));
+                                color:  rgba($color: #fff, $alpha: .6);
+                            }
+                        }
+                        &:focus{
+                            @include box-shadow(none);
+                        }
+                        &:hover{
+                            color: var(--tp-theme-1);
+                            &::after{
+                                color: var(--tp-theme-1);
+                            }
+                        }
+                    }
+                }
+                & .accordion-body{
+                    background:  transparent;
+                    padding: 45px 70px;
+                    padding-top: 0;
+                    @include border-radius(6px);
+                    @media #{$md}{
+                       padding-left: 60px;
+                       padding-right: 60px;
+                    }
+                    @media #{$sm}{
+                        padding-left: 50px;
+                        padding-right: 50px;
+                    }
+                    @media #{$xs}{
+                        padding-left: 40px;
+                        padding-right: 40px;
+                    }
+                    & p{
+                        font-size: 16px;
+                        line-height: 25px;
+                        margin-bottom: 0;
+                    }
+                }
+                & .accordion-collapse{
+                    border: none;
+                    @include box-shadow(0px 30px 50px 0px rgba(0, 0, 41, 0.1));
+                }
+            }
+        }
+    }
+}

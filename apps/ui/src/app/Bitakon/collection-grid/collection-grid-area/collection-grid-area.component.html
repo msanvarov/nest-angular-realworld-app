@@ -1,0 +1,75 @@
+<section class="collection__grid pt-120 pb-120">
+  <div class="container">
+     <div class="row">
+        <div *ngFor="let collection of collectionData" class="col-lg-4 col-md-6">
+          <div class="collection__item text-center mb-30 theme-bg-dark">
+            <div class="collection__item-inner">
+              <div class="collection__thumb-wrapper">
+                <div class="row gx-2">
+                  <div class="col-xxl-4 col-sm-4 col-4">
+                    <div class="collection__thumb mb-10 m-img">
+                      <a [routerLink]="['/collection']">
+                        <img
+                          src={{collection.smImg_1}}
+                          alt=""
+                        />
+                      </a>
+                    </div>
+                  </div>
+                  <div class="col-xxl-4 col-sm-4 col-4">
+                    <div class="collection__thumb mb-10 m-img">
+                      <a [routerLink]="['/collection']">
+                        <img
+                          src={{collection.smImg_2}}
+                          alt=""
+                        />
+                      </a>
+                    </div>
+                  </div>
+                  <div class="col-xxl-4 col-sm-4 col-4">
+                    <div class="collection__thumb mb-10 m-img">
+                      <a [routerLink]="['/collection']">
+                        <img
+                          src={{collection.smImg_3}}
+                          alt=""
+                        />
+                      </a>
+                    </div>
+                  </div>
+                  <div class="col-xxl-12">
+                    <div class="collection__thumb mb-10 m-img">
+                      <a [routerLink]="['/collection']">
+                        <img
+                          src={{collection.bigImg}}
+                          alt=""
+                        />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="collection__content">
+                <div class="collection__profile">
+                  <a [routerLink]="['/collection']">
+                    <img
+                      src={{collection.user}}
+                      alt=""
+                    />
+                  </a>
+                </div>
+                <h3 class="collection__title">
+                  <a [routerLink]="['/collection']">{{collection.title}}</a>
+                </h3>
+                <p>{{collection.resource}} Resources</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xxl-12">
+           <div class="nft__more text-center mt-20">
+              <a [routerLink]="['/collection']" class="tp-load-more"><i class="fa-light fa-arrow-rotate-right"></i>View all items</a>
+           </div>
+        </div>
+     </div>
+  </div>
+</section>

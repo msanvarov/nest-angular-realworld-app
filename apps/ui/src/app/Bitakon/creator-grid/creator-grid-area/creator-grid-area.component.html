@@ -1,0 +1,38 @@
+<section class="creator__grid pt-120 pb-120">
+  <div class="container">
+     <div class="row">
+
+        <div *ngFor="let creator of creatorsData" class="col-xxl-4">
+           <div class="creator__grid-item mb-30">
+              <div class="creator__grid-bg w-img">
+                 <a [routerLink]="['/profile']">
+                    <img src={{creator.bgImg}} alt="">
+                 </a>
+              </div>
+              <div class="creator__grid-content text-center">
+                 <div class="creator__grid-thumb">
+                    <a [routerLink]="['/profile']">
+                       <img src={{creator.creator}} alt="">
+                    </a>
+                 </div>
+                 <h3 class="creator__grid-title">
+                    <a [routerLink]="['/profile']">{{creator.name}}</a>
+                 </h3>
+                 <div class="creator__grid-social">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fa-brands fa-dribbble"></i></a>
+                 </div>
+                 <p>NFT gem artist.wonderful gems Collect new stories.</p>
+              </div>
+           </div>
+        </div>
+        <div class="col-xxl-12">
+           <div class="nft__more text-center mt-20">
+              <a [routerLink]="['/creator']" class="tp-load-more"><i class="fa-light fa-arrow-rotate-right"></i>View all items</a>
+           </div>
+        </div>
+     </div>
+  </div>
+</section>

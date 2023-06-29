@@ -1,0 +1,87 @@
+<section class="collection__area pt-125">
+  <div class="container tp-container">
+    <div class="row align-items-end">
+      <div class="col-xxl-6">
+        <div class="section__title-wrapper mb-40">
+          <h4 class="section__title-stroke">Collections</h4>
+          <h3 class="section__title">
+            Hot collections
+            <span><img src="assets/img/icon/blast.png" alt="" /></span>
+          </h3>
+        </div>
+      </div>
+      <div class="col-xxl-6">
+        <div class="collection__more text-md-end mb-40">
+          <a [routerLink]="['/collection']" class="tp-btn-border">View All</a>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+
+      <div *ngFor="let collection of collectionData.slice(0,3)" class="col-xxl-4 col-lg-4 col-md-6">
+        <div class="collection__item text-center mb-30 theme-bg-dark">
+          <div class="collection__item-inner">
+            <div class="collection__thumb-wrapper">
+              <div class="row gx-2">
+                <div class="col-xxl-4 col-sm-4 col-4">
+                  <div class="collection__thumb mb-10 m-img">
+                    <a [routerLink]="['/collection']">
+                      <img
+                        src={{collection.smImg_1}}
+                        alt=""
+                      />
+                    </a>
+                  </div>
+                </div>
+                <div class="col-xxl-4 col-sm-4 col-4">
+                  <div class="collection__thumb mb-10 m-img">
+                    <a [routerLink]="['/collection']">
+                      <img
+                        src={{collection.smImg_2}}
+                        alt=""
+                      />
+                    </a>
+                  </div>
+                </div>
+                <div class="col-xxl-4 col-sm-4 col-4">
+                  <div class="collection__thumb mb-10 m-img">
+                    <a [routerLink]="['/collection']">
+                      <img
+                        src={{collection.smImg_3}}
+                        alt=""
+                      />
+                    </a>
+                  </div>
+                </div>
+                <div class="col-xxl-12">
+                  <div class="collection__thumb mb-10 m-img">
+                    <a [routerLink]="['/collection']">
+                      <img
+                        src={{collection.bigImg}}
+                        alt=""
+                      />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="collection__content">
+              <div class="collection__profile">
+                <a [routerLink]="['/collection']">
+                  <img
+                    src={{collection.user}}
+                    alt=""
+                  />
+                </a>
+              </div>
+              <h3 class="collection__title">
+                <a [routerLink]="['/collection']">{{collection.title}}</a>
+              </h3>
+              <p>{{collection.resource}} Resources</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,38 +1,61 @@
-<mat-toolbar
-  color="primary"
-  fxLayout="row"
-  fxLayoutAlign="space-between center"
->
-  <span>
-    <button mat-button routerLink="/">UI Starter</button>
-    <button mat-button routerLink="/"><mat-icon>home</mat-icon></button>
-  </span>
-  <div fxLayout="row" fxShow="false" fxShow.gt-sm>
-    <button mat-button routerLink="/auth/login" *ngIf="!isAuthenticated">
-      <mat-icon>login</mat-icon>
-      Login
-    </button>
-    <button mat-button *ngIf="isAuthenticated" (click)="logout()">
-      <mat-icon>exit_to_app</mat-icon>
-      Logout
-    </button>
+<div>
+  <div
+    [ngClass]="
+      themeSetting
+        ? 'theme__settings transition-3 theme-setting-opened'
+        : 'theme__settings transition-3'
+    "
+  >
+    <div class="theme__settings-btn">
+      <button
+        (click)="handleThemeSetting()"
+        type="button"
+        class="theme__settings-expand"
+        id="theme-setting-toggle"
+      >
+        <i class="fa-solid fa-gear"></i>
+      </button>
+      <button
+        (click)="handleThemeSettingClose()"
+        type="button"
+        class="theme__settings-close"
+        id="theme-setting-close"
+      >
+        <i class="fa-regular fa-xmark"></i>
+      </button>
+    </div>
+    <div class="theme__settings-wrapper text-center">
+      <div class="theme__switch mb-30">
+        <h4 class="theme__settings-title">Select your desired theme</h4>
+        <!-- light dark moode switcher start -->
+        <div class="my_switcher setting-option">
+          <ul>
+            <li>
+              <a
+                (click)="switchTheme('active-dark-mode')"
+                href="javascript: void(0);"
+                data-theme="dark"
+                class="setColor dark theme__switcher-btn"
+              >
+                <i class="fa-light fa-moon"></i> Dark
+              </a>
+            </li>
+            <li>
+              <a
+                (click)="switchTheme('active-light-mode')"
+                href="javascript: void(0);"
+                data-theme="light"
+                class="setColor light theme__switcher-btn"
+              >
+                <i class="fa-light fa-brightness-low"></i> Light
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!-- light dark moode switcher end -->
+      </div>
+
+    </div>
   </div>
-  <button mat-button [mat-menu-trigger-for]="menu" fxHide="false" fxHide.gt-sm>
-    <mat-icon>menu</mat-icon>
-  </button>
-</mat-toolbar>
-<mat-menu x-position="before" #menu="matMenu">
-  <button mat-menu-item routerLink="/">
-    <mat-icon>home</mat-icon>
-    Home
-  </button>
-  <button mat-menu-item routerLink="/login" *ngIf="!isAuthenticated">
-    <mat-icon>login</mat-icon>
-    Login
-  </button>
-  <button mat-menu-item *ngIf="isAuthenticated" (click)="logout()">
-    <mat-icon>exit_to_app</mat-icon>
-    Logout
-  </button>
-</mat-menu>
-<router-outlet></router-outlet>
+  <router-outlet></router-outlet>
+</div>

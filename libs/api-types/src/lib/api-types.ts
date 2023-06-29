@@ -60,6 +60,7 @@ export interface IUser {
   email: string;
   bio: string;
   image?: string;
+  status?: string;
   roles?: {
     role: UserRolesEnum;
   }[];
@@ -70,7 +71,6 @@ export interface IUser {
 export interface IAuthRegisterPayload {
   email: string;
   username: string;
-  name: string;
   password: string;
 }
 

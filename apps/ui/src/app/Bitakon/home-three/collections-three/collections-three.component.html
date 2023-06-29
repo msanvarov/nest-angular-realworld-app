@@ -1,0 +1,55 @@
+<section class="collection__area pt-55 pb-30">
+  <div class="container">
+     <div class="section__title-border mb-40">
+        <div class="row">
+           <div class="col-xxl-6 col-md-6">
+              <div class="section__title-wrapper-3">
+                 <h3 class="section__title-3">Featured collections</h3>
+              </div>
+           </div>
+           <div class="col-xxl-6 col-md-6">
+              <div class="collection__more-3 text-md-end">
+                 <a [routerLink]="['/collection']" class="tp-btn-border square">View all collections</a>
+              </div>
+           </div>
+        </div>
+     </div>
+     <div class="row">
+        <div *ngFor="let collection of collectionData" class="col-xxl-4 col-xl-4 col-lg-4 col-md-6">
+           <div class="collection__box p-relative fix mb-30">
+              <div class="collection__box-bg" [ngStyle]="{background:'url(' + collection.bigImg + ')',backgroundRepeat:'no-repeat',backgroundSize:'cover',backgroundPosition:'center'}"></div>
+              <div class="collection__box-top d-flex justify-content-between">
+                 <div class="collection__box-tag">
+                    <a [routerLink]="['/collection']">{{collection.collection__box_tag}}</a>
+                 </div>
+                 <div class="collection__box-thumb">
+                    <img src={{collection.smImg}} alt="">
+                 </div>
+              </div>
+              <div class="collection__box-bottom">
+                 <div class="collection__box-info">
+                    <h3 class="collection__box-title">
+                       <a [routerLink]="['/collection']" [innerHtml]="collection.collection__box_title"></a>
+                    </h3>
+                    <p>{{collection.nft}}</p>
+                 </div>
+                 <div class="collection__box-user d-inline-block">
+                    <div class="collection__box-user-inner d-flex align-items-center">
+                       <div class="collection__box-user-thumb mr-10">
+                          <a href="#">
+                             <img src={{collection.collection__box_user_img}} alt="">
+                          </a>
+                       </div>
+                       <div class="collection__box-user-content">
+                          <h5>
+                             <a [routerLink]="['/collection']">{{collection.collection__box_user_name}}</a>
+                          </h5>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </div>
+  </div>
+</section>

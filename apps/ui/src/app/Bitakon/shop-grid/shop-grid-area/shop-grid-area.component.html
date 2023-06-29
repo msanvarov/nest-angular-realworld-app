@@ -1,0 +1,141 @@
+<section class="shop__grid pt-120 pb-120">
+  <div class="container">
+     <div class="row">
+
+        <div *ngFor="let shopGrid of shopGridData" class="col-xxl-3 col-xl-3 col-lg-4 col-md-6">
+           <div class="nft__box theme-bg-dark mb-30 transition-3">
+              <div class="nft__box-top d-flex align-items-center justify-content-between">
+                 <div class="nft__box-user">
+                    <ul>
+                       <li>
+                          <a [routerLink]="['/profile']">
+                             <img src="assets/img/bid/2/bid-user-1.jpg" alt="">
+                          </a>
+                       </li>
+                       <li>
+                          <a [routerLink]="['/profile']">
+                             <img src="assets/img/bid/2/bid-user-2.jpg" alt="">
+                          </a>
+                       </li>
+                       <li>
+                          <a [routerLink]="['/profile']">
+                             <img src="assets/img/bid/2/bid-user-3.jpg" alt="">
+                          </a>
+                       </li>
+                    </ul>
+                 </div>
+                 <div class="nft__box-more">
+                    <button type="button" class="dropdown-toggle nft-more-btn" data-bs-toggle="dropdown" aria-expanded="false">
+                       <i class="fa-regular fa-ellipsis"></i>
+                    </button>
+                    <div class="nft__more-content dropdown-menu dropdown-menu-end">
+                       <ul>
+                          <li>
+                             <button type="button" data-bs-toggle="modal" data-bs-target="#sharemodal">Share</button>
+                          </li>
+                          <li>
+                             <button type="button" data-bs-toggle="modal" data-bs-target="#reportmodal">Report</button>
+                          </li>
+                       </ul>
+                    </div>
+                 </div>
+              </div>
+              <div class="nft__box-thumb m-img mb-20">
+                 <a [routerLink]="['/product-details']">
+                    <img src={{shopGrid.img}} alt="">
+                 </a>
+                 <div class="nft__box-popularity">
+                    <a [routerLink]="['/product-details']"><i class="fa-solid fa-heart"></i> {{shopGrid.heart}}</a>
+                 </div>
+              </div>
+              <div class="nft__box-content">
+                 <div class="nft__box-content-top d-flex align-items-center justify-content-between">
+                    <h3 class="nft__box-title">
+                       <a [routerLink]="['/product-details']">{{shopGrid.title}}</a>
+                    </h3>
+                    <div class="nft__box-trending-icon">
+                       <span><i class="fa-brands fa-ethereum"></i></span>
+                    </div>
+                 </div>
+                 <div class="nft__box-info d-flex align-items-center justify-content-between">
+                    <div class="nft__box-price">
+                       <p>{{shopGrid.bidHeigest}}</p>
+                    </div>
+                    <div class="nft__box-stock">
+                       <p>{{shopGrid.stock}} in stock</p>
+                    </div>
+                 </div>
+              </div>
+              <div class="nft__box-bottom d-flex align-items-center justify-content-between">
+                 <div class="nft__box-highest">
+                    <p><i class="fa-light fa-code-fork"></i> Highest bid</p>
+                 </div>
+                 <div class="nft__box-bid">
+                    <p>0.001 ETH</p>
+                 </div>
+              </div>
+           </div>
+        </div>
+
+        <div class="col-xxl-12">
+           <div class="nft__more text-center mt-20">
+              <a [routerLink]="['/shop']" class="tp-load-more"><i class="fa-light fa-arrow-rotate-right"></i>View all items</a>
+           </div>
+        </div>
+     </div>
+  </div>
+</section>
+
+
+
+<!-- share modal start -->
+<div class="share__modal modal fade" id="sharemodal" tabindex="-1" aria-labelledby="sharemodal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+     <div class="modal-content">
+        <div class="share__modal-content text-center">
+           <div class="share__nft-content">
+              <div class="share__thumb">
+                 <img src="assets/img/bid/bid-img-1.jpg" alt="">
+              </div>
+
+           </div>
+           <div class="share__social">
+              <h3>Share this NFT</h3>
+              <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="#"><i class="fa-brands fa-twitter"></i></a>
+              <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="#"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#"><i class="fa-brands fa-youtube"></i></a>
+           </div>
+        </div>
+     </div>
+  </div>
+</div>
+<!-- share modal end -->
+
+<!-- report modal start -->
+<div class="report__modal modal fade" id="reportmodal" tabindex="-1" aria-labelledby="reportmodal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+     <div class="modal-content">
+        <div class="report__close">
+           <button type="button" class="report__close-btn" data-bs-dismiss="modal" aria-label="Close"><i class="fa-regular fa-xmark"></i></button>
+        </div>
+        <div class="report__wrapper">
+           <h3 class="report__title">Why are you reporting ?</h3>
+           <p>Describe briefly about your report.</p>
+           <form action="#">
+              <div class="report__input-box">
+                 <h4>Message</h4>
+              </div>
+              <div class="report__input">
+                 <textarea placeholder="Write your message"></textarea>
+              </div>
+              <div class="report__button">
+                 <button type="button" class="tp-btn-square">Send </button>
+              </div>
+           </form>
+        </div>
+     </div>
+  </div>
+</div>
+<!-- report modal end -->

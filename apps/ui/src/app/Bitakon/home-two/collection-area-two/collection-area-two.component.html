@@ -1,0 +1,137 @@
+<section class="collection__area collection__counter include-bg pt-25 pb-100">
+  <div class="container">
+     <div class="row">
+        <div class="col-xxl-6 col-lg-6">
+           <div class="collection__select d-sm-flex align-items-center mb-30">
+              <div class="section__title-wrapper-2 mr-15">
+                 <h3 class="section__title-2">Top collections</h3>
+              </div>
+              <div class="collection__select-item">
+
+                 <div class="tp-select d-none">
+                  <mat-form-field appearance="fill">
+                    <mat-label>Select an option</mat-label>
+                    <mat-select disableRipple>
+                      <mat-option value="1">Day 1</mat-option>
+                      <mat-option value="2">Day 2</mat-option>
+                      <mat-option value="3">Day 3</mat-option>
+                      <mat-option value="3">Day 4</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+               </div>
+
+              </div>
+           </div>
+        </div>
+        <div class="col-xxl-6 col-lg-6">
+           <div class="collection__right d-sm-flex align-items-center justify-content-lg-end">
+              <div class="collection__nav">
+                 <nav>
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                      <button class="nav-link active" id="nav-all-tab" data-bs-toggle="tab" data-bs-target="#nav-all" type="button" role="tab" aria-controls="nav-all" aria-selected="true">All</button>
+                      <button class="nav-link" id="nav-ethe-tab" data-bs-toggle="tab" data-bs-target="#nav-ethe" type="button" role="tab" aria-controls="nav-ethe" aria-selected="false">Ethereum</button>
+                      <button class="nav-link" id="nav-flow-tab" data-bs-toggle="tab" data-bs-target="#nav-flow" type="button" role="tab" aria-controls="nav-flow" aria-selected="false">Flow</button>
+                    </div>
+                  </nav>
+              </div>
+              <div class="collection__more ml-10">
+                 <a [routerLink]="['/shop']" class="tp-btn-border">view all</a>
+              </div>
+           </div>
+        </div>
+     </div>
+     <div class="row">
+        <div class="col-xxl-12">
+           <div class="collection__tab">
+              <div class="tab-content" id="nav-tabContent">
+                 <div class="tab-pane fade show active" id="nav-all" role="tabpanel" aria-labelledby="nav-all-tab">
+                    <div class="row">
+                       <div *ngFor="let collection of collectionAllData" class="col-xxl-3 col-xl-3 col-lg-4 col-md-6 col-sm-6">
+                          <div class="collection__list d-flex align-items-center mb-20 transition-3">
+                             <div class="collection__list-thumb collection__list-rank mr-20">
+                                <a [routerLink]="['/profile']">
+                                   <img src={{collection.img}} alt="">
+                                </a>
+                             </div>
+                             <div class="collection__list-content">
+                                <h3 class="collection__list-title">
+                                   <a [routerLink]="['/profile']">{{collection.title}}</a>
+                                </h3>
+                                <div class="collection__list-revenue d-flex align-items-center">
+                                   <div class="collection__list-revenue-icon mr-5">
+                                      <span>
+                                         <i class="fa-brands fa-ethereum"></i>
+                                      </span>
+                                   </div>
+                                   <div class="collection__list-revenue-text">
+                                      <p><span>{{collection.revenue}}</span> ETH</p>
+                                   </div>
+                                </div>
+                             </div>
+                          </div>
+                       </div>
+                    </div>
+                 </div>
+                 <div class="tab-pane fade" id="nav-ethe" role="tabpanel" aria-labelledby="nav-ethe-tab">
+                    <div class="row">
+                      <div *ngFor="let ethe of etheData" class="col-xxl-3 col-xl-3 col-lg-4 col-md-6 col-sm-6">
+                        <div class="collection__list d-flex align-items-center mb-20 transition-3">
+                           <div class="collection__list-thumb collection__list-rank mr-20">
+                              <a [routerLink]="['/profile']">
+                                 <img src={{ethe.img}} alt="">
+                              </a>
+                           </div>
+                           <div class="collection__list-content">
+                              <h3 class="collection__list-title">
+                                 <a [routerLink]="['/profile']">{{ethe.title}}</a>
+                              </h3>
+                              <div class="collection__list-revenue d-flex align-items-center">
+                                 <div class="collection__list-revenue-icon mr-5">
+                                    <span>
+                                       <i class="fa-brands fa-ethereum"></i>
+                                    </span>
+                                 </div>
+                                 <div class="collection__list-revenue-text">
+                                    <p><span>{{ethe.revenue}}</span> ETH</p>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                    </div>
+                 </div>
+                 <div class="tab-pane fade" id="nav-flow" role="tabpanel" aria-labelledby="nav-flow-tab">
+                    <div class="row">
+                      <div *ngFor="let flow of flowData" class="col-xxl-3 col-xl-3 col-lg-4 col-md-6 col-sm-6">
+                        <div class="collection__list d-flex align-items-center mb-20 transition-3">
+                           <div class="collection__list-thumb collection__list-rank mr-20">
+                              <a [routerLink]="['/profile']">
+                                 <img src={{flow.img}} alt="">
+                              </a>
+                           </div>
+                           <div class="collection__list-content">
+                              <h3 class="collection__list-title">
+                                 <a [routerLink]="['/profile']">{{flow.title}}</a>
+                              </h3>
+                              <div class="collection__list-revenue d-flex align-items-center">
+                                 <div class="collection__list-revenue-icon mr-5">
+                                    <span>
+                                       <i class="fa-brands fa-ethereum"></i>
+                                    </span>
+                                 </div>
+                                 <div class="collection__list-revenue-text">
+                                    <p><span>{{flow.revenue}}</span> ETH</p>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                    </div>
+                 </div>
+               </div>
+           </div>
+        </div>
+     </div>
+
+  </div>
+</section>

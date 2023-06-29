@@ -1,0 +1,136 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  09. APP CSS START
+/*----------------------------------------*/
+
+.app{
+    &__wrapper{
+        z-index: 1;
+        margin-left: -45px;
+        @include border-radius(20px);
+
+        @media #{$lg, $md, $sm, $xs}{
+            margin-left: 0;
+        }
+
+        &::before{
+            @extend %theme-afbf;
+            left: 0;
+            top: 0;
+            width: calc(100% + 4px);
+            height: 100%;
+            background:  linear-gradient(90deg, rgba(255, 255, 255, 0) 00%, #E4FAD7 100%, rgba(255, 255, 255, 0) 100%);
+            background:  -webkit-linear-gradient(90deg, rgba(255, 255, 255, 0) 00%, #E4FAD7 100%, rgba(255, 255, 255, 0) 100%);
+            background:  -moz-linear-gradient(90deg, rgba(255, 255, 255, 0) 00%, #E4FAD7 100%, rgba(255, 255, 255, 0) 100%);
+            background:   -ms-linear-gradient(90deg, rgba(255, 255, 255, 0) 00%, #E4FAD7 100%, rgba(255, 255, 255, 0) 100%);
+            z-index: -1;
+            margin: -2px;
+            @include border-radius(20px);
+        }
+    }
+    &__inner{
+        position: relative;
+        z-index: 1;
+        padding: 33px 50px;
+        @include border-radius(20px);
+
+        @media #{$xl, $md, $sm, $xs}{
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        &::after{
+            position: absolute;
+            content: '';
+            top: 0;
+            left: 0;
+            width:100%;
+            height: 100%;
+            background-color: rgba(228, 250, 215, 0.03);
+            @include border-radius(20px);
+            z-index: -1;
+        }
+    }
+    &__qr{
+        padding: 20px;
+        @include border-radius(20px);
+        background-color: rgba($color: #fff, $alpha: .1);
+
+        @media #{$xl, $md}{
+            margin-right: 25px;
+        }
+
+        @media #{$sm, $xs}{
+            margin-bottom: 25px;
+        }
+    }
+    &__info{
+        & h3{
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--tp-common-white);
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+    }
+    &__content{
+        @media #{$sm, $xs}{
+            flex-wrap: wrap;
+        }
+    }
+    &__download{
+        &-item{
+            padding: 4px 20px 6px;
+            padding-right: 15px;
+            border: 2px solid rgba($color: #fff, $alpha: .08);
+            @include border-radius(8px);
+            margin-right: 8px;
+
+            @media #{$xs}{
+                margin-bottom: 20px;
+            }
+
+            &:hover,
+            &.active{
+                border-color: var(--tp-common-white);
+                background-color: var(--tp-common-white);
+
+                & .app__download-icon{
+                    & i{
+                        color: var(--tp-common-black);
+                    }
+                }
+                & .app__download-text{
+                    & p,
+                    & h5{
+                        color: var(--tp-common-black);
+                    }
+                }
+            }
+        }
+        &-icon{
+            line-height: 1;
+            & i{
+                color: var(--tp-common-white);
+                font-size: 20px;
+                margin-right: 5px;
+            }
+        }
+        &-text{
+            & h5{
+                font-size: 11px;
+                font-weight: 600;
+                color: var(--tp-common-white);
+                opacity: .6;
+                margin-bottom: 2px;
+            }
+            & p{
+                font-size: 14px;
+                margin-bottom: 0;
+                font-weight: 700;
+                color: var(--tp-common-white);
+                line-height: 1;
+            }
+        }
+    }
+}

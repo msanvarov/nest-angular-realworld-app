@@ -1,0 +1,66 @@
+<section class="auction__area pt-105 pb-50">
+  <div class="container">
+     <div class="auction__border mb-40">
+        <div class="row">
+           <div class="col-xxl-6 col-md-6">
+              <div class="section__title-wrapper-2 mr-15">
+                 <h3 class="section__title-2">Product Live</h3>
+              </div>
+           </div>
+        </div>
+     </div>
+     <div class="row">
+      <div *ngFor="let product of productsLive" class="col-xxl-4 col-xl-4 col-lg-6 col-md-6">
+        <div class="auction__item auction__item-2 auction__item-bg  mb-30">
+           <div class="auction__thumb m-img mb-15">
+              <a [routerLink]="['/product-details']">
+                 <img src={{product.img}} alt="">
+              </a>
+           </div>
+           <div class="auction__content">
+              <h3 class="auction__title">
+                 <a [routerLink]="['/product-details']">{{product.title}}</a>
+              </h3>
+
+              <div class="auction__author mb-15 d-flex align-items-center">
+                 <div class="auction__author-thumb mr-10">
+                    <a [routerLink]="['/profile']">
+                       <img src={{product.authorImg}} alt="">
+                    </a>
+                 </div>
+                 <div class="auction__author-content">
+                    <h4><span>by</span> <a [routerLink]="['/profile']">{{product.authorName}}</a></h4>
+                 </div>
+              </div>
+              <div class="auction__bid-status mb-15 d-flex align-items-end justify-content-between">
+                 <div class="auction__bid-current">
+                    <p>Current Bid</p>
+                    <h5>24.72 ETH <span>/ $10,580,951</span></h5>
+                 </div>
+                 <div class="auction__bid-ammount">
+
+                 </div>
+              </div>
+              <div class="auction__countdown-wrapper mb-30">
+                 <div class="auction__countdown d-flex align-items-center">
+                   <div class="cdown day"><span class="time-count">{{days}}</span> <p>Days</p></div>
+                   <div class="cdown hour"><span class="time-count">{{hours}}</span> <p>Hrs</p></div>
+                   <div class="cdown minutes"><span class="time-count">{{minutes}}</span> <p>Min</p></div>
+                   <div class="cdown second"> <div><span class="time-count">{{seconds}}</span> <p>Sec</p></div></div>
+                 </div>
+              </div>
+              <div class="auction__btn d-sm-flex align-items-center justify-content-between">
+                 <a [routerLink]="['/product-details']" class="tp-btn-2">Buy Now</a>
+                 <button type="button" class="tp-btn-2 active" data-bs-toggle="modal" data-bs-target="#bidmodal">Place Your Bid</button>
+              </div>
+           </div>
+        </div>
+     </div>
+        <div class="col-xxl-12">
+           <div class="nft__more text-center mt-20">
+              <a [routerLink]="['/shop']" class="tp-load-more"><i class="fa-light fa-arrow-rotate-right"></i>View all items</a>
+           </div>
+        </div>
+     </div>
+  </div>
+</section>

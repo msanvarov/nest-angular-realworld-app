@@ -1,0 +1,101 @@
+<div class="sidebar__wrapper">
+  <div class="sidebar__widget mb-25">
+     <h3 class="sidebar__widget-title">Recent Post</h3>
+     <div class="sidebar__widget-content">
+        <div class="sidebar__search">
+           <form action="#">
+              <div class="sidebar__search-input-2">
+                 <input type="text" placeholder="Search">
+                 <button type="submit"><i class="far fa-search"></i></button>
+              </div>
+           </form>
+        </div>
+     </div>
+  </div>
+  <div class="sidebar__widget mb-25">
+     <h3 class="sidebar__widget-title">Category</h3>
+     <div class="sidebar__widget-content">
+        <ul>
+           <li>
+              <a [routerLink]="['/blog']">Arts <span class="category-number">(6)</span></a>
+           </li>
+           <li>
+              <a [routerLink]="['/blog']">Domains  <span class="category-number">(2)</span></a>
+           </li>
+           <li>
+              <a [routerLink]="['/blog']">Technology <span class="category-number">(14)</span></a>
+           </li>
+           <li>
+              <a [routerLink]="['/blog']">Sports <span class="category-number">(8)</span></a>
+           </li>
+           <li>
+              <a [routerLink]="['/blog']">Photography <span class="category-number">(7)</span></a>
+           </li>
+           <li>
+              <a [routerLink]="['/blog']">Bitakon <span class="category-number">(12)</span></a>
+           </li>
+        </ul>
+     </div>
+  </div>
+  <div class="sidebar__widget mb-25">
+     <h3 class="sidebar__widget-title">Recent Post</h3>
+     <div class="sidebar__widget-content">
+        <div class="sidebar__post">
+           <div class="rc__post d-flex align-items-center">
+              <div class="rc__post-thumb mr-20">
+                 <a [routerLink]="['/blog-details']"><img src="assets/img/blog/sidebar/blog-sm-1.jpg" alt=""></a>
+              </div>
+              <div class="rc__post-content">
+                 <h3 class="rc__post-title">
+                    <a [routerLink]="['/blog-details']">The Benefits of Hiring a Cleaning</a>
+                 </h3>
+                 <div class="rc__meta">
+                    <span><i class="fa-light fa-clock"></i> March 8, 2022</span>
+                 </div>
+              </div>
+           </div>
+           <div class="rc__post d-flex align-items-center">
+              <div class="rc__post-thumb mr-20">
+                 <a [routerLink]="['/blog-details']"><img src="assets/img/blog/sidebar/blog-sm-2.jpg" alt=""></a>
+              </div>
+              <div class="rc__post-content">
+                 <h3 class="rc__post-title">
+                    <a [routerLink]="['/blog-details']">Guest Blog: YACHT Songs to the metaverse.</a>
+                 </h3>
+                 <div class="rc__meta">
+                    <span><i class="fa-light fa-clock"></i> March 9, 2022</span>
+                 </div>
+              </div>
+           </div>
+           <div class="rc__post d-flex align-items-center">
+              <div class="rc__post-thumb mr-20">
+                 <a [routerLink]="['/blog-details']"><img src="assets/img/blog/sidebar/blog-sm-3.jpg" alt=""></a>
+              </div>
+              <div class="rc__post-content">
+                 <h3 class="rc__post-title">
+                    <a [routerLink]="['/blog-details']">Serwah Attafuah on being punk in the.</a>
+                 </h3>
+                 <div class="rc__meta">
+                    <span><i class="fa-light fa-clock"></i> March 10, 2022</span>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </div>
+  </div>
+  <div class="sidebar__widget mb-25">
+     <h3 class="sidebar__widget-title">Tags</h3>
+     <div class="sidebar__widget-content">
+        <div class="tagcloud">
+           <a href="#">NFT</a>
+           <a href="#">Art</a>
+           <a href="#">Creative</a>
+           <a href="#">Software</a>
+           <a href="#">Crypto</a>
+           <a href="#">Agency</a>
+           <a href="#">Marketplace</a>
+           <a href="#">Bitakon</a>
+        </div>
+     </div>
+  </div>
+</div>

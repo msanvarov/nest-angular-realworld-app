@@ -1,0 +1,27 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  30. PRIVACY CSS START
+/*----------------------------------------*/
+
+.privacy{
+    &__item{
+        margin-bottom: 30px;
+        & p{
+            color: var(--tp-common-white);
+            opacity: .5;
+        }
+
+        & ul{
+            padding-left: 15px;
+            & li{
+                color: var(--tp-common-white);
+                opacity: .5;
+            }
+        }
+    }
+    &__title{
+        font-size: 24px;
+        color: var(--tp-common-white);
+    }
+}

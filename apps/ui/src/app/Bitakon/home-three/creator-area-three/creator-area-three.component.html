@@ -1,0 +1,60 @@
+<section class="creator__area pt-30 pb-30">
+  <div class="container">
+     <div class="section__title-border mb-40">
+        <div class="row">
+           <div class="col-xxl-6 col-md-6">
+              <div class="section__title-wrapper-3">
+                 <h3 class="section__title-3">Top creator this week</h3>
+              </div>
+           </div>
+           <div class="col-xxl-6 col-md-6">
+              <div class="creator__more text-md-end">
+                 <a [routerLink]="['/creator']" class="tp-btn-border square">View Ranking</a>
+              </div>
+           </div>
+        </div>
+     </div>
+     <div class="row">
+
+        <div *ngFor="let creatore of creatorData" class="col-xxl-4 col-xl-4 col-lg-4 col-md-6">
+           <div class="creator__item transition-3 d-flex align-items-center justify-content-between mb-25">
+              <div class="creator__item-inner d-flex align-items-center">
+                 <div class="creator__thumb creator__active mr-20">
+                    <a [routerLink]="['/profile']">
+                       <img src={{creatore.img}} alt="">
+                    </a>
+                 </div>
+                 <div class="creator__content">
+                    <h3 class="creator__title">
+                       <a [routerLink]="['/profile']">{{creatore.title}}</a>
+                    </h3>
+                    <div class="creator__revenue  d-flex align-items-center">
+                       <div class="creator__revenue-icon mr-10">
+                          <i class="fa-brands fa-ethereum"></i>
+                       </div>
+                       <div class="creator__revenue-text">
+                          <p>{{creatore.creator__revenue_text}}</p>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+              <div class="creator__content-more">
+                 <button type="button" class="dropdown-toggle nft-more-btn" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa-regular fa-ellipsis"></i>
+                 </button>
+                 <div class="nft__more-content dropdown-menu dropdown-menu-end">
+                    <ul>
+                       <li>
+                          <button type="button" data-bs-toggle="modal" data-bs-target="#sharemodal">Share</button>
+                       </li>
+                       <li>
+                          <button type="button" data-bs-toggle="modal" data-bs-target="#reportmodal">Report</button>
+                       </li>
+                    </ul>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </div>
+  </div>
+</section>

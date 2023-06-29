@@ -1,35 +1,21 @@
-import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RouterModule } from '@angular/router';
-
-import { AuthModule, AuthService } from '@starter/auth';
-import { DashboardModule } from '@starter/dashboard';
-import { MaterialModule } from '@starter/material-design';
-
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { GlobalRoutes } from './routes';
+import { BitakonModule } from './Bitakon/bitakon.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
-  declarations: [AppComponent],
-  imports: [
-    CommonModule,
-    BrowserModule,
-    RouterModule.forRoot(GlobalRoutes, {
-      initialNavigation: 'enabledBlocking',
-    }),
-
-    BrowserAnimationsModule,
-    FlexLayoutModule,
-    HttpClientModule,
-    AuthModule,
-    DashboardModule,
-    MaterialModule,
+  declarations: [
+    AppComponent,
   ],
-  providers: [AuthService],
-  bootstrap: [AppComponent],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BitakonModule,
+    BrowserAnimationsModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

@@ -1,0 +1,236 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  OFFCANVAS CSS START
+/*----------------------------------------*/
+
+// sidebar
+.offcanvas{
+    &__area{
+        position: fixed;
+        right: -460px;
+        top: 0;
+        max-width: 420px;
+        height: 100%;
+        background: #fff  none repeat scroll 0 0;
+        overflow-y: scroll;
+        @include box-shadow(-5px 0 20px -5px rgba(0, 0, 0, 0.5));
+        -webkit-transition: all .3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+        -moz-transition: all .3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+        transition: all .3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+        z-index: 9999;
+
+        &.sidebar-opened{
+            right: 0px;
+        }
+
+    }
+    &__wrapper{
+        position: relative;
+        padding: 45px;
+        @media #{$xs}{
+           padding: 20px;
+        }
+    }
+    &__close{
+        &-btn{
+            display: inline-block;
+            font-size: 16px;
+            height: 45px;
+            width: 45px;
+            line-height: 46px;
+            background: var(--tp-theme-1);
+            color: #fff;
+            border-radius: 50%;
+            &:hover{
+                background: var(--tp-common-black);
+            }
+        }
+    }
+    &__top{
+        padding-bottom: 20px;
+        border-bottom: 1px solid var(--tp-border-3);
+    }
+    &__logo{
+
+    }
+    &__search{
+        position: relative;
+        & input{
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            padding-right: 20px;
+            background: transparent;
+            border: none;
+            outline: none;
+            border-bottom: 1px solid var(--tp-border-3);
+            font-size: 14px;
+            &::placeholder{
+                color: var(--tp-text-1);
+            }
+            &:focus{
+                border-color: var(--tp-common-black);
+            }
+        }
+        & button{
+            position: absolute;
+            top: 50%;
+            right: 0;
+            @include transform(translateY(-50%));
+            font-size: 14px;
+            color: var(--tp-text-1);
+        }
+    }
+    &__text{
+        & p{
+            margin-bottom: 25px;
+        }
+    }
+    &__contact{
+        & h4{
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+        & ul{
+            & li{
+                &:not(:last-child){
+                    margin-bottom: 20px;
+                }
+                &:hover{
+                    & i{
+                        background: var(--tp-theme-1);
+                        color: var(--tp-common-white);
+                        border-color: var(--tp-theme-1);
+                    }
+                    & a{
+                        color: var(--tp-common-black);
+                    }
+                }
+            }
+        }
+        &-icon{
+            & i{
+                display: inline-block;
+                width: 40px;
+                height: 40px;
+                line-height: 40px;
+                text-align: center;
+                border: 1px solid var(--tp-border-3);
+                @include border-radius(7px);
+            }
+        }
+        &-text{
+            & a{
+                font-size: 18px;
+                font-weight: 500;
+                color: var(--tp-text-1);
+            }
+        }
+    }
+    &__wallet{
+        &-btn{
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--tp-common-white);
+            padding: 0;
+            background-color: var(--tp-theme-1);
+            @include border-radius(30px);
+            padding: 5px 22px;
+            padding-right: 24px;
+
+            & svg{
+                width: 16px;
+                @include transform(translateY(-2px));
+                margin-right: 2px;
+                & path{
+                    fill: none;
+                }
+            }
+
+            &:hover{
+                color: var(--tp-common-white);
+                background-color: var(--tp-common-black);
+
+                & svg{
+                    path{
+                        stroke: var(--tp-common-white);
+                    }
+                }
+            }
+        }
+    }
+    &__map{
+        & iframe{
+            width: 100%;
+            height: 200px;
+            border: none;
+        }
+    }
+    &__social{
+        & ul{
+            & li{
+                display: inline-block;
+                &:not(:last-child){
+                    margin-right: 5px;
+                }
+                & a{
+                    display: inline-block;
+                    width: 40px;
+                    height: 40px;
+                    line-height: 42px;
+                    text-align: center;
+                    background: var(--tp-grey-1);
+                    color: var(--tp-theme-1);
+                    @include border-radius(5px);
+                    &:hover{
+                        background: var(--tp-theme-1);
+                        color: var(--tp-common-white);
+                    }
+                }
+            }
+        }
+    }
+    &__notification{
+        &-icon{
+            & a{
+                font-size: 14px;
+                color: var(--tp-common-black);
+                position: relative;
+
+                & .notification-count{
+                    position: absolute;
+                    top: -4px;
+                    right: -13px;
+                    display: inline-block;
+                    width: 20px;
+                    height: 20px;
+                    line-height: 22px;
+                    font-size: 12px;
+                    font-weight: 600;
+                    background-color: var(--tp-theme-1);
+                    @include border-radius(50%);
+                    color: var(--tp-common-white);
+                    text-align: center;
+                }
+            }
+        }
+        &-text{
+            & p{
+                margin-bottom: 0;
+                font-weight: 500;
+                color: var(--tp-common-black);
+                font-size: 14px;
+
+                & .notification-number{
+                    color: var(--tp-theme-1);
+                }
+                & a{
+                    color: var(--tp-theme-1);
+                }
+            }
+        }
+    }
+}
+

@@ -1,0 +1,404 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  13. AUCTION CSS START
+/*----------------------------------------*/
+
+.auction{
+    &__border{
+        border-bottom: 1px solid rgba($color: #fff, $alpha: .08);
+    }
+    &__thumb{
+        & img{
+            @include border-radius(16px);
+
+
+            @media #{$xl, $lg, $md, $sm, $xs}{
+                width: 100%;
+            }
+        }
+    }
+    &__title{
+        font-size: 20px;
+        color: var(--tp-common-white);
+
+        & a{
+            &:hover{
+                color: var(--tp-theme-1);
+            }
+        }
+    }
+    &__item{
+        padding: 30px 25px;
+        @include border-radius(20px);
+
+        @media #{$xs}{
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+        &-bg{
+            background-color: rgba($color: #fff, $alpha: .06);
+        }
+
+        // auction style 2
+
+        &-2{
+            padding: 30px;
+            @media #{$md, $xs}{
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+            & .auction__countdown .cdown{
+                width: 60px;
+                height: 60px;
+                margin-right: 25px;
+                position: relative;
+                @media #{$xl}{
+                    margin-right: 15px;
+                }
+
+                @media #{$md}{
+                    margin-right: 15px;
+                }
+
+                @media #{$xs}{
+                    margin-right: 15px;
+                }
+
+                &::after{
+                    position: absolute;
+                    content: '\3a';
+                    right: -15px;
+                    top: 50%;
+                    @include transform(translateY(-50%));
+                    font-family: var(--tp-ff-fontawesome);
+                    font-size: 14px;
+                    color: rgba($color: #fff, $alpha: .3);
+
+                    @media #{$xs}{
+                        display: none;
+                    }
+
+                    @media #{$md}{
+                        right: -8px;
+                    }
+                }
+
+                &:last-child{
+                    &::after{
+                        display: none;
+                    }
+                }
+            }
+            & .auction__bid-current h5 span{
+                font-size: 14px;
+                font-weight: 400;
+                color: rgba($color: #fff, $alpha: .5);
+            }
+
+            & .auction__btn{
+                & a{
+                    @media #{$xs}{
+                        margin-bottom: 15px;
+                    }
+                }
+            }
+        }
+    }
+    &__author{
+        &-thumb{
+            & img{
+                width: 26px;
+                height: 26px;
+                @include border-radius(50%);
+            }
+        }
+        &-content{
+        & h4{
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--tp-common-white);
+            margin-bottom: 0;
+            & span{
+                color: var(--tp-common-white);
+                opacity: .5;
+                margin-right: 5px;
+            }
+            & a{
+                color: var(--tp-theme-2);
+                font-weight: 500;
+                opacity: 1;
+            }
+        }
+        }
+    }
+    &__bid{
+        &-current{
+            & p{
+                font-size: 13px;
+                font-weight: 500;
+                color: var(--tp-common-white);
+                opacity: .5;
+                margin-bottom: 3px;
+                line-height: 1;
+            }
+            & h5{
+                font-size: 20px;
+                font-weight: 700;
+                color: var(--tp-common-white);
+                margin-bottom: 0;
+            }
+        }
+        &-ammount{
+            & p{
+                font-size: 15px;
+                color: var(--tp-common-white);
+                opacity: .5;
+                margin-bottom: 0;
+            }
+        }
+    }
+    &__countdown{
+        flex-wrap: wrap;
+        & .cdown{
+            margin-right: 20px;
+            width: 66px;
+            height: 66px;
+            @include border-radius(50%);
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(12, 107, 57, 0.4);
+            box-sizing: border-box;
+            box-shadow: inset 0px -4px 10px #04A038;
+            backdrop-filter: blur(10px);
+            text-align: center;
+            padding-top: 11px;
+
+            &:last-child{
+                margin-right: 0;
+            }
+            & span{
+                font-size: 18px;
+                font-weight: 600;
+                line-height: 1;
+                color: var(--tp-common-white);
+            }
+            & p{
+                font-size: 12px;
+                font-weight: 500;
+                color: var(--tp-common-white);
+                opacity: .6;
+                margin-bottom: 0;
+                line-height: 1;
+                text-transform: lowercase;
+            }
+            &.hour{
+                background: rgba(255, 255, 255, 0.02);
+                border: 1px solid rgba(211, 51, 255, 0.4);
+                box-sizing: border-box;
+                box-shadow: inset 0px -4px 10px #D333FF;
+                backdrop-filter: blur(10px);
+            }
+            &.minutes{
+                background: rgba(255, 255, 255, 0.02);
+                border: 1px solid rgba(0, 123, 255, 0.4);
+                box-sizing: border-box;
+                box-shadow: inset 0px -4px 10px #007BFF;
+                backdrop-filter: blur(10px);
+            }
+            &.second{
+                background: rgba(255, 255, 255, 0.02);
+                border: 1px solid rgba(255, 142, 47, 0.4);
+                box-sizing: border-box;
+                box-shadow: inset 0px -4px 10px #FF8E2F;
+                backdrop-filter: blur(10px);
+            }
+        }
+    }
+    &__btn{
+        & .tp-btn-gradient{
+            padding-left: 30px;
+            padding-right: 30px;
+            font-size: 14px;
+
+            &::after{
+                background: #141737;
+            }
+        }
+
+        &.d-sm-flex{
+            @media #{$xs}{
+                    margin-bottom: 15px;
+                    display: block !important;
+                }
+                & a{
+                    margin-right: 15px;
+                }
+        }
+    }
+    &__sm{
+        &-item{
+            padding: 15px 15px;
+            background-color: rgba($color: #fff, $alpha: .06);
+            @include border-radius(20px);
+        }
+        &-thumb{
+            @media #{$xs}{
+                margin-bottom: 20px;
+                margin-right: 0;
+            }
+            & img{
+                width: 150px;
+                height: 130px;
+                @include border-radius(16px);
+                @media #{$xs}{
+                    width: 100%;
+                    height: auto;
+                }
+            }
+        }
+        &-title{
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--tp-common-white);
+            margin-bottom: 7px;
+
+            & a{
+                &:hover{
+                    color: var(--tp-theme-1);
+                }
+            }
+        }
+
+        &-author{
+            flex-wrap: wrap;
+            &-thumb{
+                & img{
+                    width: 24px;
+                    height: 24px;
+                    @include border-radius(50%);
+                }
+            }
+        }
+        &-price{
+            & p{
+                font-weight: 600;
+                font-size: 13px;
+                color: var(--tp-theme-2);
+                border: 1px solid rgba(0, 123, 255, 0.2);
+                background-color: rgba(0, 123, 255, 0.1);
+                display: inline-block;
+                @include border-radius(8px);
+                padding: 3px 10px 4px 10px;
+                line-height: 1;
+                margin-bottom: 0;
+            }
+        }
+        &-show{
+            & p{
+                font-size: 12px;
+                color: var(--tp-common-white);
+                opacity: .5;
+                margin-bottom: 0;
+                font-weight: 500;
+            }
+        }
+        &-btn{
+            & .tp-btn-gradient{
+                padding: 3px 30px;
+                font-size: 13px;
+                &::after{
+                    background: #141737;
+                }
+            }
+        }
+    }
+    &__more{
+        @media #{$sm, $xs}{
+            margin-bottom: 25px;
+        }
+    }
+    &__slider{
+        .slick-slide{
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        .slick-list{
+            margin-left: -15px;
+            margin-right: -15px;
+
+             @media #{$xs}{
+                margin-left: -10px;
+                margin-right: -10px;
+            }
+        }
+
+        & .auction__countdown {
+            & .cdown{
+                margin-right: 18px;
+                    @media #{$xs}{
+                        margin-right: 10px;
+                        margin-bottom: 10px;
+                    }
+                &::after{
+                    right: -12px;
+
+                    @media #{$xs}{
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        &-2{
+            & .slick-dots{
+                margin-top: 10px;
+                display: flex;
+                justify-content: center;
+                & li{
+                    list-style: none;
+                    line-height: 1;
+                    & button{
+                        width: 10px;
+                        height: 10px;
+                        background-color: transparent;
+                        border: 2px solid rgba($color: #fff, $alpha: .5);
+                        @include border-radius(50%);
+                        font-size: 0;
+                        margin: 0 5px;
+                    }
+                    &.slick-active{
+                        & button{
+                            background-color: var(--tp-theme-1);
+                            border-color: var(--tp-theme-1);
+                            width: 14px;
+                            height: 14px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &__nav,
+    &__nav-2{
+        @media #{$xs}{
+            margin-bottom: 50px;
+        }
+        & button{
+            width: 40px;
+            height: 40px;
+            line-height: 36px;
+            text-align: center;
+            border: 2px solid rgba($color: #fff, $alpha: .08);
+            color: var(--tp-common-white);
+            background-color: transparent;
+            @include border-radius(50%);
+
+            &:hover{
+                background-color: var(--tp-common-white);
+                color: var(--tp-common-black);
+                border-color: var(--tp-common-white);
+            }
+        }
+    }
+}

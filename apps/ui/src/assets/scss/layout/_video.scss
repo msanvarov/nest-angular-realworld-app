@@ -1,0 +1,70 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  24. VIDEO CSS START
+/*----------------------------------------*/
+
+.video{
+    &__content{
+        position: relative;
+    }
+    &__thumb{
+        & img{
+            @include border-radius(20px);
+        }
+    }
+    &__play{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        @include transform(translate(-50%, -50%));
+        padding: 50px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0px 30px 50px rgba(4, 18, 38, 0.2);
+        backdrop-filter: blur(6px);
+        @include border-radius(50%);
+
+        @media #{$xs}{
+            padding: 15px;
+        }
+        &-btn{
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            text-align: center;
+            @include border-radius(50%);
+            color: var(--tp-theme-1);
+            background-color: var(--tp-common-white);
+            font-size: 22px;
+            position: relative;
+            
+            &::after{
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                @include transform(translate(-50%, -50%));
+                width: 180px;
+                height: 180px;
+                border-radius: 50%;
+                background-color: #fff;
+                -webkit-animation: videoBtn 1.75s cubic-bezier(.4,0,.2,1) infinite;
+                animation: videoBtn 1.75s cubic-bezier(.4,0,.2,1) infinite;
+                z-index: -2;
+            }
+        }
+    }
+}
+
+@include keyframes(videoBtn){
+    0%{
+        @include transform(translate(-50%, -50%) scale(0));
+    }
+    100%{
+        opacity: 0;
+        -ms-filter: "alpha(opacity=0)";
+        @include transform(translate(-50%, -50%) scale(1.3));
+    }
+}

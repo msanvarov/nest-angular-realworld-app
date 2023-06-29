@@ -1,0 +1,175 @@
+<section class="slider__area pt-40 pb-70 p-relative fix">
+  <div class="slider__shape">
+     <img class="slider__shape-1" src="assets/img/slider/2/slider-shape-1.png" alt="">
+     <img class="slider__shape-2" src="assets/img/slider/2/slider-shape-2.png" alt="">
+  </div>
+  <div class="slider__active-2 slider__bid-area">
+    <swiper
+    [loop]="true"
+    [effect]="'fade'"
+    [navigation]="{
+      nextEl: '.slick-next',
+      prevEl: '.slick-prev'
+    }"
+    [breakpoints]="{
+      '768': {
+        slidesPerView: 1,
+        spaceBetween: 30
+      }
+    }"
+  >
+    <ng-template swiperSlide>
+      <div class="slider__height-2 d-flex align-items-center">
+        <div class="container">
+           <div class="row">
+              <div class="col-xxl-6 col-xl-6 col-lg-6">
+                 <div class="slider__content-2">
+                    <div class="slider__purchase ">
+                       <div class="slider__purchase-thumb">
+                          <img src="assets/img/slider/2/user/user-1.jpg" alt="">
+                       </div>
+                       <div class="slider__purchase-content">
+                          <p>Milford... purchased <span class="purchase-notification">Ruüd</span> at <span class="purchase-notification">1.2 ETH</span> <span class="purchase-time">1 mins ago</span> </p>
+                       </div>
+                    </div>
+                    <h3 class="slider__title-2">
+                       Create, <span>Explore</span> & Collect digital Art and <span class="has-shape">NFTs <img class="slider-title-shape" src="assets/img/icon/slider-stoke-shape.svg" alt=""> </span>
+                    </h3>
+                    <p>If you are an artist and want to be a successfull artist then learn to covernt your art into NFT art</p>
+
+                    <div class="slider__btn-2 d-sm-flex align-items-center">
+                       <a [routerLink]="['/shop']" class="tp-btn-gradient active mr-15  mb-15">View Market</a>
+                       <a [routerLink]="['/create-single']" class="tp-btn-border mb-15">Create NFT</a>
+                    </div>
+                 </div>
+              </div>
+              <div class="col-xxl-6 col-xl-6 col-lg-6">
+                 <div class="slider__bid-item pl-70">
+
+                    <img class="slider__shape-3" src="assets/img/slider/2/slider-shape-3.png" alt="">
+                    <div class="slider__bid-thumb">
+                       <img src="assets/img/slider/2/slider-1.jpg" alt="">
+                    </div>
+                    <div class="slider__bid-content">
+                       <div class="slider__bid-top">
+                          <h3>Hottest Auction</h3>
+                       </div>
+                       <div class="slider__bid-info">
+                          <h3 class="slider__bid-title">
+                             <a href="#">Silver coin_3d print</a>
+                          </h3>
+                          <div class="slider__bid-popularity">
+                             <a href="#"><i class="fa-solid fa-heart"></i> 24</a>
+                          </div>
+                          <div class="slider__bid-collection">
+                             <p>Collection</p>
+
+                             <div class="slider__bid-user d-flex align-items-center">
+                                <div class="slider__bid-user-thumb mr-10">
+                                   <img src="assets/img/slider/2/user/user-1.jpg" alt="">
+                                </div>
+                                <div class="slider__bid-user-content">
+                                   <h3>Ruüd Driver</h3>
+                                </div>
+                             </div>
+                          </div>
+                          <div class="slider__bid-highest">
+                             <p>Highest bid</p>
+                             <h4><span>4.17</span> with <span>$746.634</span></h4>
+                          </div>
+                       </div>
+                       <div class="slider__bid-btn">
+                          <button type="button"  class="slider-bid-btn" data-bs-toggle="modal" data-bs-target="#bidmodal"> <img src="assets/img/icon/activity/activity-bid.svg" alt=""> Place a bid <i class="fa-regular fa-arrow-right"></i></button>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </div>
+    </ng-template>
+
+    <ng-template swiperSlide>
+      <div class="slider__height-2 d-flex align-items-center">
+        <div class="container">
+           <div class="row">
+              <div class="col-xxl-6 col-xl-6 col-lg-6">
+                 <div class="slider__content-2">
+                    <div class="slider__purchase ">
+                       <div class="slider__purchase-thumb">
+                          <img src="assets/img/slider/2/user/user-1.jpg" alt="">
+                       </div>
+                       <div class="slider__purchase-content">
+                          <p>Milford... purchased <span class="purchase-notification">Ruüd</span> at <span class="purchase-notification">1.2 ETH</span> <span class="purchase-time">1 mins ago</span> </p>
+                       </div>
+                    </div>
+                    <h3 class="slider__title-2">
+                       Create, <span>Explore</span> & Collect digital Art and <span class="has-shape">NFTs <img class="slider-title-shape" src="assets/img/icon/slider-stoke-shape.svg" alt=""> </span>
+                    </h3>
+                    <p>If you are an artist and want to be a successfull artist then learn to covernt your art into NFT art</p>
+
+                    <div class="slider__btn-2 d-sm-flex align-items-center">
+                       <a [routerLink]="['/shop']" class="tp-btn-gradient active mr-15  mb-15">View Market</a>
+                       <a [routerLink]="['/create-single']" class="tp-btn-border mb-15">Create NFT</a>
+                    </div>
+                 </div>
+              </div>
+              <div class="col-xxl-6 col-xl-6 col-lg-6">
+                 <div class="slider__bid-item pl-70">
+                    <img class="slider__shape-3" src="assets/img/slider/2/slider-shape-3.png" alt="">
+                    <div class="slider__bid-thumb">
+                       <img src="assets/img/slider/2/slider-2.jpg" alt="">
+                    </div>
+                    <div class="slider__bid-content">
+                       <div class="slider__bid-top">
+                          <h3>Hottest Auction</h3>
+                       </div>
+                       <div class="slider__bid-info">
+                          <h3 class="slider__bid-title">
+                             <a href="#">Silver coin_3d print</a>
+                          </h3>
+                          <div class="slider__bid-popularity">
+                             <a href="#"><i class="fa-solid fa-heart"></i> 24</a>
+                          </div>
+                          <div class="slider__bid-collection">
+                             <p>Collection</p>
+
+                             <div class="slider__bid-user d-flex align-items-center">
+                                <div class="slider__bid-user-thumb mr-10">
+                                   <img src="assets/img/slider/2/user/user-1.jpg" alt="">
+                                </div>
+                                <div class="slider__bid-user-content">
+                                   <h3>Ruüd Driver</h3>
+                                </div>
+                             </div>
+                          </div>
+                          <div class="slider__bid-highest">
+                             <p>Highest bid</p>
+                             <h4><span>4.17</span> with <span>$746.634</span></h4>
+                          </div>
+                       </div>
+                       <div class="slider__bid-btn">
+                          <button type="button"  class="slider-bid-btn" data-bs-toggle="modal" data-bs-target="#bidmodal"> <img src="assets/img/icon/activity/activity-bid.svg" alt=""> Place a bid <i class="fa-regular fa-arrow-right"></i></button>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </div>
+    </ng-template>
+  </swiper>
+
+
+
+  <div class="">
+    <button type="button" class="slick-prev me-2 slick-arrow">
+      <i class="fa-regular fa-angle-left"></i>
+    </button>
+    <button type="button" class="slick-next slick-arrow">
+      <i class="fa-regular fa-angle-right"></i>
+    </button>
+  </div>
+
+  </div>
+</section>

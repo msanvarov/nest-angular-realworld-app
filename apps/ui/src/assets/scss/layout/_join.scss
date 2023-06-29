@@ -1,0 +1,67 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  29. JOIN CSS START
+/*----------------------------------------*/
+
+.join{
+    &__thumb{
+        height: 45px;
+    }
+    &__title{
+        font-size: 18px;
+        color: rgba($color: #fff, $alpha: .6);
+        margin-bottom: 20px;
+        & span{
+            font-weight: 700;
+            color: var(--tp-common-white);
+        }
+    }
+    &__social{
+        & a{
+            display: inline-block;
+            height: 45px;
+            width: 60px;
+            line-height: 45px;
+            text-align: center;
+            color: var(--tp-common-white);
+            background: linear-gradient(0deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 0.01%, rgba(255, 255, 255, 0.03) 100%);
+            border-right: 1px solid var(--tp-theme-dark);
+
+            &:first-child{
+                @include border-radius(30px 0 0 30px)
+            }
+
+            &:last-child{
+                @include border-radius(0 30px 30px 0);
+                border: none;
+            }
+
+            &:hover{
+                color: var(--tp-theme-1);
+            }
+        }
+    }
+    &__btn{
+        & .tp-btn-4{
+            padding-left: 80px;
+            padding-right: 80px;
+            padding-top: 9px;
+            padding-bottom: 9px;
+        }
+
+        &-gradient{
+            & .tp-btn-4{
+                padding-top: 9px;
+                padding-bottom: 9px;
+                padding-left: 55px;
+                padding-right: 55px;
+                background: linear-gradient(0deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 0.01%, rgba(255, 255, 255, 0.03) 100%);
+
+                &:hover{
+                    color: var(--tp-common-white);
+                }
+            }
+        }
+    }
+}

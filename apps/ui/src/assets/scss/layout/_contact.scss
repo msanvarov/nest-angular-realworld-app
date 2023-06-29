@@ -1,0 +1,300 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  20. CONTACT CSS START
+/*----------------------------------------*/
+
+.contact{
+    &__content{
+        & h3{
+            font-size: 44px;
+            color: var(--tp-common-white);
+            @media #{$xs}{
+                font-size: 35px;
+            }
+        }
+        & p{
+            color: var(--tp-common-white);
+            opacity: .6;
+            padding: 0 80px;
+            @media #{$xs}{
+                padding: 0;
+            }
+        }
+    }
+    &__wrapper{
+        padding: 65px 90px;
+        @include border-radius(40px);
+        border: 1px solid rgba($color: #fff, $alpha: .1);
+        margin-left: 70px;
+        margin-right: 70px;
+        position: relative;
+        background-color: var(--tp-theme-dark);
+        @media #{$md}{
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        @media #{$md, $sm, $xs}{
+            margin-left: 0;
+            margin-right: 0;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+    }
+    &__input{
+        margin-bottom: 20px;
+        position: relative;
+        &-box{
+            & h4{
+                font-size: 15px;
+                color: var(--tp-common-white);
+                margin-bottom: 10px;
+                & span{
+                    color: var(--tp-theme-1);
+                }
+            }
+            & p{
+                font-size: 13px;
+                color: var(--tp-common-white);
+                opacity: .7;
+                margin-bottom: 10px;
+            }
+        }
+        & input,
+        & textarea{
+            width: 100%;
+            height: 54px;
+            line-height: 54px;
+            @include border-radius(30px);
+            padding: 0 28px;
+            border: 0;
+            outline: 0;
+            background-color: rgba($color: #fff, $alpha: .06);
+            color: var(--tp-common-white);
+            @include tp-placeholder{
+                color: var(--tp-common-white);
+                opacity: .4;
+            }
+        }
+        & textarea{
+            line-height: 1.5;
+            padding-top: 15px;
+            resize: none;
+            height: 170px;
+        }
+
+        & .nice-select{
+            float: none;
+            width: 100%;
+            height: 54px;
+            line-height: 54px;
+            background-color: rgba($color: #fff, $alpha: .05);
+            border: none;
+            @include border-radius(30px);
+            padding-left: 24px;
+            color: var(--tp-common-white);
+            font-size: 14px;
+            font-weight: 600;
+            padding-right: 5px;
+            & .current{
+                font-size: 14px;
+                font-weight: 600;
+                color: var(--tp-common-white);
+            }
+
+            &::after{
+                border: none;
+                width: 40px;
+                height: 40px;
+                text-align: center;
+                line-height: 40px;
+                background-color: #05092B;
+                @include border-radius(50%);
+                @include transform(translateY(-50%));
+                margin-top: 0;
+                right: 5px;
+                content: '\f107';
+                font-family: var(--tp-ff-fontawesome);
+                transform-origin: center;
+                color: var(--tp-common-white);
+                font-weight: 500;
+
+            }
+            & .list{
+                width: 100%;
+                margin-top: 0;
+
+                & .option{
+                    color: var(--tp-text-1);
+                    &:hover{
+                        color: var(--tp-theme-2);
+                    }
+                }
+            }
+
+            &.open{
+                &::after{
+                    @include transform(translateY(-50%) rotate(-180deg) !important);
+                    ;
+                }
+            }
+        }
+    }
+    &__agree{
+        @media #{$xs}{
+           margin-bottom: 20px;
+        }
+        & input{
+            margin: 0;
+            appearance: none;
+            -moz-appearance: none;
+            display: block;
+            width: 20px;
+            height: 20px;
+            background: var(--tp-theme-dark);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            @include border-radius(4px);
+            outline: none;
+            &:checked{
+                position: relative;
+                background-color: var(--tp-theme-1);
+                border-color: transparent;
+                &::after{
+                    box-sizing: border-box;
+                    content: '\f00c';
+                    position: absolute;
+                    font-family: var(--tp-ff-fontawesome);
+                    font-size: 11px;
+                    color: var(--tp-common-white);
+                    top: 46%;
+                    left: 50%;
+                    @include transform(translate(-50%, -50%));
+                }
+            }
+            &:hover{
+                cursor: pointer;
+            }
+        }
+        & label{
+            padding-left: 9px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--tp-common-white);
+            opacity: .5;
+            &:hover{
+                cursor: pointer;
+                opacity: 1;
+            }
+        }
+    }
+    &__icon{
+        & span{
+            display: inline-block;
+            width: 76px;
+            height: 76px;
+            line-height: 76px;
+            text-align: center;
+            @include border-radius(50%);
+            background: radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0) 0%, rgba(255, 63, 63, .1) 100%);
+        }
+        &.contact-discord{
+            & span{
+                background: radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0) 0%, rgba(88, 100, 241, .1) 100%);
+            }
+        }
+        &.contact-location{
+            & span{
+                background: radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0) 0%, rgba(255, 174, 53, .1) 100%);
+            }
+        }
+    }
+    &__text{
+        & p{
+            font-size: 14px;
+            color: rgba($color: #fff, $alpha: .6);
+            margin-bottom: 0;
+        }
+        & h4{
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--tp-common-white);
+            & a{
+                &:hover{
+                    color: var(--tp-theme-1);
+                }
+            }
+        }
+    }
+    &__info{
+        &-wrapper{
+            padding-left: 120px;
+            padding-right: 120px;
+
+            @media #{$lg, $md, $sm, $xs}{
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+    }
+    &__shape{
+        &-1{
+            position: absolute;
+            left: -12%;
+            bottom: 17%;
+            z-index: -1;
+            @media #{$md, $sm, $xs}{
+                display: none;
+            }
+        }
+        &-2{
+            position: absolute;
+            z-index: -1;
+            left: -15%;
+            bottom: 34%;
+            @media #{$md, $sm, $xs}{
+                display: none;
+            }
+        }
+        &-3{
+            position: absolute;
+            z-index: -1;
+            top: 42%;
+            right: -26%;
+            @media #{$lg}{
+                right: -10%;
+            }
+            @media #{$md, $sm, $xs}{
+                display: none;
+            }
+        }
+        &-4{
+            position: absolute;
+            z-index: -1;
+            top: 33%;
+            right: -30%;
+
+            @media #{$xl}{
+                right: -25%;
+            }
+            @media #{$lg}{
+                right: -10%;
+            }
+            @media #{$md, $sm, $xs}{
+                display: none;
+            }
+        }
+        &-5{
+            position: absolute;
+            z-index: -1;
+            top: 22%;
+            right: -21%;
+            @media #{$lg}{
+                right: -10%;
+            }
+            @media #{$md, $sm, $xs}{
+                display: none;
+            }
+        }
+    }
+}

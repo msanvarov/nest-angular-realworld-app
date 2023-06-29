@@ -1,0 +1,54 @@
+// mobile-menus
+.mobile-menus {
+  & ul {
+      & li {
+        list-style: none;
+          & a {
+              display: block;
+              width: 100%;
+              color: #000;
+              font-size: 16px;
+              padding: 5px 5px;
+              z-index: 1;
+              position: relative;
+              padding: 8px 0px;
+              color: #141517;
+              border-top: 1px solid #edeef2;
+              font-size: 16px;
+          }
+          &:hover > a {
+              color: #000;
+          }
+          &.mm-active > .has-arrow[aria-expanded="true"] {
+              color: #000;
+          }
+          &.mm-active .mm-active > .has-arrow[aria-expanded="true"] {
+              color: #000;
+              background: transparent;
+          }
+      }
+  }
+    .mm-active .mm-show {
+        padding: 0px 10px
+    }
+    .mm-active .mm-show .mm-active .mm-show {
+      padding: 0px 10px
+    }
+    .metismenu .has-arrow::after {
+      transform: none;
+      content: '\f067';
+      top: 3px;
+      right: 0px;
+      height: 35px;
+      width: 35px;
+      font-family: "Font Awesome 5 Pro";
+      border: none;
+      text-align: center;
+      background: #EDEEF2;
+      line-height: 35px;
+      cursor: pointer;
+  }
+  .metismenu .has-arrow.mm-active::after {
+      content: '\f068';
+  }
+}

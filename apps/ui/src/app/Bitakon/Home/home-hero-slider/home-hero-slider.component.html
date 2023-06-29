@@ -1,0 +1,171 @@
+<section class="slider__area slider__bg pt-100 pb-70">
+  <div class="container tp-container p-relative">
+    <div class="slider__active swiper-container">
+      <swiper
+        class="swiper-wrapper"
+        [slidesPerView]="1"
+        [loop]="true"
+        [navigation]="{
+          nextEl: '.slider-button-next',
+          prevEl: '.slider-button-prev'
+        }"
+        [autoplay]="{ delay: 5000 }"
+      >
+        <ng-template *ngFor="let slider of sliderData" swiperSlide>
+          <div class="slider__item-inner swiper-slide">
+            <div class="row">
+              <div class="col-xxl-5 col-xl-5">
+                <div class="slider__item p-relative fix mb-30">
+                  <div
+                    class="slider__thumb include-bg"
+                    [ngStyle]="{
+                      background: 'url('+ slider.bigImg +')',
+                      backgroundRepeat: 'no-repeat',
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center'
+                    }"
+                  ></div>
+                  <div class="slider__content">
+                    <h3 class="slider__title">
+                      <a [routerLink]="['/shop']">Get loud for boys</a>
+                    </h3>
+                    <span>PFP by Elizarevfx</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xxl-7 col-xl-7">
+                <div class="row">
+                  <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                    <div class="slider__item-sm p-relative fix mb-20">
+                      <div
+                        class="slider__thumb include-bg"
+                        [ngStyle]="{
+                          background: 'url(assets/img/slider/slider-sm-1.jpg)',
+                          backgroundRepeat: 'no-repeat',
+                          backgroundSize: 'cover',
+                          backgroundPosition: 'center'
+                        }"
+                      ></div>
+                      <div class="slider__content-sm">
+                        <h3 class="slider__title-sm">
+                          <a [routerLink]="['/shop']">Get loud for boys</a>
+                        </h3>
+                        <span>PFP by Elizarevfx</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                    <div class="slider__item-sm p-relative fix mb-20">
+                      <div
+                        class="slider__thumb include-bg"
+                        [ngStyle]="{
+                          background: 'url(assets/img/slider/slider-sm-2.jpg)',
+                          backgroundRepeat: 'no-repeat',
+                          backgroundSize: 'cover',
+                          backgroundPosition: 'center'
+                        }"
+                      ></div>
+                      <div class="slider__content-sm">
+                        <h3 class="slider__title-sm">
+                          <a [routerLink]="['/shop']">The Dark Jaegers</a>
+                        </h3>
+                        <span>Mamie Barnett</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                    <div class="slider__item-sm p-relative fix mb-20">
+                      <div
+                        class="slider__thumb include-bg"
+                        [ngStyle]="{
+                          background: 'url(assets/img/slider/slider-sm-3.jpg)',
+                          backgroundRepeat: 'no-repeat',
+                          backgroundSize: 'cover',
+                          backgroundPosition: 'center'
+                        }"
+                      ></div>
+                      <div class="slider__content-sm">
+                        <h3 class="slider__title-sm">
+                          <a [routerLink]="['/shop']">SitDown LOL</a>
+                        </h3>
+                        <span>Super Rare</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                    <div class="slider__item-sm p-relative fix mb-20">
+                      <div
+                        class="slider__thumb include-bg"
+                        [ngStyle]="{
+                          background: 'url(assets/img/slider/slider-sm-4.jpg)',
+                          backgroundRepeat: 'no-repeat',
+                          backgroundSize: 'cover',
+                          backgroundPosition: 'center'
+                        }"
+                      ></div>
+                      <div class="slider__content-sm">
+                        <h3 class="slider__title-sm">
+                          <a [routerLink]="['/shop']">The Dark Jaegers</a>
+                        </h3>
+                        <span>Monica Lucas</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                    <div class="slider__item-sm p-relative fix mb-20">
+                      <div
+                        class="slider__thumb include-bg"
+                        [ngStyle]="{
+                          background: 'url(assets/img/slider/slider-sm-5.jpg)',
+                          backgroundRepeat: 'no-repeat',
+                          backgroundSize: 'cover',
+                          backgroundPosition: 'center'
+                        }"
+                      ></div>
+                      <div class="slider__content-sm">
+                        <h3 class="slider__title-sm">
+                          <a [routerLink]="['/shop']">Ave avatars 1.0</a>
+                        </h3>
+                        <span>Joss Sticks</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                    <div class="slider__item-sm p-relative fix mb-20">
+                      <div
+                        class="slider__thumb include-bg"
+                        [ngStyle]="{
+                          background: 'url(assets/img/slider/slider-sm-6.jpg)',
+                          backgroundRepeat: 'no-repeat',
+                          backgroundSize: 'cover',
+                          backgroundPosition: 'center'
+                        }"
+                      ></div>
+                      <div class="slider__content-sm">
+                        <h3 class="slider__title-sm">
+                          <a [routerLink]="['/shop']">Paper buddha ꜩ</a>
+                        </h3>
+                        <span>NFT Paris</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+
+      </swiper>
+
+    </div>
+
+    <div class="slider__nav">
+      <button class="slider-button-next">
+        <i class="fa-light fa-angle-right"></i>
+      </button>
+      <button class="slider-button-prev">
+        <i class="fa-light fa-angle-left"></i>
+      </button>
+    </div>
+  </div>
+</section>

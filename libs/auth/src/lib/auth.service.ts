@@ -1,14 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { mergeMap, tap } from 'rxjs';
+import { of, tap } from 'rxjs';
 
-import {
-  ApiAuthRoutes,
-  IAuthRegisterPayload,
-  IUser,
-  IUserResponseBody,
-} from '@starter/api-types';
+import { ApiAuthRoutes, IAuthRegisterPayload, IUser } from '@starter/api-types';
 import { Store } from '@starter/store';
 import { UsersService } from '@starter/users';
 
@@ -28,7 +23,7 @@ export class AuthService {
   }
 
   get isAuthenticated() {
-    return this.user !== undefined;
+    return of(this.user !== undefined);
   }
 
   loginUser(email: string, password: string) {
@@ -38,26 +33,18 @@ export class AuthService {
         password,
       })
       .pipe(
-        mergeMap(({ user }: any) =>
-          this.usersService.getAuthenticatedUserDetails(
-            (user as IUserResponseBody).token,
-          ),
-        ),
-        tap((user) => {
-          this.store.set('user', user);
+        tap(({ user }: any) => {
+          // TODO: fix typing hacks
+          this.store.set('token', (user as Record<string, string>)['token']);
         }),
       );
   }
 
   registerUser(registerPayload: IAuthRegisterPayload) {
     return this.http.post(ApiAuthRoutes.REGISTER, registerPayload).pipe(
-      mergeMap((user) =>
-        this.usersService.getAuthenticatedUserDetails(
-          (user as IUserResponseBody).token,
-        ),
-      ),
-      tap((user) => {
-        this.store.set('user', user);
+      tap(({ user }: any) => {
+        // TODO: fix typing hacks
+        this.store.set('token', (user as Record<string, string>)['token']);
       }),
     );
   }

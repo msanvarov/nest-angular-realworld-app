@@ -1,0 +1,227 @@
+@use '../utils' as *;
+
+#loading{
+	background-color: var(--tp-theme-dark);
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	z-index: 999999;
+	margin-top: 0px;
+	top: 0px;
+}
+#loading-center{
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+#loading-center-absolute {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+
+}
+
+.tp-preloader {
+	display: none !important;
+	/* Finally, a use for "groove"! */
+	border: 24px groove #241f5b;
+	display: table-cell;
+	border-radius: 999px;
+	@include animate(spin, 15s, linear, infinite);
+	@media #{$xs}{
+		border-width: 16px;
+	}
+}
+
+
+.tp-preloader-2{
+	display: none;
+	& svg{
+		transform: rotate(45deg);
+	}
+	.stroke-still {
+		stroke: var(--tp-theme-dark-2);
+	}
+
+	.stroke-animation {
+		-webkit-animation: stroke-spacing 1.2s ease-in, stroke-color 4.8s linear;
+				animation: stroke-spacing 1.2s ease-in, stroke-color 4.8s linear;
+		-webkit-animation-iteration-count: infinite;
+				animation-iteration-count: infinite;
+		-webkit-animation-delay: 0;
+				animation-delay: 0;
+		-webkit-animation-direction: normal;
+				animation-direction: normal;
+		-webkit-animation-fill-mode: forwards;
+				animation-fill-mode: forwards;
+		-webkit-animation-play-state: running;
+				animation-play-state: running;
+		-webkit-transform-origin: center center;
+				transform-origin: center center;
+	}
+}
+
+.tp-preloader-3{
+	.loader {
+		position: relative;
+		width: 60px;
+		height: 60px;
+		border-radius: 50%;
+		margin: 75px;
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+	.loader-1 .loader-outter {
+		position: absolute;
+		border: 4px solid var(--tp-theme-1);
+		border-left-color: transparent;
+		border-bottom: 0;
+		width: 100%;
+		height: 100%;
+		border-radius: 50%;
+		-webkit-animation: loader-1-outter 1s cubic-bezier(.42, .61, .58, .41) infinite;
+		animation: loader-1-outter 1s cubic-bezier(.42, .61, .58, .41) infinite;
+	}
+
+	.loader-1 .loader-inner {
+		position: absolute;
+		border: 4px solid var(--tp-theme-1);
+		border-radius: 50%;
+		width: 40px;
+		height: 40px;
+		left: calc(50% - 20px);
+		top: calc(50% - 20px);
+		border-right: 0;
+		border-top-color: transparent;
+		-webkit-animation: loader-1-inner 1s cubic-bezier(.42, .61, .58, .41) infinite;
+		animation: loader-1-inner 1s cubic-bezier(.42, .61, .58, .41) infinite;
+	}
+}
+
+
+@include keyframes(dot){
+	50%{
+		transform: translateX(96px);
+	}
+}
+
+@include keyframes(dots){
+	50%{
+		transform: translateX(-31px);
+	}
+}
+
+
+/* preloader style 1*/
+@include keyframes(spin){
+from { transform: rotate(0deg) }
+to { transform: rotate(360deg) }
+}
+
+
+/* preloader style 2*/
+@-webkit-keyframes stroke-spacing {
+  0% {
+    stroke-dasharray: 0 200;
+  }
+  45% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 200 200;
+  }
+  90% {
+    stroke-dashoffset: -200;
+    stroke-dasharray: 200 200;
+  }
+  100% {
+    stroke-dashoffset: -200;
+    stroke-dasharray: 200 200;
+  }
+}
+
+@keyframes stroke-spacing {
+  0% {
+    stroke-dasharray: 0 200;
+  }
+  45% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 200 200;
+  }
+  90% {
+    stroke-dashoffset: -200;
+    stroke-dasharray: 200 200;
+  }
+  100% {
+    stroke-dashoffset: -200;
+    stroke-dasharray: 200 200;
+  }
+}
+
+@-webkit-keyframes stroke-color {
+  	0%  { stroke: #1abc9c; }
+	24% { stroke: #2ecc71; }
+	25% { stroke: #3498db; }
+	49% { stroke: #9b59b6; }
+	50% { stroke: #f1c40f; }
+	74% { stroke: #e67e22; }
+	75% { stroke: #e74c3c; }
+	99% { stroke: #1B1464; }
+}
+
+@keyframes stroke-color {
+  	0%  { stroke: #1abc9c; }
+	24% { stroke: #2ecc71; }
+	25% { stroke: #3498db; }
+	49% { stroke: #9b59b6; }
+	50% { stroke: #f1c40f; }
+	74% { stroke: #e67e22; }
+	75% { stroke: #e74c3c; }
+	99% { stroke: #1B1464; }
+}
+
+
+/* preloader style 3*/
+@-webkit-keyframes loader-1-outter {
+	0% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes loader-1-outter {
+	0% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+
+@-webkit-keyframes loader-1-inner {
+	0% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(-360deg);
+		transform: rotate(-360deg);
+	}
+}
+
+@keyframes loader-1-inner {
+	0% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(-360deg);
+		transform: rotate(-360deg);
+	}
+}

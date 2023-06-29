@@ -1,0 +1,19 @@
+<section [ngClass]="border ? 'breadcrumb__area pt-160 pb-85 p-relative' : 'breadcrumb__area breadcrumb__border pt-160 pb-85 p-relative'">
+  <div class="breadrumb__shape">
+     <img class="breadcrumb__shape-1" src="assets/img/breadcrumb/breadcrumb-shape-1.png" alt="">
+  </div>
+  <div class="container">
+     <div class="row">
+        <div class="col-xxl-12">
+           <div class="breadcrumb__content text-center">
+              <h3 class="breadcrumb__title">{{title}}</h3>
+              <div class="breadcrumb__list">
+                 <span><a href="#">Home</a></span>
+                 <span class="dvdr tp-dot"><i class="fa-solid fa-period"></i></span>
+                 <span>{{subtitle}}</span>
+              </div>
+           </div>
+        </div>
+     </div>
+  </div>
+</section>

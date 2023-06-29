@@ -1,0 +1,130 @@
+<section class="auction__area pt-105 pb-50">
+  <div class="container">
+     <div class="auction__border mb-40">
+        <div class="row">
+           <div class="col-xxl-6 col-md-6">
+              <div class="section__title-wrapper-2 mr-15">
+                 <h3 class="section__title-2">Top artworks</h3>
+              </div>
+           </div>
+           <div class="col-xxl-6 col-md-6">
+              <div class="auction__more text-md-end">
+                 <a [routerLink]="['/live-auction']" class="tp-btn-border">View all Artwork</a>
+              </div>
+           </div>
+        </div>
+     </div>
+     <div class="row">
+        <div class="col-xxl-4 col-xl-5 col-lg-6">
+           <div class="auction__item auction__item-bg mb-30">
+              <div class="auction__thumb m-img mb-15">
+                 <a [routerLink]="['/product-details']">
+                    <img src="assets/img/auction/auction-img-1.jpg" alt="">
+                 </a>
+              </div>
+              <div class="auction__content">
+                 <h3 class="auction__title">
+                    <a [routerLink]="['/product-details']">Colorful Abstract Painting</a>
+                 </h3>
+
+                 <div class="auction__author mb-15 d-flex align-items-center">
+                    <div class="auction__author-thumb mr-10">
+                       <a [routerLink]="['/product-details']">
+                          <img src="assets/img/auction/author/auction-author-1.jpg" alt="">
+                       </a>
+                    </div>
+                    <div class="auction__author-content">
+                       <h4><span>by</span> <a [routerLink]="['/product-details']">Ida Chapman</a></h4>
+                    </div>
+                 </div>
+                 <div class="auction__bid-status mb-15 d-flex align-items-end justify-content-between">
+                    <div class="auction__bid-current">
+                       <p>Current Bid</p>
+                       <h5>24.72 ETH</h5>
+                    </div>
+                    <div class="auction__bid-ammount">
+                       <p>$97,604.74</p>
+                    </div>
+                 </div>
+                 <div class="auction__countdown-wrapper mb-30">
+                    <div class="auction__countdown d-flex align-items-center">
+                      <div class="cdown day"><span class="time-count">{{days}}</span> <p>Days</p></div>
+                      <div class="cdown hour"><span class="time-count">{{hours}}</span> <p>Hrs</p></div>
+                      <div class="cdown minutes"><span class="time-count">{{minutes}}</span> <p>Min</p></div>
+                      <div class="cdown second"> <div><span class="time-count">{{seconds}}</span> <p>Sec</p></div></div>
+                    </div>
+                 </div>
+                 <div class="auction__btn d-sm-flex align-items-center justify-content-between">
+                    <a [routerLink]="['/product-details']" class="tp-btn-gradient">View artwork</a>
+                    <button type="button" class="tp-btn-gradient active" data-bs-toggle="modal" data-bs-target="#bidmodal">Place Your Bid</button>
+                 </div>
+              </div>
+           </div>
+        </div>
+        <div class="col-xxl-4 col-xl-7 col-lg-6">
+           <div class="auction__sm-wrapper">
+              <div *ngFor="let smAuction of auctionSmItemData.slice(0,3)" class="auction__sm-item d-sm-flex align-items-center mb-30">
+                 <div class="auction__sm-thumb mr-20">
+                    <a [routerLink]="['/product-details']">
+                       <img src={{smAuction.img}} alt="">
+                    </a>
+                 </div>
+                 <div class="auction__sm-content">
+                    <h3 class="auction__sm-title">
+                       <a [routerLink]="['/product-details']">{{smAuction.title}}</a>
+                    </h3>
+                    <div class="auction__sm-author d-flex align-items-center mb-20">
+                       <div class="auction__sm-author-thumb mr-10">
+                          <a [routerLink]="['/product-details']">
+                             <img src={{smAuction.authorImg}} alt="">
+                          </a>
+                       </div>
+                       <div class="auction__sm-price mr-10">
+                          <p>{{smAuction.smPrice}} ETH</p>
+                       </div>
+                       <div class="auction__sm-show">
+                          <p>1 of {{smAuction.smShow}}</p>
+                       </div>
+                    </div>
+                    <div class="auction__sm-btn">
+                       <button type="button" class="tp-btn-gradient" data-bs-toggle="modal" data-bs-target="#bidmodal">place bid</button>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+        <div class="col-xxl-4 col-xl-7 col-lg-6">
+           <div class="auction__sm-wrapper">
+            <div *ngFor="let smAuction of auctionSmItemData.slice(3,6)" class="auction__sm-item d-sm-flex align-items-center mb-30">
+              <div class="auction__sm-thumb mr-20">
+                 <a [routerLink]="['/product-details']">
+                    <img src={{smAuction.img}} alt="">
+                 </a>
+              </div>
+              <div class="auction__sm-content">
+                 <h3 class="auction__sm-title">
+                    <a [routerLink]="['/product-details']">{{smAuction.title}}</a>
+                 </h3>
+                 <div class="auction__sm-author d-flex align-items-center mb-20">
+                    <div class="auction__sm-author-thumb mr-10">
+                       <a [routerLink]="['/product-details']">
+                          <img src={{smAuction.authorImg}} alt="">
+                       </a>
+                    </div>
+                    <div class="auction__sm-price mr-10">
+                       <p>{{smAuction.smPrice}} ETH</p>
+                    </div>
+                    <div class="auction__sm-show">
+                       <p>1 of {{smAuction.smShow}}</p>
+                    </div>
+                 </div>
+                 <div class="auction__sm-btn">
+                    <button type="button" class="tp-btn-gradient" data-bs-toggle="modal" data-bs-target="#bidmodal">place bid</button>
+                 </div>
+              </div>
+           </div>
+           </div>
+        </div>
+     </div>
+  </div>
+</section>

@@ -1,0 +1,35 @@
+<section class="creator__list collection__counter pt-120 pb-120">
+  <div class="container">
+     <div class="row">
+        <div *ngFor="let collection of collectionAllData" class="col-xxl-3 col-xl-3 col-lg-4 col-md-6 col-sm-6">
+           <div class="collection__list d-flex align-items-center mb-20 transition-3">
+              <div class="collection__list-thumb collection__list-rank mr-20">
+                 <a [routerLink]="['/profile']">
+                    <img src={{collection.img}} alt="">
+                 </a>
+              </div>
+              <div class="collection__list-content">
+                 <h3 class="collection__list-title">
+                    <a [routerLink]="['/profile']">{{collection.title}}</a>
+                 </h3>
+                 <div class="collection__list-revenue d-flex align-items-center">
+                    <div class="collection__list-revenue-icon mr-5">
+                       <span>
+                          <i class="fa-brands fa-ethereum"></i>
+                       </span>
+                    </div>
+                    <div class="collection__list-revenue-text">
+                       <p><span>{{collection.revenue}}</span> ETH</p>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+        <div class="col-xxl-12">
+           <div class="nft__more text-center mt-20">
+              <a [routerLink]="['/shop']" class="tp-load-more"><i class="fa-light fa-arrow-rotate-right"></i>View all Creators</a>
+           </div>
+        </div>
+     </div>
+  </div>
+</section>

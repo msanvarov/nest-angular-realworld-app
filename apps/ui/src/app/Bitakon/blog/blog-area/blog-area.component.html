@@ -1,0 +1,46 @@
+<section class="blog__area pt-80 pb-90">
+  <div class="container">
+     <div class="row">
+        <div class="col-xxl-8 col-xl-8 col-lg-8">
+           <div class="blog__wrapper">
+              <div class="row">
+                 <div *ngFor="let blog of blogData" class="col-xxl-6 col-xl-6 col-lg-12 col-md-6">
+                    <div class="blog__grid-item mb-30">
+                       <div class="blog__grid-thumb w-img">
+                          <a [routerLink]="['/blog-details']">
+                             <img src={{blog.img}} alt="">
+                          </a>
+                       </div>
+                       <div class="blog__grid-content">
+                          <div class="blog__grid-tag">
+                             <a [routerLink]="['/blog-details']">{{blog.category}}</a>
+                          </div>
+                          <h3 class="blog__grid-title">
+                             <a [routerLink]="['/blog-details']">{{blog.title}}</a>
+                          </h3>
+                          <div class="blog__grid-author d-flex align-items-center">
+                             <div class="blog__grid-author-thumb mr-10">
+                                <a href="#">
+                                   <img src={{blog.authorImg}} alt="">
+                                </a>
+                             </div>
+                             <div class="blog__grid-author-info">
+                                <h4><a href="#">{{blog.authorName}}</a></h4>
+                                <p>July 16, 2022 • 1 min read</p>
+                             </div>
+                          </div>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+              <div class="row">
+                 <app-pagination [url]="true"></app-pagination>
+              </div>
+           </div>
+        </div>
+        <div class="col-xxl-4 col-xl-4 col-lg-4">
+           <app-blog-right-side></app-blog-right-side>
+        </div>
+     </div>
+  </div>
+</section>

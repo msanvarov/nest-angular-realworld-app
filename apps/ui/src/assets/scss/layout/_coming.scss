@@ -1,0 +1,239 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  33. COMING CSS START
+/*----------------------------------------*/
+
+.coming{
+    &__soon{
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 999;
+        background-color: var(--tp-theme-dark);
+        padding-left: 150px;
+
+        @media #{$xl}{
+            padding-left: 90px;
+        }
+
+        @media #{$lg, $sm}{
+            padding-left: 50px;
+        }
+
+        @media #{$xs}{
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        &-2{
+            padding-left: 350px;
+            @media #{$xxxl}{
+                padding-left: 250px;
+            }
+            @media #{$xxl}{
+                padding-left: 200px;
+                padding-right: 200px;
+            }
+            @media #{$xl}{
+                padding-left: 150px;
+                padding-right: 150px;
+            }
+            @media #{$lg}{
+                padding-left: 100px;
+                padding-right: 100px;
+            }
+            @media #{$md}{
+                padding-left: 30px;
+                padding-right: 30px;
+            }
+            @media #{$sm, $xs}{
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+        }
+    }
+    &__bg{
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 50%;
+        height: 100%;
+
+        @media #{$md, $sm, $xs}{
+            display: none;
+        }
+    }
+    &__title{
+        font-size: 30px;
+        color: var(--tp-common-white);
+        margin-bottom: 15px;
+    }
+    &__content{
+        & > p{
+            color: var(--tp-common-white);
+            opacity: .6;
+            margin-bottom: 30px;
+        }
+    }
+    &__countdown{
+        margin-bottom: 30px;
+        &-inner{
+             & .cdown{
+                    position: relative;
+                    padding-right: 25px;
+                    margin-right: 25px;
+                    text-align: center;
+                    &:last-child{
+                        margin-right: 0;
+                        padding-right: 0;
+                        &::after{
+                            display: none;
+                        }
+                    }
+
+
+                    &::after{
+                        position: absolute;
+                        content: '\3a';
+                        font-family: var(--tp-ff-fontawesome);
+                        right: 0;
+                        top: 50%;
+                        @include transform(translateY(-50%));
+                        color: var(--tp-common-white);
+                        opacity: .3;
+                    }
+                    & .time-count{
+                        font-size: 20px;
+                        font-weight: 600;
+                        margin-bottom: 0;
+                        color: var(--tp-common-white);
+                    }
+                    & p{
+                        font-size: 16px;
+                        font-weight: 500;
+                        color: var(--tp-text-10);
+                        text-transform: capitalize;
+                        margin-bottom: 0;
+                    }
+                }
+        }
+    }
+    &__subscribe{
+        margin-bottom: 35px;
+        &-input{
+            & input,
+            & textarea{
+                width: 300px;
+                height: 54px;
+                line-height: 54px;
+                @include border-radius(30px);
+                padding: 0 28px;
+                border: 0;
+                outline: 0;
+                background-color: rgba($color: #fff, $alpha: .06);
+                color: var(--tp-common-white);
+                margin-right: 15px;
+                @include tp-placeholder{
+                    color: var(--tp-common-white);
+                    opacity: .4;
+                }
+
+                @media #{ $xs}{
+                    width: 100%;
+                    margin-bottom: 15px;
+                }
+            }
+            & textarea{
+                line-height: 1.5;
+                padding-top: 15px;
+                resize: none;
+                height: 170px;
+                width: 100%;
+            }
+
+            & .nice-select{
+                float: none;
+                width: 100%;
+                height: 54px;
+                line-height: 54px;
+                background-color: rgba($color: #fff, $alpha: .05);
+                border: none;
+                @include border-radius(30px);
+                padding-left: 24px;
+                color: var(--tp-common-white);
+                font-size: 14px;
+                font-weight: 600;
+                padding-right: 5px;
+                & .current{
+                    font-size: 14px;
+                    font-weight: 600;
+                    color: var(--tp-common-white);
+                }
+
+                &::after{
+                    border: none;
+                    width: 40px;
+                    height: 40px;
+                    text-align: center;
+                    line-height: 40px;
+                    background-color: #05092B;
+                    @include border-radius(50%);
+                    @include transform(translateY(-50%));
+                    margin-top: 0;
+                    right: 5px;
+                    content: '\f107';
+                    font-family: var(--tp-ff-fontawesome);
+                    transform-origin: center;
+                    color: var(--tp-common-white);
+                    font-weight: 500;
+
+                }
+                & .list{
+                    width: 100%;
+                    margin-top: 0;
+
+                    & .option{
+                        color: var(--tp-text-1);
+                        &:hover{
+                            color: var(--tp-theme-2);
+                        }
+                    }
+                }
+
+                &.open{
+                    &::after{
+                        @include transform(translateY(-50%) rotate(-180deg) !important);
+                        ;
+                    }
+                }
+            }
+
+            & button{
+                height: 54px;
+                line-height: 50px;
+                padding: 0 25px;
+                @include border-radius(30px);
+
+            }
+        }
+    }
+    &__social{
+        & a{
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background-color: rgba($color: #fff, $alpha: .1);
+            color: var(--tp-common-white);
+            @include border-radius(50%);
+            margin-right: 5px;
+            &:hover{
+                background-color: var(--tp-theme-1);
+            }
+        }
+    }
+}

@@ -1,0 +1,36 @@
+<section class="team__area">
+  <div class="container">
+     <div class="row">
+        <div class="col-xxl-12">
+           <div class="section__title-wrapper text-center mb-35">
+              <span class="section__title-pre-4">Team Member</span>
+              <h3 class="section__title-4">Meet our team member</h3>
+           </div>
+        </div>
+     </div>
+     <div class="row row-cols-xxl-5 row-cols-xl-5 row-cols-lg-4 row-cols-md-2">
+        <div *ngFor="let member of teamMemberData" class="col">
+           <div class="team__item text-center mb-30 transition-3">
+              <div class="team__thumb">
+                 <a href="#">
+                    <img src={{member.img}} alt="">
+                 </a>
+              </div>
+              <div class="team__content">
+                 <h3 class="team__title">
+                    <a [routerLink]="['/profile']">{{member.name}}</a>
+                 </h3>
+                 <p class="team__position">{{member.title}}</p>
+
+                 <div class="team__social">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </div>
+     <div class="team__line mt-55 mb-90"></div>
+  </div>
+</section>

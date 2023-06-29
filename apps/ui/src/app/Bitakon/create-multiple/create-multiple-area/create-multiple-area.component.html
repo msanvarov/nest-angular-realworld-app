@@ -1,0 +1,353 @@
+<section class="creator__area">
+  <div class="creator__banner include-bg" [ngStyle]="{background:'url(assets/img/create/create-bg.jpg)',
+  backgroundRepeat:'no-repeat',backgroundSize:'cover',backgroundPosition:'center'}"></div>
+  <div class="creator__border"></div>
+  <div class="container">
+     <div class="row">
+        <div class="col-xxl-4 col-xl-4 col-lg-4">
+           <div class="create__preview mr-70">
+              <div class="nft__box theme-bg-dark mb-30 transition-3">
+                 <h3 class="create__preview-title">Preview</h3>
+                 <div class="nft__box-top d-flex align-items-center justify-content-between">
+                    <div class="nft__box-user">
+                       <ul>
+                          <li>
+                             <a [routerLink]="['/profile']">
+                                <img src="assets/img/bid/2/bid-user-1.jpg" alt="">
+                             </a>
+                          </li>
+                          <li>
+                             <a [routerLink]="['/profile']">
+                                <img src="assets/img/bid/2/bid-user-2.jpg" alt="">
+                             </a>
+                          </li>
+                          <li>
+                             <a [routerLink]="['/profile']">
+                                <img src="assets/img/bid/2/bid-user-3.jpg" alt="">
+                             </a>
+                          </li>
+                       </ul>
+                    </div>
+                    <div class="nft__box-more">
+                       <button type="button" class="dropdown-toggle nft-more-btn" data-bs-toggle="dropdown" aria-expanded="false">
+                          <i class="fa-regular fa-ellipsis"></i>
+                       </button>
+                       <div class="nft__more-content dropdown-menu dropdown-menu-end">
+                          <ul>
+                             <li>
+                                <button type="button" data-bs-toggle="modal" data-bs-target="#sharemodal">Share</button>
+                             </li>
+                             <li>
+                                <button type="button" data-bs-toggle="modal" data-bs-target="#reportmodal">Report</button>
+                             </li>
+                          </ul>
+                       </div>
+                    </div>
+                 </div>
+                 <div class="nft__box-thumb w-img mb-20">
+                    <a [routerLink]="['/product-details']">
+                       <img src="assets/img/bid/2/bid-img-1.jpg" alt="">
+                    </a>
+                    <div class="nft__box-popularity">
+                       <a [routerLink]="['/product-details']"><i class="fa-solid fa-heart"></i> 24</a>
+                    </div>
+                 </div>
+                 <div class="nft__box-content">
+                    <div class="nft__box-content-top d-flex align-items-center justify-content-between">
+                       <h3 class="nft__box-title">
+                          <a [routerLink]="['/product-details']">Amazing digital art</a>
+                       </h3>
+                       <div class="nft__box-trending-icon">
+                          <span><i class="fa-brands fa-ethereum"></i></span>
+                       </div>
+                    </div>
+                    <div class="nft__box-info d-flex align-items-center justify-content-between">
+                       <div class="nft__box-price">
+                          <p>3.54 ETH</p>
+                       </div>
+                       <div class="nft__box-stock">
+                          <p>6 in stock</p>
+                       </div>
+                    </div>
+                 </div>
+                 <div class="nft__box-bottom d-flex align-items-center justify-content-between">
+                    <div class="nft__box-highest">
+                       <p><i class="fa-light fa-code-fork"></i> Highest bid</p>
+                    </div>
+                    <div class="nft__box-bid">
+                       <p>0.001 ETH</p>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+        <div class="col-xxl-8 col-xl-8 col-lg-8">
+           <div class="create__form pt-55 pb-120">
+              <form action="#">
+                 <div class="row">
+                    <div class="col-xxl-12">
+                       <div class="create__nav mb-10">
+                          <nav>
+                             <div class="nav nav-tabs justify-content-sm-end" id="nav-tab-create" role="tablist">
+                               <button class="nav-link" id="nav-single-tab" data-bs-toggle="tab" data-bs-target="#nav-single" type="button" role="tab" aria-controls="nav-single" aria-selected="true">Single</button>
+                               <button class="nav-link active" id="nav-multiple-tab" data-bs-toggle="tab" data-bs-target="#nav-multiple" type="button" role="tab" aria-controls="nav-multiple" aria-selected="false">Multiple</button>
+                             </div>
+                          </nav>
+                       </div>
+                    </div>
+                 </div>
+                 <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade" id="nav-single" role="tabpanel" aria-labelledby="nav-single-tab">
+                       <div class="row align-items-center">
+                          <div class="col-xxl-12">
+                             <div class="create__input-box">
+                                <h4>Upload File<span>*</span></h4>
+                                <p>Add your unique image / video / audio file</p>
+                             </div>
+                          </div>
+                          <div class="col-xxl-12">
+                             <div class="create__upload text-center">
+                                <p>JPG, PNG, GIF, WEBP, MP4 or MP3. Max 30mb.</p>
+                                <label for='input-file'>Select a file</label>
+                                <input id='input-file' type='file' />
+                             </div>
+                          </div>
+                          <div class="col-xxl-12">
+                             <div class="create__input-box">
+                                <h4>Name <span>*</span></h4>
+                                <p>Choose a unique name for your NFT</p>
+                                <div class="create__input">
+                                   <input type="text" placeholder="Enter the NFT's name">
+                                </div>
+                             </div>
+                          </div>
+                          <div class="col-xxl-12">
+                             <div class="create__input-box">
+                                <h4>Description</h4>
+                                <p>Describe your NFT, help other users understand what's unique about it</p>
+                                <div class="create__input">
+                                   <textarea placeholder="Enter the NFT's Description"></textarea>
+                                </div>
+                             </div>
+                          </div>
+                          <div class="col-xxl-12">
+                             <div class="create__input-box">
+                                <h4>Properties <span>*</span></h4>
+                                <p>List attributes that represents your NFT (color, shape, mood, etc..)</p>
+                                <div class="row">
+                                   <div class="col-md-6">
+                                      <div class="create__input">
+                                         <input type="text" placeholder="Property"/>
+                                      </div>
+                                   </div>
+                                   <div class="col-md-6">
+                                      <div class="create__input">
+                                         <input type="text" placeholder="Value"/>
+                                      </div>
+                                   </div>
+                                </div>
+                             </div>
+                          </div>
+                          <div class="col-xxl-12">
+                             <div class="create__input-box">
+                                <h4>Collection</h4>
+                                <p>The collection where your NFT will appear.</p>
+                                <div class="create__input">
+
+                                  <div class="tp-select tp-select-3">
+                                    <mat-form-field appearance="fill">
+                                      <mat-label>Select an option</mat-label>
+                                      <mat-select disableRipple>
+                                        <mat-option value="1">Collection 1</mat-option>
+                                        <mat-option value="2">Collection 2</mat-option>
+                                        <mat-option value="3">Collection 3</mat-option>
+                                        <mat-option value="3">Collection 4</mat-option>
+                                      </mat-select>
+                                    </mat-form-field>
+                                 </div>
+
+
+                                </div>
+                             </div>
+                          </div>
+                          <div class="col-xxl-12">
+                             <div class="create__input-check d-flex align-items-center mb-40">
+                                <div class="create__input-check-item d-flex align-items-center">
+                                   <input class="m-check-input" type="checkbox" id="m-sale">
+                                   <label class="m-check-label" for="m-sale">Put on Sale</label>
+                                </div>
+                                <div class="create__input-check-item d-flex align-items-center">
+                                   <input class="m-check-input" type="checkbox" id="m-price">
+                                   <label class="m-check-label" for="m-price">Instant sale price</label>
+                                </div>
+                                <div class="create__input-check-item d-flex align-items-center">
+                                   <input class="m-check-input" type="checkbox" id="m-lock">
+                                   <label class="m-check-label" for="m-lock">Unlock one purchased</label>
+                                </div>
+                             </div>
+                          </div>
+                          <div class="col-xxl-12">
+                             <div class="create__btn">
+                                <button type="submit" class="tp-btn-3">Create Item</button>
+                             </div>
+                          </div>
+                       </div>
+                    </div>
+                    <div class="tab-pane fade show active" id="nav-multiple" role="tabpanel" aria-labelledby="nav-multiple-tab">
+                       <div class="row align-items-center">
+                          <div class="col-xxl-12">
+                             <div class="create__input-box">
+                                <h4>Upload File<span>*</span></h4>
+                                <p>Add your unique image / video / audio file</p>
+                             </div>
+                          </div>
+                          <div class="col-xxl-12">
+                             <div class="create__upload text-center">
+                                <p>JPG, PNG, GIF, WEBP, MP4 or MP3. Max 30mb.</p>
+                                <label for='input-file-2'>Select a file</label>
+                                <input id='input-file-2' type='file' />
+                             </div>
+                          </div>
+                          <div class="col-xxl-12">
+                             <div class="create__input-box">
+                                <h4>Name <span>*</span></h4>
+                                <p>Choose a unique name for your NFT</p>
+                                <div class="create__input">
+                                   <input type="text" placeholder="Enter the NFT's name">
+                                </div>
+                             </div>
+                          </div>
+                          <div class="col-xxl-12">
+                             <div class="create__input-box">
+                                <h4>Description</h4>
+                                <p>Describe your NFT, help other users understand what's unique about it</p>
+                                <div class="create__input">
+                                   <textarea placeholder="Enter the NFT's Description"></textarea>
+                                </div>
+                             </div>
+                          </div>
+                          <div class="col-xxl-12">
+                             <div class="create__input-box">
+                                <h4>Properties <span>*</span></h4>
+                                <p>List attributes that represents your NFT (color, shape, mood, etc..)</p>
+                                <div class="row">
+                                   <div class="col-md-6">
+                                      <div class="create__input">
+                                         <input type="text" placeholder="Property"/>
+                                      </div>
+                                   </div>
+                                   <div class="col-md-6">
+                                      <div class="create__input">
+                                         <input type="text" placeholder="Value"/>
+                                      </div>
+                                   </div>
+                                </div>
+                             </div>
+                          </div>
+                          <div class="col-xxl-12">
+                             <div class="create__input-box">
+                                <h4>Collection</h4>
+                                <p>The collection where your NFT will appear.</p>
+                                <div class="create__input">
+
+                                 <div class="tp-select tp-select-3">
+                                    <mat-form-field appearance="fill">
+                                      <mat-label>Select an option</mat-label>
+                                      <mat-select disableRipple>
+                                        <mat-option value="1">Collection 1</mat-option>
+                                        <mat-option value="2">Collection 2</mat-option>
+                                        <mat-option value="3">Collection 3</mat-option>
+                                        <mat-option value="3">Collection 4</mat-option>
+                                      </mat-select>
+                                    </mat-form-field>
+                                 </div>
+
+
+                                </div>
+                             </div>
+                          </div>
+                          <div class="col-xxl-12">
+                             <div class="create__input-check d-flex align-items-center mb-40">
+                                <div class="create__input-check-item d-flex align-items-center">
+                                   <input class="m-check-input" type="checkbox" id="m-sale-2">
+                                   <label class="m-check-label" for="m-sale-2">Put on Sale</label>
+                                </div>
+                                <div class="create__input-check-item d-flex align-items-center">
+                                   <input class="m-check-input" type="checkbox" id="m-price-2">
+                                   <label class="m-check-label" for="m-price-2">Instant sale price</label>
+                                </div>
+                                <div class="create__input-check-item d-flex align-items-center">
+                                   <input class="m-check-input" type="checkbox" id="m-lock-2">
+                                   <label class="m-check-label" for="m-lock-2">Unlock one purchased</label>
+                                </div>
+                             </div>
+                          </div>
+                          <div class="col-xxl-12">
+                             <div class="create__btn">
+                                <button type="submit" class="tp-btn-3">Create Item</button>
+                             </div>
+                          </div>
+                       </div>
+                    </div>
+                  </div>
+
+              </form>
+           </div>
+        </div>
+     </div>
+  </div>
+</section>
+
+
+
+ <!-- share modal start -->
+  <div class="share__modal modal fade" id="sharemodal" tabindex="-1" aria-labelledby="sharemodal" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="share__modal-content text-center">
+                <div class="share__nft-content">
+                  <div class="share__thumb">
+                      <img src="assets/img/bid/bid-img-1.jpg" alt="">
+                  </div>
+
+                </div>
+                <div class="share__social">
+                  <h3>Share this NFT</h3>
+                  <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                  <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                  <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                  <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                  <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+          </div>
+      </div>
+  </div>
+  <!-- share modal end -->
+
+<!-- report modal start -->
+<div class="report__modal modal fade" id="reportmodal" tabindex="-1" aria-labelledby="reportmodal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="report__close">
+            <button type="button" class="report__close-btn" data-bs-dismiss="modal" aria-label="Close"><i class="fa-regular fa-xmark"></i></button>
+        </div>
+        <div class="report__wrapper">
+            <h3 class="report__title">Why are you reporting ?</h3>
+            <p>Describe briefly about your report.</p>
+            <form action="#">
+              <div class="report__input-box">
+                  <h4>Message</h4>
+              </div>
+              <div class="report__input">
+                  <textarea placeholder="Write your message"></textarea>
+              </div>
+              <div class="report__button">
+                  <button type="button" class="tp-btn-square">Send </button>
+              </div>
+            </form>
+        </div>
+      </div>
+  </div>
+</div>
+<!-- report modal end -->

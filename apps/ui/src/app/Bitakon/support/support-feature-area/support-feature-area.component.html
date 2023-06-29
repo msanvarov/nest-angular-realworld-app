@@ -1,0 +1,28 @@
+<section class="support__area pt-120 pb-120">
+  <div class="container tp-container">
+     <div class="row">
+      <div *ngFor="let feature of featureData" class="col-xxl-3 col-lg-4 col-md-6">
+        <div class="features__item mb-30 theme-bg-dark" [ngClass]="feature.bgColor">
+          <div class="features__item-inner">
+            <div class="features__icon">
+              <img
+                class="dark"
+                src={{feature.icon_dark}}
+                alt=""
+              />
+              <img
+                class="light"
+                src={{feature.icon_light}}
+                alt=""
+              />
+            </div>
+            <div class="features__content">
+              <h4 class="features__title" [innerHtml]="feature.title"></h4>
+              <p>{{feature.subtitle}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+     </div>
+  </div>
+</section>

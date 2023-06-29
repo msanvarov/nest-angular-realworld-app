@@ -1,11 +1,12 @@
 {
+  "name": "store",
   "projectType": "library",
   "sourceRoot": "libs/store/src",
   "prefix": "starter",
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/store"],
+      "outputs": ["{workspaceRoot}/coverage/libs/store"],
       "options": {
         "jestConfig": "libs/store/jest.config.ts",
         "passWithNoTests": true

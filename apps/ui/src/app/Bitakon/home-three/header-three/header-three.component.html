@@ -1,0 +1,446 @@
+<header>
+  <div id="header-sticky" [ngClass]="headerSticky ? 'header__area header__border-2 header__padding header__sticky header__transparent header-sticky' : 'header__area header__border-2 header__padding header__sticky header__transparent'">
+     <div class="container tp-container">
+        <div class="header__wrapper p-relative">
+           <div class="row align-items-center">
+             <div class="col-xxl-1 col-xl-1 col-lg-2 col-md-6 col-4">
+               <div class="logo header__logo">
+                 <a [routerLink]="['/']">
+                  <img class="logo-white" src="assets/img/logo/logo.png" alt="logo">
+                  <img class="logo-black" src="assets/img/logo/logo-black.png" alt="logo">
+                 </a>
+               </div>
+             </div>
+             <div class="col-xxl-8 col-xl-8 col-lg-5 d-none d-lg-block">
+                <div class="header__menu-wrapper d-flex align-items-center">
+                  <div class="main-menu">
+                     <nav id="mobile-menu" class="d-none d-xl-block">
+                        <ul>
+                           <li class="has-dropdown">
+                              <a [routerLink]="['/']">Home</a>
+                              <ul class="submenu">
+                                <li><a [routerLink]="['/']">Home Style 1</a></li>
+                                <li>
+                                  <a [routerLink]="['/home-two']">Home Style 2</a>
+                                </li>
+                                <li><a [routerLink]="['/home-three']">Home Style 3</a></li>
+                              </ul>
+                           </li>
+                           <li class="has-dropdown">
+                              <a [routerLink]="['/shop']">Marketplace</a>
+
+                              <ul class="submenu">
+                                 <li><a [routerLink]="['/shop']">Marketplace</a></li>
+                                 <li><a [routerLink]="['/shop-grid']">Marketplace Grid</a></li>
+                                 <li class="has-dropdown">
+                                    <a [routerLink]="['/product-details']">Product Details</a>
+
+                                    <ul class="submenu">
+                                       <li><a [routerLink]="['/product-details-tab']">Product Details Tab</a></li>
+                                       <li><a [routerLink]="['/product-details-grid']">Product Details Grid</a></li>
+                                    </ul>
+                                 </li>
+                                 <li><a [routerLink]="['/product-carusel']">Product Carousel</a></li>
+                                 <li><a [routerLink]="['/product-filter']">Product Filter</a></li>
+                                 <li><a [routerLink]="['/product-grid']">Product Grid</a></li>
+                                 <li><a [routerLink]="['/product-list']">Product List</a></li>
+                                 <li><a [routerLink]="['/product-live']">Product Live</a></li>
+                                 <li><a [routerLink]="['/product-live-carusel']">Product Live Carousel</a></li>
+                                 <li><a [routerLink]="['/product-simple']">Product Simple</a></li>
+                                 <li><a [routerLink]="['/product-tab']">Product Tab</a></li>
+                              </ul>
+                           </li>
+                           <li class="has-dropdown megamenu-full">
+                              <a [routerLink]="['/about']">Pages</a>
+                              <ul class="megamenu">
+                              <li><a [routerLink]="['/about']">About</a></li>
+                              <li><a [routerLink]="['/login']">Login</a></li>
+                              <li><a [routerLink]="['/creator']">Creators</a></li>
+                              <li><a [routerLink]="['/shop']">Our Shop</a></li>
+
+                              <li><a [routerLink]="['/contact']">Contact Us</a></li>
+                              <li><a [routerLink]="['/register']">Register</a></li>
+                              <li><a [routerLink]="['/creator-grid']">Creators Grid</a></li>
+                              <li><a [routerLink]="['/shop-grid']">Shop Grid</a></li>
+
+                              <li><a [routerLink]="['/activity']">Activity</a></li>
+                              <li><a [routerLink]="['/forget']">Forget Password</a></li>
+                              <li><a [routerLink]="['/creator-list']">Creators List</a></li>
+                              <li><a [routerLink]="['/product-details']">Product Details</a></li>
+
+                              <li><a [routerLink]="['/edit-profile']">Edit Profile</a></li>
+                              <li><a [routerLink]="['/live-auction']">Live Auction</a></li>
+                              <li><a [routerLink]="['/creator-list-two']">Creators List Square</a></li>
+                              <li><a [routerLink]="['/support']">Support/FAQ</a></li>
+
+                              <li><a [routerLink]="['/blog']">Blog</a></li>
+                              <li><a [routerLink]="['/collection']">Collection</a></li>
+                              <li><a [routerLink]="['/create']">Create NFT</a></li>
+                              <li><a [routerLink]="['/terms']">Terms & Conditions</a></li>
+
+                              <li><a [routerLink]="['/blog-details']">Blog Details</a></li>
+                              <li><a [routerLink]="['/collection-grid']">Collection Grid</a></li>
+                              <li><a [routerLink]="['/create-single']">Create Sinle NFT</a></li>
+                              <li><a [routerLink]="['/privacy']">Privacy & Policy</a></li>
+
+                              <li><a [routerLink]="['/ranking']">NFT Ranking</a></li>
+                              <li><a [routerLink]="['/collection-grid-two']">Collection Grid Square</a></li>
+                              <li><a [routerLink]="['/create-multiple']">Create Multiple NFT</a></li>
+                              <li><a [routerLink]="['/maintaince']">Maintanance</a></li>
+
+                              <li><a [routerLink]="['/upcoming']">Upcoming Projects</a></li>
+                              <li><a [routerLink]="['/wallet']">Connect Wallet</a></li>
+                              <li><a [routerLink]="['/coming-soon']">Coming Soon</a></li>
+                              <li><a [routerLink]="['/404']">404 Error</a></li>
+                              </ul>
+                           </li>
+                           <li>
+                              <a [routerLink]="['/collection']">Collections</a>
+                           </li>
+                           <li>
+                              <a [routerLink]="['/profile']">Profile</a>
+                           </li>
+                           <li>
+                              <a [routerLink]="['/creator']">Creators</a>
+                           </li>
+                        </ul>
+                     </nav>
+                  </div>
+                </div>
+             </div>
+             <div class="col-xxl-3 col-xl-3 col-lg-5 col-md-6 col-8">
+                <div class="header__right-wrapper d-flex justify-content-end align-items-center">
+                   <div class="header__right d-none d-sm-flex justify-content-end align-items-center">
+                     <div class="header__notification">
+                        <a [routerLink]="['/activity']">
+                           <svg viewBox="0 0 17 18">
+                           <path d="M13.7081 6.08326C13.7081 4.73509 13.1726 3.44215 12.2193 2.48885C11.266 1.53556 9.97305 1 8.62488 1C7.27672 1 5.98377 1.53556 5.03048 2.48885C4.07718 3.44215 3.54163 4.73509 3.54163 6.08326C3.54163 12.0137 1 13.7081 1 13.7081H16.2498C16.2498 13.7081 13.7081 12.0137 13.7081 6.08326Z" stroke="white" stroke-opacity="0.5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                           <path d="M10.0905 16.1558C9.94157 16.4126 9.72778 16.6257 9.47056 16.7739C9.21333 16.922 8.9217 17 8.62485 17C8.32801 17 8.03637 16.922 7.77914 16.7739C7.52192 16.6257 7.30813 16.4126 7.15918 16.1558" stroke="white" stroke-opacity="0.5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                           </svg>
+                           <span class="notification-count">8</span>
+                        </a>
+                     </div>
+                     <div class="header__wallet-wrapper" id="header__user">
+                        <div class="header__wallet ml-30">
+                           <a [routerLink]="['/wallet']" class="header__wallet-btn header__wallet-btn-2" id="connectbtn">
+                              <svg viewBox="0 0 19 16">
+                                 <path d="M17.5 5.83333V10.1667C17.5 13.5 15.9 14.5 13.5 14.5H5.5C2.5 14.5 1.5 13 1.5 10.1667V5.83333C1.5 3 2.5 2 4.852 1.552C5.06 1.51733 5.276 1.5 5.5 1.5H13.5C13.708 1.5 13.908 1.50866 14.1 1.54332C16.5 2 17.5 3 17.5 5.83333Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                 <path d="M9 5.03314H5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                 <path d="M17.2998 5.75061H14.8998C14.0198 5.75061 13.2998 6.65061 13.2998 7.75061C13.2998 8.85061 14.0198 9.75061 14.8998 9.75061H17.2998" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                              </svg>
+                              Wallet
+                           </a>
+                        </div>
+                        <div class="header__user ml-10">
+                           <a [routerLink]="['/profile']">
+                              <img src="assets/img/user/user.jpg" alt="">
+                           </a>
+                           <div class="wallet__dropdown tp-wallet-dropdown">
+                             <div class="wallet__dropdown-cover">
+                                <img src="assets/img/user/user-cover.png" alt="">
+                             </div>
+                             <div class="wallet__dropdown-top d-flex align-items-end">
+                                <div class="wallet__dropdown-user mr-15">
+                                   <img src="assets/img/user/user.jpg" alt="">
+                                </div>
+                                <div class="wallet__dropdown-user-content">
+                                   <h4>Robin Milford</h4>
+                                </div>
+                             </div>
+                             <div class="wallet__dropdown-id">
+                                <h5>Wallet:</h5>
+                                <p>0xF74d ... 12hf204
+                                   <button type="button">
+                                      <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                         <path d="M5.80388 13.2632H3.5941C1.28115 13.2632 0 11.9967 0 9.68638V3.57677C0 1.27497 1.27255 0 3.5941 0H7.52354C9.83649 0 11.1176 1.26642 11.1176 3.57677C11.1176 3.92761 10.8253 4.21854 10.4728 4.21854C10.1202 4.21854 9.8279 3.92761 9.8279 3.57677C9.8279 1.96808 9.14003 1.28353 7.52354 1.28353H3.5941C1.97762 1.28353 1.28975 1.96808 1.28975 3.57677V9.68638C1.28975 11.2951 1.97762 11.9796 3.5941 11.9796H5.80388C6.15641 11.9796 6.44875 12.2706 6.44875 12.6214C6.44875 12.9722 6.15641 13.2632 5.80388 13.2632Z" fill="#3771FE"/>
+                                         <path d="M11.8705 14H9.54195C8.17131 14 7.41211 13.1959 7.41211 11.729V7.84992C7.41211 6.38846 8.16622 5.57895 9.54195 5.57895H11.8705C13.2411 5.57895 14.0003 6.38302 14.0003 7.84992V11.729C14.0003 13.1959 13.2462 14 11.8705 14ZM9.54195 6.39389C8.58403 6.39389 8.17641 6.82852 8.17641 7.84992V11.729C8.17641 12.7504 8.58403 13.1851 9.54195 13.1851H11.8705C12.8284 13.1851 13.236 12.7504 13.236 11.729V7.84992C13.236 6.82852 12.8284 6.39389 11.8705 6.39389H9.54195Z" fill="#3771FE" stroke="#3771FE" stroke-width="0.2"/>
+                                      </svg>
+                                   </button>
+                                </p>
+                             </div>
+                             <div class="wallet__dropdown-balance">
+                                <p>Balance: <span>0.075ETH</span></p>
+                             </div>
+                             <div class="wallet__dropdown-action">
+                                <ul>
+                                   <li>
+                                      <a [routerLink]="['/profile']"><i class="fa-regular fa-user"></i> Profile</a>
+                                   </li>
+                                   <li>
+                                      <a [routerLink]="['/edit-profile']"><i class="fa-regular fa-gear"></i> Settings</a>
+                                   </li>
+                                   <li>
+                                      <a [routerLink]="['/login']"><i class="fa-regular fa-arrow-right-from-bracket"></i> Logout</a>
+                                   </li>
+                                </ul>
+                             </div>
+                          </div>
+                        </div>
+                     </div>
+                     <div class="header__user header__user-login ml-30" id="header__user-login">
+                       <a [routerLink]="['/profile']">
+                          <img src="assets/img/user/user-2.jpg" alt="">
+                       </a>
+
+                       <div class="wallet__dropdown">
+                          <div class="wallet__dropdown-cover">
+                             <img src="assets/img/user/user-cover.png" alt="">
+                          </div>
+                          <div class="wallet__dropdown-top d-flex align-items-end">
+                             <div class="wallet__dropdown-user mr-15">
+                                <img src="assets/img/user/user-2.jpg" alt="">
+                             </div>
+                             <div class="wallet__dropdown-user-content">
+                                <h4>Robin Milford</h4>
+                             </div>
+                          </div>
+                          <div class="wallet__dropdown-id">
+                             <h5>Wallet:</h5>
+                             <p>0xF74d ... 12hf204
+                                <button type="button">
+                                   <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <path d="M5.80388 13.2632H3.5941C1.28115 13.2632 0 11.9967 0 9.68638V3.57677C0 1.27497 1.27255 0 3.5941 0H7.52354C9.83649 0 11.1176 1.26642 11.1176 3.57677C11.1176 3.92761 10.8253 4.21854 10.4728 4.21854C10.1202 4.21854 9.8279 3.92761 9.8279 3.57677C9.8279 1.96808 9.14003 1.28353 7.52354 1.28353H3.5941C1.97762 1.28353 1.28975 1.96808 1.28975 3.57677V9.68638C1.28975 11.2951 1.97762 11.9796 3.5941 11.9796H5.80388C6.15641 11.9796 6.44875 12.2706 6.44875 12.6214C6.44875 12.9722 6.15641 13.2632 5.80388 13.2632Z" fill="#3771FE"/>
+                                      <path d="M11.8705 14H9.54195C8.17131 14 7.41211 13.1959 7.41211 11.729V7.84992C7.41211 6.38846 8.16622 5.57895 9.54195 5.57895H11.8705C13.2411 5.57895 14.0003 6.38302 14.0003 7.84992V11.729C14.0003 13.1959 13.2462 14 11.8705 14ZM9.54195 6.39389C8.58403 6.39389 8.17641 6.82852 8.17641 7.84992V11.729C8.17641 12.7504 8.58403 13.1851 9.54195 13.1851H11.8705C12.8284 13.1851 13.236 12.7504 13.236 11.729V7.84992C13.236 6.82852 12.8284 6.39389 11.8705 6.39389H9.54195Z" fill="#3771FE" stroke="#3771FE" stroke-width="0.2"/>
+                                   </svg>
+                                </button>
+                             </p>
+                          </div>
+                          <div class="wallet__dropdown-balance">
+                             <p>Balance: <span>0.075ETH</span></p>
+                          </div>
+                          <div class="wallet__dropdown-action">
+                             <ul>
+                                <li>
+                                   <a [routerLink]="['/profile']"><i class="fa-regular fa-user"></i> Profile</a>
+                                </li>
+                                <li>
+                                   <a [routerLink]="['/edit-profile']"><i class="fa-regular fa-gear"></i> Settings</a>
+                                </li>
+                                <li>
+                                   <a [routerLink]="['/login']"><i class="fa-regular fa-arrow-right-from-bracket"></i> Logout</a>
+                                </li>
+                             </ul>
+                          </div>
+                       </div>
+                     </div>
+                  </div>
+                  <div class="header__bar ml-10 d-xl-none">
+                     <button type="button" class="hamurger-btn" (click)="handleSidebar()">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                     </button>
+                  </div>
+                </div>
+             </div>
+           </div>
+        </div>
+     </div>
+  </div>
+</header>
+
+
+
+<!-- offcanvas area start -->
+<div class="offcanvas__area" [class.sidebar-opened]="showSidebar">
+  <div class="offcanvas__wrapper">
+    <div class="offcanvas__content">
+      <div class="offcanvas__top mb-40 d-flex justify-content-between align-items-center">
+          <div class="offcanvas__logo logo">
+            <a href="index.html">
+            <img src="assets/img/logo/logo-black.png" alt="logo">
+            </a>
+          </div>
+          <div class="offcanvas__close">
+            <button class="offcanvas__close-btn" (click)="handleSidebarClose()">
+                <i class="fal fa-times"></i>
+            </button>
+          </div>
+      </div>
+      <div class="offcanvas__search mb-25">
+          <form action="#">
+            <input type="text" placeholder="What are you searching for?">
+            <button type="submit" ><i class="far fa-search"></i></button>
+          </form>
+      </div>
+      <div class="mobile-menu mobile-menus fix mb-40">
+
+        <div class="side-info-content ">
+
+          <ul metis-menu>
+            <li class="menu-item-has-children has-droupdown">
+                <a class="has-arrow">Home</a >
+                <ul class="sub-menu">
+                  <li><a [routerLink]="['/']">Home Style 1</a></li>
+                  <li><a [routerLink]="['/home-two']">Home Style 2</a></li>
+                  <li><a [routerLink]="['/home-three']">Home Style 3</a></li>
+                </ul>
+            </li>
+
+            <li class="menu-item-has-children has-droupdown">
+                  <a  class="has-arrow">Marketplace</a>
+                  <ul class="sub-menu" >
+                    <li><a [routerLink]="['/shop']">Marketplace</a></li>
+                    <li><a [routerLink]="['/shop-grid']">Marketplace Grid</a></li>
+
+                      <li class="menu-item-has-children has-droupdown has-dropdown-child">
+                        <a class="has-arrow">Product Details</a>
+                        <ul class="sub-menu">
+                        <li><a [routerLink]="['/product-details']">Product Details</a></li>
+                        <li><a [routerLink]="['/product-details-tab']">Product Details Tab</a></li>
+                        <li><a [routerLink]="['/product-details-grid']">Product Details Grid</a></li>
+                      </ul>
+                      </li>
+
+                      <li>
+                      <a [routerLink]="['/product-carusel']">Product Carousel</a>
+                    </li>
+                    <li>
+                      <a [routerLink]="['/product-filter']">Product Filter</a>
+                    </li>
+                    <li><a [routerLink]="['/product-grid']">Product Grid</a></li>
+                    <li><a [routerLink]="['/product-list']">Product List</a></li>
+                    <li><a [routerLink]="['/product-live']">Product Live</a></li>
+                    <li><a [routerLink]="['/product-live-carusel']">Product Live Carousel</a></li>
+                    <li><a [routerLink]="['/product-simple']">Product Simple</a></li>
+                    <li><a [routerLink]="['/product-tab']">Product Tab</a></li>
+                  </ul>
+              </li>
+
+
+            <li class="menu-item-has-children has-droupdown">
+                <a class="has-arrow">Pages</a>
+              <ul class="sub-menu">
+                <li><a [routerLink]="['/about']">About</a></li>
+                <li><a [routerLink]="['/login']">Login</a></li>
+                <li><a [routerLink]="['/creator']">Creators</a></li>
+                <li><a [routerLink]="['/shop']">Our Shop</a></li>
+
+                <li><a [routerLink]="['/contact']">Contact Us</a></li>
+                <li><a [routerLink]="['/register']">Register</a></li>
+                <li><a [routerLink]="['/creator-grid']">Creators Grid</a></li>
+                <li><a [routerLink]="['/shop-grid']">Shop Grid</a></li>
+
+                <li><a [routerLink]="['/activity']">Activity</a></li>
+                <li><a [routerLink]="['/forget']">Forget Password</a></li>
+                <li><a [routerLink]="['/creator-list']">Creators List</a></li>
+                <li>
+                  <a [routerLink]="['/product-details']">Product Details</a>
+                </li>
+
+                <li><a [routerLink]="['/edit-profile']">Edit Profile</a></li>
+                <li><a [routerLink]="['/live-auction']">Live Auction</a></li>
+                <li>
+                  <a [routerLink]="['/creator-list-two']">Creators List Square</a>
+                </li>
+                <li><a [routerLink]="['/support']">Support/FAQ</a></li>
+
+                <li><a [routerLink]="['/blog']">Blog</a></li>
+                <li><a [routerLink]="['/collection']">Collection</a></li>
+                <li><a [routerLink]="['/create']">Create NFT</a></li>
+                <li><a [routerLink]="['/terms']">Terms & Conditions</a></li>
+
+                <li><a [routerLink]="['/blog-details']">Blog Details</a></li>
+                <li>
+                  <a [routerLink]="['/collection-grid']">Collection Grid</a>
+                </li>
+                <li>
+                  <a [routerLink]="['/create-single']">Create Sinle NFT</a>
+                </li>
+                <li><a [routerLink]="['/privacy']">Privacy & Policy</a></li>
+
+                <li><a [routerLink]="['/ranking']">NFT Ranking</a></li>
+                <li><a [routerLink]="['/collection-grid-two']">Collection Grid Square</a></li>
+                <li><a [routerLink]="['/create-multiple']">Create Multiple NFT</a> </li>
+                <li><a [routerLink]="['/maintaince']">Maintanance</a></li>
+                <li><a [routerLink]="['/upcoming']">Upcoming Projects</a></li>
+                <li><a [routerLink]="['/wallet']">Connect Wallet</a></li>
+                <li><a [routerLink]="['/coming-soon']">Coming Soon</a></li>
+                <li><a [routerLink]="['/404']">404 Error</a></li>
+              </ul>
+            </li>
+
+            <li>
+              <a [routerLink]="['/collection']" class="border-0">Collections</a>
+            </li>
+            <li>
+              <a [routerLink]="['/profile']" class="border-0">Profile</a>
+            </li>
+            <li>
+              <a [routerLink]="['/creator']" class="border-0">Creators</a>
+            </li>
+
+        </ul>
+      </div>
+
+      </div>
+      <div class="offcanvas__wallet mb-25 d-sm-none">
+        <a [routerLink]="['/wallet']" class="offcanvas__wallet-btn">
+            <svg viewBox="0 0 19 16">
+              <path d="M17.5 5.83333V10.1667C17.5 13.5 15.9 14.5 13.5 14.5H5.5C2.5 14.5 1.5 13 1.5 10.1667V5.83333C1.5 3 2.5 2 4.852 1.552C5.06 1.51733 5.276 1.5 5.5 1.5H13.5C13.708 1.5 13.908 1.50866 14.1 1.54332C16.5 2 17.5 3 17.5 5.83333Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M9 5.03314H5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M17.2998 5.75061H14.8998C14.0198 5.75061 13.2998 6.65061 13.2998 7.75061C13.2998 8.85061 14.0198 9.75061 14.8998 9.75061H17.2998" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Wallet
+        </a>
+      </div>
+      <div class="offcanvas__notification d-sm-none d-flex align-items-center mb-25">
+        <div class="offcanvas__notification-icon mr-25">
+            <a [routerLink]="['/activity']">
+              <i class="fa-light fa-bell"></i>
+              <span class="notification-count">8</span>
+            </a>
+        </div>
+        <div class="offcanvas__notification-text">
+            <p>You have <span class="notification-number">8</span> notifications <a [routerLink]="['/activity']">view</a></p>
+        </div>
+      </div>
+      <div class="offcanvas__text d-none d-lg-block">
+          <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and will give you a complete account of the system and expound the actual teachings of the great explore</p>
+      </div>
+      <div class="offcanvas__map d-none d-lg-block mb-15">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d29176.030811137334!2d90.3883827!3d23.924917699999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1605272373598!5m2!1sen!2sbd"></iframe>
+      </div>
+      <div class="offcanvas__contact mt-30 mb-20">
+          <h4>Contact Info</h4>
+          <ul>
+            <li class="d-flex align-items-center">
+                <div class="offcanvas__contact-icon mr-15">
+                  <i class="fal fa-map-marker-alt"></i>
+                </div>
+                <div class="offcanvas__contact-text">
+                  <a target="_blank" href="https://www.google.com/maps/place/Dhaka/@23.7806207,90.3492859,12z/data=!3m1!4b1!4m5!3m4!1s0x3755b8b087026b81:0x8fa563bbdd5904c2!8m2!3d23.8104753!4d90.4119873">12/A, Mirnada City Tower, NYC</a>
+                </div>
+            </li>
+            <li class="d-flex align-items-center">
+                <div class="offcanvas__contact-icon mr-15">
+                  <i class="far fa-phone"></i>
+                </div>
+                <div class="offcanvas__contact-text">
+                  <a href="mailto:support@gmail.com">088889797697</a>
+                </div>
+            </li>
+            <li class="d-flex align-items-center">
+                <div class="offcanvas__contact-icon mr-15">
+                  <i class="fal fa-envelope"></i>
+                </div>
+                <div class="offcanvas__contact-text">
+                  <a href="tel:+012-345-6789">support@mail.com</a>
+                </div>
+            </li>
+          </ul>
+      </div>
+      <div class="offcanvas__social">
+          <ul>
+            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+            <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+          </ul>
+      </div>
+    </div>
+</div>
+</div>
+<!-- offcanvas area end -->
+<div (click)="handleSidebarClose()" class="body-overlay" [class.opened]="showSidebar"></div>
+<!-- offcanvas area end -->

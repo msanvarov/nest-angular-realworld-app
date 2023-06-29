@@ -1,0 +1,21 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  31. ERROR CSS START
+/*----------------------------------------*/
+
+.error{
+    &__title{
+        font-size: 24px;
+        color: var(--tp-common-white);
+        margin-bottom: 10px;
+    }
+    &__content{
+        & p{
+            color: var(--tp-common-white);
+            opacity: .6;
+            margin-bottom: 20px;
+            padding: 0 85px;
+        }
+    }
+}

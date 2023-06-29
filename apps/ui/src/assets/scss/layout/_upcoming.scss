@@ -1,0 +1,106 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  34. UPCOMING CSS START
+/*----------------------------------------*/
+
+.upcoming{
+    &__title{
+        font-size: 22px;
+        color: var(--tp-common-white);
+        margin-bottom: 35px;
+        & i{
+            margin-right: 5px;
+        }
+    }
+    &__item{
+
+    }
+    &__table{
+        border: 1px solid rgba($color: #fff, $alpha: .08);
+        padding: 0 25px;
+        @media #{$sm, $xs}{
+            overflow-x: scroll;
+        }
+        & table{
+            & thead{
+                & tr{
+                    background-color: transparent;
+                }
+            }
+            & th{
+                color: var(--tp-common-white);
+                border-color: rgba($color: #fff, $alpha: .08);
+                box-shadow: none;
+            }
+            & td{
+                color: var(--tp-common-white);
+
+                &.color-green{
+                    color: var(--tp-common-green);
+                }
+                &.color-red{
+                    color: var(--tp-common-red);
+                }
+                &.color-theme{
+                    color: var(--tp-theme-1);
+                }
+            }
+            & tbody{
+
+                & > tr{
+                    &:first-child{
+                        background-color: transparent;
+                    }
+                    &:not(:last-child){
+                        border-bottom: 1px solid rgba($color: #fff, $alpha: .08);
+                    }
+
+                    &:nth-child(2n+1){
+                        background-color: var(--tp-theme-dark-2);
+                    }
+
+                    & td,
+                    & th,
+                    & .link-btn{
+                        color: rgba($color: #fff, $alpha: .6);
+                    }
+                    &:hover{
+                        background-color: var(--tp-theme-dark-2);
+                        & td,
+                        & th,
+                        & .link-btn{
+                            color: rgba($color: #fff, $alpha: 1);
+                        }
+                    }
+
+                    
+                }
+            }
+
+        }
+        & .table{
+            margin-bottom: 0;
+            
+            @media #{$sm, $xs}{
+                width: 800px;
+            }
+        }
+        .table > :not(:first-child){
+            border-color: rgba($color: #fff, $alpha: .08);
+        }
+        .table > :not(caption) > * > * {
+            padding: 1rem .5rem;
+            border: 0;
+            box-shadow: none;
+            vertical-align: middle;
+        }
+    }
+    &__thumb{
+        & img{
+            width: 50px;
+            height: 50px;
+            @include border-radius(50%);
+        }
+    }
+}

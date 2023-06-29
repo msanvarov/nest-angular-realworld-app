@@ -1,0 +1,106 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  07. FEATURES CSS START
+/*----------------------------------------*/
+
+.features{
+    $self: &;
+    &__item{
+        @include border-radius(20px);
+        padding: 40px 30px 20px;
+        padding-right: 20px;
+        position: relative;
+        &::before{
+            @extend %theme-afbf;
+            right: -1px;
+            bottom: -1px;
+            width: calc(100% + 2px);
+            height: 100%;
+            background: rgb(255,255,255);
+            background: linear-gradient(135deg, #0f1333 47%, #25cfaa 100%);
+            z-index: -1;
+            @include border-radius(21px);
+        }
+
+        &.yellow-bg{
+            &::before{
+                background: linear-gradient(135deg, #0f1333 56%, #FDF07D 100%);
+            }
+
+            #{$self}{
+                &__item-inner{
+                    &::after{
+                        background: linear-gradient(133.22deg, rgba(253, 240, 125, 0) 27.05%, rgba(253, 240, 125, 0.15) 92.71%);
+                    }
+                }
+            }
+        }
+
+        &.green-bg{
+            &::before{
+                background: linear-gradient(135deg, #0f1333 56%, #28AA2D 100%);
+            }
+
+            #{$self}{
+                &__item-inner{
+                    &::after{
+                        background: linear-gradient(133.22deg, rgba(116, 231, 120, 0) 27.05%, rgba(116, 231, 120, 0.15) 92.71%);
+                    }
+                }
+            }
+        }
+
+        &.pink-bg{
+            &::before{
+                background: linear-gradient(135deg, #0f1333 56%, #E468C9 100%);
+            }
+
+            #{$self}{
+                &__item-inner{
+                    &::after{
+                        background: linear-gradient(133.22deg, rgba(228, 104, 201, 0) 27.05%, rgba(228, 104, 201, 0.15) 92.71%);
+                    }
+                }
+            }
+        }
+        
+
+        &-inner{
+            position: relative;
+            z-index: 1;
+
+            &::after{
+                position: absolute;
+                content: '';
+                top: -35px;
+                left: -30px;
+                width: calc(100% + 50px);
+                height: calc(100% + 70px);
+                background: linear-gradient(133.22deg, rgba(37, 207, 170, 0) 37.05%, rgba(37, 207, 170, 0.15) 92.71%);
+                
+                @include border-radius(14px);
+                z-index: -1;
+            }
+        }
+
+    }
+    &__title{
+        font-size: 22px;
+        line-height: 28px;
+        color: var(--tp-common-white);
+    }
+    &__content{
+        & p{
+            color: rgba($color: #fff, $alpha: .7);
+        }
+    }
+    &__icon{
+        margin-bottom: 35px;
+        & img{
+            &.light{
+                display: none;
+            }
+        }
+    }
+}

@@ -1,0 +1,107 @@
+<section class="nft__area pt-110 pb-120">
+  <div class="container tp-container">
+     <div class="row">
+        <div *ngFor="let product of productsData" class="col-xxl-3 col-lg-4 col-md-6">
+           <div class="bid__item mb-30 theme-bg-dark">
+              <div class="bid__item-wrapper">
+                 <div class="bid__top d-flex align-items-center justify-content-between mb-20">
+                    <div class="bid__user">
+                       <ul>
+                          <li>
+                             <a [routerLink]="['/profile']">
+                                <img src="assets/img/bid/bid-user-1.jpg" alt="">
+                             </a>
+                          </li>
+                          <li>
+                             <a [routerLink]="['/profile']">
+                                <img src="assets/img/bid/bid-user-2.jpg" alt="">
+                             </a>
+                          </li>
+                       </ul>
+                    </div>
+                    <div class="bid__popularity">
+                       <a [routerLink]="['/profile']">
+                          <i class="icon_heart"></i>
+                          {{product.iconHeart}}
+                       </a>
+                    </div>
+                 </div>
+                 <div class="bid__thumb m-img mb-15">
+                    <a [routerLink]="['/product-details']">
+                       <img src={{product.img}} alt="">
+                    </a>
+                 </div>
+                 <div class="bid__content">
+                    <div class="bid__content-top d-flex align-items-center justify-content-between">
+                       <h3 class="bid__title">
+                          <a [routerLink]="['/product-details']">{{product.title}}</a>
+                       </h3>
+                       <div class="bid__trending-icon mb-15">
+                          <i class="fa-brands fa-ethereum"></i>
+                       </div>
+                    </div>
+                    <div class="bid__info d-flex align-items-center justify-content-between">
+                       <div class="bid__highest">
+                          <p>Heights bid <span>{{product.bidHeigest}}</span></p>
+                       </div>
+                       <div class="bid__stock">
+                          <p>{{product.stock}} in stock</p>
+                       </div>
+                    </div>
+                 </div>
+                 <div class="bid__bottom d-flex align-items-center justify-content-between">
+                    <div class="bid__btn-wrapper">
+                       <a [routerLink]="['/product-details']" class="bid__btn bid__btn-border">Bid History</a>
+                    </div>
+                    <div class="bid__btn-wrapper">
+                       <button type="button" class="bid__btn" data-bs-toggle="modal" data-bs-target="#bidmodal">Place a bid</button>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </div>
+     <div class="row">
+        <div class="col-xxl-12">
+           <div class="nft__more text-center mt-20">
+              <a [routerLink]="['/shop']" class="tp-load-more"><i class="fa-light fa-arrow-rotate-right"></i>View all items</a>
+           </div>
+        </div>
+     </div>
+  </div>
+</section>
+
+
+
+ <!-- bid popup area start -->
+ <div class="bid__modal modal fade" id="bidmodal" tabindex="-1" aria-labelledby="bidmodal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+     <div class="modal-content">
+        <div class="bid__modal-close">
+           <button type="button" class="bid__modal-close-btn" data-bs-dismiss="modal" aria-label="Close"><i class="fa-regular fa-xmark"></i></button>
+        </div>
+        <div class="bid__modal">
+           <h3 class="bid__modal-title">Place your bid</h3>
+           <p>You are about to place bid on this product</p>
+
+           <div class="bid__modal-form">
+              <form action="#">
+                 <div class="bid__modal-input">
+                    <input type="text" placeholder="Enter your bid">
+                    <span class="bid__modal-price">ETH</span>
+                 </div>
+                 <div class="bid__modal-info">
+                    <p>Your Balance <span>254 ETH</span></p>
+                    <p>Service fee <span>10 ETH</span></p>
+                    <p>Total <span class="color-theme">264 ETH</span></p>
+                 </div>
+                 <div class="bid__modal-btn">
+                    <button type="submit" class="tp-btn-3">Place bid</button>
+                 </div>
+              </form>
+           </div>
+        </div>
+     </div>
+  </div>
+</div>
+<!-- bid popup area end -->

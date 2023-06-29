@@ -1,21 +1,40 @@
-import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
-
-import { IMessage } from '@starter/api-types';
-import { AuthService } from '@starter/auth';
+import { Component,OnInit } from '@angular/core';
+import { ThemeTogglerService,Theme } from './Bitakon/services/theme-toggler/theme-toggler.service';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
-  selector: 'starter-root',
+  selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  hello$ = this.http.get<IMessage>('/api/hello');
-  constructor(private http: HttpClient, private authService: AuthService) {}
+  title = 'bitakon';
+  isDarkTheme = true;
 
-  public isAuthenticated = this.authService.isAuthenticated;
+  themeSetting : boolean = false;
 
-  public logout(): void {
-    this.authService.logoutUser();
+  handleThemeSetting () {
+    this.themeSetting = true;
+  }
+
+  handleThemeSettingClose () {
+    this.themeSetting = false;
+  }
+
+
+
+  constructor(private tt: ThemeTogglerService,private router : Router) {}
+
+  switchTheme(newTheme: Theme): void {
+    this.tt.switchTheme(newTheme);
+  }
+
+  ngOnInit(): void {
+    this.router.events.subscribe((evt) => {
+      if(! (evt instanceof NavigationEnd)){
+        return
+      }
+      window.scrollTo(0,0)
+    })
   }
 }

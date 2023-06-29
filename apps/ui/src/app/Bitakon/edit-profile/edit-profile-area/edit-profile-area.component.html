@@ -1,0 +1,312 @@
+<section class="edit__profile pb-120">
+  <div class="edit__profile ">
+     <div class="container-fluid fix p-0">
+        <div class="row">
+           <div class="col-xxl-12">
+              <div class="profile__cover-wrapper p-relative">
+                 <div class="profile__cover w-img tp-img-cover">
+                    <img src="assets/img/creator/creator-bg-2.jpg" alt="">
+                 </div>
+                 <div class="profile__cover-edit">
+                    <input id="profile-cover-input" class="cover-img-popup" type="file">
+                    <label for="profile-cover-input"><i class="fa-regular fa-pen-to-square"></i></label>
+                 </div>
+              </div>
+           </div>
+        </div>
+        <div class="row">
+           <div class="col-xxl-12">
+              <div class="profile__thumb-wrapper  text-center">
+                 <div class="profile__thumb text-center tp-img-profile d-inline-block p-relative">
+                    <img src="assets/img/creator/user-1.jpg" alt="">
+                    <div class="profile__thumb-edit">
+                       <input id="profile-thumb-input" class="profile-img-popup" type="file">
+                       <label for="profile-thumb-input"><i class="fa-regular fa-camera"></i></label>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </div>
+  </div>
+  <div class="container">
+     <div class="row">
+        <div class="col-xxl-4 col-lg-4">
+           <div class="profile__tab mr-40">
+              <nav>
+                 <div class="nav nav-tabs flex-column" id="profile-tab" role="tablist">
+                    <button class="nav-link active" id="nav-information-tab" data-bs-toggle="tab" data-bs-target="#nav-information" type="button" role="tab" aria-controls="nav-information" aria-selected="false"><i class="fa-regular fa-user-pen"></i>Profile Information</button>
+                    <button class="nav-link" id="nav-password-tab" data-bs-toggle="tab" data-bs-target="#nav-password" type="button" role="tab" aria-controls="nav-password" aria-selected="false"><i class="fa-regular fa-lock"></i>Change Password</button>
+                    <button class="nav-link" id="nav-ticket-tab" data-bs-toggle="tab" data-bs-target="#nav-ticket" type="button" role="tab" aria-controls="nav-ticket" aria-selected="false"><i class="fa-regular fa-ticket"></i>My Tickets</button>
+                    <button class="nav-link" id="nav-notification-tab" data-bs-toggle="tab" data-bs-target="#nav-notification" type="button" role="tab" aria-controls="nav-notification" aria-selected="false"><i class="fa-regular fa-bell"></i>Notification</button>
+                 </div>
+              </nav>
+           </div>
+        </div>
+        <div class="col-xxl-8 col-lg-8">
+           <div class="profile__tab-content">
+              <div class="tab-content" id="profile-tabContent">
+                 <div class="tab-pane fade show active" id="nav-information" role="tabpanel" aria-labelledby="nav-information-tab">
+                    <div class="profile__info">
+                       <h3 class="profile__info-title">Welcome Admin!</h3>
+                       <div class="profile__info-content">
+                          <form action="#">
+                             <div class="row">
+                                <div class="col-xxl-6 col-md-6">
+                                   <div class="profile__input-box">
+                                      <h4>First Name</h4>
+                                      <div class="profile__input">
+                                         <input type="text" placeholder="Enter first name" value="Shahnewaz">
+                                         <i class="fa-light fa-user"></i>
+                                      </div>
+                                   </div>
+                                </div>
+                                <div class="col-xxl-6 col-md-6">
+                                   <div class="profile__input-box">
+                                      <h4>Last Name</h4>
+                                      <div class="profile__input">
+                                         <input type="text" placeholder="Enter last name" value="Sakil">
+                                         <i class="fa-light fa-user"></i>
+                                      </div>
+                                   </div>
+                                </div>
+                                <div class="col-xxl-12">
+                                   <div class="profile__input-box">
+                                      <h4>Email</h4>
+                                      <div class="profile__input">
+                                         <input type="email" placeholder="Enter your email" value="example@mail.com">
+                                         <i class="fa-light fa-envelope"></i>
+                                      </div>
+                                   </div>
+                                </div>
+                                <div class="col-xxl-6 col-md-6">
+                                   <div class="profile__input-box">
+                                      <h4>Facebook</h4>
+                                      <div class="profile__input">
+                                         <input type="text" placeholder="Enter username" value="shahnewzname">
+                                         <i class="fa-brands fa-facebook-f"></i>
+                                      </div>
+                                   </div>
+                                </div>
+                                <div class="col-xxl-6 col-md-6">
+                                   <div class="profile__input-box">
+                                      <h4>Twitter</h4>
+                                      <div class="profile__input">
+                                         <input type="text" placeholder="Enter username" value="shahnewzname">
+                                         <i class="fa-brands fa-twitter"></i>
+                                      </div>
+                                   </div>
+                                </div>
+                                <div class="col-xxl-6 col-md-6">
+                                   <div class="profile__input-box">
+                                      <h4>Phone</h4>
+                                      <div class="profile__input">
+                                         <input type="text" placeholder="Enter your number" value="0123 456 7889">
+                                         <i class="fa-light fa-phone"></i>
+                                      </div>
+                                   </div>
+                                </div>
+                                <div class="col-xxl-6 col-md-6">
+                                   <div class="profile__input-box">
+                                      <h4>Gender</h4>
+                                      <div class="profile__input">
+
+                                        <div class="tp-select tp-select-3">
+                                          <mat-form-field appearance="fill">
+                                            <mat-label>Select an option</mat-label>
+                                            <mat-select disableRipple>
+                                              <mat-option value="1">Male</mat-option>
+                                              <mat-option value="2">Female</mat-option>
+                                              <mat-option value="3">Others</mat-option>
+                                            </mat-select>
+                                          </mat-form-field>
+                                       </div>
+
+                                      </div>
+                                   </div>
+                                </div>
+                                <div class="col-xxl-12">
+                                   <div class="profile__input-box">
+                                      <h4>Address</h4>
+                                      <div class="profile__input">
+                                         <input type="text" placeholder="Enter your address" value="3304 Randall Drive">
+                                         <i class="fa-solid fa-location-dot"></i>
+                                      </div>
+                                   </div>
+                                </div>
+                                <div class="col-xxl-6 col-md-6">
+                                   <div class="profile__input-box">
+                                      <h4>City</h4>
+                                      <div class="profile__input">
+                                         <input type="text" placeholder="Enter your city" value="Honolulu">
+                                         <i class="fa-light fa-city"></i>
+                                      </div>
+                                   </div>
+                                </div>
+                                <div class="col-xxl-6 col-md-6">
+                                   <div class="profile__input-box">
+                                      <h4>Country</h4>
+                                      <div class="profile__input">
+
+                                        <div class="tp-select tp-select-3">
+                                          <mat-form-field appearance="fill">
+                                            <mat-label>Select an option</mat-label>
+                                            <mat-select disableRipple>
+                                              <mat-option value="1">America</mat-option>
+                                              <mat-option value="2">Canada</mat-option>
+                                              <mat-option value="3">London</mat-option>
+                                              <mat-option value="3">China</mat-option>
+                                            </mat-select>
+                                          </mat-form-field>
+                                       </div>
+
+                                      </div>
+                                   </div>
+                                </div>
+                                <div class="col-xxl-12">
+                                   <div class="profile__input-box">
+                                      <h4>Your Bio</h4>
+                                      <div class="profile__input">
+                                         <textarea placeholder="Enter your bio">Hi there, this is my bio...</textarea>
+                                      </div>
+                                   </div>
+                                </div>
+                                <div class="col-xxl-12">
+                                   <div class="profile__btn">
+                                      <button class="tp-btn-3">Update</button>
+                                   </div>
+                                </div>
+                             </div>
+                          </form>
+                       </div>
+                    </div>
+                 </div>
+                 <div class="tab-pane fade" id="nav-password" role="tabpanel" aria-labelledby="nav-password-tab">
+                    <div class="profile__password">
+                       <form action="#">
+                          <div class="row">
+                             <div class="col-xxl-12">
+                                <div class="profile__input-box">
+                                   <h4>Old Password</h4>
+                                   <div class="profile__input">
+                                      <input type="text" placeholder="Enter old password">
+                                   </div>
+                                </div>
+                             </div>
+                             <div class="col-xxl-6 col-md-6">
+                                <div class="profile__input-box">
+                                   <h4>New Password</h4>
+                                   <div class="profile__input">
+                                      <input type="text" placeholder="Enter new password">
+                                   </div>
+                                </div>
+                             </div>
+                             <div class="col-xxl-6 col-md-6">
+                                <div class="profile__input-box">
+                                   <h4>Confirm Password</h4>
+                                   <div class="profile__input">
+                                      <input type="text" placeholder="Enter confirm password">
+                                   </div>
+                                </div>
+                             </div>
+                             <div class="col-xxl-6 col-md-6">
+                                <div class="profile__btn">
+                                   <button type="submit" class="tp-btn-3">Update</button>
+                                </div>
+                             </div>
+                          </div>
+                       </form>
+                    </div>
+                 </div>
+                 <div class="tab-pane fade" id="nav-ticket" role="tabpanel" aria-labelledby="nav-ticket-tab">
+                    <div class="profile__ticket table-responsive">
+                       <table class="table">
+                          <thead>
+                             <tr>
+                                <th scope="col">Ticket</th>
+                                <th scope="col">Topic</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">View</th>
+                             </tr>
+                          </thead>
+                          <tbody>
+                             <tr>
+                                <th scope="row"> #2245</th>
+                                <td>How can i share ?</td>
+                                <td>Pending</td>
+                                <td><a href="#" class="link-btn">View <i class="fa-light fa-arrow-right-long"></i> </a></td>
+                             </tr>
+                             <tr>
+                                <th scope="row"> #2220</th>
+                                <td>Send money, but not working</td>
+                                <td>Need your replay</td>
+                                <td><a href="#" class="link-btn">View <i class="fa-light fa-arrow-right-long"></i> </a></td>
+                             </tr>
+                             <tr>
+                                <th scope="row"> #2125</th>
+                                <td>Balance error</td>
+                                <td>Resolved</td>
+                                <td><a href="#" class="link-btn">View <i class="fa-light fa-arrow-right-long"></i> </a></td>
+                             </tr>
+                             <tr>
+                                <th scope="row"> #2124</th>
+                                <td>How to decline bid</td>
+                                <td>Resolved</td>
+                                <td><a href="#" class="link-btn">View <i class="fa-light fa-arrow-right-long"></i> </a></td>
+                             </tr>
+                             <tr>
+                                <th scope="row"> #2121</th>
+                                <td>How to contact</td>
+                                <td>Resolved</td>
+                                <td><a href="#" class="link-btn">View <i class="fa-light fa-arrow-right-long"></i> </a></td>
+                             </tr>
+                          </tbody>
+                       </table>
+                    </div>
+                 </div>
+                 <div class="tab-pane fade" id="nav-notification" role="tabpanel" aria-labelledby="nav-notification-tab">
+                    <div class="profile__notification">
+                       <div class="profile__notification-top mb-30">
+                          <h3 class="profile__notification-title">My activity settings</h3>
+                          <p>Stay up to date with notification on activity that involves you including mentions, messages, replies to your bids, new items, sale and administrative updates </p>
+                       </div>
+                       <div class="profile__notification-wrapper">
+                          <div class="profile__notification-item mb-20">
+                             <div class="form-check form-switch d-flex align-items-center">
+                                <input class="form-check-input" type="checkbox" role="switch" id="like" checked>
+                                <label class="form-check-label" for="like">Like & Follows Notifications</label>
+                             </div>
+                          </div>
+                          <div class="profile__notification-item mb-20">
+                             <div class="form-check form-switch d-flex align-items-center">
+                                <input class="form-check-input" type="checkbox" role="switch" id="post" checked>
+                                <label class="form-check-label" for="post">Post, Comments & Replies Notifications</label>
+                             </div>
+                          </div>
+                          <div class="profile__notification-item mb-20">
+                             <div class="form-check form-switch d-flex align-items-center">
+                                <input class="form-check-input" type="checkbox" role="switch" id="new" checked>
+                                <label class="form-check-label" for="new">New Bids Notifications</label>
+                             </div>
+                          </div>
+                          <div class="profile__notification-item mb-20">
+                             <div class="form-check form-switch d-flex align-items-center">
+                                <input class="form-check-input" type="checkbox" role="switch" id="sale" checked>
+                                <label class="form-check-label" for="sale">Bid on sale Notifications</label>
+                             </div>
+                          </div>
+                          <div class="profile__notification-item mb-20">
+                             <div class="form-check form-switch d-flex align-items-center">
+                                <input class="form-check-input" type="checkbox" role="switch" id="payment" checked>
+                                <label class="form-check-label" for="payment">Payment Notifications</label>
+                             </div>
+                          </div>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </div>
+  </div>
+</section>

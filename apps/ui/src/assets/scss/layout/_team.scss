@@ -1,0 +1,67 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  25. TEAM CSS START
+/*----------------------------------------*/
+
+.team{
+    &__item{
+        padding: 40px 30px 35px;
+        border: 2px solid transparent;
+        @include border-radius(14px);
+
+        &:hover{
+            border-color: var(--tp-theme-1);
+        }
+    }
+    &__thumb{
+        margin-bottom: 20px;
+        & img{
+            width: 120px;
+            height: 120px;
+            @include border-radius(50%);
+        }
+    }
+    &__content{
+
+    }
+    &__title{
+        font-size: 18px;
+        color: var(--tp-common-white);
+        margin-bottom: 3px;
+
+        & a{
+            &:hover{
+                color: var(--tp-theme-1);
+            }
+        }
+    }
+    &__position{
+        font-size: 15px;
+        color: var(--tp-common-white);
+        opacity: .6;
+    }
+    &__social{
+        & a{
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 36px;
+            text-align: center;
+            color: rgba($color: #fff, $alpha: .8);
+            border: 2px solid rgba($color: #fff, $alpha: .08);
+            @include border-radius(50%);
+            margin: 0 2px;
+
+            &:hover{
+                border-color: var(--tp-theme-1);
+                background-color: var(--tp-theme-1);
+                color: var(--tp-common-white) ;
+            }
+        }
+    }
+    &__line{
+        height: 1px;
+        background: linear-gradient(270deg, rgba(255, 255, 255, 0) 2.77%, rgba(255, 255, 255, 0.08) 47.92%, rgba(255, 255, 255, 0) 97.79%);
+    }
+}

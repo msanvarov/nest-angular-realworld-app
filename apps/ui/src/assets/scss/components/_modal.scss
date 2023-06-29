@@ -1,0 +1,208 @@
+@use '../utils' as *;
+
+/* share modal css start */
+
+.share{
+    &__modal{
+        & .modal-content{
+            padding: 50px 60px;
+            background-color: var(--tp-common-black-7);
+            border: 0;
+            border-radius: 20px;
+
+            @media #{$xs}{
+                padding-left: 25px;
+                padding-right: 25px;
+            }
+        }
+    }
+    &__thumb{
+        margin-bottom: 15px;
+        & img{
+            border-radius: 20px;
+            width: 100%;
+        }
+    }
+    &__title{
+        font-size: 24px;
+        color: var(--tp-common-white);
+
+        & a{
+            &:hover{
+                color: var(--tp-theme-1);
+            }
+        }
+    }
+    &__social{
+        & h3{
+            font-size: 20px;
+            color: var(--tp-common-white);
+            margin-bottom: 20px;
+
+            & a{
+                &:hover{
+                    color: var(--tp-theme-1);
+                }
+            }
+        }
+
+        & a{
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background-color: rgba($color: #fff, $alpha: .1);
+            color: var(--tp-common-white);
+            @include border-radius(50%);
+            margin-right: 5px;
+            &:hover{
+                background-color: var(--tp-theme-1);
+            }
+        }
+    }
+}
+
+.report{
+    &__close{
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        &-btn{
+            font-size: 18px;
+            color: rgba($color: #fff, $alpha: .5);
+        }
+    }
+    &__modal{
+        & .modal-content{
+            padding: 50px 60px;
+            background-color: var(--tp-common-black-7);
+            border: 0;
+            border-radius: 20px;
+
+            @media #{$xs}{
+                padding-left: 25px;
+                padding-right: 25px;
+            }
+        }
+    }
+    &__title{
+        font-size: 20px;
+        color: var(--tp-common-white);
+        margin-bottom: 5px;
+
+        &-2{
+            margin-bottom: 20px;
+        }
+    }
+    &__input{
+        margin-bottom: 15px;
+        & textarea{
+            width: 100%;
+            height: 200px;
+            @include border-radius(15px);
+            padding: 15px;
+            border: 0;
+            outline: 0;
+            background-color: rgba($color: #fff, $alpha: .06);
+            color: var(--tp-common-white);
+            resize: none;
+            @include tp-placeholder{
+                color: var(--tp-common-white);
+                opacity: .4;
+            }
+        }
+        &-box{
+            & h4{
+                font-size: 15px;
+                color: var(--tp-common-white);
+                margin-bottom: 10px;
+                & span{
+                    color: var(--tp-theme-1);
+                }
+            }
+            & p{
+                font-size: 13px;
+                color: var(--tp-common-white);
+                opacity: .7;
+                margin-bottom: 10px;
+            }
+        }
+    }
+    &__wrapper{
+        & > p{
+            font-size: 13px;
+            color: var(--tp-common-white);
+            opacity: .7;
+            margin-bottom: 15px;
+        }
+    }
+}
+
+
+.bid__modal{
+    & .modal-content{
+        padding: 50px 60px;
+        background-color: var(--tp-common-black-7);
+        border: 0;
+        border-radius: 20px;
+    }
+    &-title{
+        font-size: 22px;
+        color: var(--tp-common-white);
+    }
+    &-close{
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        &-btn{
+            font-size: 18px;
+            color: rgba($color: #fff, $alpha: .5);
+        }
+    }
+    &-input{
+        position: relative;
+        margin-bottom: 20px;
+        & input{
+            width: 100%;
+            height: 54px;
+            line-height: 54px;
+            @include border-radius(30px);
+            padding: 0 28px;
+            padding-right: 60px;
+            border: 0;
+            outline: 0;
+            background-color: rgba($color: #fff, $alpha: .06);
+            color: var(--tp-common-white);
+            @include tp-placeholder{
+                color: var(--tp-common-white);
+                opacity: .4;
+            }
+        }
+    }
+    &-price{
+        position: absolute;
+        top: 50%;
+        @include transform(translateY(-50%));
+        right: 20px;
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--tp-theme-1);
+    }
+    &-info{
+        margin-bottom: 20px;
+        & p{
+            font-size: 14px;
+            color: rgba($color: #fff, $alpha: .6);
+            font-weight: 500;
+            margin-bottom: 10px;
+            & span{
+                float: right;
+
+                &.color-theme{
+                    color: var(--tp-theme-1);
+                }
+            }
+        }
+    }
+}

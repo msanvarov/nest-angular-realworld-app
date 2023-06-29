@@ -1,0 +1,371 @@
+<section class="nft__area pb-50">
+  <div class="container">
+     <div class="section__title-border mb-40">
+        <div class="row align-items-end">
+           <div class="col-xxl-6 col-lg-6 col-md-7">
+              <div class="section__title-wrapper-3">
+                 <h3 class="section__title-3">Trending <br> NFTs of this season</h3>
+              </div>
+           </div>
+           <div class="col-xxl-6 col-lg-6 col-md-5">
+              <div class="nft__search text-end float-md-end fix mb-15">
+                 <form action="#">
+                    <div class="nft__search-input">
+                       <input type="text" placeholder="Search">
+                       <button type="submit"><i class="fa-regular fa-magnifying-glass"></i></button>
+                    </div>
+                 </form>
+              </div>
+           </div>
+        </div>
+     </div>
+     <div class="row">
+        <div class="col-xxl-3 col-xl-3 col-lg-4">
+           <div class="nft__filter-wrapper">
+              <div class="nft__filter-top d-flex justify-content-between align-items-center">
+                 <div class="nft__filter-top-icon">
+                    <span>
+                       <svg viewBox="0 0 15 18" fill="none">
+                          <path d="M2.5 1.57495H12.4C13.225 1.57495 13.9 2.24995 13.9 3.07495V4.72495C13.9 5.32495 13.525 6.07495 13.15 6.44995L9.925 9.29995C9.475 9.67495 9.175 10.425 9.175 11.025V14.25C9.175 14.7 8.875 15.3 8.5 15.525L7.45 16.2C6.475 16.8 5.125 16.125 5.125 14.925V10.95C5.125 10.425 4.825 9.74995 4.525 9.37495L1.675 6.37495C1.3 5.99995 1 5.32495 1 4.87495V3.14995C1 2.24995 1.675 1.57495 2.5 1.57495Z" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M6.6477 1.57495L2.9502 7.49995" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                       </svg>
+                    </span>
+                 </div>
+                 <div class="nft__filter-top-result">
+                    <p>264 item</p>
+                 </div>
+              </div>
+              <div class="nft__filter-accordion">
+                 <div class="accordion">
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="nft_status">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          Status
+                        </button>
+                      </h2>
+                      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="nft_status" data-bs-parent="#nftaccordion">
+                        <div class="accordion-body">
+                          <div class="nft__filer-status mb-15">
+                             <form action="#">
+                                <div class="nft__filter-check d-flex align-items-center">
+                                   <input class="m-check-input" type="checkbox" id="m-buy">
+                                   <label class="m-check-label" for="m-buy">Buy Now</label>
+                                </div>
+                                <div class="nft__filter-check d-flex align-items-center">
+                                   <input class="m-check-input" type="checkbox" id="m-auction">
+                                   <label class="m-check-label" for="m-auction">On Auction</label>
+                                </div>
+                                <div class="nft__filter-check d-flex align-items-center">
+                                   <input class="m-check-input" type="checkbox" id="m-sell">
+                                   <label class="m-check-label" for="m-sell">Looking to Sell</label>
+                                </div>
+                                <div class="nft__filter-check d-flex align-items-center">
+                                   <input class="m-check-input" type="checkbox" id="m-offer">
+                                   <label class="m-check-label" for="m-offer">Hes offers</label>
+                                </div>
+                             </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="nft_status_2">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                          Price
+                        </button>
+                      </h2>
+                      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="nft_status_2" data-bs-parent="#nftaccordion">
+                        <div class="accordion-body">
+                          <div class="nft__filter-price tp-range-slider tp-range-slider-dark mb-20">
+                             <div class="nft__filter-price-inner d-flex align-items-center">
+
+                              <!-- <p>Min value: <input type="number" [(ngModel)]="minValue"></p>
+                                <p>Max value: <input type="number" [(ngModel)]="maxValue"></p> -->
+
+
+                                <div class="nft__filter-price-box">
+                                   <input type="text" [(ngModel)]="minValue" id="input-with-keypress-0">
+                                   <span>Min</span>
+                                </div>
+                                <div class="nft__filter-price-to">
+                                   <span>To</span>
+                                </div>
+                                <div class="nft__filter-price-box">
+                                   <input type="text" [(ngModel)]="maxValue" id="input-with-keypress-1">
+                                   <span>Max</span>
+                                </div>
+                             </div>
+                             <ngx-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ngx-slider>
+                             <div class="slider-styled inside-slider" id="nft-slider"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="nft_status_3">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                          Collection
+                        </button>
+                      </h2>
+                      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="nft_status_3" data-bs-parent="#nftaccordion">
+                        <div class="accordion-body">
+                          <div class="nft__filter-collection mb-20">
+                             <form action="#">
+                                <div class="nft__filter-collection-search">
+                                   <input type="text" placeholder="Search Collect">
+                                   <button type="submit"><i class="fa-regular fa-magnifying-glass"></i></button>
+                                </div>
+                                <div class="nft__filter-check d-flex align-items-center">
+                                   <input class="m-check-input" type="checkbox" id="m-art">
+                                   <label class="m-check-label" for="m-art">Generative Art</label>
+                                </div>
+                                <div class="nft__filter-check d-flex align-items-center">
+                                   <input class="m-check-input" type="checkbox" id="m-mono">
+                                   <label class="m-check-label" for="m-mono">Mono Art</label>
+                                </div>
+                                <div class="nft__filter-check d-flex align-items-center">
+                                   <input class="m-check-input" type="checkbox" id="m-paper">
+                                   <label class="m-check-label" for="m-paper">Paper Dreams</label>
+                                </div>
+                                <div class="nft__filter-check d-flex align-items-center">
+                                   <input class="m-check-input" type="checkbox" id="m-movie">
+                                   <label class="m-check-label" for="m-movie">Travel Without Moving</label>
+                                </div>
+                                <div class="nft__filter-check d-flex align-items-center">
+                                   <input class="m-check-input" type="checkbox" id="m-inferno">
+                                   <label class="m-check-label" for="m-inferno">Dante's Inferno</label>
+                                </div>
+                                <div class="nft__filter-check d-flex align-items-center">
+                                   <input class="m-check-input" type="checkbox" id="m-ineffable">
+                                   <label class="m-check-label" for="m-ineffable">The Ineffable</label>
+                                </div>
+                             </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="nft_status_4">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                          Caregories
+                        </button>
+                      </h2>
+                      <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="nft_status_4" data-bs-parent="#nftaccordion">
+                        <div class="accordion-body">
+                          <div class="nft__filter-categories">
+                             <div class="row">
+                                <div class="col-4">
+                                   <div class="nft__filter-categories-item text-center">
+                                      <span>
+                                         <svg viewBox="0 0 19 20" fill="none">
+                                            <path d="M2.3216 8.51562H1.39296C0.622188 8.51562 0 9.13781 0 9.90858V10.8372C0 11.608 0.622188 12.2302 1.39296 12.2302H2.3216C3.09237 12.2302 3.71455 11.608 3.71455 10.8372V9.90858C3.71455 9.13781 3.08308 8.51562 2.3216 8.51562Z" fill="white"/>
+                                            <path d="M9.98273 0H9.05409C8.28332 0 7.66113 0.622188 7.66113 1.39296V2.3216C7.66113 3.09237 8.28332 3.71455 9.05409 3.71455H9.98273C10.7535 3.71455 11.3757 3.09237 11.3757 2.3216V1.39296C11.3757 0.622188 10.7535 0 9.98273 0Z" fill="white"/>
+                                            <path d="M17.6072 8.51562H16.6786C15.9078 8.51562 15.2856 9.13781 15.2856 9.90858V10.8372C15.2856 11.608 15.9078 12.2302 16.6786 12.2302H17.6072C18.378 12.2302 19.0002 11.608 19.0002 10.8372V9.90858C19.0002 9.13781 18.378 8.51562 17.6072 8.51562Z" fill="white"/>
+                                            <path opacity="0.6" d="M1.83808 9.67644C1.45734 9.67644 1.1416 9.3607 1.1416 8.97996C1.1416 5.01467 4.11325 1.68088 8.05067 1.21656C8.42213 1.17941 8.77501 1.44869 8.82144 1.82943C8.86788 2.21017 8.58928 2.55379 8.20854 2.60022C4.97688 2.98096 2.53456 5.72044 2.53456 8.97996C2.53456 9.3607 2.21882 9.67644 1.83808 9.67644Z" fill="white"/>
+                                            <path opacity="0.6" d="M17.1609 9.67636C16.7801 9.67636 16.4644 9.36062 16.4644 8.97988C16.4644 5.73893 14.0407 2.99946 10.8276 2.60943C10.4468 2.563 10.1775 2.21939 10.224 1.83865C10.2704 1.4579 10.6233 1.18863 11.004 1.23506C14.9136 1.70867 17.8666 5.04246 17.8666 8.98917C17.8574 9.36063 17.5509 9.67636 17.1609 9.67636Z" fill="white"/>
+                                            <path opacity="0.6" d="M10.6978 19.0464H8.31122C7.45688 19.0464 6.8254 18.3592 6.98326 17.6163L7.3733 15.8983H11.6358L12.0258 17.6163C12.2022 18.4056 11.6079 19.0464 10.6978 19.0464Z" fill="white"/>
+                                            <path d="M13.2802 14.4402L11.6365 15.8981H7.37406L5.73037 14.4402C4.77387 13.6601 4.77387 13.0565 5.49821 12.1372L8.39555 8.47834C8.59985 8.2276 8.83202 8.05117 9.08275 7.9676C9.35206 7.87473 9.64922 7.87473 9.91852 7.9676C10.1693 8.06046 10.4014 8.2276 10.6057 8.47834L13.5031 12.1372C14.2274 13.0565 14.1996 13.6323 13.2802 14.4402Z" fill="white"/>
+                                            </svg>
+                                      </span>
+                                      <p><a href="#">Art</a></p>
+                                   </div>
+                                </div>
+                                <div class="col-4">
+                                   <div class="nft__filter-categories-item text-center">
+                                      <span>
+                                         <svg viewBox="0 0 17 18" fill="none">
+                                            <path d="M6.4624 7.50537V14.7688C6.4624 16.5509 5.00431 18 3.2312 18C1.44909 18 0 16.5509 0 14.7688C0 12.9957 1.44909 11.5466 3.2312 11.5466C3.97824 11.5466 4.65329 11.8076 5.20232 12.2307V7.86539L6.4624 7.50537Z" fill="white"/>
+                                            <path d="M16.0024 4.78711V13.0316C16.0024 14.8137 14.5533 16.2628 12.7712 16.2628C10.9981 16.2628 9.54004 14.8137 9.54004 13.0316C9.54004 11.2585 10.9981 9.80942 12.7712 9.80942C13.5273 9.80942 14.2023 10.0704 14.7514 10.5025V5.14713L16.0024 4.78711Z" fill="white"/>
+                                            <path opacity="0.6" d="M16.0023 2.86092V4.78704L5.20166 7.86523V4.27401C5.20166 2.95093 6.00271 1.92486 7.27179 1.58284L12.4741 0.160754C13.5272 -0.127264 14.4182 -0.0282576 15.0483 0.457772C15.6873 0.934802 16.0023 1.74485 16.0023 2.86092Z" fill="white"/>
+                                         </svg>
+                                      </span>
+                                      <p><a href="#">Music</a></p>
+                                   </div>
+                                </div>
+                                <div class="col-4">
+                                   <div class="nft__filter-categories-item text-center">
+                                      <span>
+                                         <svg viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M2.4751 11.6099V1.88998C2.4751 0.539994 3.05109 0 4.48208 0H5.41807C6.84905 0 7.42504 0.539994 7.42504 1.88998V11.6099C7.42504 12.9599 6.84905 13.4999 5.41807 13.4999H4.48208C3.05109 13.4999 2.4751 12.9599 2.4751 11.6099Z" fill="white"/>
+                                            <path d="M2.47497 7.42481H0.674993C0.305997 7.42481 0 7.11882 0 6.74982C0 6.38083 0.305997 6.07483 0.674993 6.07483H2.47497V7.42481Z" fill="white"/>
+                                            <path d="M10.1248 6.07483H7.4248V7.42481H10.1248V6.07483Z" fill="white"/>
+                                            <path d="M17.3252 7.42481H15.0752V6.07483H17.3252C17.6942 6.07483 18.0002 6.38083 18.0002 6.74982C18.0002 7.11882 17.6942 7.42481 17.3252 7.42481Z" fill="white"/>
+                                            <path opacity="0.6" d="M10.125 9.80996V3.69003C10.125 2.34004 10.701 1.80005 12.132 1.80005H13.068C14.499 1.80005 15.0749 2.34004 15.0749 3.69003V9.80996C15.0749 11.1599 14.499 11.6999 13.068 11.6999H12.132C10.701 11.6999 10.125 11.1599 10.125 9.80996Z" fill="white"/>
+                                            </svg>
+                                      </span>
+                                      <p><a href="#">Sports</a></p>
+                                   </div>
+                                </div>
+                                <div class="col-4">
+                                   <div class="nft__filter-categories-item text-center">
+                                      <span>
+                                         <svg viewBox="0 0 18 19" fill="none">
+                                            <path opacity="0.6" d="M14.9167 15.5C14.75 15.5 14.5833 15.4167 14.5 15.3333C14.25 15.0833 14.25 14.6667 14.5 14.4167C15.9167 13 16.6667 11.0833 16.6667 9C16.6667 4.75 13.25 1.33333 9 1.33333C4.75 1.33333 1.33333 4.75 1.33333 9C1.33333 11 2.08333 12.9167 3.5 14.4167C3.75 14.6667 3.75 15.0833 3.5 15.3333C3.25 15.5833 2.83333 15.5833 2.58333 15.3333C0.916667 13.6667 0 11.4167 0 9.08333C0 4.08333 4.08333 0 9 0C13.9167 0 18 4 18 9C18 11.3333 17.0833 13.5833 15.4167 15.25C15.25 15.4167 15.0833 15.5 14.9167 15.5Z" fill="white"/>
+                                            <path d="M9 18.5834C10.6569 18.5834 12 17.2402 12 15.5834C12 13.9265 10.6569 12.5834 9 12.5834C7.34315 12.5834 6 13.9265 6 15.5834C6 17.2402 7.34315 18.5834 9 18.5834Z" fill="white"/>
+                                            <path d="M10.6665 6.66675C9.5665 6.66675 8.6665 7.56675 8.6665 8.66675V9.46675C8.6665 10.1667 9.2665 10.6667 9.8665 10.6667H10.6665C11.7665 10.6667 12.6665 9.76675 12.6665 8.66675C12.6665 7.56675 11.7665 6.66675 10.6665 6.66675Z" fill="white"/>
+                                         </svg>
+                                      </span>
+                                      <p><a href="#">Utility</a></p>
+                                   </div>
+                                </div>
+                                <div class="col-4">
+                                   <div class="nft__filter-categories-item text-center">
+                                      <span>
+                                         <svg viewBox="0 0 19 18" fill="none">
+                                            <path d="M18.6378 7.5204L17.7094 11.4802C16.9137 14.9001 15.3411 16.2832 12.3854 15.999C11.9118 15.9611 11.4002 15.8758 10.8508 15.7432L9.25927 15.3643C5.30891 14.4264 4.08686 12.4749 5.01524 8.51509L5.94362 4.54579C6.13309 3.74056 6.36045 3.03954 6.64464 2.46167C7.75302 0.169139 9.6382 -0.446624 12.8023 0.301765L14.3843 0.671223C18.3536 1.5996 19.5662 3.56057 18.6378 7.5204Z" fill="white"/>
+                                            <path opacity="0.6" d="M12.3854 15.999C11.798 16.3969 11.0591 16.7284 10.1592 17.0221L8.66237 17.5147C4.90148 18.7273 2.92157 17.7136 1.69952 13.9527L0.486939 10.2108C-0.72564 6.44992 0.278526 4.46053 4.03942 3.24795L5.53619 2.75534C5.9246 2.63219 6.29405 2.52798 6.64457 2.46167C6.36037 3.03954 6.13301 3.74056 5.94354 4.54579L5.01516 8.51509C4.08678 12.4749 5.30883 14.4264 9.25919 15.3643L10.8507 15.7432C11.4001 15.8758 11.9117 15.9611 12.3854 15.999Z" fill="white"/>
+                                         </svg>
+                                      </span>
+                                      <p><a href="#">Cards</a></p>
+                                   </div>
+                                </div>
+                                <div class="col-4">
+                                   <div class="nft__filter-categories-item text-center">
+                                      <span><i class="fa-solid fa-plus"></i></span>
+                                      <p><a href="#">More</a></p>
+                                   </div>
+                                </div>
+                             </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+           </div>
+        </div>
+        <div class="col-xxl-9 col-xl-9 col-lg-8">
+           <div class="row">
+              <div *ngFor="let trending of trendings.slice(2,8)" class="col-xxl-4 col-xl-4 col-lg-6 col-md-6">
+                 <div class="nft__box nft__box-square theme-bg-dark mb-30 transition-3">
+                    <div class="nft__box-top d-flex align-items-center justify-content-between">
+                       <div class="nft__box-user">
+                          <ul>
+                             <li>
+                                <a [routerLink]="['/profile']">
+                                   <img src="assets/img/bid/2/bid-user-1.jpg" alt="">
+                                </a>
+                             </li>
+                             <li>
+                                <a [routerLink]="['/profile']">
+                                   <img src="assets/img/bid/2/bid-user-2.jpg" alt="">
+                                </a>
+                             </li>
+                             <li>
+                                <a [routerLink]="['/profile']">
+                                   <img src="assets/img/bid/2/bid-user-3.jpg" alt="">
+                                </a>
+                             </li>
+                          </ul>
+                       </div>
+                       <div class="nft__box-more">
+                          <button type="button" class="dropdown-toggle nft-more-btn" data-bs-toggle="dropdown" aria-expanded="false">
+                             <i class="fa-regular fa-ellipsis"></i>
+                          </button>
+                          <div class="nft__more-content dropdown-menu dropdown-menu-end">
+                             <ul>
+                                <li>
+                                   <button type="button" data-bs-toggle="modal" data-bs-target="#sharemodal">Share</button>
+                                </li>
+                                <li>
+                                   <button type="button" data-bs-toggle="modal" data-bs-target="#reportmodal">Report</button>
+                                </li>
+                             </ul>
+                          </div>
+                       </div>
+                    </div>
+                    <div class="nft__box-thumb m-img mb-20">
+                       <a [routerLink]="['/product-details']">
+                          <img src={{trending.img}} alt="">
+                       </a>
+                       <div class="nft__box-popularity">
+                          <a [routerLink]="['/product-details']"><i class="fa-solid fa-heart"></i> {{trending.heart}}</a>
+                       </div>
+                    </div>
+                    <div class="nft__box-content">
+                       <div class="nft__box-content-top d-flex align-items-center justify-content-between">
+                          <h3 class="nft__box-title">
+                             <a [routerLink]="['/product-details']">{{trending.title}}</a>
+                          </h3>
+                          <div class="nft__box-trending-icon">
+                             <span><i class="fa-brands fa-ethereum"></i></span>
+                          </div>
+                       </div>
+                       <div class="nft__box-info d-flex align-items-center justify-content-between">
+                          <div class="nft__box-price">
+                             <p>{{trending.bidHeigest}}</p>
+                          </div>
+                          <div class="nft__box-stock">
+                             <p>{{trending.stock}} in stock</p>
+                          </div>
+                       </div>
+                    </div>
+                    <div class="nft__box-bottom d-flex align-items-center justify-content-between">
+                       <div class="nft__box-highest">
+                          <p><i class="fa-light fa-code-fork"></i> Highest bid</p>
+                       </div>
+                       <div class="nft__box-bid">
+                          <p>0.001 ETH</p>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </div>
+  </div>
+</section>
+
+
+
+  <!-- share modal start -->
+  <div class="share__modal modal fade" id="sharemodal" tabindex="-1" aria-labelledby="sharemodal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+       <div class="modal-content">
+          <div class="share__modal-content text-center">
+             <div class="share__nft-content">
+                <div class="share__thumb">
+                   <img src="assets/img/bid/bid-img-1.jpg" alt="">
+                </div>
+
+             </div>
+             <div class="share__social">
+                <h3>Share this NFT</h3>
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
+ <!-- share modal end -->
+
+ <!-- report modal start -->
+ <div class="report__modal modal fade" id="reportmodal" tabindex="-1" aria-labelledby="reportmodal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+       <div class="modal-content">
+          <div class="report__close">
+             <button type="button" class="report__close-btn" data-bs-dismiss="modal" aria-label="Close"><i class="fa-regular fa-xmark"></i></button>
+          </div>
+          <div class="report__wrapper">
+             <h3 class="report__title">Why are you reporting ?</h3>
+             <p>Describe briefly about your report.</p>
+             <form action="#">
+                <div class="report__input-box">
+                   <h4>Message</h4>
+                </div>
+                <div class="report__input">
+                   <textarea placeholder="Write your message"></textarea>
+                </div>
+                <div class="report__button">
+                   <button type="button" class="tp-btn-square">Send </button>
+                </div>
+             </form>
+          </div>
+       </div>
+    </div>
+ </div>
+ <!-- report modal end -->

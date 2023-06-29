@@ -1,4 +1,5 @@
 {
+  "name": "ui",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "sourceRoot": "apps/ui/src",
@@ -11,7 +12,7 @@
         "outputPath": "dist/apps/ui",
         "index": "apps/ui/src/index.html",
         "main": "apps/ui/src/main.ts",
-        "polyfills": "apps/ui/src/polyfills.ts",
+        "polyfills": ["zone.js"],
         "tsConfig": "apps/ui/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": ["apps/ui/src/favicon.ico", "apps/ui/src/assets"],
@@ -30,12 +31,6 @@
               "type": "anyComponentStyle",
               "maximumWarning": "2kb",
               "maximumError": "4kb"
-            }
-          ],
-          "fileReplacements": [
-            {
-              "replace": "apps/ui/src/environments/environment.ts",
-              "with": "apps/ui/src/environments/environment.prod.ts"
             }
           ],
           "outputHashing": "all"
@@ -61,10 +56,7 @@
           "browserTarget": "ui:build:development"
         }
       },
-      "defaultConfiguration": "development",
-      "options": {
-        "proxyConfig": "apps/ui/proxy.conf.json"
-      }
+      "defaultConfiguration": "development"
     },
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
@@ -74,13 +66,14 @@
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": ["apps/ui/**/*.ts", "apps/ui/**/*.html"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/ui"],
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
         "jestConfig": "apps/ui/jest.config.ts",
         "passWithNoTests": true

@@ -1,0 +1,88 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  12. MARQUE CSS START
+/*----------------------------------------*/
+
+.marque{
+    &__area{
+        border-top: 1px solid rgba($color: #fff, $alpha: .08);
+        border-bottom: 1px solid rgba($color: #fff, $alpha: .08);
+        &-2{
+            background-color: var(--tp-common-white);
+            border: 0;
+        }
+    }
+    &__inner{
+        overflow: hidden;
+        position: relative;
+        height: 50px;
+        &::after,
+        &::before{
+            position: absolute;
+            content: "";
+            top: 0;
+            left: 0;
+            width: 382px;
+            height: 100%;
+            background: linear-gradient(90deg, #05092B 0%, rgba(255, 255, 255, 0) 100%);
+            z-index: 11;
+
+            @media #{$xs}{
+                opacity: 0;
+            }
+        }
+        &::before{
+            left: auto;
+            right: 0;
+            background: linear-gradient(-90deg, #05092B 0%, rgba(255, 255, 255, 0) 100%);
+            z-index: 11;
+        }
+
+        &-2{
+           &::after{
+                background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(5,9,43,0) 100%);
+           }
+           &::before{
+                background: linear-gradient(-90deg, rgba(255,255,255,1) 0%, rgba(5,9,43,0) 100%);
+           }
+        }
+    }
+    &__wrapper{
+        display: block;
+        width: 200%;
+        position: absolute; 
+        overflow: hidden;
+        left: 0;
+        top: 50%;
+        @include transform(translateY(-50%));
+        z-index: 1;
+        // animation: marquee 12s linear infinite;
+        & p{
+            margin-bottom: 0;
+            color: var(--tp-common-white);
+            margin-right: 15px;
+            display: inline-block;
+            float: left;
+            position: relative;
+            padding-right: 30px;
+            flex: 0 0 auto;
+            
+            &::after{
+                position: absolute;
+                content: '\e28b';
+                right: 0;
+                top: 50%;
+                @include transform(translateY(-50%));
+                color: var(--tp-common-yellow-2);
+                font-family: var(--tp-ff-fontawesome);
+                font-size: 16px;
+            }
+        }
+        &-2{
+            & p{
+                color: var(--tp-theme-dark-2);
+            }
+        }
+    }
+}

@@ -1,0 +1,437 @@
+<section class="bid__area pt-110 pb-130 fix">
+  <div class="container tp-container">
+    <div class="row">
+      <div class="col-xxl-6 col-sm-6">
+        <div class="section__title-wrapper mb-40">
+          <h4 class="section__title-stroke">Hot bids</h4>
+          <h3 class="section__title">
+            Product Carousel with arrow
+            <span><img src="assets/img/icon/fire.png" alt="" /></span>
+          </h3>
+        </div>
+      </div>
+      <div class="col-xxl-6 col-sm-6">
+        <div class="bid__nav text-sm-end">
+          <button type="button" class="slick-prev me-2">
+            <i class="fa-regular fa-angle-left"></i>
+          </button>
+          <button type="button" class="slick-next">
+            <i class="fa-regular fa-angle-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xxl-12">
+        <div class="bid__slider bid__slider-active">
+          <swiper
+            [loop]="true"
+            [navigation]="{
+              nextEl: '.slick-next',
+              prevEl: '.slick-prev'
+            }"
+            [autoplay]="true"
+            [breakpoints]="{
+              '0': {
+                slidesPerView: 1,
+                spaceBetween: 30
+              },
+              '640': {
+                slidesPerView: 1,
+                spaceBetween: 30
+              },
+              '768': {
+                slidesPerView: 2,
+                spaceBetween: 30
+              },
+              '991': {
+                slidesPerView: 3,
+                spaceBetween: 30
+              },
+              '1200': {
+                slidesPerView: 4,
+                spaceBetween: 30
+              }
+            }"
+          >
+            <ng-template *ngFor="let product of productData.slice(0, 5)" swiperSlide >
+              <div class="bid__item theme-bg-dark">
+                <div class="bid__item-wrapper">
+                  <div
+                    class="bid__top d-flex align-items-center justify-content-between mb-20"
+                  >
+                    <div class="bid__user">
+                      <ul>
+                        <li>
+                          <a [routerLink]="['/profile']">
+                            <img src="assets/img/bid/bid-user-1.jpg" alt="" />
+                          </a>
+                        </li>
+                        <li>
+                          <a [routerLink]="['/profile']">
+                            <img src="assets/img/bid/bid-user-2.jpg" alt="" />
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="bid__popularity">
+                      <a [routerLink]="['/profile']">
+                        <i class="icon_heart"></i>
+                        {{ product.heart }}k
+                      </a>
+                    </div>
+                  </div>
+                  <div class="bid__thumb m-img mb-20">
+                    <a [routerLink]="['/product-details']">
+                      <img src="{{ product.caruselImg }}" alt="" />
+                    </a>
+                  </div>
+                  <div class="bid__content">
+                    <h3 class="bid__title">
+                      <a [routerLink]="['/product-details']">{{ product.title }}</a>
+                    </h3>
+                    <div
+                      class="bid__info d-flex align-items-center justify-content-between"
+                    >
+                      <div class="bid__highest">
+                        <p>
+                          Heights bid <span>{{ product.box_price }} ETH</span>
+                        </p>
+                      </div>
+                      <div class="bid__stock">
+                        <p>{{ product.stock }} in stock</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="bid__bottom d-flex align-items-center justify-content-between"
+                  >
+                    <div class="bid__btn-wrapper">
+                      <a
+                        [routerLink]="['/product-details']"
+                        class="bid__btn bid__btn-border"
+                        >Bid History</a
+                      >
+                    </div>
+                    <div class="bid__btn-wrapper">
+                      <button
+                        type="button"
+                        class="bid__btn"
+                        data-bs-toggle="modal"
+                        data-bs-target="#bidmodal"
+                      >
+                        Place a bid
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+          </swiper>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bid__area pt-110 pb-130 fix">
+  <div class="container tp-container">
+    <div class="row">
+      <div class="col-xxl-6 col-sm-6">
+        <div class="section__title-wrapper mb-40">
+          <h4 class="section__title-stroke">Hot bids</h4>
+          <h3 class="section__title">
+            Product Carousel with dots
+            <span><img src="assets/img/icon/fire.png" alt="" /></span>
+          </h3>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xxl-12">
+        <div class="bid__slider bid__slider-2 bid__slider-active-2 p-relative">
+          <swiper
+            class="pb-60"
+            [slidesPerView]="1"
+            [loop]="true"
+            [pagination]="{
+              clickable: true
+            }"
+            [breakpoints]="{
+              '0': {
+                slidesPerView: 1,
+                spaceBetween: 30
+              },
+              '640': {
+                slidesPerView: 1,
+                spaceBetween: 30
+              },
+              '768': {
+                slidesPerView: 2,
+                spaceBetween: 30
+              },
+              '991': {
+                slidesPerView: 3,
+                spaceBetween: 30
+              },
+              '1200': {
+                slidesPerView: 4,
+                spaceBetween: 30
+              }
+            }"
+          >
+            <ng-template *ngFor="let product of productData.slice(0, 5)" swiperSlide>
+              <div class="bid__item theme-bg-dark">
+                <div class="bid__item-wrapper">
+                  <div
+                    class="bid__top d-flex align-items-center justify-content-between mb-20"
+                  >
+                    <div class="bid__user">
+                      <ul>
+                        <li>
+                          <a [routerLink]="['/profile']">
+                            <img src="assets/img/bid/bid-user-1.jpg" alt="" />
+                          </a>
+                        </li>
+                        <li>
+                          <a [routerLink]="['/profile']">
+                            <img src="assets/img/bid/bid-user-2.jpg" alt="" />
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="bid__popularity">
+                      <a [routerLink]="['/profile']">
+                        <i class="icon_heart"></i>
+                        {{ product.heart }}k
+                      </a>
+                    </div>
+                  </div>
+                  <div class="bid__thumb m-img mb-20">
+                    <a [routerLink]="['/product-details']">
+                      <img src="{{ product.caruselImg }}" alt="" />
+                    </a>
+                  </div>
+                  <div class="bid__content">
+                    <h3 class="bid__title">
+                      <a [routerLink]="['/product-details']">{{ product.title }}</a>
+                    </h3>
+                    <div
+                      class="bid__info d-flex align-items-center justify-content-between"
+                    >
+                      <div class="bid__highest">
+                        <p>
+                          Heights bid <span>{{ product.box_price }} ETH</span>
+                        </p>
+                      </div>
+                      <div class="bid__stock">
+                        <p>{{ product.stock }} in stock</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="bid__bottom d-flex align-items-center justify-content-between"
+                  >
+                    <div class="bid__btn-wrapper">
+                      <a
+                        [routerLink]="['/product-details']"
+                        class="bid__btn bid__btn-border"
+                        >Bid History</a
+                      >
+                    </div>
+                    <div class="bid__btn-wrapper">
+                      <button
+                        type="button"
+                        class="bid__btn"
+                        data-bs-toggle="modal"
+                        data-bs-target="#bidmodal"
+                      >
+                        Place a bid
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+
+          </swiper>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="bid__area pt-110 pb-130 fix">
+  <div class="container tp-container">
+     <div class="row">
+        <div class="col-xxl-6 col-sm-6">
+           <div class="section__title-wrapper mb-40">
+              <h4 class="section__title-stroke">Hot bids</h4>
+              <h3 class="section__title">Product Carousel wiht both <span><img src="assets/img/icon/fire.png" alt=""></span></h3>
+           </div>
+        </div>
+        <div class="col-xxl-6 col-sm-6">
+           <div class="bid__nav-2 text-sm-end">
+            <button type="button" class="slick-prev me-2">
+              <i class="fa-regular fa-angle-left"></i>
+            </button>
+            <button type="button" class="slick-next">
+              <i class="fa-regular fa-angle-right"></i>
+            </button>
+           </div>
+        </div>
+     </div>
+     <div class="row">
+        <div class="col-xxl-12">
+           <div class="bid__slider bid__slider-2 bid__slider-active-3">
+            <swiper
+            class="pb-60"
+            [loop]="true"
+            [navigation]="{
+              nextEl: '.slick-next',
+              prevEl: '.slick-prev'
+            }"
+            [pagination]="{
+              clickable: true
+            }"
+            [breakpoints]="{
+              '0': {
+                slidesPerView: 1,
+                spaceBetween: 30
+              },
+              '640': {
+                slidesPerView: 1,
+                spaceBetween: 30
+              },
+              '768': {
+                slidesPerView: 2,
+                spaceBetween: 30
+              },
+              '991': {
+                slidesPerView: 3,
+                spaceBetween: 30
+              },
+              '1200': {
+                slidesPerView: 4,
+                spaceBetween: 30
+              }
+            }"
+          >
+            <ng-template *ngFor="let product of productData.slice(0, 5)" swiperSlide >
+              <div class="bid__item theme-bg-dark">
+                <div class="bid__item-wrapper">
+                  <div class="bid__top d-flex align-items-center justify-content-between mb-20">
+                    <div class="bid__user">
+                      <ul>
+                        <li>
+                          <a [routerLink]="['/profile']">
+                            <img src="assets/img/bid/bid-user-1.jpg" alt="" />
+                          </a>
+                        </li>
+                        <li>
+                          <a [routerLink]="['/profile']">
+                            <img src="assets/img/bid/bid-user-2.jpg" alt="" />
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="bid__popularity">
+                      <a [routerLink]="['/profile']">
+                        <i class="icon_heart"></i>
+                        {{ product.heart }}k
+                      </a>
+                    </div>
+                  </div>
+                  <div class="bid__thumb m-img mb-20">
+                    <a [routerLink]="['/product-details']">
+                      <img src="{{ product.caruselImg }}" alt="" />
+                    </a>
+                  </div>
+                  <div class="bid__content">
+                    <h3 class="bid__title">
+                      <a [routerLink]="['/product-details']">{{ product.title }}</a>
+                    </h3>
+                    <div
+                      class="bid__info d-flex align-items-center justify-content-between"
+                    >
+                      <div class="bid__highest">
+                        <p>
+                          Heights bid <span>{{ product.box_price }} ETH</span>
+                        </p>
+                      </div>
+                      <div class="bid__stock">
+                        <p>{{ product.stock }} in stock</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="bid__bottom d-flex align-items-center justify-content-between"
+                  >
+                    <div class="bid__btn-wrapper">
+                      <a
+                        [routerLink]="['/product-details']"
+                        class="bid__btn bid__btn-border"
+                        >Bid History</a
+                      >
+                    </div>
+                    <div class="bid__btn-wrapper">
+                      <button
+                        type="button"
+                        class="bid__btn"
+                        data-bs-toggle="modal"
+                        data-bs-target="#bidmodal"
+                      >
+                        Place a bid
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+          </swiper>
+           </div>
+
+        </div>
+     </div>
+  </div>
+</section>
+
+
+
+
+
+<!-- bid popup area start -->
+<div class="bid__modal modal fade" id="bidmodal" tabindex="-1" aria-labelledby="bidmodal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+     <div class="modal-content">
+        <div class="bid__modal-close">
+           <button type="button" class="bid__modal-close-btn" data-bs-dismiss="modal" aria-label="Close"><i class="fa-regular fa-xmark"></i></button>
+        </div>
+        <div class="bid__modal">
+           <h3 class="bid__modal-title">Place your bid</h3>
+           <p>You are about to place bid on this product</p>
+
+           <div class="bid__modal-form">
+              <form action="#">
+                 <div class="bid__modal-input">
+                    <input type="text" placeholder="Enter your bid">
+                    <span class="bid__modal-price">ETH</span>
+                 </div>
+                 <div class="bid__modal-info">
+                    <p>Your Balance <span>254 ETH</span></p>
+                    <p>Service fee <span>10 ETH</span></p>
+                    <p>Total <span class="color-theme">264 ETH</span></p>
+                 </div>
+                 <div class="bid__modal-btn">
+                    <button type="submit" class="tp-btn-3">Place bid</button>
+                 </div>
+              </form>
+           </div>
+        </div>
+     </div>
+  </div>
+</div>
+<!-- bid popup area end -->

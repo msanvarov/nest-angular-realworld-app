@@ -1,0 +1,78 @@
+<div class="col-xxl-12">
+  <div class="basic-pagination mt-50">
+
+     <nav>
+        <ul *ngIf="url && !upcomingUrl">
+           <li>
+              <a [routerLink]="['/blog']">
+                 <i class="fa-light fa-arrow-left"></i>
+              </a>
+           </li>
+           <li>
+              <a [routerLink]="['/blog']">1</a>
+           </li>
+           <li>
+              <span class="current">2</span>
+           </li>
+           <li>
+              <a [routerLink]="['/blog']">3</a>
+           </li>
+           <li>
+              <a [routerLink]="['/blog']">
+                 <i class="fa-light fa-arrow-right"></i>
+              </a>
+           </li>
+        </ul>
+
+
+        <ul *ngIf="!url && !upcomingUrl">
+           <li>
+              <a [routerLink]="['/ranking']">
+                 <i class="fa-light fa-arrow-left"></i>
+              </a>
+           </li>
+           <li>
+              <a [routerLink]="['/ranking']">1</a>
+           </li>
+           <li>
+              <span class="current">2</span>
+           </li>
+           <li>
+              <a [routerLink]="['/ranking']">3</a>
+           </li>
+           <li>
+              <a [routerLink]="['/ranking']">
+                 <i class="fa-light fa-arrow-right"></i>
+              </a>
+           </li>
+
+        </ul>
+
+
+        <ul *ngIf="upcomingUrl">
+           <li>
+              <a [routerLink]="['/upcoming']">
+                 <i class="fa-light fa-arrow-left"></i>
+              </a>
+           </li>
+           <li>
+              <a [routerLink]="['/upcoming']">1</a>
+           </li>
+           <li>
+              <span class="current">2</span>
+           </li>
+           <li>
+              <a [routerLink]="['/upcoming']">3</a>
+           </li>
+           <li>
+              <a [routerLink]="['/upcoming']">
+                 <i class="fa-light fa-arrow-right"></i>
+              </a>
+           </li>
+
+        </ul>
+     </nav>
+
+
+  </div>
+</div>

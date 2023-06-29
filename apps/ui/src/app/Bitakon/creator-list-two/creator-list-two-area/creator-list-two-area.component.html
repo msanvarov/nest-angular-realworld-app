@@ -1,0 +1,104 @@
+<section class="creator__list pt-120 pb-120">
+  <div class="container">
+     <div class="row">
+        <div *ngFor="let creator of collectionAllData" class="col-xxl-4 col-xl-4 col-lg-4 col-md-6">
+           <div class="creator__item transition-3 d-flex align-items-center justify-content-between mb-25">
+              <div class="creator__item-inner d-flex align-items-center">
+                 <div class="creator__thumb creator__active mr-20">
+                    <a [routerLink]="['/profile']">
+                       <img src={{creator.img}} alt="">
+                    </a>
+                 </div>
+                 <div class="creator__content">
+                    <h3 class="creator__title">
+                       <a [routerLink]="['/profile']">{{creator.title}}</a>
+                    </h3>
+                    <div class="creator__revenue  d-flex align-items-center">
+                       <div class="creator__revenue-icon mr-10">
+                          <i class="fa-brands fa-ethereum"></i>
+                       </div>
+                       <div class="creator__revenue-text">
+                          <p>${{creator.revenue_two}}</p>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+              <div class="creator__content-more">
+                 <button type="button" class="dropdown-toggle nft-more-btn" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa-regular fa-ellipsis"></i>
+                 </button>
+                 <div class="nft__more-content dropdown-menu dropdown-menu-end">
+                    <ul>
+                       <li>
+                          <button type="button" data-bs-toggle="modal" data-bs-target="#sharemodal">Share</button>
+                       </li>
+                       <li>
+                          <button type="button" data-bs-toggle="modal" data-bs-target="#reportmodal">Report</button>
+                       </li>
+                    </ul>
+                 </div>
+              </div>
+           </div>
+        </div>
+        <div class="col-xxl-12">
+           <div class="nft__more text-center mt-20">
+              <a [routerLink]="['/shop']" class="tp-load-more"><i class="fa-light fa-arrow-rotate-right"></i>View all Creators</a>
+           </div>
+        </div>
+     </div>
+  </div>
+</section>
+
+
+
+ <!-- share modal start -->
+ <div class="share__modal modal fade" id="sharemodal" tabindex="-1" aria-labelledby="sharemodal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+     <div class="modal-content">
+        <div class="share__modal-content text-center">
+           <div class="share__nft-content">
+              <div class="share__thumb">
+                 <img src="assets/img/bid/bid-img-1.jpg" alt="">
+              </div>
+
+           </div>
+           <div class="share__social">
+              <h3>Share this NFT</h3>
+              <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="#"><i class="fa-brands fa-twitter"></i></a>
+              <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="#"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#"><i class="fa-brands fa-youtube"></i></a>
+           </div>
+        </div>
+     </div>
+  </div>
+</div>
+<!-- share modal end -->
+
+<!-- report modal start -->
+<div class="report__modal modal fade" id="reportmodal" tabindex="-1" aria-labelledby="reportmodal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+     <div class="modal-content">
+        <div class="report__close">
+           <button type="button" class="report__close-btn" data-bs-dismiss="modal" aria-label="Close"><i class="fa-regular fa-xmark"></i></button>
+        </div>
+        <div class="report__wrapper">
+           <h3 class="report__title">Why are you reporting ?</h3>
+           <p>Describe briefly about your report.</p>
+           <form action="#">
+              <div class="report__input-box">
+                 <h4>Message</h4>
+              </div>
+              <div class="report__input">
+                 <textarea placeholder="Write your message"></textarea>
+              </div>
+              <div class="report__button">
+                 <button type="button" class="tp-btn-square">Send </button>
+              </div>
+           </form>
+        </div>
+     </div>
+  </div>
+</div>
+<!-- report modal end -->

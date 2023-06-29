@@ -1,0 +1,1 @@
+sass --watch D:\Dropbox\Shahnewaz\nft\assets\scss\main.scss:D:\Dropbox\Shahnewaz\nft\assets\css\style.css
