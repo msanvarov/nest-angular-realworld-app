@@ -1,0 +1,335 @@
+<section class="edit__profile pb-120">
+  <div class="edit__profile">
+    <div class="container-fluid fix p-0">
+      <div class="row">
+        <div class="col-xxl-12">
+          <div class="profile__cover-wrapper p-relative">
+            <div class="profile__cover w-img tp-img-cover">
+              <img src="assets/img/creator/creator-bg-2.jpg" alt="" />
+            </div>
+            <div class="profile__cover-edit">
+              <input
+                id="profile-cover-input"
+                class="cover-img-popup"
+                type="file"
+              />
+              <label for="profile-cover-input"
+                ><i class="fa-regular fa-pen-to-square"></i
+              ></label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xxl-12">
+          <div class="profile__thumb-wrapper text-center">
+            <div
+              class="profile__thumb text-center tp-img-profile d-inline-block p-relative"
+            >
+              <img [src]="user?.image" alt="" />
+              <div class="profile__thumb-edit">
+                <input
+                  id="profile-thumb-input"
+                  class="profile-img-popup"
+                  type="file"
+                />
+                <label for="profile-thumb-input"
+                  ><i class="fa-regular fa-camera"></i
+                ></label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xxl-4 col-lg-4">
+        <div class="profile__tab mr-40">
+          <nav>
+            <div
+              class="nav nav-tabs flex-column"
+              id="profile-tab"
+              role="tablist"
+            >
+              <button
+                class="nav-link active"
+                id="nav-information-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#nav-information"
+                type="button"
+                role="tab"
+                aria-controls="nav-information"
+                aria-selected="false"
+              >
+                <i class="fa-regular fa-user-pen"></i>Profile
+              </button>
+              <button
+                class="nav-link"
+                id="nav-password-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#nav-password"
+                type="button"
+                role="tab"
+                aria-controls="nav-password"
+                aria-selected="false"
+              >
+                <i class="fa-regular fa-lock"></i>Change Password
+              </button>
+              <button
+                class="nav-link"
+                id="nav-notification-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#nav-notification"
+                type="button"
+                role="tab"
+                aria-controls="nav-notification"
+                aria-selected="false"
+              >
+                <i class="fa-regular fa-bell"></i>Notification
+              </button>
+            </div>
+          </nav>
+        </div>
+      </div>
+      <div class="col-xxl-8 col-lg-8">
+        <div class="profile__tab-content">
+          <div class="tab-content" id="profile-tabContent">
+            <div
+              class="tab-pane fade show active"
+              id="nav-information"
+              role="tabpanel"
+              aria-labelledby="nav-information-tab"
+            >
+              <div class="profile__info">
+                <h3 class="profile__info-title">
+                  Configuration for {{ user?.username }}
+                </h3>
+                <div class="profile__info-content">
+                  <form
+                    [formGroup]="profileForm"
+                    (ngSubmit)="onSubmitProfile()"
+                  >
+                    <div class="row">
+                      <div class="col-xxl-12">
+                        <div class="profile__input-box">
+                          <h4>Username</h4>
+                          <div class="profile__input">
+                            <input
+                              [formControl]="profileForm.controls.username"
+                              type="text"
+                              placeholder="Enter username"
+                            />
+                            <i class="fa-light fa-user"></i>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-xxl-12">
+                        <div class="profile__input-box">
+                          <h4>Email</h4>
+                          <div class="profile__input">
+                            <input
+                              [formControl]="profileForm.controls.email"
+                              type="email"
+                              placeholder="Enter your email"
+                            />
+                            <i class="fa-light fa-envelope"></i>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-xxl-12">
+                        <div class="profile__input-box">
+                          <h4>Bio</h4>
+                          <div class="profile__input">
+                            <textarea
+                              [formControl]="profileForm.controls.bio"
+                              placeholder="Bio"
+                            ></textarea>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-xxl-12">
+                        <div class="profile__btn">
+                          <button type="submit" class="tp-btn-3">
+                            Persist
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div
+              class="tab-pane fade"
+              id="nav-password"
+              role="tabpanel"
+              aria-labelledby="nav-password-tab"
+            >
+              <div class="profile__password">
+                <form
+                  [formGroup]="passwordForm"
+                  (ngSubmit)="onSubmitPassword()"
+                >
+                  <div class="row">
+                    <div class="col-xxl-12">
+                      <div class="profile__input-box">
+                        <h4>Old Password</h4>
+                        <div class="profile__input">
+                          <input
+                            [formControl]="passwordForm.controls.oldPassword"
+                            type="text"
+                            placeholder="Enter old password"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-xxl-6 col-md-6">
+                      <div class="profile__input-box">
+                        <h4>New Password</h4>
+                        <div class="profile__input">
+                          <input
+                            [formControl]="passwordForm.controls.password"
+                            type="text"
+                            placeholder="Enter new password"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-xxl-6 col-md-6">
+                      <div class="profile__input-box">
+                        <h4>Confirm Password</h4>
+                        <div class="profile__input">
+                          <input
+                            [formControl]="
+                              passwordForm.controls.confirmPassword
+                            "
+                            type="text"
+                            placeholder="Enter confirm password"
+                          />
+                        </div>
+                        <div class="valid-feedback">
+                          Please provide a valid city.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-xxl-6 col-md-6">
+                      <div class="profile__btn">
+                        <button type="submit" class="tp-btn-3">Persist</button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div
+              class="tab-pane fade"
+              id="nav-notification"
+              role="tabpanel"
+              aria-labelledby="nav-notification-tab"
+            >
+              <div class="profile__notification">
+                <div class="profile__notification-top mb-30">
+                  <h3 class="profile__notification-title">
+                    Notification Configuration
+                  </h3>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  </p>
+                </div>
+                <div class="profile__notification-wrapper">
+                  <div class="profile__notification-item mb-20">
+                    <div
+                      class="form-check form-switch d-flex align-items-center"
+                    >
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        role="switch"
+                        id="like"
+                        checked
+                      />
+                      <label class="form-check-label" for="like">
+                        Lorem ipsum dolor sit amet consectetur adipisicing
+                        elit.</label
+                      >
+                    </div>
+                  </div>
+                  <div class="profile__notification-item mb-20">
+                    <div
+                      class="form-check form-switch d-flex align-items-center"
+                    >
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        role="switch"
+                        id="post"
+                        checked
+                      />
+                      <label class="form-check-label" for="post">
+                        Lorem ipsum dolor sit amet consectetur adipisicing
+                        elit.</label
+                      >
+                    </div>
+                  </div>
+                  <div class="profile__notification-item mb-20">
+                    <div
+                      class="form-check form-switch d-flex align-items-center"
+                    >
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        role="switch"
+                        id="new"
+                        checked
+                      />
+                      <label class="form-check-label" for="new">
+                        Lorem ipsum dolor sit amet consectetur adipisicing
+                        elit.</label
+                      >
+                    </div>
+                  </div>
+                  <div class="profile__notification-item mb-20">
+                    <div
+                      class="form-check form-switch d-flex align-items-center"
+                    >
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        role="switch"
+                        id="sale"
+                        checked
+                      />
+                      <label class="form-check-label" for="sale"
+                        >Lorem ipsum dolor sit amet consectetur adipisicing
+                        elit.</label
+                      >
+                    </div>
+                  </div>
+                  <div class="profile__notification-item mb-20">
+                    <div
+                      class="form-check form-switch d-flex align-items-center"
+                    >
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        role="switch"
+                        id="payment"
+                        checked
+                      />
+                      <label class="form-check-label" for="payment"
+                        >Lorem ipsum dolor sit amet consectetur adipisicing
+                        elit.</label
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,16 +1,5 @@
 export const GLOBAL_API_PREFIX = '/api';
 
-export const ApiAuthRoutes = {
-  LOGIN: GLOBAL_API_PREFIX + '/users/login',
-  REGISTER: GLOBAL_API_PREFIX + '/users',
-};
-
-export const ApiUsersRoutes = {
-  GET_USER: GLOBAL_API_PREFIX + '/user',
-  // username is the token to be replaced with a username
-  GET_USER_BY_USERNAME: GLOBAL_API_PREFIX + '/users/{{username}}',
-};
-
 /**
  * Default response type for api calls
  */

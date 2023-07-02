@@ -1,0 +1,60 @@
+<section class="blog__area pt-80 pb-90">
+  <div class="container">
+    <div class="row">
+      <div class="col-xxl-8 col-xl-8 col-lg-8">
+        <div class="blog__wrapper">
+          <div class="row">
+            <div
+              *ngFor="let blog of articles"
+              class="col-xxl-6 col-xl-6 col-lg-12 col-md-6"
+            >
+              <div class="blog__grid-item mb-30">
+                <div class="blog__grid-thumb w-img">
+                  <a [routerLink]="['/blog-details']">
+                    <img
+                      src="https://via.placeholder.com/380x240"
+                      alt="placeholder"
+                    />
+                  </a>
+                </div>
+                <div class="blog__grid-content">
+                  <div class="blog__grid-tag">
+                    <a [routerLink]="['/blog-details']">{{ blog.tagList }}</a>
+                  </div>
+
+                  <h3 class="blog__grid-title">
+                    <a [routerLink]="['/blog-details']">{{ blog.title }}</a>
+                  </h3>
+                  <p>{{ blog.description }}</p>
+                  <div class="blog__grid-author d-flex align-items-center">
+                    <div class="blog__grid-author-thumb mr-10">
+                      <a href="#">
+                        <!-- Remark: Not unknown but of type UserEntity -->
+                        <img src="{{ blog.author.image }}" alt="" />
+                      </a>
+                    </div>
+                    <div class="blog__grid-author-info">
+                      <h4>
+                        <a href="#">{{ blog.author.username }}</a>
+                      </h4>
+                      <p>{{ blog.createdAt }} • 1 min read</p>
+                    </div>
+                    <button class="btn btn-primary btn-sm ms-4">
+                      <i class="fa fa-heart"></i> {{ blog.favoritesCount }}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <!-- <starter-pagination [url]="true"></starter-pagination> -->
+          </div>
+        </div>
+      </div>
+      <div class="col-xxl-4 col-xl-4 col-lg-4">
+        <starter-articles-right-nav></starter-articles-right-nav>
+      </div>
+    </div>
+  </div>
+</section>

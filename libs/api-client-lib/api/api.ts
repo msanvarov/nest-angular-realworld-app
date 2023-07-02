@@ -1,0 +1,13 @@
+export * from './articles.service';
+import { ArticlesService } from './articles.service';
+export * from './default.service';
+import { DefaultService } from './default.service';
+export * from './profiles.service';
+import { ProfilesService } from './profiles.service';
+export * from './tags.service';
+import { TagsService } from './tags.service';
+export * from './user.service';
+import { UserService } from './user.service';
+export * from './users.service';
+import { UsersService } from './users.service';
+export const APIS = [ArticlesService, DefaultService, ProfilesService, TagsService, UserService, UsersService];

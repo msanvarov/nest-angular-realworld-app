@@ -1,0 +1,93 @@
+<div class="sidebar__wrapper">
+  <div class="sidebar__widget mb-25">
+    <h3 class="sidebar__widget-title">Find Posts</h3>
+    <div class="sidebar__widget-content">
+      <div class="sidebar__search">
+        <form action="#">
+          <div class="sidebar__search-input-2">
+            <input type="text" placeholder="Find..." />
+            <button type="submit"><i class="far fa-search"></i></button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="sidebar__widget mb-25">
+    <h3 class="sidebar__widget-title">Category</h3>
+    <div class="sidebar__widget-content">
+      <ul>
+        <li>
+          <a [routerLink]="['/blog']"
+            >Arts <span class="category-number">(6)</span></a
+          >
+        </li>
+        <li>
+          <a [routerLink]="['/blog']"
+            >Domains <span class="category-number">(2)</span></a
+          >
+        </li>
+        <li>
+          <a [routerLink]="['/blog']"
+            >Technology <span class="category-number">(14)</span></a
+          >
+        </li>
+        <li>
+          <a [routerLink]="['/blog']"
+            >Sports <span class="category-number">(8)</span></a
+          >
+        </li>
+        <li>
+          <a [routerLink]="['/blog']"
+            >Photography <span class="category-number">(7)</span></a
+          >
+        </li>
+        <li>
+          <a [routerLink]="['/blog']"
+            >Bitakon <span class="category-number">(12)</span></a
+          >
+        </li>
+      </ul>
+    </div>
+  </div> -->
+  <div class="sidebar__widget mb-25">
+    <h3 class="sidebar__widget-title">Your Posts</h3>
+    <div class="sidebar__widget-content">
+      <div class="sidebar__post">
+        <div *ngIf="authoredArticles.length >= 1; else noPosts">
+          <div
+            class="rc__post d-flex align-items-center"
+            *ngFor="let article of authoredArticles"
+          >
+            <div class="rc__post-thumb mr-20">
+              <a [routerLink]="['/blog-details']"
+                ><img src="https://via.placeholder.com/100" alt="placedholder"
+              /></a>
+            </div>
+            <div class="rc__post-content">
+              <h3 class="rc__post-title">
+                <a [routerLink]="['/blog-details']">{{ article.title }}</a>
+              </h3>
+              <div class="rc__meta">
+                <span
+                  ><i class="fa-light fa-clock"></i>
+                  {{ article.createdAt }}</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <ng-template #noPosts>
+          <p class="info">No authored posts</p>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+  <div class="sidebar__widget mb-25">
+    <h3 class="sidebar__widget-title">Tags</h3>
+    <div class="sidebar__widget-content">
+      <div class="tagcloud">
+        <a *ngFor="let tag of tags" href="#">{{ tag }}</a>
+      </div>
+    </div>
+  </div>
+</div>
