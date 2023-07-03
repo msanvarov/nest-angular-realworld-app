@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>nx-nest-angular-starter documentation</title>
+        <title>nx-nest-angular-realworld-example-app documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,8 +13,8 @@
     </head>
     <body>
 
-        <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">nx-nest-angular-starter documentation</a>
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">nx-nest-angular-realworld-example-app documentation</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -37,21 +37,27 @@
 
 
 <ol class="breadcrumb">
-  <li>Entities</li>
-  <li >ArticleEntity</li>
+  <li class="breadcrumb-item">Entities</li>
+  <li class="breadcrumb-item" >ArticleEntity</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
-        <li class="active">
-            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
         </li>
-        <li >
-            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
         </li>
 </ul>
 
 <div class="tab-content">
-    <div class="tab-pane fade active in" id="c-info">
+    <div class="tab-pane fade active in" id="info">
         <p class="comment">
             <h3>File</h3>
         </p>
@@ -62,7 +68,7 @@
 
 
 
-            <section>
+            <section data-compodoc="block-index">
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
@@ -75,36 +81,47 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier"></span>
                                 <a href="#author" >author</a>
                             </li>
                             <li>
+                                    <span class="modifier"></span>
                                 <a href="#body" >body</a>
                             </li>
                             <li>
+                                    <span class="modifier"></span>
                                 <a href="#comments" >comments</a>
                             </li>
                             <li>
+                                    <span class="modifier"></span>
                                 <a href="#createdAt" >createdAt</a>
                             </li>
                             <li>
+                                    <span class="modifier"></span>
                                 <a href="#description" >description</a>
                             </li>
                             <li>
+                                    <span class="modifier"></span>
                                 <a href="#favoritesCount" >favoritesCount</a>
                             </li>
                             <li>
+                                    <span class="modifier"></span>
                                 <a href="#id" >id</a>
                             </li>
                             <li>
+                                    <span class="modifier"></span>
                                 <a href="#slug" >slug</a>
                             </li>
                             <li>
+                                    <span class="modifier"></span>
                                 <a href="#tagList" >tagList</a>
                             </li>
                             <li>
+                                    <span class="modifier"></span>
                                 <a href="#title" >title</a>
                             </li>
                             <li>
+                                    <span class="modifier"></span>
                                 <a href="#updatedAt" >updatedAt</a>
                             </li>
                         </ul>
@@ -120,7 +137,7 @@
     </table>
 </section>
 
-            <section>
+            <section data-compodoc="block-properties">
     
     <h3 id="inputs">
         Properties
@@ -131,6 +148,7 @@
                 <td class="col-md-4">
                     <a name="author"></a>
                     <span class="name">
+                            <span class="modifier"></span>
                         <span ><b>author</b></span>
                         <a href="#author"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -166,6 +184,7 @@
                 <td class="col-md-4">
                     <a name="body"></a>
                     <span class="name">
+                            <span class="modifier"></span>
                         <span ><b>body</b></span>
                         <a href="#body"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -201,6 +220,7 @@
                 <td class="col-md-4">
                     <a name="comments"></a>
                     <span class="name">
+                            <span class="modifier"></span>
                         <span ><b>comments</b></span>
                         <a href="#comments"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -236,6 +256,7 @@
                 <td class="col-md-4">
                     <a name="createdAt"></a>
                     <span class="name">
+                            <span class="modifier"></span>
                         <span ><b>createdAt</b></span>
                         <a href="#createdAt"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -271,6 +292,7 @@
                 <td class="col-md-4">
                     <a name="description"></a>
                     <span class="name">
+                            <span class="modifier"></span>
                         <span ><b>description</b></span>
                         <a href="#description"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -306,6 +328,7 @@
                 <td class="col-md-4">
                     <a name="favoritesCount"></a>
                     <span class="name">
+                            <span class="modifier"></span>
                         <span ><b>favoritesCount</b></span>
                         <a href="#favoritesCount"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -341,6 +364,7 @@
                 <td class="col-md-4">
                     <a name="id"></a>
                     <span class="name">
+                            <span class="modifier"></span>
                         <span ><b>id</b></span>
                         <a href="#id"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -376,6 +400,7 @@
                 <td class="col-md-4">
                     <a name="slug"></a>
                     <span class="name">
+                            <span class="modifier"></span>
                         <span ><b>slug</b></span>
                         <a href="#slug"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -411,6 +436,7 @@
                 <td class="col-md-4">
                     <a name="tagList"></a>
                     <span class="name">
+                            <span class="modifier"></span>
                         <span ><b>tagList</b></span>
                         <a href="#tagList"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -446,6 +472,7 @@
                 <td class="col-md-4">
                     <a name="title"></a>
                     <span class="name">
+                            <span class="modifier"></span>
                         <span ><b>title</b></span>
                         <a href="#title"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -481,6 +508,7 @@
                 <td class="col-md-4">
                     <a name="updatedAt"></a>
                     <span class="name">
+                            <span class="modifier"></span>
                         <span ><b>updatedAt</b></span>
                         <a href="#updatedAt"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -514,7 +542,7 @@
     </div>
 
 
-    <div class="tab-pane fade  tab-source-code" id="c-source">
+    <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
   BeforeUpdate,
   Column,

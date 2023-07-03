@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>nx-nest-angular-starter documentation</title>
+        <title>nx-nest-angular-realworld-example-app documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,8 +13,8 @@
     </head>
     <body>
 
-        <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">nx-nest-angular-starter documentation</a>
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">nx-nest-angular-realworld-example-app documentation</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -37,21 +37,27 @@
 
 
 <ol class="breadcrumb">
-  <li>Entities</li>
-  <li >FollowEntity</li>
+  <li class="breadcrumb-item">Entities</li>
+  <li class="breadcrumb-item" >FollowEntity</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
-        <li class="active">
-            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
         </li>
-        <li >
-            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
         </li>
 </ul>
 
 <div class="tab-content">
-    <div class="tab-pane fade active in" id="c-info">
+    <div class="tab-pane fade active in" id="info">
         <p class="comment">
             <h3>File</h3>
         </p>
@@ -62,7 +68,7 @@
 
 
 
-            <section>
+            <section data-compodoc="block-index">
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
@@ -75,12 +81,15 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier"></span>
                                 <a href="#followerId" >followerId</a>
                             </li>
                             <li>
+                                    <span class="modifier"></span>
                                 <a href="#followingId" >followingId</a>
                             </li>
                             <li>
+                                    <span class="modifier"></span>
                                 <a href="#id" >id</a>
                             </li>
                         </ul>
@@ -96,7 +105,7 @@
     </table>
 </section>
 
-            <section>
+            <section data-compodoc="block-properties">
     
     <h3 id="inputs">
         Properties
@@ -107,6 +116,7 @@
                 <td class="col-md-4">
                     <a name="followerId"></a>
                     <span class="name">
+                            <span class="modifier"></span>
                         <span ><b>followerId</b></span>
                         <a href="#followerId"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -142,6 +152,7 @@
                 <td class="col-md-4">
                     <a name="followingId"></a>
                     <span class="name">
+                            <span class="modifier"></span>
                         <span ><b>followingId</b></span>
                         <a href="#followingId"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -177,6 +188,7 @@
                 <td class="col-md-4">
                     <a name="id"></a>
                     <span class="name">
+                            <span class="modifier"></span>
                         <span ><b>id</b></span>
                         <a href="#id"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -210,7 +222,7 @@
     </div>
 
 
-    <div class="tab-pane fade  tab-source-code" id="c-source">
+    <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Column, Entity, PrimaryGeneratedColumn } from &#x27;typeorm&#x27;;
 
 @Entity({ name: &#x27;follows&#x27; })

@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>nx-nest-angular-starter documentation</title>
+        <title>nx-nest-angular-realworld-example-app documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,8 +13,8 @@
     </head>
     <body>
 
-        <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">nx-nest-angular-starter documentation</a>
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">nx-nest-angular-realworld-example-app documentation</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -43,21 +43,27 @@
 
 
 <ol class="breadcrumb">
-  <li>Classes</li>
-  <li >UserLoginDto</li>
+  <li class="breadcrumb-item">Classes</li>
+  <li class="breadcrumb-item" >UserLoginDto</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
-        <li class="active">
-            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
         </li>
-        <li >
-            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
         </li>
 </ul>
 
 <div class="tab-content">
-    <div class="tab-pane fade active in" id="c-info">
+    <div class="tab-pane fade active in" id="info">
         <p class="comment">
             <h3>File</h3>
         </p>
@@ -77,7 +83,7 @@
 
 
 
-            <section>
+            <section data-compodoc="block-index">
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
@@ -90,10 +96,16 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
                                     <span class="modifier">Readonly</span>
                                 <a href="#email" >email</a>
                             </li>
                             <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
                                     <span class="modifier">Readonly</span>
                                 <a href="#password" >password</a>
                             </li>
@@ -111,7 +123,7 @@
 </section>
 
 
-            <section>
+            <section data-compodoc="block-properties">
     
     <h3 id="inputs">
         Properties
@@ -122,6 +134,9 @@
                 <td class="col-md-4">
                     <a name="email"></a>
                     <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
                             <span class="modifier">Readonly</span>
                         <span ><b>email</b></span>
                         <a href="#email"><span class="icon ion-ios-link"></span></a>
@@ -164,6 +179,9 @@
                 <td class="col-md-4">
                     <a name="password"></a>
                     <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
                             <span class="modifier">Readonly</span>
                         <span ><b>password</b></span>
                         <a href="#password"><span class="icon ion-ios-link"></span></a>
@@ -211,7 +229,7 @@
     </div>
 
 
-    <div class="tab-pane fade  tab-source-code" id="c-source">
+    <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty } from &#x27;@nestjs/swagger&#x27;;
 import { Type } from &#x27;class-transformer&#x27;;
 import {
