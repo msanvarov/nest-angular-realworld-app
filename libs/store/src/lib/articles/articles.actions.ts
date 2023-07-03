@@ -1,12 +1,22 @@
 import { createAction, props } from '@ngrx/store';
 
-import { IArticlesResponseBody } from '@starter/api-types';
+import { GetArticlesFeed200Response } from '@starter/realworld-oas';
 
 export const getArticles = createAction(
   '[Articles] Get Articles',
   props<{
     tag?: string;
     author?: string;
+    favorited?: string;
+    limit?: number;
+    offset?: number;
+  }>(),
+);
+
+export const getAuthoredArticles = createAction(
+  '[Articles] Get Authored Articles',
+  props<{
+    tag?: string;
     favorited?: string;
     limit?: number;
     offset?: number;
@@ -41,13 +51,18 @@ export const getArticleTagsFailure = createAction(
 export const getArticleFeedCompleted = createAction(
   '[Articles] Get Article Feed Completed',
   props<{
-    articles: IArticlesResponseBody | null;
+    articles: GetArticlesFeed200Response | null;
   }>(),
 );
 
 export const getArticlesCompleted = createAction(
   '[Articles] Get Articles Completed',
-  props<{ articles: IArticlesResponseBody | null }>(),
+  props<{ articles: GetArticlesFeed200Response | null }>(),
+);
+
+export const getAuthoredArticlesCompleted = createAction(
+  '[Articles] Get Authored Articles Completed',
+  props<{ articles: GetArticlesFeed200Response | null }>(),
 );
 
 export const getArticleFeedFailure = createAction(
@@ -60,6 +75,14 @@ export const getArticleFeedFailure = createAction(
 
 export const getArticlesFailure = createAction(
   '[Articles] Get Articles Failure',
+  props<{
+    error: string;
+    statusCode?: number;
+  }>(),
+);
+
+export const getAuthoredArticlesFailure = createAction(
+  '[Articles] Get Authored Articles Failure',
   props<{
     error: string;
     statusCode?: number;

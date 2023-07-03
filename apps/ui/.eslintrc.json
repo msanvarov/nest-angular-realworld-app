@@ -4,12 +4,16 @@
   "overrides": [
     {
       "files": ["*.ts"],
+      "extends": [
+        "plugin:@nx/nx/angular",
+        "plugin:@angular-eslint/template/process-inline-templates"
+      ],
       "rules": {
         "@angular-eslint/directive-selector": [
           "error",
           {
             "type": "attribute",
-            "prefix": "starter",
+            "prefix": "Ui",
             "style": "camelCase"
           }
         ],
@@ -17,21 +21,15 @@
           "error",
           {
             "type": "element",
-            "prefix": "starter",
+            "prefix": "ui",
             "style": "kebab-case"
           }
-        ],
-        "@typescript-eslint/no-empty-function": "warn",
-        "@angular-eslint/component-selector": "warn"
-      },
-      "extends": [
-        "plugin:@nrwl/nx/angular",
-        "plugin:@angular-eslint/template/process-inline-templates"
-      ]
+        ]
+      }
     },
     {
       "files": ["*.html"],
-      "extends": ["plugin:@nrwl/nx/angular-template"],
+      "extends": ["plugin:@nx/nx/angular-template"],
       "rules": {}
     }
   ]

@@ -3,12 +3,16 @@
     <h3 class="sidebar__widget-title">Find Posts</h3>
     <div class="sidebar__widget-content">
       <div class="sidebar__search">
-        <form action="#">
-          <div class="sidebar__search-input-2">
-            <input type="text" placeholder="Find..." />
-            <button type="submit"><i class="far fa-search"></i></button>
-          </div>
-        </form>
+        <!-- <form (submit)="onSearch(searchInput.value)"> -->
+        <div class="sidebar__search-input-2">
+          <input
+            (input)="onSearch($event.target.value)"
+            type="text"
+            placeholder="Find articles from this page..."
+          />
+          <button type="submit"><i class="far fa-search"></i></button>
+        </div>
+        <!-- </form> -->
       </div>
     </div>
   </div>
@@ -50,7 +54,7 @@
     </div>
   </div> -->
   <div class="sidebar__widget mb-25">
-    <h3 class="sidebar__widget-title">Your Posts</h3>
+    <h3 class="sidebar__widget-title">Authored Posts</h3>
     <div class="sidebar__widget-content">
       <div class="sidebar__post">
         <div *ngIf="authoredArticles.length >= 1; else noPosts">
@@ -58,15 +62,16 @@
             class="rc__post d-flex align-items-center"
             *ngFor="let article of authoredArticles"
           >
-            <div class="rc__post-thumb mr-20">
+            <!-- <div class="rc__post-thumb mr-20">
               <a [routerLink]="['/blog-details']"
                 ><img src="https://via.placeholder.com/100" alt="placedholder"
               /></a>
-            </div>
+            </div> -->
             <div class="rc__post-content">
               <h3 class="rc__post-title">
                 <a [routerLink]="['/blog-details']">{{ article.title }}</a>
               </h3>
+              <p>{{ article.description }}</p>
               <div class="rc__meta">
                 <span
                   ><i class="fa-light fa-clock"></i>

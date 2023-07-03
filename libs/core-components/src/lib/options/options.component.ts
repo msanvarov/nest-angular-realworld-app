@@ -22,9 +22,9 @@ export class OptionsComponent implements OnInit, OnDestroy {
   userSubscription: Subscription = new Subscription(); // For handling the subscription
 
   profileForm = new FormGroup({
-    bio: new FormControl('', Validators.required),
-    email: new FormControl('', Validators.required),
-    username: new FormControl('', Validators.required),
+    bio: new FormControl(''),
+    email: new FormControl(''),
+    username: new FormControl(''),
   });
 
   passwordForm = new FormGroup({
@@ -80,6 +80,8 @@ export class OptionsComponent implements OnInit, OnDestroy {
       if (Object.keys(payload).length > 0) {
         this.store.dispatch(editUser({ user: payload }));
       }
+    } else {
+      console.log('profileForm is invalid');
     }
   }
 

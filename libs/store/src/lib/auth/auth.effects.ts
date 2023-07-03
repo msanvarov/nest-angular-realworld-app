@@ -4,20 +4,23 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
 import { catchError, map, switchMap, tap } from 'rxjs/operators';
 
-import { UsersService } from '@starter/realworld-oas';
+import { UserAndAuthenticationService } from '@starter/realworld-oas';
 
 import * as AuthActions from './auth.actions';
 
 @Injectable()
 export class AuthEffects {
-  constructor(private actions$: Actions, private usersService: UsersService) {}
+  constructor(
+    private actions$: Actions,
+    private usersService: UserAndAuthenticationService,
+  ) {}
 
   login$ = createEffect(() =>
     this.actions$.pipe(
       ofType(AuthActions.login),
-      switchMap((action) =>
-        this.usersService
-          .usersControllerLogin({
+      switchMap((action) => {
+        return this.usersService
+          .login({
             user: {
               email: action.email,
               password: action.password,
@@ -31,8 +34,8 @@ export class AuthEffects {
             catchError(({ error }) =>
               of(AuthActions.loginFailure({ error: error.message })),
             ),
-          ),
-      ),
+          );
+      }),
     ),
   );
 
@@ -52,7 +55,7 @@ export class AuthEffects {
       ofType(AuthActions.register),
       switchMap((action) =>
         this.usersService
-          .usersControllerRegister({
+          .createUser({
             user: {
               email: action.email,
               password: action.password,

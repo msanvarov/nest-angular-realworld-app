@@ -2,6 +2,46 @@
   <div class="container">
     <div class="row">
       <div class="col-xxl-8 col-xl-8 col-lg-8">
+        <div class="mb-10">
+          <nav>
+            <div
+              class="nav nav-tabs justify-content-sm-end"
+              id="nav-tab-create"
+              role="tablist"
+            >
+              <button
+                class="nav-link active"
+                id="nav-single-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#nav-single"
+                type="button"
+                role="tab"
+                aria-controls="nav-single"
+                aria-selected="true"
+                (click)="handleChangeFeedType('global')"
+              >
+                Global Feed
+              </button>
+              <button
+                class="nav-link"
+                id="nav-multiple-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#nav-multiple"
+                type="button"
+                role="tab"
+                aria-controls="nav-multiple"
+                aria-selected="false"
+                (click)="handleChangeFeedType('user')"
+              >
+                Personal Feed
+              </button>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xxl-8 col-xl-8 col-lg-8">
         <div class="blog__wrapper">
           <div class="row">
             <div
@@ -9,38 +49,59 @@
               class="col-xxl-6 col-xl-6 col-lg-12 col-md-6"
             >
               <div class="blog__grid-item mb-30">
-                <div class="blog__grid-thumb w-img">
+                <!-- <div class="blog__grid-thumb w-img">
                   <a [routerLink]="['/blog-details']">
                     <img
                       src="https://via.placeholder.com/380x240"
                       alt="placeholder"
                     />
                   </a>
-                </div>
+                </div> -->
                 <div class="blog__grid-content">
                   <div class="blog__grid-tag">
-                    <a [routerLink]="['/blog-details']">{{ blog.tagList }}</a>
+                    <a [routerLink]="['/blog-details']">{{
+                      blog.article.tagList
+                    }}</a>
                   </div>
 
                   <h3 class="blog__grid-title">
-                    <a [routerLink]="['/blog-details']">{{ blog.title }}</a>
+                    <a
+                      [routerLink]="['/blog-details']"
+                      [innerHTML]="
+                        highlightMatches(
+                          blog.article.title,
+                          blog.matches,
+                          'title'
+                        )
+                      "
+                    ></a>
                   </h3>
-                  <p>{{ blog.description }}</p>
+                  <!-- <p
+                    [innerHTML]="
+                      highlightMatches(
+                        blog.article.description,
+                        blog.matches,
+                        'description'
+                      )
+                    "
+                  ></p> -->
+                  <p>{{ blog.article.description }}</p>
                   <div class="blog__grid-author d-flex align-items-center">
                     <div class="blog__grid-author-thumb mr-10">
                       <a href="#">
                         <!-- Remark: Not unknown but of type UserEntity -->
-                        <img src="{{ blog.author.image }}" alt="" />
+                        <img src="{{ blog.article.author.image }}" alt="" />
                       </a>
                     </div>
                     <div class="blog__grid-author-info">
                       <h4>
-                        <a href="#">{{ blog.author.username }}</a>
+                        <a href="#">{{ blog.article.author.username }}</a>
                       </h4>
-                      <p>{{ blog.createdAt }} • 1 min read</p>
+                      <p>{{ blog.article.createdAt }} • 1 min read</p>
                     </div>
                     <button class="btn btn-primary btn-sm ms-4">
-                      <i class="fa fa-heart"></i> {{ blog.favoritesCount }}
+                      <i class="fa fa-heart"></i>
+                      {{ blog.article.favoritesCount }}
                     </button>
                   </div>
                 </div>
@@ -48,12 +109,20 @@
             </div>
           </div>
           <div class="row">
-            <!-- <starter-pagination [url]="true"></starter-pagination> -->
+            <starter-articles-pagination
+              [currentPage]="currentPage"
+              [totalItems]="articlesCount"
+              [itemsPerPage]="itemsPerPage"
+              (pageChange)="handlePageChange($event)"
+            >
+            </starter-articles-pagination>
           </div>
         </div>
       </div>
       <div class="col-xxl-4 col-xl-4 col-lg-4">
-        <starter-articles-right-nav></starter-articles-right-nav>
+        <starter-articles-right-nav
+          (searchResults)="handleSearchResults($event)"
+        ></starter-articles-right-nav>
       </div>
     </div>
   </div>

@@ -45,7 +45,10 @@ export class UsersController {
    */
   @Public()
   @Post()
-  @ApiResponse({ status: 201, description: 'Registration Completed' })
+  @ApiResponse({
+    status: 201,
+    description: 'Registration Completed',
+  })
   @ApiResponse({ status: 400, description: 'Bad Request' })
   @ApiResponse({ status: 401, description: 'Unauthorized' })
   async register(

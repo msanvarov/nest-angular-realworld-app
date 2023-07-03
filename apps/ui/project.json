@@ -3,60 +3,48 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "sourceRoot": "apps/ui/src",
-  "prefix": "starter",
   "targets": {
     "build": {
-      "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "executor": "@nx/vite:build",
+      "outputs": [
+        "{options.outputPath}",
+        "dist/apps/ui/.nitro",
+        "dist/apps/ui/ssr",
+        "dist/apps/ui/analog"
+      ],
       "options": {
-        "outputPath": "dist/apps/ui",
-        "index": "apps/ui/src/index.html",
         "main": "apps/ui/src/main.ts",
-        "polyfills": ["zone.js"],
-        "tsConfig": "apps/ui/tsconfig.app.json",
-        "inlineStyleLanguage": "scss",
-        "assets": ["apps/ui/src/favicon.ico", "apps/ui/src/assets"],
-        "styles": ["apps/ui/src/styles.scss"],
-        "scripts": []
+        "configFile": "apps/ui/vite.config.ts",
+        "outputPath": "dist/apps/ui/client"
       },
+      "defaultConfiguration": "production",
       "configurations": {
-        "production": {
-          "budgets": [
-            {
-              "type": "initial",
-              "maximumWarning": "500kb",
-              "maximumError": "1mb"
-            },
-            {
-              "type": "anyComponentStyle",
-              "maximumWarning": "2kb",
-              "maximumError": "4kb"
-            }
-          ],
-          "outputHashing": "all"
-        },
         "development": {
-          "buildOptimizer": false,
-          "optimization": false,
-          "vendorChunk": true,
-          "extractLicenses": false,
-          "sourceMap": true,
-          "namedChunks": true
+          "mode": "development"
+        },
+        "production": {
+          "sourcemap": false,
+          "mode": "production"
         }
-      },
-      "defaultConfiguration": "production"
+      }
     },
     "serve": {
-      "executor": "@angular-devkit/build-angular:dev-server",
-      "configurations": {
-        "production": {
-          "browserTarget": "ui:build:production"
-        },
-        "development": {
-          "browserTarget": "ui:build:development"
-        }
+      "executor": "@nx/vite:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "ui:build",
+        "port": 4200,
+        "proxyConfig": "./proxy.conf.json"
       },
-      "defaultConfiguration": "development"
+      "configurations": {
+        "development": {
+          "buildTarget": "ui:build:development",
+          "hmr": true
+        },
+        "production": {
+          "buildTarget": "ui:build:production"
+        }
+      }
     },
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
@@ -65,19 +53,15 @@
       }
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": ["apps/ui/**/*.ts", "apps/ui/**/*.html"]
       }
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
-      "options": {
-        "jestConfig": "apps/ui/jest.config.ts",
-        "passWithNoTests": true
-      }
+      "executor": "@nx/vite:test",
+      "outputs": ["apps/ui/coverage"]
     }
   },
   "tags": []

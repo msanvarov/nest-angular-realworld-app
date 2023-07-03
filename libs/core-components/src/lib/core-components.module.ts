@@ -4,7 +4,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { QuillModule } from 'ngx-quill';
 
+import { ArticleSearchService } from './articles/article-search.service';
 import { ArticlesFeedComponent } from './articles/articles-feed.component';
+import { ArticlesPaginationComponent } from './articles/articles-pagination.component';
 import { ArticlesRightNavComponent } from './articles/articles-right-nav.component';
 import { LoginFormComponent } from './auth/login-form.component';
 import { RegisterFormComponent } from './auth/register-form.component';
@@ -13,9 +15,12 @@ import { RichTextEditorComponent } from './create-article/rich-text-editor/rich-
 import { FooterComponent } from './layout/footer.component';
 import { HeaderComponent } from './layout/header.component';
 import { OptionsComponent } from './options/options.component';
+import { CeilPipe } from './pipes/ceil.pipe';
 
 @NgModule({
+  providers: [ArticleSearchService],
   declarations: [
+    CeilPipe,
     HeaderComponent,
     FooterComponent,
     LoginFormComponent,
@@ -25,6 +30,7 @@ import { OptionsComponent } from './options/options.component';
     OptionsComponent,
     CreateArticleComponent,
     RichTextEditorComponent,
+    ArticlesPaginationComponent,
   ],
   imports: [
     CommonModule,
@@ -43,6 +49,7 @@ import { OptionsComponent } from './options/options.component';
     OptionsComponent,
     CreateArticleComponent,
     RichTextEditorComponent,
+    ArticlesPaginationComponent,
   ],
 })
 export class CoreComponentsModule {}

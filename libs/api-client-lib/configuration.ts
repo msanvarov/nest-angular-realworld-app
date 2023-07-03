@@ -87,12 +87,14 @@ export class Configuration {
             this.credentials = {};
         }
 
-        // init default bearer credential
-        if (!this.credentials['bearer']) {
-            this.credentials['bearer'] = () => {
-                return typeof this.accessToken === 'function'
-                    ? this.accessToken()
-                    : this.accessToken;
+        // init default Bearer credential
+        if (!this.credentials['Bearer']) {
+            this.credentials['Bearer'] = () => {
+                if (this.apiKeys === null || this.apiKeys === undefined) {
+                    return undefined;
+                } else {
+                    return this.apiKeys['Bearer'] || this.apiKeys['Authorization'];
+                }
             };
         }
     }

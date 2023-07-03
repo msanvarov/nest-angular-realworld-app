@@ -1,12 +1,13 @@
 // auth.effects.ts
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { Store } from '@ngrx/store';
 import { of } from 'rxjs';
-import { catchError, map, switchMap } from 'rxjs/operators';
+import { catchError, map, switchMap, withLatestFrom } from 'rxjs/operators';
 
-import { IArticlesResponseBody } from '@starter/api-types';
 import { ArticlesService, TagsService } from '@starter/realworld-oas';
 
+import { selectAuthUser } from '../auth';
 import * as ArticleActions from './articles.actions';
 
 @Injectable()
@@ -15,6 +16,7 @@ export class ArticlesEffects {
     private actions$: Actions,
     private articlesService: ArticlesService,
     private tagsService: TagsService,
+    private store: Store,
   ) {}
 
   getArticles$ = createEffect(() =>
@@ -22,15 +24,15 @@ export class ArticlesEffects {
       ofType(ArticleActions.getArticles),
       switchMap((action) =>
         this.articlesService
-          .articleControllerGetArticles(
-            undefined,
-            undefined,
-            undefined,
-            action.limit || 10,
+          .getArticles(
+            action.tag,
+            action.author,
+            action.favorited,
             action.offset || 0,
+            action.limit || 10,
           )
           .pipe(
-            map((articles: IArticlesResponseBody) =>
+            map((articles) =>
               ArticleActions.getArticlesCompleted({
                 articles,
               }),
@@ -43,14 +45,49 @@ export class ArticlesEffects {
     ),
   );
 
+  getAuthoredArticles$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(ArticleActions.getAuthoredArticles),
+      withLatestFrom(this.store.select(selectAuthUser)),
+      switchMap(([action, authUser]) =>
+        this.articlesService
+          .getArticles(
+            action.tag,
+            authUser?.username,
+            action.favorited,
+            action.offset || 0,
+            action.limit || 10,
+          )
+          .pipe(
+            map((articles) =>
+              ArticleActions.getAuthoredArticlesCompleted({
+                articles,
+              }),
+            ),
+            catchError(({ error }) =>
+              of(
+                ArticleActions.getAuthoredArticlesFailure({
+                  error: error.message,
+                }),
+              ),
+            ),
+          ),
+      ),
+    ),
+  );
+
   getArticleFeed$ = createEffect(() =>
     this.actions$.pipe(
       ofType(ArticleActions.getArticleFeed),
-      switchMap((action) =>
-        this.articlesService
-          .articleControllerGetFeed(action.limit, action.offset)
+      withLatestFrom(this.store.select(selectAuthUser)),
+      switchMap(([action, authUser]) => {
+        this.articlesService.configuration.apiKeys = {
+          Authorization: `Bearer ${authUser?.token}`,
+        };
+        return this.articlesService
+          .getArticlesFeed(action.offset, action.limit)
           .pipe(
-            map((articles: IArticlesResponseBody) =>
+            map((articles) =>
               ArticleActions.getArticleFeedCompleted({
                 articles,
               }),
@@ -60,8 +97,8 @@ export class ArticlesEffects {
                 ArticleActions.getArticleFeedFailure({ error: error.message }),
               ),
             ),
-          ),
-      ),
+          );
+      }),
     ),
   );
 
@@ -69,8 +106,8 @@ export class ArticlesEffects {
     this.actions$.pipe(
       ofType(ArticleActions.getArticleTags),
       switchMap((action) =>
-        this.tagsService.tagControllerGetTags().pipe(
-          map((tags: { tags: string[] }) =>
+        this.tagsService.getTags().pipe(
+          map((tags) =>
             ArticleActions.getArticleTagsCompleted({
               tags: tags.tags,
             }),

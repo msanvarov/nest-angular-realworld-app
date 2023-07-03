@@ -1,14 +1,16 @@
-import { IArticlesResponseBody } from '@starter/api-types';
+import { GetArticlesFeed200Response } from '@starter/realworld-oas';
 
 export enum ArticlesErrorCodesEnum {
   GET_ARTICLES_FAILED = 'GET_ARTICLES_FAILED',
   GET_ARTICLE_TAGS_FAILED = 'GET_ARTICLE_TAGS_FAILED',
   GET_ARTICLE_FEED_FAILED = 'GET_ARTICLE_FEED_FAILED',
+  GET_AUTHORED_ARTICLES_FAILED = 'GET_AUTHORED_ARTICLES_FAILED',
 }
 
 export interface IArticlesState {
-  articles: IArticlesResponseBody | null;
-  authoredArticles: IArticlesResponseBody | null;
+  articles: GetArticlesFeed200Response | null;
+  feed: GetArticlesFeed200Response | null;
+  authoredArticles: GetArticlesFeed200Response | null;
   tags: string[] | null;
   loading: boolean;
   error: {

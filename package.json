@@ -18,7 +18,7 @@
     "typedocs:ui": "compodoc -p apps/ui/tsconfig.json -d docs/ui",
     "typedocs:ui:start": "compodoc -p apps/ui/tsconfig.json -s -d docs/ui",
     "test:postman": "APIURL=http://localhost:3333/api ./execute-api-tests.sh",
-    "generate-oas:realworld-api-client-lib": "openapi-generator-cli generate -i openapi/realworld-openapi.json -g typescript-angular -o libs/api-client-lib --additional-properties=apiModulePrefix=RealworldOAS,ensureUniqueParams=true,modelFileSuffix=.model,npmName=@starter/realworld-oas,stringEnums=true,npmVersion=$npm_package_version,npmRepository=$npm_package_config_repository,ngVersion=16.1.3"
+    "generate-oas:realworld-api-client-lib": "openapi-generator-cli generate -i openapi/realworld-openapi.yaml -g typescript-angular -o libs/api-client-lib --additional-properties=apiModulePrefix=RealworldOAS,ensureUniqueParams=true,modelFileSuffix=.model,npmName=@starter/realworld-oas,stringEnums=true,npmVersion=$npm_package_version,npmRepository=$npm_package_config_repository,ngVersion=16.1.3"
   },
   "private": true,
   "dependencies": {
@@ -60,6 +60,7 @@
     "class-transformer": "^0.5.1",
     "class-validator": "^0.13.2",
     "front-matter": "^4.0.2",
+    "fuse.js": "^6.6.2",
     "gravatar": "^1.8.2",
     "joi": "^17.6.0",
     "lodash": "^4.17.21",

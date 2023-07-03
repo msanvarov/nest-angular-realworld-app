@@ -16,7 +16,7 @@ import { AppModule } from './app.module';
  * The endpoint for open api ui
  * @type {string}
  */
-export const OPEN_API_ROOT = 'api/v1/docs';
+export const OPEN_API_ROOT = 'api/docs';
 /**
  * The name given to the api
  * @type {string}
@@ -49,7 +49,10 @@ async function bootstrap() {
     .addBearerAuth()
     .build();
 
-  app.enableCors();
+  // Remark: this is to make the Angular ui function as expected. DO NOT USE IN PRODUCTION
+  app.enableCors({
+    origin: '*',
+  });
   app.register(helmet, {
     contentSecurityPolicy: {
       // Remark: this is to make the Angular ui function as expected
@@ -58,6 +61,7 @@ async function bootstrap() {
       },
     },
   });
+
   app.register(fastifyRateLimiter, {
     max: 100,
     timeWindow: '1 minute',
@@ -75,7 +79,7 @@ async function bootstrap() {
   console.log(`Application is running on: ${await app.getUrl()}`);
 
   logger.log(
-    `🚀 Application is running on: http://localhost:${port}/${GLOBAL_API_PREFIX}`,
+    `🚀 Application is running on: http://localhost:${port}${GLOBAL_API_PREFIX}`,
   );
 }
 

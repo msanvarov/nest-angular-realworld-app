@@ -14,6 +14,10 @@ export const selectArticles = createSelector(
   selectArticlesState,
   (state: IArticlesState) => state.articles,
 );
+export const selectArticleFeed = createSelector(
+  selectArticlesState,
+  (state: IArticlesState) => state.feed,
+);
 
 export const selectArticleTags = createSelector(
   selectArticlesState,

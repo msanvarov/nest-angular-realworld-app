@@ -96,7 +96,6 @@ export class UsersService {
           protocol: 'https',
           s: '200',
           r: 'pg',
-          d: '404',
         }),
       }),
     );

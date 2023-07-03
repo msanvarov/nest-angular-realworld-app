@@ -25,7 +25,7 @@ export class UserRegistrationDto {
    */
   @ApiProperty()
   @IsNotEmpty()
-  @Matches(/^(?=[a-zA-Z0-9._]{8,20}$)(?!.*[_.]{2})[^_.].*[^_.]$/)
+  @Matches(/^(?=[a-zA-Z0-9._]{4,20}$)(?!.*[_.]{2})[^_.].*[^_.]$/)
   readonly username: string;
 
   /**
