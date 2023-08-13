@@ -1,6 +1,52 @@
 import { createAction, props } from '@ngrx/store';
 
-import { GetArticlesFeed200Response } from '@starter/realworld-oas';
+import {
+  Article,
+  GetArticlesFeed200Response,
+  NewArticle,
+} from '@starter/realworld-oas';
+
+export const getArticle = createAction(
+  '[Articles] Get Article',
+  props<{
+    slug: string;
+  }>(),
+);
+
+export const getArticleCompleted = createAction(
+  '[Articles] Get Article Completed',
+  props<{
+    article: Article;
+  }>(),
+);
+
+export const getArticleFailure = createAction(
+  '[Articles] Get Article Failure',
+  props<{
+    error: string;
+    statusCode?: number;
+  }>(),
+);
+
+export const createArticle = createAction(
+  '[Articles] Create Article',
+  props<NewArticle>(),
+);
+
+export const createArticleCompleted = createAction(
+  '[Articles] Create Article Completed',
+  props<{
+    article: Article;
+  }>(),
+);
+
+export const createArticleFailure = createAction(
+  '[Articles] Create Article Failure',
+  props<{
+    error: string;
+    statusCode?: number;
+  }>(),
+);
 
 export const getArticles = createAction(
   '[Articles] Get Articles',
@@ -28,6 +74,28 @@ export const getArticleFeed = createAction(
   props<{
     limit?: number;
     offset?: number;
+  }>(),
+);
+
+export const favouriteArticle = createAction(
+  '[Articles] Favourite Article',
+  props<{
+    slug: string;
+  }>(),
+);
+
+export const favouriteArticleCompleted = createAction(
+  '[Articles] Favourite Article Completed',
+  props<{
+    slug: string;
+  }>(),
+);
+
+export const favouriteArticleFailure = createAction(
+  '[Articles] Favourite Article Failure',
+  props<{
+    error: string;
+    statusCode?: number;
   }>(),
 );
 

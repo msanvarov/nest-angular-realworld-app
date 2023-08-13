@@ -5,7 +5,12 @@ import { Store } from '@ngrx/store';
 import { of } from 'rxjs';
 import { catchError, map, switchMap, withLatestFrom } from 'rxjs/operators';
 
-import { ArticlesService, TagsService } from '@starter/realworld-oas';
+// import { JwtService } from '@starter/core-components';
+import {
+  ArticlesService,
+  FavoritesService,
+  TagsService,
+} from '@starter/realworld-oas';
 
 import { selectAuthUser } from '../auth';
 import * as ArticleActions from './articles.actions';
@@ -16,8 +21,19 @@ export class ArticlesEffects {
     private actions$: Actions,
     private articlesService: ArticlesService,
     private tagsService: TagsService,
+    private favouritesService: FavoritesService,
+    // private jwtService: JwtService,
     private store: Store,
-  ) {}
+  ) {
+    // Listen to token changes from the store and update the services configuration
+    this.store.select(selectAuthUser).subscribe((user) => {
+      const tokenPayload = user?.token ? `Bearer ${user.token}` : '';
+      this.articlesService.configuration.credentials = { Bearer: tokenPayload };
+      this.favouritesService.configuration.credentials = {
+        Bearer: tokenPayload,
+      };
+    });
+  }
 
   getArticles$ = createEffect(() =>
     this.actions$.pipe(
@@ -42,6 +58,24 @@ export class ArticlesEffects {
             ),
           ),
       ),
+    ),
+  );
+
+  getArticle$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(ArticleActions.getArticle),
+      switchMap((action) => {
+        return this.articlesService.getArticle(action.slug).pipe(
+          map(({ article }) =>
+            ArticleActions.getArticleCompleted({
+              article,
+            }),
+          ),
+          catchError(({ error }) =>
+            of(ArticleActions.getArticleFailure({ error: error.message })),
+          ),
+        );
+      }),
     ),
   );
 
@@ -79,11 +113,7 @@ export class ArticlesEffects {
   getArticleFeed$ = createEffect(() =>
     this.actions$.pipe(
       ofType(ArticleActions.getArticleFeed),
-      withLatestFrom(this.store.select(selectAuthUser)),
-      switchMap(([action, authUser]) => {
-        this.articlesService.configuration.apiKeys = {
-          Authorization: `Bearer ${authUser?.token}`,
-        };
+      switchMap((action) => {
         return this.articlesService
           .getArticlesFeed(action.offset, action.limit)
           .pipe(
@@ -98,6 +128,63 @@ export class ArticlesEffects {
               ),
             ),
           );
+      }),
+    ),
+  );
+
+  createArticle$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(ArticleActions.createArticle),
+      switchMap((action) => {
+        return this.articlesService
+          .createArticle({
+            article: {
+              title: action.title,
+              description: action.description,
+              body: action.body,
+              tagList: action.tagList,
+            },
+          })
+          .pipe(
+            map(({ article }) =>
+              ArticleActions.createArticleCompleted({
+                article,
+              }),
+            ),
+            catchError(({ error }) =>
+              of(
+                ArticleActions.createArticleFailure({
+                  error: error.message,
+                }),
+              ),
+            ),
+          );
+      }),
+    ),
+  );
+
+  favoriteArticle$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(ArticleActions.favouriteArticle),
+      withLatestFrom(this.store.select(selectAuthUser)),
+      switchMap(([action, authUser]) => {
+        this.favouritesService.configuration.credentials = {
+          Bearer: () => `${authUser?.token}`,
+        };
+        return this.favouritesService.createArticleFavorite(action.slug).pipe(
+          map(({ article }) =>
+            ArticleActions.favouriteArticleCompleted({
+              slug: article.slug,
+            }),
+          ),
+          catchError(({ error }) => {
+            return of(
+              ArticleActions.favouriteArticleFailure({
+                error: error.message,
+              }),
+            );
+          }),
+        );
       }),
     ),
   );

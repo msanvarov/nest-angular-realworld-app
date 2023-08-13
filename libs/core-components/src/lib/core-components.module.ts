@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { QuillModule } from 'ngx-quill';
 
+import { ArticleComponent } from './article/article.component';
 import { ArticleSearchService } from './articles/article-search.service';
 import { ArticlesFeedComponent } from './articles/articles-feed.component';
 import { ArticlesPaginationComponent } from './articles/articles-pagination.component';
@@ -16,14 +17,17 @@ import { FooterComponent } from './layout/footer.component';
 import { HeaderComponent } from './layout/header.component';
 import { OptionsComponent } from './options/options.component';
 import { CeilPipe } from './pipes/ceil.pipe';
+import { MomentPipe } from './pipes/moment.pipe';
 
 @NgModule({
   providers: [ArticleSearchService],
   declarations: [
     CeilPipe,
+    MomentPipe,
     HeaderComponent,
     FooterComponent,
     LoginFormComponent,
+    ArticleComponent,
     ArticlesFeedComponent,
     RegisterFormComponent,
     ArticlesRightNavComponent,
@@ -43,6 +47,7 @@ import { CeilPipe } from './pipes/ceil.pipe';
     HeaderComponent,
     FooterComponent,
     LoginFormComponent,
+    ArticleComponent,
     ArticlesFeedComponent,
     RegisterFormComponent,
     ArticlesRightNavComponent,

@@ -1,24 +1,47 @@
-import { AsyncPipe } from '@angular/common';
-import { Component } from '@angular/core';
+import { RouteMeta } from '@analogjs/router';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { map } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { Subscription, map } from 'rxjs';
+
+import { AuthGuard, CoreComponentsModule } from '@starter/core-components';
+import { getArticle } from '@starter/store';
+
+export const routeMeta: RouteMeta = {
+  title: 'Article Details',
+  // @ts-expect-error
+  canActivate: [AuthGuard],
+};
 
 @Component({
   selector: 'ui-article-page',
   standalone: true,
-  imports: [AsyncPipe],
-  template: `
-    <section class="blog__area pt-170 pb-100">
-      <div class="container">
-        <div class="row">ID: {{ articleId$ | async }}</div>
-      </div>
-    </section>
-  `,
+  imports: [CoreComponentsModule],
+  template: ` <starter-article></starter-article> `,
 })
-export class ArticlePageComponent {
+export default class ArticlePageComponent implements OnInit, OnDestroy {
+  constructor(private route: ActivatedRoute, private store: Store) {}
+
   articleId$ = this.route.paramMap.pipe(
     map((params) => params.get('articleId')),
   );
 
-  constructor(private route: ActivatedRoute) {}
+  articleSubscription = new Subscription();
+
+  ngOnInit() {
+    console.log('Dispatching actions from LandingPageComponent');
+    this.articleSubscription = this.articleId$.subscribe((articleId) => {
+      if (articleId) {
+        this.store.dispatch(
+          getArticle({
+            slug: articleId,
+          }),
+        );
+      }
+    });
+  }
+
+  ngOnDestroy() {
+    this.articleSubscription.unsubscribe();
+  }
 }

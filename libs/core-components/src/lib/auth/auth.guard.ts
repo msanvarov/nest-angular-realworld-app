@@ -1,24 +1,37 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { map, take } from 'rxjs';
+import { iif, map, of, take } from 'rxjs';
 
-import { selectAuthUser } from '@starter/store';
+import { LocalStorageService, selectAuthUser } from '@starter/store';
 
 @Injectable({ providedIn: 'root' })
 export class AuthGuard {
-  constructor(private store: Store, private router: Router) {}
+  constructor(
+    private store: Store,
+    private router: Router,
+    private localStorageService: LocalStorageService,
+  ) {}
 
   canActivate() {
-    return this.store.select(selectAuthUser).pipe(
+    const webtokenFromStorage =
+      this.localStorageService.retrieveEntry('webtoken');
+
+    return iif(
+      () => !!webtokenFromStorage,
+      // If token exists in service
+      of(webtokenFromStorage),
+      // If not, check in the store
+      this.store.select(selectAuthUser).pipe(map((user) => user?.token)),
+    ).pipe(
       take(1),
-      map((user) => {
-        if (user) {
+      map((token) => {
+        // If token is present, grant access. Otherwise, redirect to login.
+        if (token) {
           return true;
-        } else {
-          this.router.navigate(['/login']);
-          return false;
         }
+        this.router.navigate(['/login']);
+        return false;
       }),
     );
   }

@@ -28,8 +28,8 @@ export class LoginFormComponent implements OnInit, OnDestroy {
   userSubscription: Subscription = new Subscription(); // For handling the subscription
 
   loginForm = new FormGroup({
-    email: new FormControl('', Validators.required),
-    password: new FormControl('', Validators.required),
+    email: new FormControl('mcoute@grr.la', Validators.required),
+    password: new FormControl('Mcoute25011313', Validators.required),
   });
 
   ngOnInit() {
@@ -55,6 +55,8 @@ export class LoginFormComponent implements OnInit, OnDestroy {
     if (this.loginForm.valid) {
       const { email, password } = this.loginForm.value;
       if (email && password) this.store.dispatch(login({ email, password }));
+    } else {
+      this.loginForm.markAllAsTouched();
     }
   }
 }

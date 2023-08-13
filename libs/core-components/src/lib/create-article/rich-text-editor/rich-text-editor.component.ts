@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 import { QuillConfiguration } from './quill-configuration';
@@ -11,7 +11,7 @@ export class RichTextEditorComponent implements OnInit {
   constructor() {}
 
   quillConfiguration = QuillConfiguration;
-  control = new FormControl();
+  @Input() control: FormControl = new FormControl('');
 
   ngOnInit() {}
 }

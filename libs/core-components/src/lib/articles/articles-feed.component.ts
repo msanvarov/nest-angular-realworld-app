@@ -5,7 +5,12 @@ import Fuse from 'fuse.js';
 import { BehaviorSubject, Subscription, switchMap } from 'rxjs';
 
 import { Article } from '@starter/realworld-oas';
-import { getArticles, selectArticleFeed, selectArticles } from '@starter/store';
+import {
+  favouriteArticle,
+  getArticles,
+  selectArticleFeed,
+  selectArticles,
+} from '@starter/store';
 
 import {
   ArticleSearchService,
@@ -135,6 +140,27 @@ export class ArticlesFeedComponent implements OnInit, OnDestroy {
         offset: offset,
       }),
     );
+  }
+
+  // Handle the favorite event from your article component
+  handleFavorite(article: Article): void {
+    console.log('handleFavorite', article);
+    // TODO: Handle unfavoriting
+    this.store.dispatch(favouriteArticle({ slug: article.slug }));
+    // increment the favorite count for the article
+    this.articles = this.articles.map((a) => {
+      if (a.article.slug === article.slug) {
+        return {
+          ...a,
+          article: {
+            ...a.article,
+            favoritesCount: a.article.favoritesCount + 1,
+            favorited: true,
+          },
+        };
+      }
+      return a;
+    });
   }
 
   // Handle the page change event from your pagination component

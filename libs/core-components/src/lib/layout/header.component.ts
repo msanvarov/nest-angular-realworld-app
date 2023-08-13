@@ -9,7 +9,7 @@ import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 
 import { IUserResponseBody } from '@starter/api-types';
-import { selectAuthUser } from '@starter/store';
+import { logout, selectAuthUser } from '@starter/store';
 
 @Component({
   selector: 'starter-header',
@@ -52,6 +52,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
     if (this.userSubscription) {
       this.userSubscription.unsubscribe();
     }
+  }
+
+  handleLogout() {
+    this.store.dispatch(logout());
   }
 
   handleNavbar() {

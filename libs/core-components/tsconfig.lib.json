@@ -5,7 +5,8 @@
     "declaration": true,
     "declarationMap": true,
     "inlineSources": true,
-    "types": []
+    "types": [],
+    "allowSyntheticDefaultImports": true
   },
   "exclude": [
     "src/**/*.spec.ts",
@@ -13,5 +14,5 @@
     "jest.config.ts",
     "src/**/*.test.ts"
   ],
-  "include": ["src/**/*.ts"]
+  "include": ["src/**/*.ts", "../store/src/lib/local-storage.service.ts"]
 }

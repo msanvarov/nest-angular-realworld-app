@@ -4,6 +4,7 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
 import { catchError, map, switchMap, tap } from 'rxjs/operators';
 
+// import { JwtService } from '@starter/core-components';
 import { UserAndAuthenticationService } from '@starter/realworld-oas';
 
 import * as AuthActions from './auth.actions';
@@ -12,7 +13,7 @@ import * as AuthActions from './auth.actions';
 export class AuthEffects {
   constructor(
     private actions$: Actions,
-    private usersService: UserAndAuthenticationService,
+    private usersService: UserAndAuthenticationService, // private jwtService: JwtService,
   ) {}
 
   login$ = createEffect(() =>
@@ -28,7 +29,11 @@ export class AuthEffects {
           })
           .pipe(
             map(({ user }) => {
-              localStorage.setItem('user', JSON.stringify(user));
+              // this.jwtService.persistWebtoken(user.token);
+              // this.apiConfiguration.credentials = {
+              //   Bearer: user.token,
+              // };
+
               return AuthActions.loginCompleted({ user });
             }),
             catchError(({ error }) =>
@@ -44,7 +49,8 @@ export class AuthEffects {
       this.actions$.pipe(
         ofType(AuthActions.logout),
         tap(() => {
-          localStorage.removeItem('user'); // Remove the token from localstorage
+          // this.jwtService.destroyWebtoken();
+          // this.apiConfiguration.credentials = {};
         }),
       ),
     { dispatch: false }, // No need to dispatch an action here

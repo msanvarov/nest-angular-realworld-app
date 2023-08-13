@@ -11,8 +11,7 @@ export const selectAuthError = createSelector(
 
 export const selectAuthUser = createSelector(
   selectAuthState,
-  (state: IAuthState) =>
-    state.user ?? JSON.parse(localStorage.getItem('user')!) ?? null,
+  (state: IAuthState) => state.user,
 );
 
 export const selectAuthLoading = createSelector(

@@ -5,6 +5,7 @@ import {
   login,
   loginCompleted,
   loginFailure,
+  logout,
   register,
   registerFailure,
   registrationCompleted,
@@ -21,6 +22,13 @@ export const authReducer = createReducer(
   initialState,
   on(login, (state) => ({ ...state, loading: true, error: null })),
   on(register, (state) => ({ ...state, loading: true, error: null })),
+  // Completed actions
+  on(logout, (state) => ({
+    ...state,
+    loading: false,
+    error: null,
+    user: null,
+  })),
   on(loginCompleted, (state, { user }) => ({ ...state, loading: false, user })),
   on(registrationCompleted, (state, { user }) => ({
     ...state,

@@ -2,6 +2,15 @@
 import { createReducer, on } from '@ngrx/store';
 
 import {
+  createArticle,
+  createArticleCompleted,
+  createArticleFailure,
+  favouriteArticle,
+  favouriteArticleCompleted,
+  favouriteArticleFailure,
+  getArticle,
+  getArticleCompleted,
+  getArticleFailure,
   getArticleFeed,
   getArticleFeedCompleted,
   getArticleFeedFailure,
@@ -19,8 +28,10 @@ import { ArticlesErrorCodesEnum, IArticlesState } from './articles.types';
 
 const initialState: IArticlesState = {
   articles: null,
+  article: null,
   feed: null,
   authoredArticles: null,
+  lastFavouritedArticle: null,
   tags: [],
   loading: false,
   error: null,
@@ -34,8 +45,29 @@ export const articlesReducer = createReducer(
     loading: true,
     error: null,
   })),
+  on(getArticle, (state) => ({ ...state, loading: true, error: null })),
+  on(getArticleCompleted, (state, { article }) => ({
+    ...state,
+    loading: false,
+    article,
+  })),
+  on(getArticleFailure, (state, { error }) => ({
+    ...state,
+    loading: false,
+    error: {
+      message: error,
+      code: ArticlesErrorCodesEnum.GET_ARTICLE_FAILED,
+    },
+  })),
   on(getArticleFeed, (state) => ({ ...state, loading: true, error: null })),
   on(getArticleTags, (state) => ({ ...state, loading: true, error: null })),
+  on(favouriteArticle, (state) => ({ ...state, loading: true, error: null })),
+  on(createArticle, (state) => ({ ...state, loading: true, error: null })),
+  on(createArticleCompleted, (state, { article }) => ({
+    ...state,
+    loading: false,
+    article,
+  })),
   on(getArticlesCompleted, (state, { articles }) => ({
     ...state,
     loading: false,
@@ -55,6 +87,19 @@ export const articlesReducer = createReducer(
     ...state,
     loading: false,
     tags,
+  })),
+  on(favouriteArticleCompleted, (state, { slug }) => ({
+    ...state,
+    loading: false,
+    lastFavouritedArticle: slug,
+  })),
+  on(createArticleFailure, (state, { error }) => ({
+    ...state,
+    loading: false,
+    error: {
+      message: error,
+      code: ArticlesErrorCodesEnum.CREATE_ARTICLE_FAILED,
+    },
   })),
   on(getArticlesFailure, (state, { error }) => ({
     ...state,
@@ -86,6 +131,14 @@ export const articlesReducer = createReducer(
     error: {
       message: error,
       code: ArticlesErrorCodesEnum.GET_ARTICLE_TAGS_FAILED,
+    },
+  })),
+  on(favouriteArticleFailure, (state, { error }) => ({
+    ...state,
+    loading: false,
+    error: {
+      message: error,
+      code: ArticlesErrorCodesEnum.FAVOURITE_ARTICLE_FAILED,
     },
   })),
 );

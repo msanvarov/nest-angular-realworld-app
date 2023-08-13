@@ -57,7 +57,7 @@ export class ArticlesRightNavComponent implements OnInit, OnDestroy {
   }
 
   onSearch(query: string) {
-    if (query === '') {
+    if (query === '' || query === null) {
       this.searchResults.emit(null);
     } else {
       const searchResults = this.articleSearchService.searchArticles(query);

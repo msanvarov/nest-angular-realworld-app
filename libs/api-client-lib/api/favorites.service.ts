@@ -114,7 +114,7 @@ export class FavoritesService {
         // authentication (Bearer) required
         localVarCredential = this.configuration.lookupCredential('Bearer');
         if (localVarCredential) {
-            localVarHeaders = localVarHeaders.set('Authorization', localVarCredential);
+            localVarHeaders = localVarHeaders.set('Authorization', 'Bearer ' + localVarCredential);
         }
 
         let localVarHttpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
@@ -180,7 +180,7 @@ export class FavoritesService {
         // authentication (Bearer) required
         localVarCredential = this.configuration.lookupCredential('Bearer');
         if (localVarCredential) {
-            localVarHeaders = localVarHeaders.set('Authorization', localVarCredential);
+            localVarHeaders = localVarHeaders.set('Authorization', 'Bearer ' + localVarCredential);
         }
 
         let localVarHttpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;

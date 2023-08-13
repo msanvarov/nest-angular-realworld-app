@@ -5,7 +5,7 @@ import {
   searchForWorkspaceRoot,
   splitVendorChunkPlugin,
 } from 'vite';
-import tsConfigPaths from 'vite-tsconfig-paths';
+import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
@@ -17,9 +17,7 @@ export default defineConfig(({ mode }) => {
     },
     plugins: [
       analog(),
-      tsConfigPaths({
-        root: '../../',
-      }),
+      nxViteTsPaths(),
       splitVendorChunkPlugin(),
     ],
     test: {

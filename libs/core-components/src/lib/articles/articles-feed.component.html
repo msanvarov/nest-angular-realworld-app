@@ -45,7 +45,7 @@
         <div class="blog__wrapper">
           <div class="row">
             <div
-              *ngFor="let blog of articles"
+              *ngFor="let article of articles"
               class="col-xxl-6 col-xl-6 col-lg-12 col-md-6"
             >
               <div class="blog__grid-item mb-30">
@@ -59,18 +59,18 @@
                 </div> -->
                 <div class="blog__grid-content">
                   <div class="blog__grid-tag">
-                    <a [routerLink]="['/blog-details']">{{
-                      blog.article.tagList
+                    <a [routerLink]="['/article', article.article.slug]">{{
+                      article.article.tagList
                     }}</a>
                   </div>
 
                   <h3 class="blog__grid-title">
                     <a
-                      [routerLink]="['/blog-details']"
+                      [routerLink]="['/article', article.article.slug]"
                       [innerHTML]="
                         highlightMatches(
-                          blog.article.title,
-                          blog.matches,
+                          article.article.title,
+                          article.matches,
                           'title'
                         )
                       "
@@ -85,23 +85,31 @@
                       )
                     "
                   ></p> -->
-                  <p>{{ blog.article.description }}</p>
+                  <p>{{ article.article.description }}</p>
                   <div class="blog__grid-author d-flex align-items-center">
                     <div class="blog__grid-author-thumb mr-10">
                       <a href="#">
                         <!-- Remark: Not unknown but of type UserEntity -->
-                        <img src="{{ blog.article.author.image }}" alt="" />
+                        <img src="{{ article.article.author.image }}" alt="" />
                       </a>
                     </div>
                     <div class="blog__grid-author-info">
                       <h4>
-                        <a href="#">{{ blog.article.author.username }}</a>
+                        <a href="#">{{ article.article.author.username }}</a>
                       </h4>
-                      <p>{{ blog.article.createdAt }} • 1 min read</p>
+                      <p>
+                        {{
+                          article.article.createdAt | dateFormat: 'L hh:mm a'
+                        }}
+                        • 1 min read
+                      </p>
                     </div>
-                    <button class="btn btn-primary btn-sm ms-4">
+                    <button
+                      class="btn btn-primary btn-sm ms-4"
+                      (click)="handleFavorite(article.article)"
+                    >
                       <i class="fa fa-heart"></i>
-                      {{ blog.article.favoritesCount }}
+                      {{ article.article.favoritesCount }}
                     </button>
                   </div>
                 </div>

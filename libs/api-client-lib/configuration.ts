@@ -90,11 +90,9 @@ export class Configuration {
         // init default Bearer credential
         if (!this.credentials['Bearer']) {
             this.credentials['Bearer'] = () => {
-                if (this.apiKeys === null || this.apiKeys === undefined) {
-                    return undefined;
-                } else {
-                    return this.apiKeys['Bearer'] || this.apiKeys['Authorization'];
-                }
+                return typeof this.accessToken === 'function'
+                    ? this.accessToken()
+                    : this.accessToken;
             };
         }
     }

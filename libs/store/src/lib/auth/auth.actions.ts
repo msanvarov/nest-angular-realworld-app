@@ -1,14 +1,11 @@
 import { createAction, props } from '@ngrx/store';
 
 import { IUserResponseBody } from '@starter/api-types';
-import { UserLoginDto, UserRegistrationDto } from '@starter/realworld-oas';
+import { LoginUser, NewUser } from '@starter/realworld-oas';
 
-export const login = createAction('[Auth] Login', props<UserLoginDto>());
+export const login = createAction('[Auth] Login', props<LoginUser>());
 
-export const register = createAction(
-  '[Auth] Register',
-  props<UserRegistrationDto>(),
-);
+export const register = createAction('[Auth] Register', props<NewUser>());
 
 export const logout = createAction('[Auth] Logout');
 

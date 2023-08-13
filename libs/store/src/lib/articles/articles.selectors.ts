@@ -10,6 +10,11 @@ export const selectArticlesError = createSelector(
   (state: IArticlesState) => state.error,
 );
 
+export const selectArticle = createSelector(
+  selectArticlesState,
+  (state: IArticlesState) => state.article,
+);
+
 export const selectArticles = createSelector(
   selectArticlesState,
   (state: IArticlesState) => state.articles,
@@ -27,4 +32,9 @@ export const selectArticleTags = createSelector(
 export const selectAuthoredArticles = createSelector(
   selectArticlesState,
   (state: IArticlesState) => state.authoredArticles,
+);
+
+export const selectLastFavouritedArticle = createSelector(
+  selectArticlesState,
+  (state: IArticlesState) => state.lastFavouritedArticle,
 );
