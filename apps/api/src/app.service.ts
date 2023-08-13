@@ -25,7 +25,7 @@ export class AppService {
     this.logger.info('Calling getRootMessage -> ', AppService.name);
 
     return {
-      message: 'Welcome to api! Navigate to api/v1/docs for documentation.',
+      message: 'Welcome to api! Navigate to api/docs for documentation.',
     };
   }
 }
