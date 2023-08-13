@@ -90,6 +90,7 @@ export class ArticleController {
    * Route to get a single article
    * @param {string} slug the article slug
    */
+  @Public()
   @Get(':slug')
   @ApiResponse({
     status: 200,
