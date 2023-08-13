@@ -8,9 +8,9 @@
       "executor": "@nx/vite:build",
       "outputs": [
         "{options.outputPath}",
-        "dist/apps/ui/.nitro",
-        "dist/apps/ui/ssr",
-        "dist/apps/ui/analog"
+        "{workspaceRoot}/dist/apps/ui/.nitro",
+        "{workspaceRoot}/dist/apps/ui/ssr",
+        "{workspaceRoot}/dist/apps/ui/analog"
       ],
       "options": {
         "main": "apps/ui/src/main.ts",
@@ -61,7 +61,7 @@
     },
     "test": {
       "executor": "@nx/vite:test",
-      "outputs": ["apps/ui/coverage"]
+      "outputs": ["{projectRoot}/coverage"]
     }
   },
   "tags": []

@@ -24,7 +24,7 @@ export class ArticleEntity {
   @Column({ default: 'Default description' })
   description: string;
 
-  @Column({ type: 'mediumtext' })
+  @Column({ type: 'text' })
   body: string;
 
   @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
