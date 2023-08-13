@@ -152,6 +152,7 @@
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
+                                    <span class="modifier"></span>
                                     <span class="modifier">Async</span>
                                 <a href="#getArticle" >getArticle</a>
                             </li>
@@ -242,8 +243,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="170"
-                            class="link-to-prism">apps/api/src/article/article.controller.ts:170</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="171"
+                            class="link-to-prism">apps/api/src/article/article.controller.ts:171</a></div>
                 </td>
             </tr>
 
@@ -453,8 +454,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="140"
-                            class="link-to-prism">apps/api/src/article/article.controller.ts:140</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="141"
+                            class="link-to-prism">apps/api/src/article/article.controller.ts:141</a></div>
                 </td>
             </tr>
 
@@ -558,8 +559,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="239"
-                            class="link-to-prism">apps/api/src/article/article.controller.ts:239</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="240"
+                            class="link-to-prism">apps/api/src/article/article.controller.ts:240</a></div>
                 </td>
             </tr>
 
@@ -654,8 +655,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="195"
-                            class="link-to-prism">apps/api/src/article/article.controller.ts:195</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="196"
+                            class="link-to-prism">apps/api/src/article/article.controller.ts:196</a></div>
                 </td>
             </tr>
 
@@ -762,8 +763,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="216"
-                            class="link-to-prism">apps/api/src/article/article.controller.ts:216</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="217"
+                            class="link-to-prism">apps/api/src/article/article.controller.ts:217</a></div>
                 </td>
             </tr>
 
@@ -833,6 +834,7 @@
                         <span class="modifier"></span>
                         <span class="modifier"></span>
                         <span class="modifier"></span>
+                        <span class="modifier"></span>
                         <span class="modifier">Async</span>
                         <span ><b>getArticle</b></span>
                         <a href="#getArticle"><span class="icon ion-ios-link"></span></a>
@@ -850,14 +852,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Get(&#x27;:slug&#x27;)<br />@ApiResponse({status: 200, description: &#x27;Get Article Request Completed&#x27;})<br />@ApiResponse({status: 400, description: &#x27;Get Article Bad Request&#x27;})<br />@ApiResponse({status: 401, description: &#x27;Unauthorized&#x27;})<br /></code>
+                    <code>@Public()<br />@Get(&#x27;:slug&#x27;)<br />@ApiResponse({status: 200, description: &#x27;Get Article Request Completed&#x27;})<br />@ApiResponse({status: 400, description: &#x27;Get Article Bad Request&#x27;})<br />@ApiResponse({status: 401, description: &#x27;Unauthorized&#x27;})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="100"
-                            class="link-to-prism">apps/api/src/article/article.controller.ts:100</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="101"
+                            class="link-to-prism">apps/api/src/article/article.controller.ts:101</a></div>
                 </td>
             </tr>
 
@@ -1028,8 +1030,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="154"
-                            class="link-to-prism">apps/api/src/article/article.controller.ts:154</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="155"
+                            class="link-to-prism">apps/api/src/article/article.controller.ts:155</a></div>
                 </td>
             </tr>
 
@@ -1206,8 +1208,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="114"
-                            class="link-to-prism">apps/api/src/article/article.controller.ts:114</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="115"
+                            class="link-to-prism">apps/api/src/article/article.controller.ts:115</a></div>
                 </td>
             </tr>
 
@@ -1375,6 +1377,7 @@ export class ArticleController {
    * Route to get a single article
    * @param {string} slug the article slug
    */
+  @Public()
   @Get(&#x27;:slug&#x27;)
   @ApiResponse({
     status: 200,
