@@ -1,10 +1,14 @@
 <h1 align="center">Realworld App</h1>
 
 <p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
+  <a href="https://www.realworld.how/" target="blank"><img src="https://www.realworld.how/img/realworld-logo.png" width="100" alt="realworld" /></a>
+  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="200" alt="nest" /></a>
+  <a href="https://angular.io/" target="blank"><img src="https://angular.io/assets/images/logos/angular/angular.svg" width="100" alt="angular" /></a>
 </p>
 
-<p align="center">A progressive <a href="http://nodejs.org" target="blank">Node.js</a> framework for building efficient and scalable server-side applications, heavily inspired by <a href="https://angular.io" target="blank">Angular</a>.</p>
+<p align="center">
+A full-stack <a href="http://nodejs.org" target="blank">Node.js</a> application built with <a href="https://angular.io" target="blank">Angular</a>, and <a href="http://nestjs.com" target="blank">Nest</a> following the <a href="https://www.realworld.how/docs/specs/backend-specs/introduction/" target="blank">Realworld OAS</a>.
+</p>
 
 <p align="center">
 	<a href="https://www.npmjs.com/~nestjscore"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
@@ -31,7 +35,7 @@ Table of Contents:
 
 ### 📚 Description
 
-This boilerplate is made to quickly prototype backend applications. It comes with authentication/authorization, logging, crud features and database persistence out of the box.
+This application is template from [Sals' NEST REST TYPEORM STARTER](https://github.com/msanvarov/nest-rest-typeorm-boilerplate) which was made to quickly prototype backend applications. Deployed with authentication/authorization, logging, crud features and database persistence out of the box.
 
 ---
 
@@ -53,21 +57,21 @@ This boilerplate is made to quickly prototype backend applications. It comes wit
 
 #### Manual Deployment without Docker
 
-- Clone the repo via `git clone https://github.com/msanvarov/nest-rest-typeorm-boilerplate`.
+- Clone the repo via `git clone https://github.com/msanvarov/realworld-app`.
 
 - Download dependencies via `npm i` or `yarn`.
 
 - Create a **.env file** via the `cp .env.example .env` command and replace the existing environment variable placeholders with valid responses.
 
-- Start the api in development mode by using `npm run start` (the app will be exposed on http://localhost:3333; not to conflict with React, Angular, or Vue ports).
+- Start the api in development mode by using `npm run start` (the api will be exposed on http://localhost:3333, and the **default ui** will be exposed on http://localhost:4200).
 
 <details open>
-<summary>Optional deployment of the UI</summary>
+<summary>Deployment of the Custom UI</summary>
 <br>
 
-- This repo comes with a UI built with [Angular](https://angular.io/) - that can be accessed via `http://localhost:4200`.
+- This repo comes with a custom UI built with [Angular](https://angular.io/) - that can be accessed via `http://localhost:4201`. This is different from the default UI that comes with the Realworld OAS.
 
-- To start the UI, start a new terminal window and run `npm run start --project ui`.
+- To start the UI, start a new terminal window and run `npm run ng serve -- --project ui`.
 
 > Remark: In the docker deployment, the UI is automatically started and served by the API.
 
@@ -113,7 +117,7 @@ By default, the application comes with a config module that can read in every en
 
 ### 🏗 Choosing a Web Framework
 
-This boilerplate comes with [Fastify](https://github.com/fastify/fastify) out of the box as it offers [performance benefits](https://github.com/nestjs/nest/blob/master/benchmarks/all_output.txt) over Express. But the Express adapter is still accessible on a [different branch](https://github.com/msanvarov/nest-rest-typeorm-boilerplate/tree/express).
+This boilerplate comes with [Fastify](https://github.com/fastify/fastify) out of the box as it offers [performance benefits](https://github.com/nestjs/nest/blob/master/benchmarks/all_output.txt) over Express. But the Express adapter is still accessible on a [different branch](https://github.com/msanvarov/realworld-app/tree/express).
 
 ---
 
@@ -129,7 +133,7 @@ By default **MYSQL/MariaDB** are the database of choice but TypeORM supports oth
 
 ### 🦾 HTTP/2
 
-Luckily, Fastify can enable HTTP2 over either HTTPS (h2) or plaintext (h2c) out of the box. This boilerplate makes use of this on the [feat/http2 branch](https://github.com/msanvarov/nest-rest-typeorm-boilerplate/tree/feat/http2) where a self-signed certificate was created for testing this capability. The certificate is located in the [certs folder](https://github.com/msanvarov/nest-rest-typeorm-boilerplate/tree/feat/http2/apps/api/src/assets/certs). **For production, please use a valid certificate.**
+Luckily, Fastify can enable HTTP2 over either HTTPS (h2) or plaintext (h2c) out of the box. This boilerplate makes use of this on the [feat/http2 branch](https://github.com/msanvarov/realworld-app/tree/feat/http2) where a self-signed certificate was created for testing this capability. The certificate is located in the [certs folder](https://github.com/msanvarov/realworld-app/tree/feat/http2/apps/api/src/assets/certs). **For production, please use a valid certificate.**
 
 The self signed certificate can be generated via OpenSSL:
 
@@ -188,9 +192,11 @@ $ npm run typedocs:api:start
 
 ### 📝 Open API
 
-Out of the box, the web app comes with Swagger; an [open api specification](https://swagger.io/specification/), that is used to describe RESTful APIs. Nest provides a [dedicated module to work with it](https://docs.nestjs.com/openapi/introduction).
+Out of the box, the web app comes with OAS; an [open api specification](https://swagger.io/specification/), that is used to describe RESTful APIs. Nest provides a [dedicated module to work with it](https://docs.nestjs.com/openapi/introduction).
 
-The configuration for Swagger can be found at this [location](https://github.com/msanvarov/nest-rest-typeorm-boilerplate/blob/master/apps/api/src/main.ts).
+The configuration for OAS can be found at this [location](https://github.com/msanvarov/realworld-app/blob/master/apps/api/src/main.ts).
+
+The client lib is generated with [OpenAPI Generator](https://openapi-generator.tech/) to be compatible with the UI application out of the box. The reference OAS yaml file can be found at this [location](https://github.com/msanvarov/realworld-app/blob/master/openapi/realworld-openapi.yaml).
 
 ---
 
@@ -198,22 +204,22 @@ The configuration for Swagger can be found at this [location](https://github.com
 
 TypeORM is an object-relational mapping that acts as an abstraction layer over operations on databases. Please view the [documentation](https://typeorm.io/#/) for further details.
 
-The configuration for TypeORM can be found in the [app module](https://github.com/msanvarov/nest-rest-typeorm-boilerplate/blob/master/apps/api/src/app.module.ts#L33-L51).
+The configuration for TypeORM can be found in the [app module](https://github.com/msanvarov/realworld-app/blob/master/apps/api/src/app.module.ts#L33-L51).
 
 ---
 
 ### 🔊 Logs
 
-This boilerplate comes with a Winston module for **extensive logging**, the configurations for Winston can be found in the [app module](https://github.com/msanvarov/nest-rest-typeorm-boilerplate/blob/master/apps/api/src/app.module.ts#L52-L89).
+This boilerplate comes with a Winston module for **extensive logging**, the configurations for Winston can be found in the [app module](https://github.com/msanvarov/realworld-app/blob/master/apps/api/src/app.module.ts#L52-L89).
 
 ---
 
 ### 🏗️ Progress
 
-|                                                                       Branches | Status |
-| -----------------------------------------------------------------------------: | :----- |
-|             [main](https://github.com/msanvarov/nest-rest-typeorm-boilerplate) | ✅     |
-| [feat/\*](https://github.com/msanvarov/nest-rest-typeorm-boilerplate/branches) | 🚧     |
+|                                                       Branches | Status |
+| -------------------------------------------------------------: | :----- |
+|             [main](https://github.com/msanvarov/realworld-app) | ✅     |
+| [feat/\*](https://github.com/msanvarov/realworld-app/branches) | 🚧     |
 
 <!-- > Remark: This template was employed to create a [Real World example app](https://github.com/gothinkster/realworld) on [Github](). -->
 
