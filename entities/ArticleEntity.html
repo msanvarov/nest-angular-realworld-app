@@ -201,7 +201,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @Column({type: &#x27;mediumtext&#x27;})<br />
+                            @Column({type: &#x27;text&#x27;})<br />
                         </code>
                     </td>
                 </tr>
@@ -569,7 +569,7 @@ export class ArticleEntity {
   @Column({ default: &#x27;Default description&#x27; })
   description: string;
 
-  @Column({ type: &#x27;mediumtext&#x27; })
+  @Column({ type: &#x27;text&#x27; })
   body: string;
 
   @Column({ type: &#x27;timestamp&#x27;, default: () &#x3D;&gt; &#x27;CURRENT_TIMESTAMP&#x27; })
