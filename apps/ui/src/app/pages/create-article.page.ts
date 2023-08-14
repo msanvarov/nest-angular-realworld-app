@@ -1,6 +1,7 @@
 import { RouteMeta } from '@analogjs/router';
 import { Component } from '@angular/core';
 
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { AuthGuard, CoreComponentsModule } from '@starter/core-components';
 
 export const routeMeta: RouteMeta = {
@@ -10,7 +11,7 @@ export const routeMeta: RouteMeta = {
 };
 
 @Component({
-  selector: 'ui-create-article-page',
+  selector: 'starter-ui-create-article-page',
   standalone: true,
   imports: [CoreComponentsModule],
   template: `

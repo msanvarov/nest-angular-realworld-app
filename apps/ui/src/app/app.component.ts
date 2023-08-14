@@ -4,7 +4,7 @@ import { RouterOutlet } from '@angular/router';
 import { CoreComponentsModule } from '@starter/core-components';
 
 @Component({
-  selector: 'ui-root',
+  selector: 'starter-ui-root',
   standalone: true,
   imports: [CoreComponentsModule, RouterOutlet],
   template: `

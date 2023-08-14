@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { RouteMeta } from '@analogjs/router';
 import { Component } from '@angular/core';
 
@@ -10,7 +11,7 @@ export const routeMeta: RouteMeta = {
 };
 
 @Component({
-  selector: 'ui-options-page',
+  selector: 'starter-ui-options-page',
   standalone: true,
   imports: [CoreComponentsModule],
   template: `

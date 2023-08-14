@@ -97,7 +97,7 @@
 
     <div class="row">
       <div class="col-xs-12 col-md-8 offset-md-2">
-        <div *appShowAuthed="true">
+        <div *starterAppShowAuthed="true">
           <starter-list-errors
             [errors]="commentFormErrors"
           ></starter-list-errors>
@@ -124,7 +124,7 @@
           </form>
         </div>
 
-        <div *appShowAuthed="false">
+        <div *starterAppShowAuthed="false">
           <a [routerLink]="['/login']">Sign in</a> or
           <a [routerLink]="['/register']">sign up</a> to add comments on this
           article.

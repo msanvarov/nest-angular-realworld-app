@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'ui-analog-welcome',
+  selector: 'starter-ui-analog-welcome',
   standalone: true,
   styles: [
     `

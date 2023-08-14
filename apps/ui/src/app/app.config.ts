@@ -15,6 +15,7 @@ import {
   UserEffects,
   articlesReducer,
   authReducer,
+  profilesReducer,
   userReducer,
 } from '@starter/store';
 
@@ -22,6 +23,7 @@ const reducers = {
   auth: authReducer,
   articles: articlesReducer,
   user: userReducer,
+  profiles: profilesReducer,
 };
 
 export const appConfig: ApplicationConfig = {

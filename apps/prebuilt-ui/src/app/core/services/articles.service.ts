@@ -1,16 +1,18 @@
-import { Injectable } from "@angular/core";
-import { HttpClient, HttpParams } from "@angular/common/http";
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { ArticleListConfig } from "../models/article-list-config.model";
-import { Article } from "../models/article.model";
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
-@Injectable({ providedIn: "root" })
+import { ArticleListConfig } from '../models/article-list-config.model';
+import { Article } from '../models/article.model';
+
+@Injectable({ providedIn: 'root' })
 export class ArticlesService {
   constructor(private readonly http: HttpClient) {}
 
   query(
-    config: ArticleListConfig
+    config: ArticleListConfig,
   ): Observable<{ articles: Article[]; articlesCount: number }> {
     // Convert any filters over to Angular's URLSearchParams
     let params = new HttpParams();
@@ -21,8 +23,8 @@ export class ArticlesService {
     });
 
     return this.http.get<{ articles: Article[]; articlesCount: number }>(
-      "/articles" + (config.type === "feed" ? "/feed" : ""),
-      { params }
+      '/articles' + (config.type === 'feed' ? '/feed' : ''),
+      { params },
     );
   }
 
@@ -38,7 +40,7 @@ export class ArticlesService {
 
   create(article: Partial<Article>): Observable<Article> {
     return this.http
-      .post<{ article: Article }>("/articles/", { article: article })
+      .post<{ article: Article }>('/articles/', { article: article })
       .pipe(map((data) => data.article));
   }
 

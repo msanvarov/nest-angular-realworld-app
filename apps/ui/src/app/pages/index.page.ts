@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { RouteMeta } from '@analogjs/router';
 import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -17,7 +18,7 @@ export const routeMeta: RouteMeta = {
 };
 
 @Component({
-  selector: 'ui-landing-page',
+  selector: 'starter-ui-landing-page',
   standalone: true,
   imports: [CoreComponentsModule, RouterModule],
   template: `

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { RouteMeta } from '@analogjs/router';
 import { Component } from '@angular/core';
 
@@ -13,7 +14,7 @@ export const routeMeta: RouteMeta = {
 };
 
 @Component({
-  selector: 'ui-login-page',
+  selector: 'starter-ui-login-page',
   standalone: true,
   imports: [CoreComponentsModule],
   template: `

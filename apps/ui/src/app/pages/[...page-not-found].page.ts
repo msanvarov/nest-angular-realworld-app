@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'ui-page-not-found',
+  selector: 'starter-ui-page-not-found',
   standalone: true,
   imports: [RouterLink],
   template: `

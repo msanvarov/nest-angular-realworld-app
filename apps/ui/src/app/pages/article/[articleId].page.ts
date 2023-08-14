@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { RouteMeta } from '@analogjs/router';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -14,7 +15,7 @@ export const routeMeta: RouteMeta = {
 };
 
 @Component({
-  selector: 'ui-article-page',
+  selector: 'starter-ui-article-page',
   standalone: true,
   imports: [CoreComponentsModule],
   template: ` <starter-article></starter-article> `,
