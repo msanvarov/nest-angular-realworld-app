@@ -24,55 +24,55 @@
 <title>cluster_UsersModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="47,-70 47,-195 449,-195 449,-70 47,-70"/>
 </g>
-<g id="clust3" class="cluster">
-<title>cluster_UsersModule_imports</title>
-<polygon fill="none" stroke="black" points="337,-78 337,-130 441,-130 441,-78 337,-78"/>
-</g>
 <g id="clust6" class="cluster">
 <title>cluster_UsersModule_providers</title>
-<polygon fill="none" stroke="black" points="55,-78 55,-130 329,-130 329,-78 55,-78"/>
+<polygon fill="none" stroke="black" points="167,-78 167,-130 441,-130 441,-78 167,-78"/>
+</g>
+<g id="clust3" class="cluster">
+<title>cluster_UsersModule_imports</title>
+<polygon fill="none" stroke="black" points="55,-78 55,-130 159,-130 159,-78 55,-78"/>
 </g>
 <!-- AuthModule -->
 <g id="node1" class="node">
 <title>AuthModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="432.55,-122 429.55,-126 408.55,-126 405.55,-122 345.45,-122 345.45,-86 432.55,-86 432.55,-122"/>
-<text text-anchor="middle" x="389" y="-99.8" font-family="Times,serif" font-size="14.00">AuthModule</text>
+<polygon fill="#8dd3c7" stroke="black" points="150.55,-122 147.55,-126 126.55,-126 123.55,-122 63.45,-122 63.45,-86 150.55,-86 150.55,-122"/>
+<text text-anchor="middle" x="107" y="-99.8" font-family="Times,serif" font-size="14.00">AuthModule</text>
 </g>
 <!-- UsersModule -->
 <g id="node2" class="node">
 <title>UsersModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="308.92,-187 305.92,-191 284.92,-191 281.92,-187 217.08,-187 217.08,-151 308.92,-151 308.92,-187"/>
-<text text-anchor="middle" x="263" y="-164.8" font-family="Times,serif" font-size="14.00">UsersModule</text>
+<polygon fill="#8dd3c7" stroke="black" points="282.92,-187 279.92,-191 258.92,-191 255.92,-187 191.08,-187 191.08,-151 282.92,-151 282.92,-187"/>
+<text text-anchor="middle" x="237" y="-164.8" font-family="Times,serif" font-size="14.00">UsersModule</text>
 </g>
 <!-- AuthModule&#45;&gt;UsersModule -->
 <g id="edge1" class="edge">
 <title>AuthModule&#45;&gt;UsersModule</title>
-<path fill="none" stroke="black" d="M389,-122.11C389,-141.34 389,-169 389,-169 389,-169 318.85,-169 318.85,-169"/>
-<polygon fill="black" stroke="black" points="318.85,-165.5 308.85,-169 318.85,-172.5 318.85,-165.5"/>
+<path fill="none" stroke="black" d="M107,-122.11C107,-141.34 107,-169 107,-169 107,-169 181.17,-169 181.17,-169"/>
+<polygon fill="black" stroke="black" points="181.17,-172.5 191.17,-169 181.17,-165.5 181.17,-172.5"/>
 </g>
 <!-- CaslFactory -->
 <g id="node3" class="node">
 <title>CaslFactory</title>
-<ellipse fill="#fdb462" stroke="black" cx="263" cy="-104" rx="57.9" ry="18"/>
-<text text-anchor="middle" x="263" y="-99.8" font-family="Times,serif" font-size="14.00">CaslFactory</text>
+<ellipse fill="#fdb462" stroke="black" cx="375" cy="-104" rx="57.9" ry="18"/>
+<text text-anchor="middle" x="375" y="-99.8" font-family="Times,serif" font-size="14.00">CaslFactory</text>
 </g>
 <!-- CaslFactory&#45;&gt;UsersModule -->
 <g id="edge2" class="edge">
 <title>CaslFactory&#45;&gt;UsersModule</title>
-<path fill="none" stroke="black" d="M263,-122.11C263,-122.11 263,-140.99 263,-140.99"/>
-<polygon fill="black" stroke="black" points="259.5,-140.99 263,-150.99 266.5,-140.99 259.5,-140.99"/>
+<path fill="none" stroke="black" d="M375,-122.11C375,-141.34 375,-169 375,-169 375,-169 292.95,-169 292.95,-169"/>
+<polygon fill="black" stroke="black" points="292.95,-165.5 282.95,-169 292.95,-172.5 292.95,-165.5"/>
 </g>
 <!-- UsersService -->
 <g id="node4" class="node">
 <title>UsersService</title>
-<ellipse fill="#fdb462" stroke="black" cx="125" cy="-104" rx="61.95" ry="18"/>
-<text text-anchor="middle" x="125" y="-99.8" font-family="Times,serif" font-size="14.00">UsersService</text>
+<ellipse fill="#fdb462" stroke="black" cx="237" cy="-104" rx="61.95" ry="18"/>
+<text text-anchor="middle" x="237" y="-99.8" font-family="Times,serif" font-size="14.00">UsersService</text>
 </g>
 <!-- UsersService&#45;&gt;UsersModule -->
 <g id="edge3" class="edge">
 <title>UsersService&#45;&gt;UsersModule</title>
-<path fill="none" stroke="black" d="M125,-122.11C125,-141.34 125,-169 125,-169 125,-169 207.05,-169 207.05,-169"/>
-<polygon fill="black" stroke="black" points="207.05,-172.5 217.05,-169 207.05,-165.5 207.05,-172.5"/>
+<path fill="none" stroke="black" d="M237,-122.11C237,-122.11 237,-140.99 237,-140.99"/>
+<polygon fill="black" stroke="black" points="233.5,-140.99 237,-150.99 240.5,-140.99 233.5,-140.99"/>
 </g>
 </g>
 </svg>
