@@ -1,35 +1,32 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { getRepositoryToken } from '@nestjs/typeorm';
+import { MockFunctionMetadata, ModuleMocker } from 'jest-mock';
 
-import { CaslFactory } from '../casl/casl.factory';
-import { UserRoles } from './user-role.entity';
-import { UserEntity } from './user.entity';
+import { AuthService } from '../auth/auth.service';
 import { UsersController } from './users.controller';
 import { UsersService } from './users.service';
+
+const moduleMocker = new ModuleMocker(global);
 
 describe('UsersController', () => {
   let controller: UsersController;
 
-  const mockedUserRepository = {};
-
-  const mockedUserRolesRepository = {};
-
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       controllers: [UsersController],
-      providers: [
-        CaslFactory,
-        UsersService,
-        {
-          provide: getRepositoryToken(UserEntity),
-          useValue: mockedUserRepository,
-        },
-        {
-          provide: getRepositoryToken(UserRoles),
-          useValue: mockedUserRolesRepository,
-        },
-      ],
-    }).compile();
+    })
+      .useMocker((token) => {
+        if (token === AuthService || token === UsersService) {
+          return {};
+        }
+        if (typeof token === 'function') {
+          const mockMetadata = moduleMocker.getMetadata(
+            token,
+          ) as MockFunctionMetadata<any, any>;
+          const Mock = moduleMocker.generateFromMetadata(mockMetadata);
+          return new Mock();
+        }
+      })
+      .compile();
 
     controller = module.get<UsersController>(UsersController);
   });

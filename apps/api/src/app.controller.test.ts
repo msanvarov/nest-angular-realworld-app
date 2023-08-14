@@ -17,16 +17,16 @@ describe('AppController', () => {
       .useMocker((token) => {
         if (token === AppService) {
           return {
-            startingMessage: jest.fn().mockResolvedValue({
+            getRootMessage: jest.fn().mockResolvedValue({
               message:
-                'Welcome to api! Navigate to api/v1/docs for documentation.',
+                'Welcome to api! Navigate to api/docs for documentation.',
             }),
           };
         }
         if (typeof token === 'function') {
           const mockMetadata = moduleMocker.getMetadata(
             token,
-          ) as MockFunctionMetadata<unknown, unknown[]>;
+          ) as MockFunctionMetadata<any, any>;
           const Mock = moduleMocker.generateFromMetadata(mockMetadata);
           return new Mock();
         }
@@ -41,9 +41,9 @@ describe('AppController', () => {
   });
 
   describe('getStartingMessage', () => {
-    it('should return "Welcome to api! Navigate to api/v1/docs for documentation."', async () => {
+    it('should return "Welcome to api! Navigate to api/docs for documentation."', async () => {
       expect(await controller.getRootMessage()).toEqual({
-        message: 'Welcome to api! Navigate to api/v1/docs for documentation.',
+        message: 'Welcome to api! Navigate to api/docs for documentation.',
       });
     });
   });
