@@ -123,7 +123,7 @@ This boilerplate comes with [Fastify](https://github.com/fastify/fastify) out of
 
 ### 💾 Choosing a Database
 
-By default **MYSQL/MariaDB** are the database of choice but TypeORM supports other database types like SQLite, Postgres, MongoDB, and MSSQL. To use anything other than MYSQL/MariaDB, change the configuration in the `.env` file, and download the corresponding wrapper library, like [SQLite3](https://www.npmjs.com/package/sqlite3).
+By default **PostgreSQL** is the database of choice but TypeORM supports other database types like SQLite, MySQL/MariaDB, MongoDB, and MSSQL. To use anything other than MYSQL/MariaDB, change the configuration in the `.env` file, and download the corresponding wrapper library, like [SQLite3](https://www.npmjs.com/package/sqlite3).
 
 > Check https://typeorm.io/ for supported database types.
 
