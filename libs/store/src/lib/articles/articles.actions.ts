@@ -84,6 +84,28 @@ export const favouriteArticle = createAction(
   }>(),
 );
 
+export const unfavouriteArticle = createAction(
+  '[Articles] Unfavourite Article',
+  props<{
+    slug: string;
+  }>(),
+);
+
+export const unfavouriteArticleCompleted = createAction(
+  '[Articles] Unfavourite Article Completed',
+  props<{
+    slug: string;
+  }>(),
+);
+
+export const unfavouriteArticleFailure = createAction(
+  '[Articles] Unfavourite Article Failure',
+  props<{
+    error: string;
+    statusCode?: number;
+  }>(),
+);
+
 export const favouriteArticleCompleted = createAction(
   '[Articles] Favourite Article Completed',
   props<{

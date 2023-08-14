@@ -11,6 +11,7 @@ import { BASE_PATH } from '@starter/realworld-oas';
 import {
   ArticlesEffects,
   AuthEffects,
+  ProfilesEffects,
   UserEffects,
   articlesReducer,
   authReducer,
@@ -32,6 +33,11 @@ export const appConfig: ApplicationConfig = {
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     provideStore(reducers),
     provideStoreDevtools(),
-    provideEffects([AuthEffects, ArticlesEffects, UserEffects]),
+    provideEffects([
+      AuthEffects,
+      ArticlesEffects,
+      UserEffects,
+      ProfilesEffects,
+    ]),
   ],
 };

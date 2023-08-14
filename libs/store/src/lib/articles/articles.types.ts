@@ -15,6 +15,7 @@ export interface IArticlesState {
   article: Article | null;
   feed: GetArticlesFeed200Response | null;
   authoredArticles: GetArticlesFeed200Response | null;
+  favouredArticles: string[];
   lastFavouritedArticle: string | null;
   tags: string[] | null;
   loading: boolean;

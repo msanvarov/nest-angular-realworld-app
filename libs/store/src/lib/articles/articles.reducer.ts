@@ -32,6 +32,7 @@ const initialState: IArticlesState = {
   feed: null,
   authoredArticles: null,
   lastFavouritedArticle: null,
+  favouredArticles: [],
   tags: [],
   loading: false,
   error: null,
@@ -92,6 +93,7 @@ export const articlesReducer = createReducer(
     ...state,
     loading: false,
     lastFavouritedArticle: slug,
+    favouredArticles: [...state.favouredArticles, slug],
   })),
   on(createArticleFailure, (state, { error }) => ({
     ...state,

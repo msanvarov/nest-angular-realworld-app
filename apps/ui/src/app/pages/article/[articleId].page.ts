@@ -29,7 +29,6 @@ export default class ArticlePageComponent implements OnInit, OnDestroy {
   articleSubscription = new Subscription();
 
   ngOnInit() {
-    console.log('Dispatching actions from LandingPageComponent');
     this.articleSubscription = this.articleId$.subscribe((articleId) => {
       if (articleId) {
         this.store.dispatch(

@@ -103,6 +103,8 @@ paths:
           $ref: '#/components/responses/Unauthorized'
         '422':
           $ref: '#/components/responses/GenericError'
+      security:
+        - Bearer: []
   /profiles/{username}/follow:
     post:
       tags:

@@ -27,11 +27,15 @@ export class ArticlesEffects {
   ) {
     // Listen to token changes from the store and update the services configuration
     this.store.select(selectAuthUser).subscribe((user) => {
-      const tokenPayload = user?.token ? `Bearer ${user.token}` : '';
-      this.articlesService.configuration.credentials = { Bearer: tokenPayload };
-      this.favouritesService.configuration.credentials = {
-        Bearer: tokenPayload,
-      };
+      const tokenPayload = user?.token;
+      if (tokenPayload) {
+        this.articlesService.configuration.credentials = {
+          Bearer: tokenPayload,
+        };
+        this.favouritesService.configuration.credentials = {
+          Bearer: tokenPayload,
+        };
+      }
     });
   }
 
@@ -166,11 +170,7 @@ export class ArticlesEffects {
   favoriteArticle$ = createEffect(() =>
     this.actions$.pipe(
       ofType(ArticleActions.favouriteArticle),
-      withLatestFrom(this.store.select(selectAuthUser)),
-      switchMap(([action, authUser]) => {
-        this.favouritesService.configuration.credentials = {
-          Bearer: () => `${authUser?.token}`,
-        };
+      switchMap((action) => {
         return this.favouritesService.createArticleFavorite(action.slug).pipe(
           map(({ article }) =>
             ArticleActions.favouriteArticleCompleted({
@@ -184,6 +184,28 @@ export class ArticlesEffects {
               }),
             );
           }),
+        );
+      }),
+    ),
+  );
+
+  unfavoriteArticle$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(ArticleActions.unfavouriteArticle),
+      switchMap((action) => {
+        return this.favouritesService.deleteArticleFavorite(action.slug).pipe(
+          map(({ article }) =>
+            ArticleActions.unfavouriteArticleCompleted({
+              slug: article.slug,
+            }),
+          ),
+          catchError(({ error }) =>
+            of(
+              ArticleActions.unfavouriteArticleFailure({
+                error: error.message,
+              }),
+            ),
+          ),
         );
       }),
     ),

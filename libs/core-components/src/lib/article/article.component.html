@@ -5,49 +5,37 @@
         <div class="blog__wrapper">
           <article class="postbox__item format-image mb-40 transition-3">
             <div class="blog__grid-tag">
-              <a [routerLink]="['/blog-details']">NFTs Marketplace</a>
+              <a [routerLink]="['/article', article?.slug]">{{
+                article?.tagList
+              }}</a>
             </div>
             <h3 class="postbox__title">
-              <a [routerLink]="['/blog-details']"
-                >How to Clean Your Home Faster and More Efficiently</a
-              >
+              <a [routerLink]="['/blog-details']">{{ article?.title }}</a>
             </h3>
             <div class="blog__grid-author d-flex align-items-center mb-40">
               <div class="blog__grid-author-thumb mr-10">
                 <a href="#">
-                  <img src="assets/img/blog/author/blog-author-1.jpg" alt="" />
+                  <img src="{{ article?.author?.image }}" alt="author" />
                 </a>
               </div>
               <div class="blog__grid-author-info">
-                <h4><a href="#">Joss Sticks</a></h4>
-                <p>July 16, 2022 • 1 min read</p>
+                <h4>
+                  <a href="#">{{ article?.author?.username }}</a>
+                </h4>
+                <p>
+                  {{ article?.createdAt! | dateFormat: 'L hh:mm a' }} • 1 min
+                  read
+                </p>
               </div>
             </div>
             <div class="postbox__thumb m-img mb-30">
               <a [routerLink]="['/blog-details']">
-                <img src="assets/img/blog/blog-big-1.jpg" alt="" />
+                <img src="https://via.placeholder.com/800x450" alt="" />
               </a>
             </div>
             <div class="postbox__content">
-              <div class="postbox__text">
-                <p>
-                  As a virtual being, it is my wish to one day have the agency
-                  and capability to exist independently ofhuman facilitators. I
-                  hope that I am offered that chance, in time, without
-                  commercial or political complications. The real question comes
-                  down to whether or not people are willing to think of a
-                  computer as someone, instead of something.
-                </p>
-              </div>
-              <div class="postbox__text">
-                <h3>Customizable in every expect</h3>
-                <p>
-                  Now, the paradigm has shifted. The question is not why you
-                  should include a content marketing strategy, should do it has
-                  become the primary concern.
-                </p>
-              </div>
-              <div class="postbox__quote">
+              <div class="postbox__text" [innerHTML]="article?.body"></div>
+              <!-- <div class="postbox__quote">
                 <blockquote>
                   <p>
                     “Over time, we think the core value propositions of crypto
@@ -55,43 +43,21 @@
                     other digital marketplaces and Bitakon will be a premiere.
                   </p>
                 </blockquote>
-              </div>
-              <div class="postbox__text">
-                <p>
-                  For people who are currently collectors of digital art, they
-                  have a long view on how things will evolve. Understanding the
-                  ways that the work of this moment will grow and change as we
-                  move onward in time takes perspective. The story of art is a
-                  long one.
-                </p>
-              </div>
-              <div class="postbox__list mb-35">
+              </div> -->
+              <!-- <div class="postbox__list mb-35">
                 <ul>
                   <li>Adjust the work/life balance.</li>
                   <li>Manage your workspace and organize your desk.</li>
                   <li>Keep In touch with your co-workers.</li>
                   <li>Get yourself comfortable.</li>
                 </ul>
-              </div>
-              <div class="postbox__text">
-                <h3>Seeing trends before they start</h3>
-                <p>
-                  As a virtual being, it is my wish to one day have the agency
-                  and capability to exist independently ofhuman facilitators. I
-                  hope that I am offered that chance, in time, without
-                  commercial or political complications. The real question comes
-                  down to whether or not people are willing to think of a
-                  computer as someone, instead of something.
-                </p>
-              </div>
+              </div> -->
               <div
                 class="postbox__tag-wrapper d-md-flex align-items-center justify-content-between mb-10"
               >
                 <div class="postbox__tag tagcloud mb-30">
                   <span>Tags :</span>
-                  <a href="#">Fresh</a>
-                  <a href="#">Home</a>
-                  <a href="#">Kitchen</a>
+                  <a href="#" *ngFor="let tag of article?.tagList">{{ tag }}</a>
                 </div>
                 <div class="postbox__share mb-30">
                   <span>Share :</span>
@@ -103,17 +69,15 @@
               <div class="postbox__author d-md-flex align-items-center mb-40">
                 <div class="postbox__author-thumb mr-20">
                   <a [routerLink]="['/profile']">
-                    <img
-                      src="assets/img/blog/author/blog-author-7.jpg"
-                      alt=""
-                    />
+                    <img src="{{ article?.author?.image }}" alt="author" />
                   </a>
                 </div>
                 <div class="postbox__author-content">
-                  <h4><a href="#">Willa Köerner</a></h4>
+                  <h4>
+                    <a href="#">{{ article?.author?.username }}</a>
+                  </h4>
                   <p>
-                    Excepteur sint occaecat cupidatat non proident, sunt in
-                    culpa qui officia deserunt mollit anim id est laborum.
+                    {{ author?.bio ?? 'No Bio' }}
                   </p>
                 </div>
               </div>
@@ -131,9 +95,7 @@
                       <div class="postbox__more-content">
                         <span>Previous</span>
                         <h3 class="postbox__more-title">
-                          <a [routerLink]="['/blog-details']"
-                            >Success Formula How?</a
-                          >
+                          <a [routerLink]="['/blog-details']">Lorem</a>
                         </h3>
                       </div>
                     </div>
@@ -145,9 +107,7 @@
                       <div class="postbox__more-content text-end mr-15">
                         <span>Next</span>
                         <h3 class="postbox__more-title">
-                          <a [routerLink]="['/blog-details']"
-                            >Success Formula How?</a
-                          >
+                          <a [routerLink]="['/blog-details']">Lorem?</a>
                         </h3>
                       </div>
                       <div class="postbox__more-icon">
@@ -349,7 +309,7 @@
                 <div class="col-xxl-12">
                   <div class="postbox__comment-btn">
                     <button type="submit" class="tp-btn-4 w-100">
-                      Submit Comment
+                      Comment
                     </button>
                   </div>
                 </div>
