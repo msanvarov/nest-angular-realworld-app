@@ -72,7 +72,7 @@ A full-stack <a href="https://nodejs.org" target="blank">Node.js</a> application
 <ul>
 <li><p>Please make sure to have <a href="https://nodejs.org/en/download/">Node.js</a> (16+) locally by downloading the Javascript runtime via <code>brew</code>, <code>choco</code>, or <code>apt-get</code>.</p>
 </li>
-<li><p>Please make sure to have MYSQL locally by deploying a web server stack like <a href="https://www.apachefriends.org/">XAMPP</a>. The control panel can then trigger MYSQL to start on localhost. MYSQL can be downloaded standalone via <code>brew</code>, <code>choco</code>, or <code>apt-get</code>.</p>
+<li><p>Please make sure to have PostgreSQL locally by deploying a web server stack like <a href="https://www.apachefriends.org/">XAMPP</a>. The control panel can then trigger MYSQL to start on localhost. PostgreSQL can be downloaded standalone via <code>brew</code>, <code>choco</code>, or <code>apt-get</code>.</p>
 </li>
 </ul>
 <h4>Docker 🐳</h4>
@@ -83,7 +83,7 @@ A full-stack <a href="https://nodejs.org" target="blank">Node.js</a> application
 <h3>🚀 Deployment</h3>
 <h4>Manual Deployment without Docker</h4>
 <ul>
-<li><p>Clone the repo via <code>git clone https://github.com/msanvarov/realworld-app</code>.</p>
+<li><p>Clone the repo via <code>git clone https://github.com/msanvarov/nest-angular-realworld-app</code>.</p>
 </li>
 <li><p>Download dependencies via <code>npm i</code> or <code>yarn</code>.</p>
 </li>
@@ -130,7 +130,7 @@ $ docker-compose up -d</code></pre></div><ul>
 <p><strong>DB_DATABASE</strong> - the actual database name to perform operations on.</p>
 <hr>
 <h3>🏗 Choosing a Web Framework</h3>
-<p>This boilerplate comes with <a href="https://github.com/fastify/fastify">Fastify</a> out of the box as it offers <a href="https://github.com/nestjs/nest/blob/master/benchmarks/all_output.txt">performance benefits</a> over Express. But the Express adapter is still accessible on a <a href="https://github.com/msanvarov/realworld-app/tree/express">different branch</a>.</p>
+<p>This boilerplate comes with <a href="https://github.com/fastify/fastify">Fastify</a> out of the box as it offers <a href="https://github.com/nestjs/nest/blob/master/benchmarks/all_output.txt">performance benefits</a> over Express. But the Express adapter is still accessible on a <a href="https://github.com/msanvarov/nest-angular-realworld-app/tree/express">different branch</a>.</p>
 <hr>
 <h3>💾 Choosing a Database</h3>
 <p>By default <strong>PostgreSQL</strong> is the database of choice but TypeORM supports other database types like SQLite, MySQL/MariaDB, MongoDB, and MSSQL. To use anything other than MYSQL/MariaDB, change the configuration in the <code>.env</code> file, and download the corresponding wrapper library, like <a href="https://www.npmjs.com/package/sqlite3">SQLite3</a>.</p>
@@ -140,10 +140,9 @@ $ docker-compose up -d</code></pre></div><ul>
 <p><strong>Remark: For MongoDB, TypeORM is not as feature-rich as Mongoose. Therefore I created another boilerplate for <a href="https://github.com/msanvarov/nest-rest-mongo-boilerplate">Nest and Mongoose</a></strong>.</p>
 <hr>
 <h3>🦾 HTTP/2</h3>
-<p>Luckily, Fastify can enable HTTP2 over either HTTPS (h2) or plaintext (h2c) out of the box. This boilerplate makes use of this on the <a href="https://github.com/msanvarov/realworld-app/tree/feat/http2">feat/http2 branch</a> where a self-signed certificate was created for testing this capability. The certificate is located in the <a href="https://github.com/msanvarov/realworld-app/tree/feat/http2/apps/api/src/assets/certs">certs folder</a>. <strong>For production, please use a valid certificate.</strong></p>
+<p>Luckily, Fastify can enable HTTP2 over either HTTPS (h2) or plaintext (h2c) out of the box. This boilerplate makes use of this on the <a href="https://github.com/msanvarov/nest-angular-realworld-app/tree/feat/http2">feat/http2 branch</a> where a self-signed certificate was created for testing this capability. The certificate is located in the <a href="https://github.com/msanvarov/nest-angular-realworld-app/tree/feat/http2/apps/api/src/assets/certs">certs folder</a>. <strong>For production, please use a valid certificate.</strong></p>
 <p>The self signed certificate can be generated via OpenSSL:</p>
-<div><pre class="line-numbers"><code class="language-bash">$ openssl req -x509 -newkey rsa:4096 -keyout api-key.pem -out api-cert.pem -days 365 -nodes
-</code></pre></div><blockquote>
+<div><pre class="line-numbers"><code class="language-bash">openssl req -x509 -newkey rsa:4096 -keyout api-key.pem -out api-cert.pem -days 365 -nodes</code></pre></div><blockquote>
 <p>Remark: Express can be ran with HTTP/2 by employing the <a href="https://www.npmjs.com/package/spdy">spdy</a> library.</p>
 </blockquote>
 <hr>
@@ -174,15 +173,15 @@ $ npm run test:postman
 $ npm run typedocs:api:start</code></pre></div><hr>
 <h3>📝 Open API</h3>
 <p>Out of the box, the web app comes with OAS; an <a href="https://swagger.io/specification/">open api specification</a>, that is used to describe RESTful APIs. Nest provides a <a href="https://docs.nestjs.com/openapi/introduction">dedicated module to work with it</a>.</p>
-<p>The configuration for OAS can be found at this <a href="https://github.com/msanvarov/realworld-app/blob/master/apps/api/src/main.ts">location</a>.</p>
-<p>The client lib is generated with <a href="https://openapi-generator.tech/">OpenAPI Generator</a> to be compatible with the UI application out of the box. The reference OAS yaml file can be found at this <a href="https://github.com/msanvarov/realworld-app/blob/master/openapi/realworld-openapi.yaml">location</a>.</p>
+<p>The configuration for OAS can be found at this <a href="https://github.com/msanvarov/nest-rest-typeorm-boilerplate/blob/master/apps/api/src/main.ts">location</a>.</p>
+<p>The client lib is generated with <a href="https://openapi-generator.tech/">OpenAPI Generator</a> to be compatible with the UI application out of the box. The reference OAS yaml file can be found at this <a href="https://github.com/msanvarov/nest-rest-typeorm-boilerplate/blob/master/openapi/realworld-openapi.yaml">location</a>.</p>
 <hr>
 <h3>✨ TypeORM</h3>
 <p>TypeORM is an object-relational mapping that acts as an abstraction layer over operations on databases. Please view the <a href="https://typeorm.io/#/">documentation</a> for further details.</p>
-<p>The configuration for TypeORM can be found in the <a href="https://github.com/msanvarov/realworld-app/blob/master/apps/api/src/app.module.ts#L33-L51">app module</a>.</p>
+<p>The configuration for TypeORM can be found in the <a href="https://github.com/msanvarov/nest-rest-typeorm-boilerplate/blob/master/apps/api/src/app.module.ts#L33-L51">app module</a>.</p>
 <hr>
 <h3>🔊 Logs</h3>
-<p>This boilerplate comes with a Winston module for <strong>extensive logging</strong>, the configurations for Winston can be found in the <a href="https://github.com/msanvarov/realworld-app/blob/master/apps/api/src/app.module.ts#L52-L89">app module</a>.</p>
+<p>This boilerplate comes with a Winston module for <strong>extensive logging</strong>, the configurations for Winston can be found in the <a href="https://github.com/msanvarov/nest-rest-typeorm-boilerplate/blob/master/apps/api/src/app.module.ts#L52-L89">app module</a>.</p>
 <hr>
 <h3>🏗️ Progress</h3>
 <table class="table table-bordered compodoc-table">
@@ -194,11 +193,11 @@ $ npm run typedocs:api:start</code></pre></div><hr>
 </thead>
 <tbody>
 <tr>
-<td align="right"><a href="https://github.com/msanvarov/realworld-app">main</a></td>
+<td align="right"><a href="https://github.com/msanvarov/nest-rest-typeorm-boilerplate">main</a></td>
 <td align="left">✅</td>
 </tr>
 <tr>
-<td align="right"><a href="https://github.com/msanvarov/realworld-app/branches">feat/*</a></td>
+<td align="right"><a href="https://github.com/msanvarov/nest-rest-typeorm-boilerplate/branches">feat/*</a></td>
 <td align="left">🚧</td>
 </tr>
 </tbody>
