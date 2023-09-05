@@ -44,7 +44,7 @@ This application is template from [Sals' NEST REST TYPEORM STARTER](https://gith
 
 - Please make sure to have [Node.js](https://nodejs.org/en/download/) (16+) locally by downloading the Javascript runtime via `brew`, `choco`, or `apt-get`.
 
-- Please make sure to have PostgreSQL locally by deploying a web server stack like [XAMPP](https://www.apachefriends.org/). The control panel can then trigger MYSQL to start on localhost. PostgreSQL can be downloaded standalone via `brew`, `choco`, or `apt-get`.
+- Please make sure to have PostgreSQL locally by deploying a web server stack like [XAMPP](https://www.apachefriends.org/). The control panel can then trigger PostgreSQL to start on localhost. PostgreSQL can be downloaded standalone via `brew`, `choco`, or `apt-get`.
 
 #### Docker 🐳
 
@@ -223,7 +223,7 @@ This boilerplate comes with a Winston module for **extensive logging**, the conf
 
 ---
 
-### 👥 Support
+### 👥 Help
 
 PRs are appreciated, I fully rely on the passion ❤️ of the OS developers.
 
