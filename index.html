@@ -1,154 +1,390 @@
-<!doctype html>
+<!DOCTYPE html>
 <html class="no-js" lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>nx-nest-angular-realworld-example-app documentation</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>nx-nest-angular-realworld-app documentation</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
-	   <link rel="stylesheet" href="./styles/style.css">
-        <link rel="stylesheet" href="./styles/dark.css">
-    </head>
-    <body>
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico" />
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="./styles/dark.css" />
+  </head>
+  <body>
+    <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+      <a href="./" class="navbar-brand"
+        >nx-nest-angular-realworld-app documentation</a
+      >
+      <button
+        type="button"
+        class="btn btn-default btn-menu ion-ios-menu"
+        id="btn-menu"
+      ></button>
+    </div>
 
-        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="./" class="navbar-brand">nx-nest-angular-realworld-example-app documentation</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+    <div class="xs-menu menu" id="mobile-menu">
+      <div id="book-search-input" role="search">
+        <input type="text" placeholder="Type to search" />
+      </div>
+      <compodoc-menu></compodoc-menu>
+    </div>
+
+    <div class="container-fluid main">
+      <div class="row main">
+        <div class="hidden-xs menu">
+          <compodoc-menu mode="normal"></compodoc-menu>
         </div>
+        <!-- START CONTENT -->
+        <div class="content getting-started">
+          <div class="content-data">
+            <h1 align="center">Realworld App</h1>
 
-        <div class="xs-menu menu" id="mobile-menu">
-                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
-        </div>
+            <p align="center">
+              <a href="https://www.realworld.how/" target="blank"
+                ><img
+                  src="https://www.realworld.how/img/realworld-logo.png"
+                  width="100"
+                  alt="realworld"
+              /></a>
+              <a href="https://nestjs.com/" target="blank"
+                ><img
+                  src="https://nestjs.com/img/logo_text.svg"
+                  width="200"
+                  alt="nest"
+              /></a>
+              <a href="https://angular.io/" target="blank"
+                ><img
+                  src="https://angular.io/assets/images/logos/angular/angular.svg"
+                  width="100"
+                  alt="angular"
+              /></a>
+            </p>
 
-        <div class="container-fluid main">
-           <div class="row main">
-               <div class="hidden-xs menu">
-                   <compodoc-menu mode="normal"></compodoc-menu>
-               </div>
-               <!-- START CONTENT -->
-               <div class="content getting-started">
-                   <div class="content-data">
+            <p align="center">
+              A full-stack
+              <a href="https://nodejs.org" target="blank">Node.js</a>
+              application built with
+              <a href="https://angular.io" target="blank">Angular</a>, and
+              <a href="https://nestjs.com" target="blank">Nest</a> based off of
+              the
+              <a
+                href="https://www.realworld.how/docs/specs/backend-specs/introduction/"
+                target="blank"
+                >Realworld OAS</a
+              >.
+            </p>
 
-<h1 align="center">Realworld App</h1>
+            <p align="center">
+              <a href="https://www.npmjs.com/~nestjscore"
+                ><img
+                  src="https://img.shields.io/npm/v/@nestjs/core.svg"
+                  alt="NPM Version"
+              /></a>
+              <a href="https://www.npmjs.com/~nestjscore"
+                ><img
+                  src="https://img.shields.io/npm/l/@nestjs/core.svg"
+                  alt="Package License"
+              /></a>
+              <a
+                href="https://github.com/msanvarov/nest-angular-realworld-app/actions"
+                ><img
+                  src="https://github.com/msanvarov/nest-angular-realworld-app/actions/workflows/build-merge.yml/badge.svg"
+                  alt="Github Actions"
+              /></a>
+              <a href="https://twitter.com/nestframework"
+                ><img
+                  src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"
+              /></a>
+            </p>
 
-<p align="center">
-  <a href="https://www.realworld.how/" target="blank"><img src="https://www.realworld.how/img/realworld-logo.png" width="100" alt="realworld" /></a>
-  <a href="https://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="200" alt="nest" /></a>
-  <a href="https://angular.io/" target="blank"><img src="https://angular.io/assets/images/logos/angular/angular.svg" width="100" alt="angular" /></a>
-</p>
+            <p>Table of Contents:</p>
+            <ol>
+              <li><a href="#-description">Description</a></li>
+              <li><a href="#%EF%B8%8F-prerequisites">Prerequisites</a></li>
+              <li><a href="#-deployment">Deployment</a></li>
+              <li>
+                <a href="#-environment-configuration"
+                  >Environment Configuration</a
+                >
+              </li>
+              <li>
+                <a href="#-choosing-a-web-framework"
+                  >Choosing a Web Framework</a
+                >
+              </li>
+              <li><a href="#-http2">HTTP2</a></li>
+              <li><a href="#-choosing-a-database">Choosing a Database</a></li>
+              <li><a href="#-testing">Testing</a></li>
+              <li><a href="#-typedocs">TypeDocs</a></li>
+              <li><a href="#-logs">Logs</a></li>
+            </ol>
+            <p>
+              🔎 This repo was created with <a href="https://nx.dev/">Nx</a>.
+            </p>
+            <h3>📚 Description</h3>
+            <p>
+              This application is template from
+              <a
+                href="https://github.com/msanvarov/nest-rest-typeorm-boilerplate"
+                >Sals&#39; NEST REST TYPEORM STARTER</a
+              >
+              which was made to quickly prototype backend applications. Deployed
+              with authentication/authorization, logging, crud features and
+              database persistence out of the box.
+            </p>
+            <hr />
+            <h3>🛠️ Prerequisites</h3>
+            <h4>Non Docker</h4>
+            <ul>
+              <li>
+                <p>
+                  Please make sure to have
+                  <a href="https://nodejs.org/en/download/">Node.js</a> (16+)
+                  locally by downloading the Javascript runtime via
+                  <code>brew</code>, <code>choco</code>, or
+                  <code>apt-get</code>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Please make sure to have PostgreSQL locally by deploying a web
+                  server stack like
+                  <a href="https://www.apachefriends.org/">XAMPP</a>. The
+                  control panel can then trigger PostgreSQL to start on
+                  localhost. PostgreSQL can be downloaded standalone via
+                  <code>brew</code>, <code>choco</code>, or
+                  <code>apt-get</code>.
+                </p>
+              </li>
+            </ul>
+            <h4>Docker 🐳</h4>
+            <ul>
+              <li>
+                Please make sure to have
+                <a href="https://www.docker.com/products/docker-desktop/"
+                  >Docker Desktop</a
+                >
+                operational to quickly compose the required dependencies. Then
+                follow the docker procedure outlined below.
+              </li>
+            </ul>
+            <hr />
+            <h3>🚀 Deployment</h3>
+            <h4>Manual Deployment without Docker</h4>
+            <ul>
+              <li>
+                <p>
+                  Clone the repo via
+                  <code
+                    >git clone
+                    https://github.com/msanvarov/nest-angular-realworld-app</code
+                  >.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Download dependencies via <code>npm i</code> or
+                  <code>yarn</code>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Create a <strong>.env file</strong> via the
+                  <code>cp .env.example .env</code> command and replace the
+                  existing environment variable placeholders with valid
+                  responses.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Start the api in development mode by using
+                  <code>npm run start</code> (the api will be exposed on
+                  <a href="http://localhost:3333">http://localhost:3333</a>, and
+                  the <strong>default ui</strong> will be exposed on
+                  <a href="http://localhost:4200">http://localhost:4200</a>).
+                </p>
+              </li>
+            </ul>
+            <details open>
+              <summary>Deployment of the Custom UI</summary>
+              <br />
 
-<p align="center">
-A full-stack <a href="https://nodejs.org" target="blank">Node.js</a> application built with <a href="https://angular.io" target="blank">Angular</a>, and <a href="https://nestjs.com" target="blank">Nest</a> based off of the <a href="https://www.realworld.how/docs/specs/backend-specs/introduction/" target="blank">Realworld OAS</a>.
-</p>
+              <ul>
+                <li>
+                  <p>
+                    This repo comes with a custom UI built with
+                    <a href="https://angular.io/">Angular</a> - that can be
+                    accessed via <code>http://localhost:4201</code>. This is
+                    different from the default UI that comes with the Realworld
+                    OAS.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    To start the UI, start a new terminal window and run
+                    <code>npm run ng serve -- --project ui</code>.
+                  </p>
+                </li>
+              </ul>
+              <blockquote>
+                <p>
+                  Remark: In the docker deployment, the UI is automatically
+                  started and served by the API.
+                </p>
+              </blockquote>
+            </details>
+            <br />
 
-<p align="center">
-    <a href="https://www.npmjs.com/~nestjscore"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-    <a href="https://www.npmjs.com/~nestjscore"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-    <a href="https://github.com/msanvarov/nest-angular-realworld-app/actions"><img src="https://github.com/msanvarov/nest-angular-realworld-app/actions/workflows/build-merge.yml/badge.svg" alt="Github Actions" /></a>
-    <a href="https://twitter.com/nestframework"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-
-<p>Table of Contents:</p>
-<ol>
-<li><a href="#-description">Description</a></li>
-<li><a href="#%EF%B8%8F-prerequisites">Prerequisites</a></li>
-<li><a href="#-deployment">Deployment</a></li>
-<li><a href="#-environment-configuration">Environment Configuration</a></li>
-<li><a href="#-choosing-a-web-framework">Choosing a Web Framework</a></li>
-<li><a href="#-http2">HTTP2</a></li>
-<li><a href="#-choosing-a-database">Choosing a Database</a></li>
-<li><a href="#-testing">Testing</a></li>
-<li><a href="#-typedocs">TypeDocs</a></li>
-<li><a href="#-logs">Logs</a></li>
-</ol>
-<p>🔎 This repo was created with <a href="https://nx.dev/">Nx</a>.</p>
-<h3>📚 Description</h3>
-<p>This application is template from <a href="https://github.com/msanvarov/nest-rest-typeorm-boilerplate">Sals&#39; NEST REST TYPEORM STARTER</a> which was made to quickly prototype backend applications. Deployed with authentication/authorization, logging, crud features and database persistence out of the box.</p>
-<hr>
-<h3>🛠️ Prerequisites</h3>
-<h4>Non Docker</h4>
-<ul>
-<li><p>Please make sure to have <a href="https://nodejs.org/en/download/">Node.js</a> (16+) locally by downloading the Javascript runtime via <code>brew</code>, <code>choco</code>, or <code>apt-get</code>.</p>
-</li>
-<li><p>Please make sure to have PostgreSQL locally by deploying a web server stack like <a href="https://www.apachefriends.org/">XAMPP</a>. The control panel can then trigger PostgreSQL to start on localhost. PostgreSQL can be downloaded standalone via <code>brew</code>, <code>choco</code>, or <code>apt-get</code>.</p>
-</li>
-</ul>
-<h4>Docker 🐳</h4>
-<ul>
-<li>Please make sure to have <a href="https://www.docker.com/products/docker-desktop/">Docker Desktop</a> operational to quickly compose the required dependencies. Then follow the docker procedure outlined below.</li>
-</ul>
-<hr>
-<h3>🚀 Deployment</h3>
-<h4>Manual Deployment without Docker</h4>
-<ul>
-<li><p>Clone the repo via <code>git clone https://github.com/msanvarov/nest-angular-realworld-app</code>.</p>
-</li>
-<li><p>Download dependencies via <code>npm i</code> or <code>yarn</code>.</p>
-</li>
-<li><p>Create a <strong>.env file</strong> via the <code>cp .env.example .env</code> command and replace the existing environment variable placeholders with valid responses.</p>
-</li>
-<li><p>Start the api in development mode by using <code>npm run start</code> (the api will be exposed on <a href="http://localhost:3333">http://localhost:3333</a>, and the <strong>default ui</strong> will be exposed on <a href="http://localhost:4200">http://localhost:4200</a>).</p>
-</li>
-</ul>
-<details open>
-<summary>Deployment of the Custom UI</summary>
-<br>
-
-<ul>
-<li><p>This repo comes with a custom UI built with <a href="https://angular.io/">Angular</a> - that can be accessed via <code>http://localhost:4201</code>. This is different from the default UI that comes with the Realworld OAS.</p>
-</li>
-<li><p>To start the UI, start a new terminal window and run <code>npm run ng serve -- --project ui</code>.</p>
-</li>
-</ul>
-<blockquote>
-<p>Remark: In the docker deployment, the UI is automatically started and served by the API.</p>
-</blockquote>
-</details>
-<br/>
-
-<h4>Deploying with Docker 🐳</h4>
-<ul>
-<li>Execute the following command in-app directory:</li>
-</ul>
-<div><pre class="line-numbers"><code class="language-bash"># creates and loads the docker container in detached mode with the required configuration
-$ docker-compose up -d</code></pre></div><ul>
-<li>The following command will download dependencies and execute the web application on <a href="http://localhost:80">http://localhost:80</a> (deployed behind a Nginx reverse proxy).</li>
-</ul>
-<hr>
-<h3>🔒 Environment Configuration</h3>
-<p>By default, the application comes with a config module that can read in every environment variable from the <code>.env</code> file.</p>
-<p><strong>APP_ENV</strong> - the application environment to execute as, either in development or production. Determines the type of logging options to utilize. Options: <code>development</code> or <code>production</code>.</p>
-<p><strong>WEBTOKEN_ENCRYPTION_KEY</strong> - the key to encrypt/decrypt web tokens with. Make sure to generate a random alphanumeric string for this.</p>
-<p><strong>WEBTOKEN_EXPIRATION_TIME</strong> - <strong>the time in seconds</strong> when the web token will expire; by default, it&#39;s 2400 seconds which is 40 mins.</p>
-<p><strong>DB_TYPE</strong> - the type of <a href="https://github.com/typeorm/typeorm/blob/master/docs/connection-options.md">database connection to use</a>.</p>
-<p><strong>DB_USERNAME</strong> - username for authenticating against the database.</p>
-<p><strong>DB_PASSWORD</strong> - password for authenticating against the database, can be left empty if a password is not needed (<strong>not safe</strong>).</p>
-<p><strong>DB_HOST</strong> - the endpoint where this database sits (default is localhost but can be set explicitly).</p>
-<p><strong>DB_PORT</strong> - default ports for different types of database connections.</p>
-<p><strong>DB_DATABASE</strong> - the actual database name to perform operations on.</p>
-<hr>
-<h3>🏗 Choosing a Web Framework</h3>
-<p>This boilerplate comes with <a href="https://github.com/fastify/fastify">Fastify</a> out of the box as it offers <a href="https://github.com/nestjs/nest/blob/master/benchmarks/all_output.txt">performance benefits</a> over Express. But the Express adapter is still accessible on a <a href="https://github.com/msanvarov/nest-angular-realworld-app/tree/express">different branch</a>.</p>
-<hr>
-<h3>💾 Choosing a Database</h3>
-<p>By default <strong>PostgreSQL</strong> is the database of choice but TypeORM supports other database types like SQLite, MySQL/MariaDB, MongoDB, and MSSQL. To use anything other than MYSQL/MariaDB, change the configuration in the <code>.env</code> file, and download the corresponding wrapper library, like <a href="https://www.npmjs.com/package/sqlite3">SQLite3</a>.</p>
-<blockquote>
-<p>Check <a href="https://typeorm.io/">https://typeorm.io/</a> for supported database types.</p>
-</blockquote>
-<p><strong>Remark: For MongoDB, TypeORM is not as feature-rich as Mongoose. Therefore I created another boilerplate for <a href="https://github.com/msanvarov/nest-rest-mongo-boilerplate">Nest and Mongoose</a></strong>.</p>
-<hr>
-<h3>🦾 HTTP/2</h3>
-<p>Luckily, Fastify can enable HTTP2 over either HTTPS (h2) or plaintext (h2c) out of the box. This boilerplate makes use of this on the <a href="https://github.com/msanvarov/nest-angular-realworld-app/tree/feat/http2">feat/http2 branch</a> where a self-signed certificate was created for testing this capability. The certificate is located in the <a href="https://github.com/msanvarov/nest-angular-realworld-app/tree/feat/http2/apps/api/src/assets/certs">certs folder</a>. <strong>For production, please use a valid certificate.</strong></p>
-<p>The self signed certificate can be generated via OpenSSL:</p>
-<div><pre class="line-numbers"><code class="language-bash">openssl req -x509 -newkey rsa:4096 -keyout api-key.pem -out api-cert.pem -days 365 -nodes</code></pre></div><blockquote>
-<p>Remark: Express can be ran with HTTP/2 by employing the <a href="https://www.npmjs.com/package/spdy">spdy</a> library.</p>
-</blockquote>
-<hr>
-<h3>✅ Testing</h3>
-<h4>Docker 🐳</h4>
-<div><pre class="line-numbers"><code class="language-bash"># Start the docker container if it&#39;s not running
+            <h4>Deploying with Docker 🐳</h4>
+            <ul>
+              <li>Execute the following command in-app directory:</li>
+            </ul>
+            <div>
+              <pre
+                class="line-numbers"
+              ><code class="language-bash"># creates and loads the docker container in detached mode with the required configuration
+$ docker-compose up -d</code></pre>
+            </div>
+            <ul>
+              <li>
+                The following command will download dependencies and execute the
+                web application on
+                <a href="http://localhost:80">http://localhost:80</a> (deployed
+                behind a Nginx reverse proxy).
+              </li>
+            </ul>
+            <hr />
+            <h3>🔒 Environment Configuration</h3>
+            <p>
+              By default, the application comes with a config module that can
+              read in every environment variable from the
+              <code>.env</code> file.
+            </p>
+            <p>
+              <strong>APP_ENV</strong> - the application environment to execute
+              as, either in development or production. Determines the type of
+              logging options to utilize. Options: <code>development</code> or
+              <code>production</code>.
+            </p>
+            <p>
+              <strong>WEBTOKEN_ENCRYPTION_KEY</strong> - the key to
+              encrypt/decrypt web tokens with. Make sure to generate a random
+              alphanumeric string for this.
+            </p>
+            <p>
+              <strong>WEBTOKEN_EXPIRATION_TIME</strong> -
+              <strong>the time in seconds</strong> when the web token will
+              expire; by default, it&#39;s 2400 seconds which is 40 mins.
+            </p>
+            <p>
+              <strong>DB_TYPE</strong> - the type of
+              <a
+                href="https://github.com/typeorm/typeorm/blob/master/docs/connection-options.md"
+                >database connection to use</a
+              >.
+            </p>
+            <p>
+              <strong>DB_USERNAME</strong> - username for authenticating against
+              the database.
+            </p>
+            <p>
+              <strong>DB_PASSWORD</strong> - password for authenticating against
+              the database, can be left empty if a password is not needed
+              (<strong>not safe</strong>).
+            </p>
+            <p>
+              <strong>DB_HOST</strong> - the endpoint where this database sits
+              (default is localhost but can be set explicitly).
+            </p>
+            <p>
+              <strong>DB_PORT</strong> - default ports for different types of
+              database connections.
+            </p>
+            <p>
+              <strong>DB_DATABASE</strong> - the actual database name to perform
+              operations on.
+            </p>
+            <hr />
+            <h3>🏗 Choosing a Web Framework</h3>
+            <p>
+              This boilerplate comes with
+              <a href="https://github.com/fastify/fastify">Fastify</a> out of
+              the box as it offers
+              <a
+                href="https://github.com/nestjs/nest/blob/master/benchmarks/all_output.txt"
+                >performance benefits</a
+              >
+              over Express. But the Express adapter is still accessible on a
+              <a
+                href="https://github.com/msanvarov/nest-angular-realworld-app/tree/express"
+                >different branch</a
+              >.
+            </p>
+            <hr />
+            <h3>💾 Choosing a Database</h3>
+            <p>
+              By default <strong>PostgreSQL</strong> is the database of choice
+              but TypeORM supports other database types like SQLite,
+              MySQL/MariaDB, MongoDB, and MSSQL. To use anything other than
+              MYSQL/MariaDB, change the configuration in the
+              <code>.env</code> file, and download the corresponding wrapper
+              library, like
+              <a href="https://www.npmjs.com/package/sqlite3">SQLite3</a>.
+            </p>
+            <blockquote>
+              <p>
+                Check <a href="https://typeorm.io/">https://typeorm.io/</a> for
+                supported database types.
+              </p>
+            </blockquote>
+            <p>
+              <strong
+                >Remark: For MongoDB, TypeORM is not as feature-rich as
+                Mongoose. Therefore I created another boilerplate for
+                <a
+                  href="https://github.com/msanvarov/nest-rest-mongo-boilerplate"
+                  >Nest and Mongoose</a
+                ></strong
+              >.
+            </p>
+            <hr />
+            <h3>🦾 HTTP/2</h3>
+            <p>
+              Luckily, Fastify can enable HTTP2 over either HTTPS (h2) or
+              plaintext (h2c) out of the box. This boilerplate makes use of this
+              on the
+              <a
+                href="https://github.com/msanvarov/nest-angular-realworld-app/tree/feat/http2"
+                >feat/http2 branch</a
+              >
+              where a self-signed certificate was created for testing this
+              capability. The certificate is located in the
+              <a
+                href="https://github.com/msanvarov/nest-angular-realworld-app/tree/feat/http2/apps/api/src/assets/certs"
+                >certs folder</a
+              >.
+              <strong>For production, please use a valid certificate.</strong>
+            </p>
+            <p>The self signed certificate can be generated via OpenSSL:</p>
+            <div>
+              <pre
+                class="line-numbers"
+              ><code class="language-bash">openssl req -x509 -newkey rsa:4096 -keyout api-key.pem -out api-cert.pem -days 365 -nodes</code></pre>
+            </div>
+            <blockquote>
+              <p>
+                Remark: Express can be ran with HTTP/2 by employing the
+                <a href="https://www.npmjs.com/package/spdy">spdy</a> library.
+              </p>
+            </blockquote>
+            <hr />
+            <h3>✅ Testing</h3>
+            <h4>Docker 🐳</h4>
+            <div>
+              <pre
+                class="line-numbers"
+              ><code class="language-bash"># Start the docker container if it&#39;s not running
 $ docker start nest-rest-typeorm-api
 
 # unit tests
@@ -156,138 +392,223 @@ $ docker exec -it nest-rest-typeorm-api npm run test
 
 # test api against postman collection
 $ docker exec -it nest-rest-typeorm-api npm run test:postman
-</code></pre></div><h4>Non-Docker</h4>
-<div><pre class="line-numbers"><code class="language-bash"># execute test
+</code></pre>
+            </div>
+            <h4>Non-Docker</h4>
+            <div>
+              <pre
+                class="line-numbers"
+              ><code class="language-bash"># execute test
 $ npm run test
 
 # test api against postman collection
 $ npm run test:postman
-</code></pre></div><hr>
-<h3>💡 TypeDocs</h3>
-<p>The documentation for this boilerplate can be found <a href="https://msanvarov.github.io/nest-rest-typeorm-boilerplate/">on Github pages</a>.</p>
-<p>The docs can be generated on-demand, by typing <code>npm run typedocs:api:start</code>. This will produce a <strong>docs/api</strong> folder with the required front-end files and <strong>start hosting on <a href="http://localhost:8080/">localhost</a></strong>.</p>
-<blockquote>
-<p>Remark: The docs for the ui are generated on-demand, by typing <code>npm run typedocs:ui:start</code>. This will produce a <strong>docs/ui</strong> folder with the required front-end files and <strong>start hosting on <a href="http://localhost:8080/">localhost</a></strong>.</p>
-</blockquote>
-<div><pre class="line-numbers"><code class="language-bash"># generate docs for api code
-$ npm run typedocs:api:start</code></pre></div><hr>
-<h3>📝 Open API</h3>
-<p>Out of the box, the web app comes with OAS; an <a href="https://swagger.io/specification/">open api specification</a>, that is used to describe RESTful APIs. Nest provides a <a href="https://docs.nestjs.com/openapi/introduction">dedicated module to work with it</a>.</p>
-<p>The configuration for OAS can be found at this <a href="https://github.com/msanvarov/nest-rest-typeorm-boilerplate/blob/master/apps/api/src/main.ts">location</a>.</p>
-<p>The client lib is generated with <a href="https://openapi-generator.tech/">OpenAPI Generator</a> to be compatible with the UI application out of the box. The reference OAS yaml file can be found at this <a href="https://github.com/msanvarov/nest-rest-typeorm-boilerplate/blob/master/openapi/realworld-openapi.yaml">location</a>.</p>
-<hr>
-<h3>✨ TypeORM</h3>
-<p>TypeORM is an object-relational mapping that acts as an abstraction layer over operations on databases. Please view the <a href="https://typeorm.io/#/">documentation</a> for further details.</p>
-<p>The configuration for TypeORM can be found in the <a href="https://github.com/msanvarov/nest-rest-typeorm-boilerplate/blob/master/apps/api/src/app.module.ts#L33-L51">app module</a>.</p>
-<hr>
-<h3>🔊 Logs</h3>
-<p>This boilerplate comes with a Winston module for <strong>extensive logging</strong>, the configurations for Winston can be found in the <a href="https://github.com/msanvarov/nest-rest-typeorm-boilerplate/blob/master/apps/api/src/app.module.ts#L52-L89">app module</a>.</p>
-<hr>
-<h3>🏗️ Progress</h3>
-<table class="table table-bordered compodoc-table">
-<thead>
-<tr>
-<th align="right">Branches</th>
-<th align="left">Status</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="right"><a href="https://github.com/msanvarov/nest-rest-typeorm-boilerplate">main</a></td>
-<td align="left">✅</td>
-</tr>
-<tr>
-<td align="right"><a href="https://github.com/msanvarov/nest-rest-typeorm-boilerplate/branches">feat/*</a></td>
-<td align="left">🚧</td>
-</tr>
-</tbody>
-</table>
-<!-- > Remark: This template was employed to create a [Real World example app](https://github.com/gothinkster/realworld) on [Github](). -->
+</code></pre>
+            </div>
+            <hr />
+            <h3>💡 TypeDocs</h3>
+            <p>
+              The documentation for this boilerplate can be found
+              <a
+                href="https://msanvarov.github.io/nest-rest-typeorm-boilerplate/"
+                >on Github pages</a
+              >.
+            </p>
+            <p>
+              The docs can be generated on-demand, by typing
+              <code>npm run typedocs:api:start</code>. This will produce a
+              <strong>docs/api</strong> folder with the required front-end files
+              and
+              <strong
+                >start hosting on
+                <a href="http://localhost:8080/">localhost</a></strong
+              >.
+            </p>
+            <blockquote>
+              <p>
+                Remark: The docs for the ui are generated on-demand, by typing
+                <code>npm run typedocs:ui:start</code>. This will produce a
+                <strong>docs/ui</strong> folder with the required front-end
+                files and
+                <strong
+                  >start hosting on
+                  <a href="http://localhost:8080/">localhost</a></strong
+                >.
+              </p>
+            </blockquote>
+            <div>
+              <pre
+                class="line-numbers"
+              ><code class="language-bash"># generate docs for api code
+$ npm run typedocs:api:start</code></pre>
+            </div>
+            <hr />
+            <h3>📝 Open API</h3>
+            <p>
+              Out of the box, the web app comes with OAS; an
+              <a href="https://swagger.io/specification/"
+                >open api specification</a
+              >, that is used to describe RESTful APIs. Nest provides a
+              <a href="https://docs.nestjs.com/openapi/introduction"
+                >dedicated module to work with it</a
+              >.
+            </p>
+            <p>
+              The configuration for OAS can be found at this
+              <a
+                href="https://github.com/msanvarov/nest-rest-typeorm-boilerplate/blob/master/apps/api/src/main.ts"
+                >location</a
+              >.
+            </p>
+            <p>
+              The client lib is generated with
+              <a href="https://openapi-generator.tech/">OpenAPI Generator</a> to
+              be compatible with the UI application out of the box. The
+              reference OAS yaml file can be found at this
+              <a
+                href="https://github.com/msanvarov/nest-rest-typeorm-boilerplate/blob/master/openapi/realworld-openapi.yaml"
+                >location</a
+              >.
+            </p>
+            <hr />
+            <h3>✨ TypeORM</h3>
+            <p>
+              TypeORM is an object-relational mapping that acts as an
+              abstraction layer over operations on databases. Please view the
+              <a href="https://typeorm.io/#/">documentation</a> for further
+              details.
+            </p>
+            <p>
+              The configuration for TypeORM can be found in the
+              <a
+                href="https://github.com/msanvarov/nest-rest-typeorm-boilerplate/blob/master/apps/api/src/app.module.ts#L33-L51"
+                >app module</a
+              >.
+            </p>
+            <hr />
+            <h3>🔊 Logs</h3>
+            <p>
+              This boilerplate comes with a Winston module for
+              <strong>extensive logging</strong>, the configurations for Winston
+              can be found in the
+              <a
+                href="https://github.com/msanvarov/nest-rest-typeorm-boilerplate/blob/master/apps/api/src/app.module.ts#L52-L89"
+                >app module</a
+              >.
+            </p>
+            <hr />
+            <h3>🏗️ Progress</h3>
+            <table class="table table-bordered compodoc-table">
+              <thead>
+                <tr>
+                  <th align="right">Branches</th>
+                  <th align="left">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td align="right">
+                    <a
+                      href="https://github.com/msanvarov/nest-rest-typeorm-boilerplate"
+                      >main</a
+                    >
+                  </td>
+                  <td align="left">✅</td>
+                </tr>
+                <tr>
+                  <td align="right">
+                    <a
+                      href="https://github.com/msanvarov/nest-rest-typeorm-boilerplate/branches"
+                      >feat/*</a
+                    >
+                  </td>
+                  <td align="left">🚧</td>
+                </tr>
+              </tbody>
+            </table>
+            <!-- > Remark: This template was employed to create a [Real World example app](https://github.com/gothinkster/realworld) on [Github](). -->
 
-<hr>
-<h3>👥 Help</h3>
-<p>PRs are appreciated, I fully rely on the passion ❤️ of the OS developers.</p>
-<hr>
-<h2>License</h2>
-<p>This starter API is <a href="LICENSE">MIT licensed</a>.</p>
-<p><a href="https://sal-anvarov.tech/">Author</a></p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                   </div><div class="search-results">
-    <div class="has-results">
-        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
-        <ul class="search-results-list"></ul>
+            <hr />
+            <h3>👥 Help</h3>
+            <p>
+              PRs are appreciated, I fully rely on the passion ❤️ of the OS
+              developers.
+            </p>
+            <hr />
+            <h2>License</h2>
+            <p>This starter API is <a href="LICENSE">MIT licensed</a>.</p>
+            <p><a href="https://sal-anvarov.tech/">Author</a></p>
+          </div>
+          <div class="search-results">
+            <div class="has-results">
+              <h1 class="search-results-title">
+                <span class="search-results-count"></span> results matching
+                "<span class="search-query"></span>"
+              </h1>
+              <ul class="search-results-list"></ul>
+            </div>
+            <div class="no-results">
+              <h1 class="search-results-title">
+                No results matching "<span class="search-query"></span>"
+              </h1>
+            </div>
+          </div>
+        </div>
+        <!-- END CONTENT -->
+      </div>
     </div>
-    <div class="no-results">
-        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
-    </div>
-</div>
-</div>
-               <!-- END CONTENT -->
-           </div>
-       </div>
 
-          <label class="dark-mode-switch">
-               <input type="checkbox">
-               <span class="slider">
-                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
-                    </svg>
-               </span>
-          </label>
+    <label class="dark-mode-switch">
+      <input type="checkbox" />
+      <span class="slider">
+        <svg
+          class="slider-icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          height="20"
+          stroke="#000"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          width="20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+        </svg>
+      </span>
+    </label>
 
-       <script>
-            var COMPODOC_CURRENT_PAGE_DEPTH = 0;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'getting-started';
-            var COMPODOC_CURRENT_PAGE_URL = 'index.html';
-            var MAX_SEARCH_RESULTS = 15;
-       </script>
+    <script>
+      var COMPODOC_CURRENT_PAGE_DEPTH = 0;
+      var COMPODOC_CURRENT_PAGE_CONTEXT = "getting-started";
+      var COMPODOC_CURRENT_PAGE_URL = "index.html";
+      var MAX_SEARCH_RESULTS = 15;
+    </script>
 
-       <script src="./js/libs/custom-elements.min.js"></script>
-       <script src="./js/libs/lit-html.js"></script>
+    <script src="./js/libs/custom-elements.min.js"></script>
+    <script src="./js/libs/lit-html.js"></script>
 
-       <script src="./js/menu-wc.js" defer></script>
-       <script nomodule src="./js/menu-wc_es5.js" defer></script>
+    <script src="./js/menu-wc.js" defer></script>
+    <script nomodule src="./js/menu-wc_es5.js" defer></script>
 
-       <script src="./js/libs/bootstrap-native.js"></script>
+    <script src="./js/libs/bootstrap-native.js"></script>
 
-       <script src="./js/libs/es6-shim.min.js"></script>
-       <script src="./js/libs/EventDispatcher.js"></script>
-       <script src="./js/libs/promise.min.js"></script>
-       <script src="./js/libs/zepto.min.js"></script>
+    <script src="./js/libs/es6-shim.min.js"></script>
+    <script src="./js/libs/EventDispatcher.js"></script>
+    <script src="./js/libs/promise.min.js"></script>
+    <script src="./js/libs/zepto.min.js"></script>
 
-       <script src="./js/compodoc.js"></script>
+    <script src="./js/compodoc.js"></script>
 
-       <script src="./js/tabs.js"></script>
-       <script src="./js/menu.js"></script>
-       <script src="./js/libs/clipboard.min.js"></script>
-       <script src="./js/libs/prism.js"></script>
-       <script src="./js/sourceCode.js"></script>
-          <script src="./js/search/search.js"></script>
-          <script src="./js/search/lunr.min.js"></script>
-          <script src="./js/search/search-lunr.js"></script>
-          <script src="./js/search/search_index.js"></script>
-       <script src="./js/lazy-load-graphs.js"></script>
-
-
-    </body>
+    <script src="./js/tabs.js"></script>
+    <script src="./js/menu.js"></script>
+    <script src="./js/libs/clipboard.min.js"></script>
+    <script src="./js/libs/prism.js"></script>
+    <script src="./js/sourceCode.js"></script>
+    <script src="./js/search/search.js"></script>
+    <script src="./js/search/lunr.min.js"></script>
+    <script src="./js/search/search-lunr.js"></script>
+    <script src="./js/search/search_index.js"></script>
+    <script src="./js/lazy-load-graphs.js"></script>
+  </body>
 </html>
